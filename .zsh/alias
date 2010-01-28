@@ -1,0 +1,47 @@
+alias ..='cd ..'
+alias :q='exit'
+alias np='mpc --format "np: [[%artist%] - [%title%] - #[[%album%] ##[%track%]#]]|[%file%]" | head -n 1'
+alias files='cd /mnt/files/'
+alias music='cd /mnt/files/music'
+alias videos='cd /mnt/files/videos'
+alias www='cd /var/www/'
+
+# Basic
+alias c='clear'
+alias cdc='cd;clear'
+alias cp='cp -v'
+alias la='ls -lha'
+alias ll='ls -lh'
+alias ls='ls --color=auto'
+alias mv='mv -v'
+alias vi='vim'
+#alias rm='rm -v' # Annoying!
+alias src='source ~/.zshrc'
+
+# Git
+alias g='git'
+alias ga='git add'
+alias gb='git branch -a -v'
+alias gci='git commit'
+
+function gco {
+    if [ -z "$*" ]; then
+        git checkout master
+    else
+        git checkout $*
+    fi
+}
+
+alias gd='git diff'
+alias gl='git log'
+alias gpl='git pull'
+alias gps='git push'
+alias gs='git status'
+
+# Pacman
+alias pac='sudo pacman -S'
+alias pacsearch='pacman -Ss'
+alias pacup='sudo pacman -Syu'
+
+# Auto-open
+alias -s {c,cc,cpp,h,hpp,txt}='vi'
