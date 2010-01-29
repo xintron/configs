@@ -25,6 +25,7 @@ eval $(dircolors -b ~/.dircolors)
 # Aliases
 . ~/.zsh/alias
  
+export TERM='rxvt-256color'
  
 TZ='Europe/Stockholm'; export TZ
  
