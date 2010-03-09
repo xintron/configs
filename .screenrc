@@ -1,0 +1,15 @@
+escape ^Zz
+defutf8 on
+defflow off
+autodetach on
+startup_message off
+
+# Default windows
+
+screen -t zsh 0 
+screen -t zsh 1 
+screen -t mpd 2 
+select 1
+
+caption always "%{= Kg}%n %t"
+hardstatus alwayslastline "%{= 9g}%-w%{R}[%{g}%n %t%{R}]%{g}%+w%=%{..R}[%{..g}%c%{..R}] [%{..g}%l%{..R}] [%{..g}$LOGNAME@%H%{..R}]"

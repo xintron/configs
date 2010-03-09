@@ -1,0 +1,81 @@
+# rudeness is a bitwise or of the following values: ###############
+# 1    Transient windows may raise.
+# 2    Normal windows may raise.
+# 4    New transient windows end up in the foreground.
+# 8    New normal windows end up in the foreground.
+rudeness 12
+###################################################################
+
+startup_message off
+
+defborder 0
+defpadding 0 0 0 0
+defbarpadding 0 0 
+
+#set padding 0 14 0 0
+
+set bargravity nw
+
+set fgcolor #ff9900
+set bgcolor #000000
+
+set winname title
+set font "Terminus-10"
+msgwait 1
+
+exec xsetroot -cursor_name left_ptr
+
+#volume up/down
+definekey top s-Up exec amixer set 'Master' 5%+
+definekey top s-Down exec amixer set 'Master' 5%-
+definekey top s-m exec amixer set 'Master' toggle > /dev/null
+
+definekey top s-s exec xclip -o -selection "clipboard" | xclip
+
+definekey top s-n exec mpc --format "np: [[%artist%] - [%title%] - #[[%album%] ##[%track%]#]]|[%file%]" | head -n 1 | xclip
+definekey top s-j exec mpc toggle
+definekey top s-q exec mpc prev
+definekey top s-k exec mpc next
+
+# overriding CTRL+t 'c' to start aterm instead of xterm
+bind c exec urxvtc
+
+# Switch between screens
+definekey top M-n nextscreen
+
+# Take a screenshot and move it to the right dir
+definekey top s-Print exec scrot -m -e 'mv $f ~/screenshots/'
+definekey top Print exec scrot -s -e 'mv $f ~/screenshots/'
+
+# Workspaces ####################
+definekey top C-1 exec rpws 1
+definekey top C-2 exec rpws 2 
+definekey top C-3 exec rpws 3 
+definekey top C-4 exec rpws 4 
+definekey top C-5 exec rpws 5 
+definekey top C-6 exec rpws 6 
+definekey top C-7 exec rpws 7 
+#################################
+
+# Window management
+definekey top M-Down resize 0 -10
+definekey top M-Up resize 0 10
+definekey top M-Right resize 10 0
+definekey top M-Left resize -10 0
+definekey top M-Tab focus
+bind d dedicate
+
+
+definekey top M-m exec $(dmenu_path | dmenu -nb "#222222" -nf "#eeeeee" -sb "#222222" -sf "#ff9900" -fn '-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*')
+
+bind B exec google-chrome
+bind C-b exec firefox
+bind C-s exec spotify
+bind S exec lastfm
+ 
+ 
+# Startup ############################################
+## Init nine workspaces
+exec rpws init 7
+## Select first workspace on start
+exec ratpoison -c "rpws  1"

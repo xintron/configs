@@ -1,0 +1,79 @@
+! urxvt
+URxvt.xftAntialias:      true
+Antialias: 1
+Xft.dpi: 96
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+
+Xft*antialias:          true
+Xft*hinting:            full
+
+URxvt.colorBD: #ffffff
+URxvt.colorIT: #bbbbbb
+URxvt.colorUL: #3C96ED
+URxvt.font: -*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*
+
+URxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+URxvt.underlineURLs: true
+URxvt.perl-lib: /home/xintron/.urxvt/
+URxvt.perl-ext: selection,mark-yank-urls
+URxvt.urlLauncher: firefox --display=:0.1
+
+URxvt*termName:    rxvt-unicode
+URxvt*urgentOnBell: true
+URxvt.cursorBlink: false
+URxvt*transparent: false 
+URxvt*shading:          100
+urxvt*scrollBar:        false
+urxvt*background:  #202020
+urxvt*foreground:       #eeeeee
+urxvt*saveLines:        4096
+urxvt*mouseWheelScrollPage: true
+URxvt.perl-ext-common: default,matcher
+URxvt.matcher.button: 2
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-] 
+
+xterm*metaSendsEscape:  true
+xterm*dynamicColors:    true
+xterm*background:       #000000
+xterm*foreground:       #eeeeee
+xterm*utf8:             2
+xterm*eightBitInput:    true
+xterm*saveLines:        4096
+xterm*scrollTtyKeypress: true
+xterm*scrollTtyOutput:  false
+xterm*scrollBar:        false
+xterm*loginShell:       true
+xterm*jumpScroll:       true
+xterm*multiScroll:      true
+xterm*toolBar:          false
+Xterm*scrollKey:        true
+
+*fadeColor:   #202020
+*background:  #202020
+*foreground:  #d0d0d0
+! Black
+*color0:      #202020
+*color8:      #808080
+! Red
+*color1:      #ff6565
+*color9:      #ff8d8d
+! Green
+*color2:      #93d44f
+*color10:     #c8e7a8
+! Yellow
+*color3:      #eab93d
+*color11:     #ffc123
+! Blue
+*color4:      #204a87
+*color12:     #3465a4
+! Mangenta
+*color5:      #ce5c00
+*color13:     #f57900
+! Cyan 
+*color6:      #89b6e2
+*color14:     #46a4ff
+! White
+*color7:      #d0d0d0
+*color15:     #ffffff

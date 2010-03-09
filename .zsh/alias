@@ -4,7 +4,7 @@ alias np='mpc --format "np: [[%artist%] - [%title%] - #[[%album%] ##[%track%]#]]
 alias files='cd /mnt/files/'
 alias music='cd /mnt/files/music'
 alias videos='cd /mnt/files/videos'
-alias www='cd /var/www/'
+alias www='cd /mnt/files/www/'
 
 # Basic
 alias c='clear'
