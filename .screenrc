@@ -6,10 +6,10 @@ startup_message off
 
 # Default windows
 
-screen -t zsh 0 
-screen -t zsh 1 
-screen -t mpd 2 
-select 1
+screen -t boxen 0 ssh bananbox.se
+screen -t randi 1
+screen -t code 2
+select 0
 
-caption always "%{= Kg}%n %t"
+caption splitonly "%{= Kg}%n %t"
 hardstatus alwayslastline "%{= 9g}%-w%{R}[%{g}%n %t%{R}]%{g}%+w%=%{..R}[%{..g}%c%{..R}] [%{..g}%l%{..R}] [%{..g}$LOGNAME@%H%{..R}]"

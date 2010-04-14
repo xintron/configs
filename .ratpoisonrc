@@ -42,6 +42,7 @@ bind c exec urxvtc
 
 # Switch between screens
 definekey top M-n nextscreen
+definekey top M-p prevscreen
 
 # Take a screenshot and move it to the right dir
 definekey top s-Print exec scrot -m -e 'mv $f ~/screenshots/'
@@ -71,7 +72,6 @@ definekey top M-m exec $(dmenu_path | dmenu -nb "#222222" -nf "#eeeeee" -sb "#22
 bind B exec google-chrome
 bind C-b exec firefox
 bind C-s exec spotify
-bind S exec lastfm
  
  
 # Startup ############################################

@@ -29,7 +29,7 @@ set wildmode=list:full
 
 " FORMATTING
 set textwidth=79
-set nowrap          " Don't wrap long lines
+set wrap          " Don't wrap long lines
 
 " SEARCHING
 set incsearch       " Search as you type
@@ -42,6 +42,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+autocmd BufRead *.haml set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead *.php set noexpandtab
+autocmd Filetype php set noexpandtab
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ of\ %L\ \(%.45{getcwd()}\)
 
@@ -61,7 +65,9 @@ if v:version >= 700
 endif " 
 
 set number
+"set mouse=a
 
 map <S-F7>	:w<CR>
 nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
+nnoremap <silent> <C-l> :NERDTreeToggle<CR>
