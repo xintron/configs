@@ -45,3 +45,15 @@ alias pacup='sudo pacman -Syu'
 
 # Auto-open
 alias -s {c,cc,cpp,h,hpp,txt}='vi'
+
+# Search
+function xfind {
+    if [ $# -ge 2 ]; then
+        EXTENSION=$1
+        shift
+        find . -name "*.$EXTENSION" | xargs grep "$@"
+    else
+        echo "xfind takes at least two arguments. ie. xfind <extension>
+        <pattern to grep>"
+    fi
+}
