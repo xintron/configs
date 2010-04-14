@@ -53,7 +53,6 @@ function xfind {
         shift
         find . -name "*.$EXTENSION" | xargs grep "$@"
     else
-        echo "xfind takes at least two arguments. ie. xfind <extension>
-        <pattern to grep>"
+        echo "xfind takes at least two arguments. ie. xfind <extension> <pattern to grep>"
     fi
 }
