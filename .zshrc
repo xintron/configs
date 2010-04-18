@@ -91,3 +91,5 @@ zstyle ':completion:*:ssh:*' group-order \
    hosts-domain hosts-host users hosts-ipaddr
  
 #PS1=$'%{\e[0;32m%}%n%{\e[0;31m%}:%m%{\e[0m%}%{\e[0;33m%}%#%{\e[0m%} ';RPS1=$'%{\e[0;33m%}%~%{\e[0m%}'
+
+if [[ -s /home/xintron/.rvm/scripts/rvm ]] ; then source /home/xintron/.rvm/scripts/rvm ; fi

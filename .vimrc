@@ -43,6 +43,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+
+autocmd Filetype ruby set tabstop=2 shiftwidth=2 softtabstop=2
+
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ of\ %L\ \(%.45{getcwd()}\)
 
 set backupdir=/tmp
@@ -65,3 +68,4 @@ set number
 map <S-F7>	:w<CR>
 nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-p> :tabprevious<CR>
+nnoremap <silent> <C-l> :NERDTreeToggle<CR>

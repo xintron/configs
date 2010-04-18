@@ -21,14 +21,15 @@ set bgcolor #000000
 
 set winname title
 set font "Terminus-10"
+set padding 0 14 0 0
 msgwait 1
 
 exec xsetroot -cursor_name left_ptr
 
 #volume up/down
-definekey top s-Up exec amixer set 'Master' 5%+
-definekey top s-Down exec amixer set 'Master' 5%-
-definekey top s-m exec amixer set 'Master' toggle > /dev/null
+definekey top s-Up exec amixer set 'Master Front' 5%+
+definekey top s-Down exec amixer set 'Master Front' 5%-
+definekey top s-m exec amixer set 'Master Front' toggle > /dev/null
 
 definekey top s-s exec xclip -o -selection "clipboard" | xclip
 
@@ -42,6 +43,7 @@ bind c exec urxvtc
 
 # Switch between screens
 definekey top M-n nextscreen
+definekey top M-p prevscreen
 
 # Take a screenshot and move it to the right dir
 definekey top s-Print exec scrot -m -e 'mv $f ~/screenshots/'
@@ -71,7 +73,7 @@ definekey top M-m exec $(dmenu_path | dmenu -nb "#222222" -nf "#eeeeee" -sb "#22
 bind B exec google-chrome
 bind C-b exec firefox
 bind C-s exec spotify
-bind S exec lastfm
+bind l exec lastfm
  
  
 # Startup ############################################
