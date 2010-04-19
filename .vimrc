@@ -46,6 +46,7 @@ set expandtab
 autocmd BufRead *.haml set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufRead *.php set noexpandtab
 autocmd Filetype php set noexpandtab
+autocmd Filetype ruby set tabstop=2 shiftwidth=2 softtabstop=2
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ of\ %L\ \(%.45{getcwd()}\)
 
