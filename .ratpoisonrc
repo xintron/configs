@@ -21,7 +21,7 @@ set bgcolor #000000
 
 set winname title
 set font "Terminus-10"
-set padding 0 14 0 0
+set padding 0
 msgwait 1
 
 exec xsetroot -cursor_name left_ptr
