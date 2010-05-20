@@ -28,8 +28,8 @@ set wildmenu
 set wildmode=list:full
 
 " FORMATTING
-set textwidth=79
-set wrap          " Don't wrap long lines
+set textwidth=0
+set nowrap          " Don't wrap long lines
 
 " SEARCHING
 set incsearch       " Search as you type
@@ -47,6 +47,9 @@ autocmd BufRead *.haml set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufRead *.php set noexpandtab
 autocmd Filetype php set noexpandtab
 autocmd Filetype ruby set tabstop=2 shiftwidth=2 softtabstop=2
+
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate
 
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ of\ %L\ \(%.45{getcwd()}\)
 

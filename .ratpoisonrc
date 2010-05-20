@@ -65,6 +65,12 @@ definekey top M-Up resize 0 10
 definekey top M-Right resize 10 0
 definekey top M-Left resize -10 0
 definekey top M-Tab focus
+
+definekey top M-j focusdown
+definekey top M-k focusup
+definekey top M-l focusright
+definekey top M-h focusleft
+
 bind d dedicate
 
 
