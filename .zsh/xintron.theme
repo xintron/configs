@@ -1,0 +1,45 @@
+#!/bin/zsh
+setopt prompt_subst
+autoload colors
+colors
+
+autoload -Uz vcs_info
+
+for COLOR in RED GREEN BLUE YELLOW WHITE BLACK CYAN MAGENTA; do
+    eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
+    eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
+done
+
+reset_color="%{$reset_color%}"
+
+FMT_BRANCH="${PR_MAGENTA}%s${reset_color}${PR_GREEN}:(${reset_color}${PR_BRIGHT_MAGENTA}%b${reset_color}${PR_YELLOW}%u%c${reset_color}${PR_GREEN})${reset_color}"
+FMT_ACTION="(${PR_CYAN}%a${reset_color}%)"
+
+zstyle ':vcs_info:*:prompt:*' check-for-changes true
+zstyle ':vcs_info:*:prompt:*' unstagedstr '*'
+zstyle ':vcs_info:*:prompt:*' stagedstr ''
+zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH} ${FMT_ACTION}"
+zstyle ':vcs_info:*:prompt:*' formats "${FMT_BRANCH}"
+zstyle ':vcs_info:*:prompt:*' nvcsformats ""
+zstyle ':vcs_info:*:prompt:*' enable git
+
+function precmd {
+    vcs_info 'prompt'
+}
+
+function lprompt {
+    local brackets=$1
+    local color1=$2
+    local bracket_open="${color1}${brackets[1]}${reset_color} "
+    local bracket_close=" ${color1}${brackets[2]}${reset_color}"
+
+    local vcs='$vcs_info_msg_0_'
+
+    local cwd="${PR_YELLOW}%n${reset_color}${PR_CYAN}@${reset_color}${PR_YELLOW}%m${reset_color}${PR_GREEN}: ${reset_color}${PR_RED}%~"
+    local promptie="${bracket_open}${cwd}${bracket_close}${PR_CYAN}-> ${reset_color}"
+
+        PROMPT="${vcs}
+${promptie}"
+}
+
+lprompt '-' $PR_YELLOW

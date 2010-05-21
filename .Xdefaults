@@ -1,5 +1,5 @@
 ! urxvt
-URxvt.xftAntialias:      true
+urxvt.xftAntialias:      true
 Antialias: 1
 Xft.dpi: 96
 Xft.hinting: 1
@@ -9,47 +9,47 @@ Xft.rgba: rgb
 Xft*antialias:          true
 Xft*hinting:            full
 
-URxvt.colorBD: #ffffff
-URxvt.colorIT: #bbbbbb
-URxvt.colorUL: #3C96ED
-URxvt.font: -*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*
+/* urL-yanking */
+urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+urxvt.underlineurLs: true
+urxvt.perl-lib: /home/xintron/.urxvt/
+urxvt.perl-ext: selection,mark-yank-urls
+urxvt.urlLauncher: firefox --display=:0.1
 
-URxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
-URxvt.underlineURLs: true
-URxvt.perl-lib: /home/xintron/.urxvt/
-URxvt.perl-ext: selection,mark-yank-urls
-URxvt.urlLauncher: firefox --display=:0.1
+urxvt.termName:    rxvt-unicode
+urxvt.urgentOnBell: true
+urxvt.cursorBlink: false
+urxvt.transparent: false 
+urxvt.shading:          100
+urxvt.scrollBar:        false
+urxvt.saveLines:        4096
+urxvt.mouseWheelScrollPage: true
+urxvt.perl-ext-common: default,matcher
+urxvt.matcher.button: 2
+urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-] 
 
-URxvt*termName:    rxvt-unicode
-URxvt*urgentOnBell: true
-URxvt.cursorBlink: false
-URxvt*transparent: false 
-URxvt*shading:          100
-urxvt*scrollBar:        false
-urxvt*background:  #202020
-urxvt*foreground:       #eeeeee
-urxvt*saveLines:        4096
-urxvt*mouseWheelScrollPage: true
-URxvt.perl-ext-common: default,matcher
-URxvt.matcher.button: 2
-URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-] 
 
-xterm*metaSendsEscape:  true
-xterm*dynamicColors:    true
-xterm*background:       #000000
-xterm*foreground:       #eeeeee
-xterm*utf8:             2
-xterm*eightBitInput:    true
-xterm*saveLines:        4096
-xterm*scrollTtyKeypress: true
-xterm*scrollTtyOutput:  false
-xterm*scrollBar:        false
-xterm*loginShell:       true
-xterm*jumpScroll:       true
-xterm*multiScroll:      true
-xterm*toolBar:          false
-Xterm*scrollKey:        true
+/* Colors */
+urxvt.background: #212021
+urxvt.foreground: #DDDDDD
+urxvt.cursorColor: #A7A15E
+urxvt.cursorColor2: #252525
+urxvt.colorIT: #FFFFFF
+urxvt.colorBD: #FFFFFF
+urxvt.colorUL: #FF8F00
+urxvt.colorRV: #333333
+urxvt.underlineColor: #0E0E0E
+urxvt.borderColor: #0E0E0E
+urxvt.pointerColor: #252525
+urxvt.pointerColor2: #0092FF
 
+/* fonts */
+urxvt.font: -*-profont-*-*-*-*-11-*-*-*-*-*-*-*
+urxvt.boldFont: -*-profont-*-*-*-*-11-*-*-*-*-*-*-*
+urxvt.italicFont: -*-profont-*-*-*-*-11-*-*-*-*-*-*-*
+
+/* My default */
+/*
 *fadeColor:   #202020
 *background:  #202020
 *foreground:  #d0d0d0
@@ -77,3 +77,37 @@ Xterm*scrollKey:        true
 ! White
 *color7:      #d0d0d0
 *color15:     #ffffff
+*/
+
+!black
+urxvt.color0: #353535
+urxvt.color8: #666666
+
+!red
+urxvt.color1: #D81860
+urxvt.color9: #F00060
+
+!green
+urxvt.color2: #B7CE42
+urxvt.color10: #BDE077
+
+!brown/yellow
+urxvt.color3: #FEA63C
+urxvt.color11: #FFE863
+
+!blue
+urxvt.color4: #6F99B4
+urxvt.color12: #7C96B0
+
+!magenta
+urxvt.color5: #8B7B8B
+urxvt.color13: #D8BFD8
+
+!cyan
+urxvt.color6: #A7A15E
+urxvt.color14: #F0E68C
+
+!white
+urxvt.color7: #DDDDDD
+urxvt.color15: #FFFFFF
+
