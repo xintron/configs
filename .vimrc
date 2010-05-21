@@ -43,7 +43,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-
+autocmd BufRead *.haml set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead *.php set noexpandtab
+autocmd Filetype php set noexpandtab
 autocmd Filetype ruby set tabstop=2 shiftwidth=2 softtabstop=2
 
 autocmd FileType python set ft=python.django " For SnipMate
@@ -67,6 +69,7 @@ if v:version >= 700
 endif " 
 
 set number
+"set mouse=a
 
 map <S-F7>	:w<CR>
 nnoremap <silent> <C-n> :tabnext<CR>
