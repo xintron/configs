@@ -10,9 +10,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=2000
 SAVEHIST=2000
  
-# Key Bindings
-bindkey -e
- 
 # Dircolors
 eval $(dircolors -b ~/.dircolors)
  

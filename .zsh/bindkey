@@ -1,3 +1,4 @@
+bindkey -e
 bindkey "\e[3~" delete-char         # delete
 bindkey "\e[7~" beginning-of-line   # home
 bindkey "\e[8~" end-of-line         # end
