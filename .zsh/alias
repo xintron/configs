@@ -56,3 +56,15 @@ function xfind {
         echo "xfind takes at least two arguments. ie. xfind <extension> <pattern to grep>"
     fi
 }
+
+# Move create
+function mvc {
+    if [ $# -eq 2 ]; then
+        if [ ! -d $2 ]; then
+            mkdir -p $2;
+        fi
+        mv $1 $2
+    else
+        echo "mvc taskes two arguments. If the destination-directory doesn't exist it's created. ie. mvc <file> <dir>"
+    fi
+}
