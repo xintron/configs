@@ -33,7 +33,7 @@ definekey top s-m exec amixer set 'Master Front' toggle > /dev/null
 
 definekey top s-s exec xclip -o -selection "clipboard" | xclip
 
-definekey top s-n exec mpc --format "np: [[%artist%] - [%title%] - #[[%album%] ##[%track%]#]]|[%file%]" | head -n 1 | xclip
+definekey top s-n exec mpc --format "np: [[[%artist%] - ][%title%][ - #[[%album%] ##[%track%]#]]]|[%file%]" | head -n 1 | xclip
 definekey top s-j exec mpc toggle
 definekey top s-q exec mpc prev
 definekey top s-k exec mpc next
