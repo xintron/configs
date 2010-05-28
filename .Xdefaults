@@ -41,7 +41,7 @@ urxvt.colorRV: #333333
 urxvt.underlineColor: #0E0E0E
 urxvt.borderColor: #0E0E0E
 urxvt.pointerColor: #252525
-urxvt.pointerColor2: #0092FF
+urxvt.pointerColor2: #252525
 
 /* fonts */
 urxvt.font: -*-profont-*-*-*-*-11-*-*-*-*-*-*-*
