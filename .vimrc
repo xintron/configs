@@ -29,7 +29,7 @@ set wildmode=list:full
 
 " FORMATTING
 set textwidth=0
-set nowrap          " Don't wrap long lines
+set wrap          " Don't wrap long lines
 
 " SEARCHING
 set incsearch       " Search as you type
