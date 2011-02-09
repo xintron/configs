@@ -5,6 +5,7 @@ alias files='cd /mnt/files/'
 alias music='cd /mnt/files/music'
 alias videos='cd /mnt/files/videos'
 alias www='cd /mnt/files/www/'
+alias db='cd /mnt/files/Dropbox/'
 
 # Basic
 alias c='clear'
@@ -17,6 +18,8 @@ alias mv='mv -v'
 alias vi='vim'
 #alias rm='rm -v' # Annoying!
 alias src='source ~/.zshrc'
+
+alias vd="vim -c 'set tw=80' '$(date +'%a %-d, %b %Y')'"
 
 # Git
 alias g='git'

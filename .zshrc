@@ -76,3 +76,6 @@ zstyle ':completion:*:ssh:*' tag-order \
    users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
 zstyle ':completion:*:ssh:*' group-order \
    hosts-domain hosts-host users hosts-ipaddr
+
+export WORKON_HOME=/home/xintron/python/env/
+. /usr/bin/virtualenvwrapper.sh
