@@ -16,7 +16,7 @@ urxvt.perl-lib: /home/xintron/.urxvt/
 urxvt.perl-ext: selection,mark-yank-urls
 urxvt.urlLauncher: firefox --display=:0.1
 
-urxvt.termName:    rxvt-unicode
+urxvt.termName:    rxvt-256color
 urxvt.urgentOnBell: true
 urxvt.cursorBlink: false
 urxvt.transparent: false 
