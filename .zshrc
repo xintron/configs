@@ -13,7 +13,7 @@ SAVEHIST=2000
 # Dircolors
 eval $(dircolors -b ~/.dircolors)
  
-export TERM='rxvt-256color'
+#export TERM='rxvt-256color'
  
 TZ='Europe/Stockholm'; export TZ
  
