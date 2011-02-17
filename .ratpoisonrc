@@ -31,7 +31,7 @@ definekey top s-Up exec amixer set 'Master Front' 5%+
 definekey top s-Down exec amixer set 'Master Front' 5%-
 definekey top s-m exec amixer set 'Master Front' toggle > /dev/null
 
-definekey top s-s exec xclip -o -selection "clipboard" | xclip
+definekey top M-s exec xclip -o -selection "clipboard" | xclip
 
 definekey top s-n exec mpc --format "np: [[[%artist%] - ][%title%][ - #[[%album%] ##[%track%]#]]]|[%file%]" | head -n 1 | xclip
 definekey top s-j exec mpc toggle
@@ -39,7 +39,7 @@ definekey top s-q exec mpc prev
 definekey top s-k exec mpc next
 
 # overriding CTRL+t 'c' to start aterm instead of xterm
-bind c exec urxvtc
+bind c exec urxvt
 
 # Switch between screens
 definekey top M-n nextscreen
