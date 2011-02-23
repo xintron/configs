@@ -47,7 +47,7 @@ autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
 autocmd Filetype c,cpp,java,php set cindent
 
-set statusline=%<%F\ %y%h%m%r\ -\ %{strftime(\"%a\ %d\ %b\ %Y\ %H:%M:%S\ %Z\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ \[%P\]
+set statusline=%<%F\ %y%h%m%r\ -\ %{strftime(\"%a\ %d\ %b\ %Y\ %H:%M:%S\ %Z\",getftime(expand(\"%:p\")))}%=\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ buf:\ #%n\ \[%b\]\[0x%B\]
 set laststatus=2 " Always show a statuslin
 
 set backupdir=/tmp
@@ -74,8 +74,11 @@ nnoremap <C-l> :NERDTreeToggle<CR>
 
 nnoremap <Leader>b :ls<CR>:b<SPACE>
 nnoremap <Leader>1 :ls<CR>
+nnoremap <Leader>t :e /home/xintron/doc/TODO<CR>
 
 map <Leader>l <C-w>l
 map <Leader>j <C-w>j
 map <Leader>k <C-w>k
 map <Leader>h <C-w>h
+
+nnoremap <Leader>p :set paste!<CR>
