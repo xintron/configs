@@ -80,3 +80,5 @@ map <Leader>l <C-w>l
 map <Leader>j <C-w>j
 map <Leader>k <C-w>k
 map <Leader>h <C-w>h
+
+nnoremap <Leader>p :set paste!<CR>
