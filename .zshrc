@@ -4,6 +4,7 @@
 . $HOME/.zsh/xintron.theme
 . $HOME/.zsh/alias
 . $HOME/.zsh/bindkey
+. $HOME/.zsh/functions
  
 # History
 HISTFILE=~/.zsh_history

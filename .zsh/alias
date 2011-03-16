@@ -5,7 +5,7 @@ alias files='cd /mnt/files/'
 alias music='cd /mnt/files/music'
 alias videos='cd /mnt/files/videos'
 alias www='cd /mnt/files/www/'
-alias db='cd /mnt/files/Dropbox/'
+alias db='cd $HOME/Dropbox/'
 
 # Basic
 alias c='clear'
