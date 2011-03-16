@@ -72,6 +72,7 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-l> :NERDTreeToggle<CR>
 
+nnoremap <Leader>n :tabnext<CR>
 nnoremap <Leader>b :ls<CR>:b<SPACE>
 nnoremap <Leader>1 :ls<CR>
 nnoremap <Leader>t :e /home/xintron/doc/TODO<CR>
