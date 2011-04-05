@@ -16,7 +16,12 @@ if [ $(/usr/bin/vim --version | grep -c '+clientserver') -gt 0 ]; then # only im
             if [ $# -eq 0 ]; then
                 $vim_orig
             else
-                $vim_orig --remote-silent "$@"
+				if [ $1 = '-' ]; then
+					shift
+					$vim_orig --remote-tab-silent "$@"
+				else
+					$vim_orig --remote-silent "$@"
+				fi
             fi
         else
             $vim_orig --servername vim "$@"
