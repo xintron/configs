@@ -19,7 +19,7 @@ eval $(dircolors -b ~/.dircolors)
 TZ='Europe/Stockholm'; export TZ
  
 # path
-export PATH=~/bin:$PATH:/opt/android-sdk/tools:/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/libexec:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/lib/go-openoffice/program/
+export PATH=~/bin:/usr/lib/perl5/vendor_perl/bin/:$PATH:/opt/android-sdk/tools:/usr/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/libexec:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/lib/go-openoffice/program/
  
 # manpath
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
@@ -78,5 +78,9 @@ zstyle ':completion:*:ssh:*' tag-order \
 zstyle ':completion:*:ssh:*' group-order \
    hosts-domain hosts-host users hosts-ipaddr
 
-export WORKON_HOME=/home/xintron/python/env/
-. /usr/bin/virtualenvwrapper.sh
+if [ -d /home/xintron/python/env/ ]; then
+    export WORKON_HOME=/home/xintron/python/env/
+    if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+        . /usr/bin/virtualenvwrapper.sh
+    fi
+fi
