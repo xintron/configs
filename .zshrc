@@ -29,7 +29,6 @@ export EDITOR=vim
 export PAGER=less
 
 # OPTIONS
-setopt vi
 setopt PROMPT_SUBST
 setopt autopushd
 setopt NOTIFY
