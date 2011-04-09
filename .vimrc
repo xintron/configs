@@ -38,6 +38,7 @@ set expandtab
 
 filetype plugin indent on
 
+autocmd BufNewFile,BufRead *.py compiler nose
 autocmd BufRead *.haml set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufRead *.php set noexpandtab
 autocmd Filetype php set noexpandtab
@@ -67,6 +68,8 @@ endif
 
 set number
 
+let g:pyflakes_use_quickfix = 0
+
 let mapleader = ","
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
@@ -75,7 +78,7 @@ nnoremap <C-l> :NERDTreeToggle<CR>
 nnoremap <Leader>n :tabnext<CR>
 nnoremap <Leader>b :ls<CR>:b<SPACE>
 nnoremap <Leader>1 :ls<CR>
-nnoremap <Leader>t :e /home/xintron/doc/TODO<CR>
+nnoremap <Leader>8 :e /home/xintron/doc/TODO<CR>
 
 map <Leader>l <C-w>l
 map <Leader>j <C-w>j
