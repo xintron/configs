@@ -26,7 +26,7 @@ export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
  
 # abbreviation for later use
 export EDITOR=vim
-export PAGER=less
+export PAGER=vimpager
 
 # OPTIONS
 setopt PROMPT_SUBST
