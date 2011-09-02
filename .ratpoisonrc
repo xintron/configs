@@ -20,7 +20,7 @@ set fgcolor #ff9900
 set bgcolor #000000
 
 set winname title
-set font "Terminus-10"
+set font "montecarlo"
 set padding 0
 msgwait 1
 
@@ -74,7 +74,7 @@ definekey top M-h focusleft
 bind d dedicate
 
 
-definekey top M-m exec $(dmenu_path | dmenu -nb "#222222" -nf "#eeeeee" -sb "#222222" -sf "#ff9900" -fn '-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*')
+definekey top M-m exec $(dmenu_path_c | dmenu -nb "#222222" -nf "#eeeeee" -sb "#222222" -sf "#ff9900" -fn '-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*')
 
 bind B exec google-chrome
 bind C-b exec firefox

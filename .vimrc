@@ -45,7 +45,7 @@ autocmd Filetype php set noexpandtab
 autocmd Filetype ruby set tabstop=2 shiftwidth=2 softtabstop=2
 
 autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=htmldjango.html " For SnipMate
+autocmd FileType html set ft=htmljinja " For SnipMate
 autocmd Filetype c,cpp,java,php set cindent
 
 set statusline=%<%F\ %y%h%m%r\ -\ %{strftime(\"%a\ %d\ %b\ %Y\ %H:%M:%S\ %Z\",getftime(expand(\"%:p\")))}%=\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ buf:\ #%n\ \[%b\]\[0x%B\]
