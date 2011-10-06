@@ -23,7 +23,7 @@ set wildmenu
 set wildmode=list:full
 set wildignore=*.pyc
 
-set textwidth=0
+set textwidth=79
 set wrap " Don't wrap long lines
 
 set incsearch " Search as you type
@@ -40,8 +40,8 @@ filetype plugin indent on
 
 autocmd BufNewFile,BufRead *.py compiler nose
 autocmd BufRead *.haml set tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufRead *.php set noexpandtab
-autocmd Filetype php set noexpandtab
+"autocmd BufRead *.php set noexpandtab
+"autocmd Filetype php set noexpandtab
 autocmd Filetype ruby set tabstop=2 shiftwidth=2 softtabstop=2
 
 autocmd FileType python set ft=python.django " For SnipMate

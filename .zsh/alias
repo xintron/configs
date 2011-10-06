@@ -1,11 +1,8 @@
 alias ..='cd ..'
 alias :q='exit'
 alias np='mpc --format "np: [[%artist%] - [%title%] - #[[%album%] ##[%track%]#]]|[%file%]" | head -n 1'
-alias files='cd /mnt/files/'
-alias music='cd /mnt/files/music'
-alias videos='cd /mnt/files/videos'
-alias www='cd /mnt/files/www/'
-alias db='cd $HOME/Dropbox/'
+alias www='cd /srv/http/nginx/'
+alias db='cd $HOME/dropbox/'
 
 # Basic
 alias c='clear'
