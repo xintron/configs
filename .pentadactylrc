@@ -1,2 +1,9 @@
 set editor='urxvt -e vim -f'
 set showtabline=never
+set mapleader=,
+set showstatuslinks=command
+
+colorscheme cute
+
+map <Leader>l :ls<CR>
+map <Leader>b :b<CR>
