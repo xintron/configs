@@ -81,6 +81,7 @@ zstyle ':completion:*:ssh:*' group-order \
 if [ -d /home/xintron/python/env/ ]; then
     export WORKON_HOME=/home/xintron/python/env/
     if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-        . /usr/bin/virtualenvwrapper.sh
+        alias pyenv='. /usr/bin/virtualenvwrapper.sh'
+        #. /usr/bin/virtualenvwrapper.sh
     fi
 fi
