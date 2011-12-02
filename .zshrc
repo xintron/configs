@@ -47,7 +47,8 @@ setopt   autocd recexact longlistjobs
 setopt   autoresume histignoredups pushdsilent noclobber
 setopt   autopushd pushdminus rcquotes mailwarning
 unsetopt bgnice autoparamslash
-setopt NOEXTENDED_GLOB
+setopt extendedglob
+#setopt NOEXTENDED_GLOB
  
 # Autoload zsh modules when they are referenced
 zmodload -a zsh/stat stat
@@ -57,6 +58,7 @@ zmodload -a zsh/zprof zprof
  
 # completion
 autoload -U compinit
+autoload -U zmv
 compinit
 
 #  completion
