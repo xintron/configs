@@ -4,7 +4,7 @@ set mapleader=,
 set showstatuslinks=command
 set defsearch=duckduckgo-ssl
 
-autocmd PageLoadPre '^https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?.*?v=)[0-9A-Za-z-_]+' :silent !splay '<url>'
+autocmd PageLoadPre '^https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?.*?v=)[0-9A-Za-z-_]+' :silent !splay '<url>' &
 
 colorscheme cute
 
