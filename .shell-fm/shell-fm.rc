@@ -1,0 +1,10 @@
+username = xintron
+discovery = true
+delay-change = true
+np-cmd = twmnc --ac firefox\ %T -c np:\ %a\ -\ %t\ \[%l\]
+
+title-format = np: %a - %t [%l] : %f %V
+
+# Colors
+a-color = 0;33
+t-color = 1;31
