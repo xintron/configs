@@ -1,7 +1,7 @@
 username = xintron
 discovery = true
 delay-change = true
-np-cmd = twmnc --ac firefox\ %T -c np:\ %a\ -\ %t\ \[%l\]
+np-cmd = twmnc --ac firefox\ %T -c np:\ %a\ -\ %t\ \[%l\]; tmux rename-window -t0:2 %a\ -\ %t
 
 title-format = np: %a - %t [%l] : %f %V
 

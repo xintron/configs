@@ -6,9 +6,9 @@ hi StatusLineSecure -moz-appearance: none !important; font-weight: bold; backgro
 hi StatusLineBroken -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
 hi StatusLineExtended -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
 
-hi BufTab margin: 0; padding: 0; max-width: 160px; color: #ccc !important;
-hi BufTabAlternate margin: 0; padding: 0; max-width: 160px; color: #f90 !important;
-hi BufTabSelected margin: 0; padding: 0; max-width: 160px; color: #9f0 !important;
+hi BufTab margin: 0; padding: 0; max-width: 160px; min-width: 160px; color: #ccc !important;
+hi BufTabAlternate margin: 0; padding: 0; max-width: 160px; min-width: 160px; color: #f90 !important;
+hi BufTabSelected margin: 0; padding: 0; max-width: 160px; min-width: 160px; color: #9f0 !important;
 
 
 hi CompItem background: #222 !important; color: #fff !important;
