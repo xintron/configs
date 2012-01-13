@@ -21,3 +21,5 @@ hi CompTitle>* padding: 0 .5ex;
 hi CompTitleSep height: 1px; background: -moz-linear-gradient(left, #f90, #9f0);
 
 hi Normal color: #fff !important; background: #222 !important; font-weight: normal !important;
+
+hi Find background: #9f0; color: #222;
