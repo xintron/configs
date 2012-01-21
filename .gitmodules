@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-autoclose"]
 	path = .vim/bundle/vim-autoclose
 	url = git://github.com/Townk/vim-autoclose.git
+[submodule ".vim/bundle/vim-indent-guides"]
+	path = .vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
