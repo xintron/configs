@@ -12,3 +12,5 @@ endfor
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
+
+colorscheme molokai

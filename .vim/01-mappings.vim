@@ -14,3 +14,6 @@ map <Leader>l <C-w>l
 map <Leader>j <C-w>j
 map <Leader>k <C-w>k
 map <Leader>h <C-w>h
+
+nmap <Leader>nh :nohl<CR>
+nmap <C-h>h :call SynStack()<CR>
