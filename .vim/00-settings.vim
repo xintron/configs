@@ -36,8 +36,8 @@ set undofile
 set undolevels=512
 if !isdirectory(expand('$HOME').'/.backup/vim/undo')
     call mkdir(expand('$HOME').'/.backup/vim/undo', 'p')
+    exe 'set undodir='.expand('$HOME').'/.backup/vim/undo'
 endif
-set undodir=/.backup/vim/undo
 
 set hidden
 set textwidth=79
