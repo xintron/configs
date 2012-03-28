@@ -1,9 +1,10 @@
 set editor='urxvt -e vim -f'
 set showtabline=never
-set mapleader=,
+" set mapleader=,
 set showstatuslinks=command
 set hlfind
-/*set defsearch=duckduckgo-ssl*/
+" set defsearch=duckduckgo-ssl
+set hintinputs=label,value,name
 
 autocmd PageLoadPre '^https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?.*?v=)[0-9A-Za-z-_]+' :silent !splay '<url>' &
 autocmd LocationChange !web.tweetdeck.com,* :silent emenu Tools.Chrome 15.0.874.120 (Ubuntu 11.10).Default User Agent
@@ -11,5 +12,5 @@ autocmd LocationChange 'web.tweetdeck.com' :silent emenu Tools.Default User Agen
 
 colorscheme cute
 
-map <Leader>l :ls<CR>
-map <Leader>b :buffer #<CR>
+map ,l :ls<CR>
+map ,b :buffer #<CR>
