@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/pyflakes-vim"]
 	path = .vim/bundle/pyflakes-vim
 	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule ".pentadactyl/plugins/buftabs"]
+	path = .pentadactyl/plugins/buftabs
+	url = git://github.com/grassofhust/buftabs.git
