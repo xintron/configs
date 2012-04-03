@@ -9,7 +9,7 @@ ZSH_THEME=xintron.theme
 # Load colors before we source all config-files that might use them
 autoload -U colors
 colors
-zmodload zsh/complist
+autoload -U zsh/complist
 
 for f in $HOME/.zsh/[0-9][0-9]*.zsh; do
     if [[ $DEBUG > 0 ]]; then

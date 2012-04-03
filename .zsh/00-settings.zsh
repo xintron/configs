@@ -8,4 +8,3 @@ elif [ -n "$(command -v "less")" ]; then
 fi
 
 ZLS_COLORS=$LS_COLORS
-export $ZLS_COLORS
