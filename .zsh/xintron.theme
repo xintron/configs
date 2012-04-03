@@ -1,0 +1,6 @@
+# Set proper color based if root
+[ $UID -eq 0 ] && NCOLOR="red" || NCOLOR="green"
+
+PROMPT="%{$reset_color%}[%{$fg[$NCOLOR]%}%~%{$reset_color%}] "
+
+# vim: set ft=zsh:

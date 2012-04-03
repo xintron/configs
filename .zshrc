@@ -6,7 +6,12 @@ eval $(dircolors -b $HOME/.dircolors)
 ZSH_HOME=$HOME/.zsh
 ZSH_THEME=xintron.theme
 
-for f in $HOME/.zsh/*.zsh; do
+# Load colors before we source all config-files that might use them
+autoload -U colors
+colors
+zmodload zsh/complist
+
+for f in $HOME/.zsh/[0-9][0-9]*.zsh; do
     if [[ $DEBUG > 0 ]]; then
         echo "zsh: sourcing $f"
     fi
