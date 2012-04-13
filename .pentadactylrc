@@ -12,9 +12,11 @@ autocmd LocationChange 'web.tweetdeck.com' :silent emenu Tools.Default User Agen
 
 colorscheme cute
 
-set passkeys+=facebook.com:<CR> " Pass through <CR> to avoid stupid extra-linebreak behavior in input-fields
+" Pass through <CR> to avoid stupid extra-linebreak behavior in input-fields
+set passkeys+=facebook.com:<CR>
 
-map ,l :ls<CR>
-map ,b :buffer #<CR>
+map , <Leader>
+map <Leader>l :ls<CR>
+map <Leader>b :buffer #<CR>
 
 " vim: set ft=vim:
