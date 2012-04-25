@@ -15,4 +15,13 @@ autoload -U zsh/complist
 autoload -U compinit
 compinit -i
 
-setopt extendedglob
+setopt extended_glob
+setopt brace_ccl # Nifty stuff like {a-z} to complement {1..15}
+setopt auto_cd
+setopt prompt_subst
+
+# Load libraries
+for f in $ZSH_HOME/lib/*.zsh; do
+    [[ $DEBUG -gt 0 ]] && echo "zsh: sourcing library $f"
+    source $f
+done

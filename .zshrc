@@ -6,9 +6,7 @@ eval $(dircolors -b $HOME/.dircolors)
 ZSH_HOME=$HOME/.zsh
 ZSH_THEME=xintron.theme
 
-for f in $HOME/.zsh/[0-9][0-9]*.zsh; do
-    if [[ $DEBUG > 0 ]]; then
-        echo "zsh: sourcing $f"
-    fi
+for f in $ZSH_HOME/[0-9][0-9]*.zsh; do
+    [[ $DEBUG -gt 0 ]] && echo "zsh: sourcing $f"
     source $f
 done
