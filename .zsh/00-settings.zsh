@@ -23,9 +23,7 @@ setopt auto_pushd
 setopt pushd_silent
 setopt prompt_subst
 setopt hash_cmds
-
 setopt auto_list
-setopt rec_exact
 
 # Load libraries
 for f in $ZSH_HOME/lib/*.zsh; do
