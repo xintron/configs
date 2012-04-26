@@ -15,7 +15,8 @@ alias la='ls -lA'
 alias lsa='ls -A'
 alias lsf='ls -A *(-.N)'
 alias lsff='ls -A *(-.DN)' # show dotfiles
-alias lsd='ls -Ad *(-/DN)'
+alias lsd='ls -Ad *(-/N)'
+alias lsdd='ls -Ad *(-/DN)'
 
 # misc
 alias cp='cp -vi'
@@ -23,4 +24,5 @@ alias mv='mv -vi'
 alias rm='rm -v'
 alias c='clear'
 alias ..='cd ..'
-alias -- -='cd - 1>/dev/null'
+alias -- -='pushd -'
+alias vp='vimpager'
