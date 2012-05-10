@@ -9,6 +9,8 @@ alias gds='git --no-pager diff --stat'
 alias gdd='git --no-pager diff --dirstat'
 alias ga='git add'
 alias gb='git branch'
+alias gps='git push'
+alias gpl='git pull'
 
 # ls
 alias ls='ls --group-directories-first --color=auto -h'
