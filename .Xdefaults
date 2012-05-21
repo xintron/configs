@@ -50,88 +50,20 @@ urxvt.font: -*-montecarlo-medium-*-*-*-11-110-72-72-c-60-*-*
 urxvt.boldFont: -*-montecarlo-bold-*-*-*-11-110-72-72-c-60-*-*
 urxvt.italicFont: -*-profont-medium-*-*-*-11-*-*-*-*-*-*-*
 
-/* My default */
-/*
-*fadeColor:   #202020
-*background:  #202020
-*foreground:  #d0d0d0
-! Black
-*color0:      #202020
-*color8:      #808080
-! Red
-*color1:      #ff6565
-*color9:      #ff8d8d
-! Green
-*color2:      #93d44f
-*color10:     #c8e7a8
-! Yellow
-*color3:      #eab93d
-*color11:     #ffc123
-! Blue
-*color4:      #204a87
-*color12:     #3465a4
-! Mangenta
-*color5:      #ce5c00
-*color13:     #f57900
-! Cyan 
-*color6:      #89b6e2
-*color14:     #46a4ff
-! White
-*color7:      #d0d0d0
-*color15:     #ffffff
-*/
-
-/* Some fall-theme
-!black
-urxvt.color0: #353535
-urxvt.color8: #666666
-
-!red
-urxvt.color1: #D81860
-urxvt.color9: #F00060
-
-!green
-urxvt.color2: #B7CE42
-urxvt.color10: #BDE077
-
-!brown/yellow
-urxvt.color3: #FEA63C
-urxvt.color11: #FFE863
-
-!blue
-urxvt.color4: #6F99B4
-urxvt.color12: #7C96B0
-
-!magenta
-urxvt.color5: #8B7B8B
-urxvt.color13: #D8BFD8
-
-!cyan
-urxvt.color6: #A7A15E
-urxvt.color14: #F0E68C
-
-!white
-urxvt.color7: #DDDDDD
-urxvt.color15: #FFFFFF
-*/
-
-
-/* xintron goes mad! :D */
-
 !black
 urxvt.color0: #000000
 urxvt.color8: #444444
 
 !red
-urxvt.color1: #D83218
+urxvt.color1: #F25C05
 urxvt.color9: #F00000
 
 !green
-urxvt.color2: #B7CE42
-urxvt.color10: #BDE077
+urxvt.color2: #3E5916
+urxvt.color10: #93A605
 
 !brown/yellow
-urxvt.color3: #FEA63C
+urxvt.color3: #F28C05
 urxvt.color11: #FFE863
 
 !blue
@@ -139,13 +71,13 @@ urxvt.color4: #185ED8
 urxvt.color12: #6899EE
 
 !magenta
-urxvt.color5: #8B7B8B
-urxvt.color13: #D8BFD8
+urxvt.color5: #E80C7A
+urxvt.color13: #FF0DFF
 
 !cyan
-urxvt.color6: #A7A15E
-urxvt.color14: #F0E68C
+urxvt.color6: #6C98BF
+urxvt.color14: #A0C3D9
 
 !white
 urxvt.color7: #DDDDDD
-urxvt.color15: #FFFFFF
+urxvt.color15: #E5EFFA

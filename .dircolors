@@ -62,7 +62,7 @@ TERM xterm-debian
 #NORMAL 00 # no color code at all
 #FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
-DIR 01;34 # directory
+DIR 00;34 # directory
 LINK 01;36 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
 FIFO 40;33 # pipe
@@ -77,7 +77,7 @@ STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
 OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
 STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
-EXEC 01;32
+EXEC 38;5;046;1
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
 # (and any comments you want to add after a '#')
@@ -89,78 +89,85 @@ EXEC 01;32
 #.bat 01;32
 # Or if you want to colorize scripts even if they do not have the
 # executable bit actually set.
-#.sh 01;32
-#.csh 01;32
+.sh 00;32
+.csh 00;32
+.zsh 00;32
+.bash 00;32
  
 # Archives
-.tar 01;31
-.tgz 01;31
-.arj 01;31
-.taz 01;31
-.lzh 01;31
-.lzma 01;31
-.zip 01;31
-.z 01;31
-.Z 01;31
-.dz 01;31
-.gz 01;31
-.bz2 01;31
-.bz 01;31
-.tbz2 01;31
-.tz 01;31
-.deb 01;31
-.rpm 01;31
-.jar 01;31
-.rar 01;31
-.ace 01;31
-.zoo 01;31
-.cpio 01;31
-.7z 01;31
-.rz 01;31
+.tar 00;31
+.tgz 00;31
+.arj 00;31
+.taz 00;31
+.lzh 00;31
+.lzma 00;31
+.zip 00;31
+.z 00;31
+.Z 00;31
+.dz 00;31
+.gz 00;31
+.bz2 00;31
+.bz 00;31
+.tbz2 00;31
+.tz 00;31
+.deb 00;31
+.rpm 00;31
+.jar 00;31
+.rar 00;31
+.ace 00;31
+.zoo 00;31
+.cpio 00;31
+.7z 00;31
+.rz 00;31
+.xz 00;31
  
 # Images
-.jpg 01;35
-.jpeg 01;35
-.gif 01;35
-.bmp 01;35
-.pbm 01;35
-.pgm 01;35
-.ppm 01;35
-.tga 01;35
-.xbm 01;35
-.xpm 01;35
-.tif 01;35
-.tiff 01;35
-.png 01;35
-.svg 01;35
-.svgz 01;35
-.mng 01;35
-.pcx 01;35
-.mov 01;35
-.mpg 01;35
-.mpeg 01;35
-.m2v 01;35
-.mkv 01;35
-.ogm 01;35
-.mp4 01;35
-.m4v 01;35
-.mp4v 01;35
-.vob 01;35
-.qt 01;35
-.nuv 01;35
-.wmv 01;35
-.asf 01;35
-.rm 01;35
-.rmvb 01;35
-.flc 01;35
-.avi 01;35
-.fli 01;35
-.flv 01;35
-.gl 01;35
-.dl 01;35
-.xcf 01;35
-.xwd 01;35
-.yuv 01;35
+.jpg 00;35
+.JPG 00;35
+.jpeg 00;35
+.gif 00;35
+.bmp 00;35
+.pbm 00;35
+.pgm 00;35
+.ppm 00;35
+.tga 00;35
+.xbm 00;35
+.xpm 00;35
+.tif 00;35
+.tiff 00;35
+.png 00;35
+.svg 00;35
+.svgz 00;35
+.mng 00;35
+.pcx 00;35
+.CR2 00;35
+
+# Video
+.mov 00;36
+.mpg 00;36
+.mpeg 00;36
+.m2v 00;36
+.mkv 00;36
+.ogm 00;36
+.mp4 00;36
+.m4v 00;36
+.mp4v 00;36
+.vob 00;36
+.qt 00;36
+.nuv 00;36
+.wmv 00;36
+.asf 00;36
+.rm 00;36
+.rmvb 00;36
+.flc 00;36
+.avi 00;36
+.fli 00;36
+.flv 00;36
+.gl 00;36
+.dl 00;36
+.xcf 00;36
+.xwd 00;36
+.yuv 00;36
  
 # Audio
 .aac 00;36
@@ -179,13 +186,24 @@ EXEC 01;32
 .mod 00;36
  
 # Code
-.c 01;35
-.cpp 01;35
-.h 01;35
-.o 01;33
-.py 01;35
-.pyc 01;30
-.rb 01;35
+.c 38;5;112
+.cpp 38;5;112
+.h 38;5;112
+.o 38;5;112
+.py 38;5;112
+.pyc 38;5;112
+.rb 38;5;112
+.js 38;5;112
+.css 38;5;112
+.html 38;5;112
+.less 38;5;112
+.php 38;5;112
+.pl 38;5;112
+.java 38;5;112
+.xml 38;5;112
+
+# Misc
+.vim 38;5;242
  
 *Makefile 00;35
  
