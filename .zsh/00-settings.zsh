@@ -18,6 +18,7 @@ compinit -i
 autoload -U predict-on
 zle -N predict-on
 zle -N predict-off
+predict-on
 
 setopt extended_glob
 setopt brace_ccl # Nifty stuff like {a-z} to complement {1..15}
