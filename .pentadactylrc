@@ -20,4 +20,7 @@ map <Leader>l :ls<CR>
 map <Leader>b :buffer #<CR>
 map <Leader>nh :nohl<CR>
 
+nmap -builtin d D
+nmap -builtin D d
+
 " vim: set ft=vim:
