@@ -30,3 +30,11 @@ alias ..='cd ..'
 alias -- -='pushd -'
 alias vp='vimpager'
 alias df='df -h'
+
+# Virtualenv-fix
+if [ -d /home/xintron/python/env/ ]; then
+    export WORKON_HOME=/home/xintron/python/env/
+    if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+        alias pyenv='. /usr/bin/virtualenvwrapper.sh'
+    fi
+fi
