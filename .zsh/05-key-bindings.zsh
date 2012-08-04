@@ -1,4 +1,4 @@
 bindkey -v
 
-bindkey "^X^K" predict-on
-bindkey "^X" predict-off
+bindkey "^X" predict-on
+bindkey "^X^K" predict-off
