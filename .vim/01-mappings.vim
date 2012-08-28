@@ -18,3 +18,4 @@ map <Leader>h <C-w>h
 nmap <Leader>nh :nohl<CR>
 nmap <C-h>h :call SynStack()<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
+nmap <C-b> :b#<CR>
