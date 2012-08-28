@@ -22,5 +22,6 @@ map <Leader>nh :nohl<CR>
 
 nmap -builtin d D
 nmap -builtin D d
+nmap U :undo 
 
 " vim: set ft=vim:
