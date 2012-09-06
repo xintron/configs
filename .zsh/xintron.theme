@@ -1,6 +1,6 @@
 # Set proper color based if root
 [ $UID -eq 0 ] && NCOLOR="red" || NCOLOR="green"
 
-PROMPT='%{$reset_color%}[%{$fg[$NCOLOR]%}%~$(git_prompt_info)%{$reset_color%}] '
+PROMPT='%{$reset_color%}[%{$fg[$NCOLOR]%}%~$(git_prompt_info)%{$reset_color%}] %{$fg[magenta]%}⚡%{$reset_color%} '
 
 # vim: set ft=zsh:

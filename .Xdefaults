@@ -14,9 +14,8 @@ urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
 urxvt.underlineurLs: true
 urxvt.perl-lib: /home/xintron/.urxvt/
 urxvt.perl-ext: selection,mark-yank-urls
-urxvt.urlLauncher: firefox --display=:0.1
+urxvt.urlLauncher: firefox
 
-urxvt.termName:    rxvt-256color
 urxvt.urgentOnBell: true
 urxvt.cursorBlink: false
 urxvt.transparent: false 
@@ -24,9 +23,6 @@ urxvt.shading:          100
 urxvt.scrollBar:        false
 urxvt.saveLines:        4096
 urxvt.mouseWheelScrollPage: true
-urxvt.perl-ext-common: default,matcher
-urxvt.matcher.button: 2
-urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-] 
 
 
 /* Colors */
