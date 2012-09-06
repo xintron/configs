@@ -8,8 +8,6 @@ set hintinputs=label,value,name
 
 autocmd PageLoad '^https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?.*?v=)[0-9A-Za-z-_]+' :silent !splay '<url>' &
 autocmd PageLoad '^https?://(?:www\.)?vimeo.com/\d+' :silent !splay '<url>' &
-autocmd LocationChange !web.tweetdeck.com,* :silent emenu Tools.Chrome 15.0.874.120 (Ubuntu 11.10).Default User Agent
-autocmd LocationChange 'web.tweetdeck.com' :silent emenu Tools.Default User Agent.Browsers - Linux.Chrome 15.0.874.120 (Ubuntu 11.10)
 
 colorscheme cute
 
