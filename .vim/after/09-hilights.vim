@@ -3,3 +3,8 @@
 if exists('g:colors_name') && g:colors_name == 'wombat256'
     hi LineNr ctermbg=none
 endif
+
+if exists('g:colors_name') && g:colors_name == 'molokai'
+    hi Normal ctermbg=none
+    hi LineNr ctermbg=none
+endif

@@ -26,7 +26,7 @@ urxvt.mouseWheelScrollPage: true
 
 
 /* Colors */
-urxvt.background: #121212
+urxvt.background: #000000
 urxvt.foreground: #bbbbbb
 urxvt.cursorColor: #A7A15E
 urxvt.cursorColor2: #252525
@@ -48,7 +48,7 @@ urxvt.italicFont: -*-profont-medium-*-*-*-11-*-*-*-*-*-*-*
 
 !black
 urxvt.color0: #000000
-urxvt.color8: #444444
+urxvt.color8: #222222
 
 !red
 urxvt.color1: #F25C05

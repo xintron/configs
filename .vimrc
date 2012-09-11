@@ -14,3 +14,9 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 colorscheme molokai
+
+for f in split(globpath(split(&runtimepath, ',')[0], 'after/*.vim'), '\n')
+    if (f =~ '\v0[0-9].+\.vim')
+        exe 'source'.f
+    endif
+endfor
