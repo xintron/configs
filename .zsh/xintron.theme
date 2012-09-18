@@ -3,4 +3,9 @@
 
 PROMPT='%{$reset_color%}[%{$fg[$NCOLOR]%}%~$(git_prompt_info)%{$reset_color%}] '
 
+if [[ -o interactive ]]; then
+    fakepacdb="/tmp/.localsync/"
+    [ -f "${fakepacdb}/updates" ] && cat ${fakepacdb}/updates
+fi
+
 # vim: set ft=zsh:
