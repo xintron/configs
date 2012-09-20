@@ -13,6 +13,7 @@ colorscheme cute
 
 " Pass through <CR> to avoid stupid extra-linebreak behavior in input-fields
 set passkeys+=facebook.com:<CR>
+set passkeys+=github.com:<CR>
 
 map , <Leader>
 map <Leader>l :ls<CR>
