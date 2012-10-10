@@ -24,7 +24,7 @@ set ignorecase
 set smartcase
 set hlsearch
 
-set statusline=%<%F\ %y%h%m%r\ -\ %{strftime(\"%a\ %d\ %b\ %Y\ %H:%M:%S\ %Z\",getftime(expand(\"%:p\")))}%=\ fo:\ [%{&fo}]\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ buf:\ #%n\ \[%b\]\[0x%B\]%#warningmsg#%{SyntasticStatuslineFlag()}\%*
+set statusline=%<%F\ %y%h%m%r\%=\ fo:\ [%{&fo}]\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ buf:\ #%n\ \[%b\]\[0x%B\]%#warningmsg#%{SyntasticStatuslineFlag()}\%*
 set laststatus=2
 set backupdir=/tmp/xintron/vim
 set directory=/tmp/xintron/vim

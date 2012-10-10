@@ -9,6 +9,7 @@ nmap <Leader>N :tabprev<CR>
 nmap <Leader>p :set paste!<CR>
 
 nmap <silent> <Leader>ft :exe 'set fo'.(&fo =~ 't' ? '-=t' : '+=t')<CR>
+nmap <Leader>cc :exe 'set colorcolumn='.(&colorcolumn == '' ? '+0' : '')<CR>
 
 map <Leader>l <C-w>l
 map <Leader>j <C-w>j
