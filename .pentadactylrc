@@ -20,6 +20,7 @@ map <Leader>l :ls<CR>
 map <Leader>b :buffer #<CR>
 map <Leader>nh :nohl<CR>
 
+nmap <Leader>rd :emenu Tools.Web Developer.Responsive Design View<CR>
 nmap -builtin d D
 nmap -builtin D d
 nmap U :undo 
