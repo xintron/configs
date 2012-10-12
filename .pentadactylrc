@@ -9,8 +9,6 @@ set hintinputs=label,value,name
 autocmd PageLoad '^https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?.*?v=)[0-9A-Za-z-_]+' :silent !splay '<url>' &
 autocmd PageLoad '^https?://(?:www\.)?vimeo.com/\d+' :silent !splay '<url>' &
 
-colorscheme cute
-
 " Pass through <CR> to avoid stupid extra-linebreak behavior in input-fields
 set passkeys+=facebook.com:<CR>
 set passkeys+=github.com:<CR>
@@ -25,4 +23,8 @@ nmap -builtin d D
 nmap -builtin D d
 nmap U :undo 
 
+" Run before colorscheme so that we can append to hilights
+loadplugins
+colorscheme molokai
+colorscheme cute
 " vim: set ft=vim:

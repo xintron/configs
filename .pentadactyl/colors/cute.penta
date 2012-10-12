@@ -1,25 +1,4 @@
-" vim: tw=0 nowrap ft=pentadactyl: "
-
-hi StatusLine -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
-hi StatusLineNormal -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
-hi StatusLineSecure -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
-hi StatusLineBroken -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
-hi StatusLineExtended -moz-appearance: none !important; font-weight: bold; background: #222 !important; color: #fff !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important;
-
-hi BufTab margin: 0; padding: 0; max-width: 160px; min-width: 160px; color: #ccc !important;
-hi BufTabAlternate margin: 0; padding: 0; max-width: 160px; min-width: 160px; color: #f90 !important;
-hi BufTabSelected margin: 0; padding: 0; max-width: 160px; min-width: 160px; color: #9f0 !important;
-
-
-hi CompItem background: #222 !important; color: #fff !important;
-hi CompItem:nth-child(2n+1) background: #242424 !important; color: #fff !important;
-hi CompItem>* padding: 0 .5ex;
-hi CompItem[selected] background: -moz-linear-gradient(top, #9f0, #4D8000) !important; color: #000 !important;
-
-hi CompTitle color: #f90; background: #222; font-weight: bold;
-hi CompTitle>* padding: 0 .5ex;
-hi CompTitleSep height: 1px; background: -moz-linear-gradient(left, #f90, #9f0);
-
-hi Normal color: #fff !important; background: #222 !important; font-weight: normal !important;
-
-hi Find background: #9f0; color: #222;
+hi -a BufTabSelected background-color: none !important; color: #f0f !important; font-weight: bold;
+hi -a BufTab:hover background-color: none !important; color: #f90 !important;
+hi -a BufTabAlternate background-color: none !important; color: #ff4d00 !important;
+" -*- vim -*- vim:set ft=vim et sw=2 sts=2:
