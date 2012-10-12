@@ -23,8 +23,10 @@ nmap -builtin d D
 nmap -builtin D d
 nmap U :undo 
 
-" Run before colorscheme so that we can append to hilights
+" Run before plugin-specific settings (including colorschemes)
 loadplugins
+set buftabs-elem=nt
+
 colorscheme molokai
 colorscheme cute
 " vim: set ft=vim:
