@@ -10,9 +10,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/vim-autoclose"]
-	path = .vim/bundle/vim-autoclose
-	url = git://github.com/Townk/vim-autoclose.git
 [submodule ".vim/bundle/vim-indent-guides"]
 	path = .vim/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
@@ -34,3 +31,6 @@
 [submodule ".vim/bundle/vim-coffee-script"]
 	path = .vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
