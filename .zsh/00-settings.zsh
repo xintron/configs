@@ -9,6 +9,13 @@ elif [ -n "$(command -v "less")" ]; then
     export PAGER="less"
 fi
 
+# Load completions
+for d in $ZSH_HOME/completion/*(/); do
+    [[ -d $d/src ]] && dir=$d/src || dir=$d
+    [[ $DEBUG -gt 0 ]] && echo "zsh: adding dir to \$fpath $dir"
+    fpath=($dir $fpath)
+done
+
 # Load colors before we source all config-files that might use them
 autoload -U colors
 colors
