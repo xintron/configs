@@ -6,7 +6,7 @@ clean_desktop() {
     [ ${#files} -gt 50 ] && echo -ne " %{\e[31m\e[1m\e[5m%}*%{$reset_color%}"
 }
 
-PROMPT='%{$reset_color%}[%{$fg[$NCOLOR]%}%~$(git_prompt_info)$(clean_desktop)%{$reset_color%}] '
+PROMPT='%{$reset_color%}[%{$fg[$NCOLOR]%}%~$(git_prompt_info)$(clean_desktop)%(1j.%{$fg[blue]%} %j%{$reset_color%}.)%{$reset_color%}] '
 
 if [[ -o interactive ]]; then
     fakepacdb="/tmp/.localsync/"
