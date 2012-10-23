@@ -3,7 +3,6 @@ set t_Co=256
 
 set nocompatible
 set autoindent
-set smartindent
 set autochdir
 set backspace=start,indent,eol
 
@@ -13,8 +12,11 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 
+set list
+set listchars=tab:»\ ,trail:·,nbsp:⎵,precedes:←,extends:→,conceal:·
+set showbreak=↪
 set wildmenu
-set wildmode=list:full
+set wildmode=list:longest,full
 set wildignore+=*.pyc
 
 set number
@@ -24,13 +26,16 @@ set ignorecase
 set smartcase
 set hlsearch
 
-set statusline=%<%F\ %y%h%m%r\%=\ fo:\ [%{&fo}]\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ buf:\ #%n\ \[%b\]\[0x%B\]%#warningmsg#%{SyntasticStatuslineFlag()}\%*
+set statusline=%1*%<%F\ [%Y%H%M%R\ #%n]\%=%*
+set statusline+=%2*fo:\ [%{&fo}]\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ \[%b\]\[0x%B\]
+set statusline+=%3*%{SyntasticStatuslineFlag()}
 set laststatus=2
 set backupdir=/tmp/xintron/vim
 set directory=/tmp/xintron/vim
 
-set formatoptions-=t " Manually turn on when needed
-set history=50
+set formatoptions-=to " Manuallly turn on when needed
+set formatoptions+=j " Merge comments properly
+set history=500
 
 set undofile
 set undolevels=512
@@ -46,5 +51,3 @@ set grepprg=grep\ -n\ $@
 
 syntax on
 filetype plugin indent on
-
-colorscheme wombat256
