@@ -1,5 +1,4 @@
-autocmd BufNewFile,BufRead *.coffee setlocal shiftwidth=2 tabstop=2 expandtab
-autocmd BufWritePost *.coffee silent CoffeeMake! | redraw!
+setlocal shiftwidth=2 tabstop=2 expandtab
 
 map <buffer> <Leader>c :CoffeeCompile<CR>
 
