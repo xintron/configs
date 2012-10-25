@@ -30,6 +30,7 @@ alias ..='cd ..'
 alias -- -='pushd -'
 alias vp='vimpager'
 alias df='df -h'
+alias du='du -h'
 alias c256='for i in {0..255}; do echo -e "\e[38;05;${i}m  ░▒▓██▓▒░ \e[0m${i}"; done | column -c 70 -s" "; echo -e "\e[m"'
 
 # Virtualenv-fix
