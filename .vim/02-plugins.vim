@@ -20,3 +20,4 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
 let g:UltiSnipsListSnippets = "<Leader>s"
+let g:snips_author = "Marcus Carlsson"
