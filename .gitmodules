@@ -40,3 +40,6 @@
 [submodule ".zsh/completion/zsh-completions"]
 	path = .zsh/completion/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = git://github.com/SirVer/ultisnips.git
