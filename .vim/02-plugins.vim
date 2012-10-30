@@ -15,3 +15,8 @@ let g:indent_guides_start_level = 3
 let g:indent_guides_enable_on_vim_startup = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=236
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
+
+" UltiSnips
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
+let g:UltiSnipsListSnippets = "<Leader>s"
