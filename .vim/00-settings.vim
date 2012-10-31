@@ -49,6 +49,3 @@ set hidden
 set textwidth=79
 
 set grepprg=grep\ -n\ $@
-
-syntax on
-filetype plugin indent on

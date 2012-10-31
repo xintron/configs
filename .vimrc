@@ -13,6 +13,10 @@ endfor
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" Enable *after* loading pathogen plugins
+syntax on
+filetype plugin indent on
+
 colorscheme molokai
 
 for f in split(globpath(split(&runtimepath, ',')[0], 'after/*.vim'), '\n')
