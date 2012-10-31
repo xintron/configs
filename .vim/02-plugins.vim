@@ -21,3 +21,8 @@ let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
 let g:UltiSnipsListSnippets = "<Leader>s"
 let g:snips_author = "Marcus Carlsson"
+
+" TagList
+let g:Tlist_Compact_Format = 1
+let g:Tlist_Enable_Fold_Column = 0
+let g:Tlist_WinWidth = 35
