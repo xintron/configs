@@ -14,8 +14,8 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " Enable *after* loading pathogen plugins
-syntax on
 filetype plugin indent on
+syntax on
 
 colorscheme molokai
 
