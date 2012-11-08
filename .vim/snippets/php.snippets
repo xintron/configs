@@ -16,9 +16,9 @@ foreach ($${1:data} as $${2:row})  {
 endsnippet
 
 snippet tern "Ternary operator" !
-(${1:condition}) ? ${2:true} : ${3:false}
+(${1:condition}) ? ${2:${VISUAL:true}} : ${3:false}
 endsnippet
 
 snippet tern "Ternary operator return/variable assignement"
-$${1:var} = (${2:condition}) ? ${3:true} : ${4:false}
+$${1:var} = (${2:condition}) ? ${3:${VISUAL:true}} : ${4:false}
 endsnippet

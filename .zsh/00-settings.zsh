@@ -40,3 +40,6 @@ for f in $ZSH_HOME/lib/*.zsh; do
     [[ $DEBUG -gt 0 ]] && echo "zsh: sourcing library $f"
     source $f
 done
+
+# Load gistit token if available
+[[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc

@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/taglist.vim"]
 	path = .vim/bundle/taglist.vim
 	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule ".vim/bundle/nginx-vim-syntax"]
+	path = .vim/bundle/nginx-vim-syntax
+	url = git://github.com/evanmiller/nginx-vim-syntax.git
