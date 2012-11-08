@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [[ $# -gt 0 && $1 = 'unbind' ]]; then
+    for i in {1..7}; do
+        ratpoison -c "undefinekey top C-$i"
+    done
+else
+    for i in {1..7}; do
+        ratpoison -c "definekey top C-$i exec rpws $i"
+    done
+fi
