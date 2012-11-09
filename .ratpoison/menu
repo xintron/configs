@@ -15,8 +15,9 @@ rpc="ratpoison -c"
 case "$1" in
     info)
         ratmenu -back "$0" \
-            "ps" "$rpc 'echo Load: $(cat /proc/loadavg; ps -eo pid,time,%cpu,%mem,comm --sort=-%cpu,+%mem | head -n 11)'" \
-            "battery" "$rpc 'echo $(acpi)'"
+            "ps" "$rpc \"echo Load: \$(cat /proc/loadavg; ps -eo pid,time,%cpu,%mem,comm --sort=-%cpu,+%mem | head -n 11)\"" \
+            "dmesg" "$rpc \"echo \$(dmesg | tail)\"" \
+            "battery" "$rpc \"echo \$(acpi)\""
         ;;
     scrot)
         ratmenu -back "$0" \

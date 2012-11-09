@@ -79,6 +79,7 @@ definekey top M-l focusright
 definekey top M-h focusleft
 
 bind d dedicate
+bind w exec ~/.ratpoison/window_select
 
 bind M-m exec $(dmenu_path_c | dmenu -nb "#222222" -nf "#eeeeee" -sb "#222222" -sf "#ff9900" -fn '-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*')
 bind m exec ~/.ratpoison/menu

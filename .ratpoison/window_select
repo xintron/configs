@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+args=()
+i=0
+IFS=$'\n'
+for window in $(ratpoison -c 'windows'); do
+    IFS=$' '
+    meta=($(echo -n "$window" | sed 's/^\([0-9]\+\)\([^0-9]\).*$/\1 \2/'))
+    let i=$i+1
+    if [ "${meta[2]}" = "*" ]; then
+        offset=$i
+    fi
+    args+=("$window" "ratpoison -c \"select ${meta[1]}\"")
+done
+ratmenu -io $offset $args
