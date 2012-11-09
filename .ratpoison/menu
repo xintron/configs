@@ -2,7 +2,7 @@
 
 find_apps() {
     local -a apps
-    apps=(firefox spotify chromium geeqie)
+    apps=(firefox spotify chromium skype dbeaver geeqie)
     i=0
     for x in $apps; do
         let i=$i+1
