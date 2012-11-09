@@ -16,13 +16,15 @@ defbarpadding 0 0
 
 set bargravity nw
 
-set fgcolor #ff9900
-set bgcolor #000000
+set fgcolor #99ff00
+set bgcolor #222222
+set barborder 0
 
 set winname title
-set font "montecarlo"
+exec $(sh ~/.ratpoison/font_fix montecarlo)
 set padding 0
-msgwait 1
+set barpadding 10 5
+msgwait 0
 
 exec xsetroot -cursor_name left_ptr
 
@@ -61,8 +63,8 @@ exec $(sh ~/.ratpoison/ratbind)
 #################################
 
 # Script for undefining and defining keys
-bind M-8 exec $(sh ~/.ratpoison/ratbind)
-bind M-9 exec $(sh ~/.ratpoison/ratbind unbind)
+bind M-8 exec sh ~/.ratpoison/ratbind
+bind M-9 exec sh ~/.ratpoison/ratbind unbind
 
 # Window management
 definekey top M-Down resize 0 -10
@@ -78,21 +80,10 @@ definekey top M-h focusleft
 
 bind d dedicate
 
-# Save layout
-bind C-1 exec $(ratpoison -c "setenv x0 $(ratpoison -c 'fdump')")
-bind M-1 exec $(ratpoison -c "frestore $(ratpoison -c 'getenv x0')")
-bind C-2 exec $(ratpoison -c "setenv x1 $(ratpoison -c 'fdump')")
-bind M-2 exec $(ratpoison -c "frestore $(ratpoison -c 'getenv x1')")
+bind M-m exec $(dmenu_path_c | dmenu -nb "#222222" -nf "#eeeeee" -sb "#222222" -sf "#ff9900" -fn '-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*')
+bind m exec ~/.ratpoison/menu
 
 
-definekey top M-m exec $(dmenu_path_c | dmenu -nb "#222222" -nf "#eeeeee" -sb "#222222" -sf "#ff9900" -fn '-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*')
-
-bind B exec google-chrome
-bind C-b exec firefox
-bind C-s exec spotify
-bind l exec lastfm
- 
- 
 # Startup ############################################
 ## Init nine workspaces
 exec rpws init 7

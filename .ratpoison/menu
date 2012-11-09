@@ -1,0 +1,74 @@
+#!/bin/zsh
+
+find_apps() {
+    local -a apps
+    apps=(firefox spotify chromium geeqie)
+    i=0
+    for x in $apps; do
+        let i=$i+1
+        (( ${+commands[$x]} )) || apps[$i]=()
+    done
+    echo ${apps[@]}
+}
+
+rpc="ratpoison -c"
+case "$1" in
+    info)
+        ratmenu -back "$0" \
+            "ps" "$rpc 'echo Load: $(cat /proc/loadavg; ps -eo pid,time,%cpu,%mem,comm --sort=-%cpu,+%mem | head -n 11)'" \
+            "battery" "$rpc 'echo $(acpi)'"
+        ;;
+    scrot)
+        ratmenu -back "$0" \
+            "single" "scrot -e 'ratpoison -c \"echo Took \$f\"' '/tmp/%s.png'" \
+            "select" "scrot -s -e 'ratpoison -c \"echo Took \$f\"' '/tmp/%s.png'" \
+            "multi" "scrot -m -e 'ratpoison -c \"echo Took \$f\"' '/tmp/%s.png'"
+        ;;
+    layout)
+        if [[ $# -gt 1 ]]; then
+            menu=$1
+            shift
+            case "$1" in
+                save)
+                    m=()
+                    for i in {1..5}; do
+                        m+=("x$i" "ratpoison -c \"setenv x$i \$(ratpoison -c \"fdump\")\"")
+                    done
+                    ratmenu -back "$0 $menu" $m
+                    ;;
+                restore)
+                    m=()
+                    for i in {1..5}; do
+                        m+=("x$i" "ratpoison -c \"frestore \$(ratpoison -c \"getenv x$i\")\"")
+                    done
+                    ratmenu -back "$0 $menu" $m
+                    ;;
+            esac
+        else
+            ratmenu -back "$0" \
+                "save" "$0 layout save" \
+                "restore" "$0 layout restore"
+        fi
+        ;;
+    bindings)
+        ratmenu -back "$0" \
+            "bind Control" "~/.ratpoison/ratbind" \
+            "unbind Control" "~/.ratpoison/ratbind unbind"
+        ;;
+    apps)
+        apps=($(find_apps))
+        m=()
+        for app in $apps; do
+            m+=($app $app)
+        done
+        ratmenu -back "$0" $m
+        ;;
+    *)
+        ratmenu \
+            "info" "$0 info" \
+            "apps" "$0 apps" \
+            "scrot" "$0 scrot" \
+            "layout" "$0 layout" \
+            "bindings" "$0 bindings"
+        ;;
+esac

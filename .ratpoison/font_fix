@@ -1,0 +1,8 @@
+#!/bin/sh
+
+font=$1
+IFS=$','
+for i in $(ratpoison -c 'sdump'); do
+    num=$(echo "$i" | cut -d' ' -f1)
+    ratpoison -c "sselect $num" -c "set font \"$1\""
+done

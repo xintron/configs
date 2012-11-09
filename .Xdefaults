@@ -24,6 +24,11 @@ urxvt.scrollBar:        false
 urxvt.saveLines:        4096
 urxvt.mouseWheelScrollPage: true
 
+ratmenu.style: dreary
+ratmenu.font: fixed
+ratmenu.bgcolor: #222222
+ratmenu.fgcolor: #99ff00
+
 
 /* Colors */
 urxvt.background: #000000
