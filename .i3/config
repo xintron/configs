@@ -110,7 +110,12 @@ bar {
     modifier $mod
     mode hide
     status_command .i3/statusbar
-    font -*-montecarlo-medium-r-normal--11-110-72-72-c-60-*-*
+    font xft:DejaVu Sans Mono 8
+
+    colors {
+        focused_workspace #227700 #227700 #cccccc
+        inactive_workspace #333333 #222222 #888888
+    }
 }
 
 # class                 border  backgr. text    indicator
