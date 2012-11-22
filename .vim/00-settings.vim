@@ -3,7 +3,7 @@ set t_Co=256
 
 set nocompatible
 set autoindent
-set autochdir
+set noautochdir
 set backspace=start,indent,eol
 
 set scrolloff=3
