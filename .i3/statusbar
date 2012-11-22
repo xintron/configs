@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rx_bytes=0
+i3status | (read line && echo $line && while :
+do
+    read line
+    net=$(sh ~/.i3/measure-net-speed.bash)
+    line=$(echo $line | sed 's/time",/&"color": "#ff9900",/')
+    np="$(sh ~/.tmux/np_spotify.sh)"
+    np="{\"full_text\": \"$np\", \"color\": \"#99ff00\"}"
+    data="[$np,{\"full_text\": \"$net\", \"color\": \"#ff9977\"},"
+    echo "${line/[/$data}" || exit 1
+done)
