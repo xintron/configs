@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/gundu.vim"]
+	path = .vim/bundle/gundu.vim
+	url = git://github.com/sjl/gundo.vim.git

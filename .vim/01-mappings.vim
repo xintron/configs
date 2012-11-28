@@ -23,3 +23,5 @@ nmap <Leader># :b#<CR>
 
 nmap <silent> <Leader>tl :TlistToggle<CR>
 nmap <silent> <Leader>td :TlistUpdate<CR>
+
+nmap <silent> <Leader>g :GundoToggle<CR>
