@@ -9,7 +9,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+aring kill
-bindsym $mod+e exec $(dmenu_path_c | dmenu)
+bindsym $mod+e exec $(dmenu_path_c | dmenu -fn 'Xft:DejaVu Sans Mono:pixelsize=10' -nf '#9f0' -sf '#222' -sb '#9f0' -nb '#333')
 
 # change focus
 bindsym $mod+h focus left
