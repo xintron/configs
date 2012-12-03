@@ -5,7 +5,7 @@ i3status | (read line && echo $line && while :
 do
     read line
     net=$(sh ~/.i3/measure-net-speed.bash)
-    line=$(echo $line | sed 's/time",/&"color": "#ff9900",/')
+    line=$(echo $line | sed -e 's/time",/&"color": "#ff9900",/' -e 's/No battery//')
     np="$(sh ~/.tmux/np_spotify.sh)"
     np="{\"full_text\": \"$np\", \"color\": \"#99ff00\"}"
     data="[$np,{\"full_text\": \"$net\", \"color\": \"#ff9977\"},"

@@ -11,6 +11,9 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+aring kill
 bindsym $mod+e exec $(dmenu_path_c | dmenu -fn 'Xft:DejaVu Sans Mono:pixelsize=10' -nf '#9f0' -sf '#222' -sb '#9f0' -nb '#333')
 
+# Commands
+bindsym $mod+U00a7 exec xclip -o -selection clipboard | xclip
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -108,7 +111,6 @@ bindsym $mod+p mode "resize"
 # finds out, if available)
 bar {
     modifier $mod
-    mode hide
     status_command .i3/statusbar
     font xft:DejaVu Sans Mono 8
 
