@@ -15,10 +15,10 @@ path="/tmp/measure-net-speed"
 # and in the next block. 
 eth0="/sys/class/net/eth0/statistics"
 wlan0="/sys/class/net/wlan0/statistics"
-read eth0_rx < "${eth0}/rx_bytes"
-read eth0_tx < "${eth0}/tx_bytes"
-read wlan0_rx < "${wlan0}/rx_bytes"
-read wlan0_tx < "${wlan0}/tx_bytes"
+read eth0_rx < "${eth0}/rx_bytes" || eth0_rx=0
+read eth0_tx < "${eth0}/tx_bytes" || eth0_tx=0
+read wlan0_rx < "${wlan0}/rx_bytes" || wlan0_rx=0
+read wlan0_tx < "${wlan0}/tx_bytes" || wlan0_tx=0
 
 # get time and sum of rx/tx for combined display
 time=$(date +%s)
@@ -56,7 +56,7 @@ if [[ "${time_diff}" -gt 0 ]]; then
   # incoming
   rx_kib=$(( $rx_rate >> 10 ))
   if [[ "$rx_rate" -gt 1048576 ]]; then
-    echo -n "D: ${rx_kib:0:1}.${rx_kib:1} MiB/s"
+    echo -n "D: ${rx_kib:0: -3}.${rx_kib: -3} MiB/s"
   else
     echo -n "D: ${rx_kib} KiB/s"
   fi
@@ -66,7 +66,7 @@ if [[ "${time_diff}" -gt 0 ]]; then
   # outgoing
   tx_kib=$(( $tx_rate >> 10 ))
   if [[ "$tx_rate" -gt 1048576 ]]; then
-    echo -n "U: ${tx_kib:0:1}.${tx_kib:1} MiB/s"
+    echo -n "U: ${tx_kib:0: -3}.${tx_kib: -3} MiB/s"
   else
     echo -n "U: ${tx_kib} KiB/s"
   fi
