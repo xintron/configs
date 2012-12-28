@@ -7,6 +7,7 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:ctrlp_map = '<Leader>m'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_switch_buffer = 0
 
 " indent
 let g:indent_guides_auto_colors = 0
