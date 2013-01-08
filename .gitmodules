@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/base16"]
 	path = .vim/bundle/base16
 	url = git://github.com/chriskempson/base16-vim.git
+[submodule ".vim/bundle/vim-jinja2-syntax"]
+	path = .vim/bundle/vim-jinja2-syntax
+	url = git://github.com/Glench/Vim-Jinja2-Syntax.git

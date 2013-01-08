@@ -7,6 +7,9 @@ do
     net=$(sh ~/.i3/measure-net-speed.bash)
     line=$(echo $line | sed -e 's/time",/&"color": "#ff9900",/' -e 's/No battery//')
     np="$(sh ~/.tmux/np_spotify.sh)"
+    if [ -z "$np" ]; then
+        np="$(sh ~/.i3/np.sh)"
+    fi
     np="{\"full_text\": \"$np\", \"color\": \"#99ff00\"}"
     data="[$np,{\"full_text\": \"$net\", \"color\": \"#ff9977\"},"
     echo "${line/[/$data}" || exit 1
