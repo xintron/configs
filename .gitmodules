@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-jinja2-syntax"]
 	path = .vim/bundle/vim-jinja2-syntax
 	url = git://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git

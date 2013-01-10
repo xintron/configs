@@ -25,3 +25,8 @@ nmap <silent> <Leader>tl :TlistToggle<CR>
 nmap <silent> <Leader>td :TlistUpdate<CR>
 
 nmap <silent> <Leader>g :GundoToggle<CR>
+
+
+" Generate an identifier
+imap <Leader>di <C-R>=system('date +"%s.%N" \| md5sum')[0:20]<CR>
+imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
