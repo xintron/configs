@@ -52,3 +52,5 @@ set grepprg=grep\ -n\ $@
 
 set completeopt=menuone,longest,preview
 set nofoldenable
+
+set background=dark

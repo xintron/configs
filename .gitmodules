@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/pyflakes-vim"]
-	path = .vim/bundle/pyflakes-vim
-	url = git://github.com/kevinw/pyflakes-vim.git
 [submodule ".pentadactyl/plugins/buftabs"]
 	path = .pentadactyl/plugins/buftabs
 	url = git://github.com/grassofhust/buftabs.git
@@ -67,3 +64,6 @@
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/vim-flake8"]
+	path = .vim/bundle/vim-flake8
+	url = git://github.com/nvie/vim-flake8.git
