@@ -8,23 +8,12 @@
     m:0x90 + c:49
     Mod2+Mod5 + section
 
-"mpc toggle"
+"pbctrl toggle"
     m:0x80 + c:35
     Mod5 + dead_diaeresis
-"mpc next"
+"pbctrl next"
     m:0x80 + c:114
     Mod5 + Right
-"mpc prev"
+"pbctrl prev"
     m:0x80 + c:113
     Mod5 + Left
-
-
-#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause 2>/dev/null"
-#    m:0x80 + c:35
-#    Mod5 + dead_diaeresis
-#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next 2>/dev/null"
-#    m:0x80 + c:114
-#    Mod5 + Right
-#"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous 2>/dev/null"
-#    m:0x80 + c:113
-#    Mod5 + Left
