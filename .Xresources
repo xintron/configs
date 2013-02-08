@@ -31,8 +31,6 @@ ratmenu.fgcolor: #99ff00
 
 urxvt.borderless: true
 
-#include "/home/xintron/.xresources/base16/base16-default.dark.xresources"
-
 /* Colors */
 urxvt.colorIT: #FFFFFF
 urxvt.colorBD: #FFFFFF
@@ -41,6 +39,8 @@ urxvt.colorRV: #333333
 urxvt.underlineColor: #0E0E0E
 urxvt.pointerColor: #252525
 urxvt.pointerColor2: #252525
+
+#include "/home/xintron/.xresources/base16/base16-tomorrow.dark.xresources"
 
 /* fonts */
 urxvt.font: xft:DejaVu Sans Mono:pixelsize=10

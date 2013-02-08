@@ -7,14 +7,23 @@ endif
 if exists('g:colors_name') && g:colors_name == 'molokai'
     hi Normal ctermbg=none
     hi LineNr ctermbg=none
+
 endif
 
 hi IndentGuidesOdd ctermbg=233
 hi IndentGuidesEven ctermbg=234
 
-" Default statusline-color
-hi User1 term=bold cterm=bold ctermfg=202 ctermbg=233
-" Options color
-hi User2 term=bold cterm=bold ctermfg=10 ctermbg=233
-" Warning color
-hi User3 term=bold cterm=bold ctermfg=9 ctermbg=233
+hi LineNr ctermbg=none ctermfg=2
+
+" Position color
+hi User1 ctermfg=0 ctermbg=4
+" formatoptions
+hi User2 ctermfg=0 ctermbg=9
+" line color
+hi User3 ctermfg=0 ctermbg=2
+" column color
+hi User4 ctermfg=0 ctermbg=5
+" warning color
+hi User5 ctermfg=0 ctermbg=1
+" Filetype
+hi User6 ctermfg=0 ctermbg=7

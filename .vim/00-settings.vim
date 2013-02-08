@@ -27,9 +27,10 @@ set ignorecase
 set smartcase
 set hlsearch
 
-set statusline=%<%F\ [%Y%H%M%R\ #%n]\%=
-set statusline+=fo:\ [%{&fo}]\ line:\ %l\,%L\[%P\]\ col:\ %c%V\ \[%b\]\[0x%B\]
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline=%<%F\ %5*%m%*%=
+set statusline+=%1*\ %P\ %*%2*\ %{&fo}\ %*%3*\ %l\/%L\|%c%V\ %*%4*\ %b\|0x%B
+set statusline+=\ %6*\ %Y
+set statusline+=\ %*%5*%{SyntasticStatuslineFlag()}
 set laststatus=2
 set backupdir=/tmp/xintron/vim
 set directory=/tmp/xintron/vim
