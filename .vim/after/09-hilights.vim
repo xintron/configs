@@ -14,6 +14,7 @@ hi IndentGuidesOdd ctermbg=233
 hi IndentGuidesEven ctermbg=234
 
 hi LineNr ctermbg=none ctermfg=2
+hi ModeMsg term=none cterm=none
 
 " Position color
 hi User1 ctermfg=0 ctermbg=4
