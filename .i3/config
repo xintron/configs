@@ -34,6 +34,7 @@ bindsym $mod+U0027 split h
 bindsym $mod+U002d split v
 
 bindsym $mod+u fullscreen
+bindsym $mod+Shift+u fullscreen global
 
 # Scratchpad-bindings (hide windows easy)
 bindsym $mod+s move scratchpad
