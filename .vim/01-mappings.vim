@@ -21,8 +21,7 @@ nmap <C-h>h :call SynStack()<CR>
 nmap <Leader>b :CtrlPBuffer<CR>
 nmap <Leader># :b#<CR>
 
-nmap <silent> <Leader>tl :TlistToggle<CR>
-nmap <silent> <Leader>td :TlistUpdate<CR>
+nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
 
 nmap <silent> <Leader>g :GundoToggle<CR>
 

@@ -19,7 +19,6 @@ set wildmenu
 set wildmode=list:longest,full
 set wildignore+=*.pyc
 
-set number
 set relativenumber
 set cursorline
 set incsearch

@@ -25,7 +25,14 @@ let g:UltiSnipsSnippetsDir = split(&runtimepath, ',')[0] . '/snippets/'
 let g:UltiSnipsListSnippets = "<Leader>s"
 let g:snips_author = "Marcus Carlsson"
 
-" TagList
-let g:Tlist_Compact_Format = 1
-let g:Tlist_Enable_Fold_Column = 0
-let g:Tlist_WinWidth = 35
+" Tagbar
+let g:tagbar_width = 35
+
+let g:tagbar_type_php = {
+    \ 'kinds' : [
+        \ 'i:interfaces',
+        \ 'c:classes',
+        \ 'd:constant definitions:0:0',
+        \ 'f:functions',
+    \ ],
+\ }
