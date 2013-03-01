@@ -134,4 +134,6 @@ focus_follows_mouse no
 new_window 1pixel
 workspace_auto_back_and_forth yes
 
-for_window [title="Steam"] floating enable
+bindsym $mod+Ctrl+9 exec ~/bin/togglelayout
+
+#for_window [title="Steam"] floating enable
