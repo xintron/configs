@@ -1,6 +1,5 @@
 --recurse=yes
 --tag-relative=yes
---totals=yes
 --exclude=.git
 
 --php-kinds=+cidf-v

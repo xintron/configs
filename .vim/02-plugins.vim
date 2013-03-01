@@ -5,10 +5,11 @@ let g:syntastic_mode_map = {'mode': 'active',
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_javascript_jslint_conf = '--bitwise --debug --nomen --plusplus --maxlen 80 --browser --undef --sloppy'
 
-let g:ctrlp_map = '<Leader>m'
+let g:ctrlp_map = '<Leader>mm'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
+let g:ctrlp_extensions = ['line', 'tag', 'buffertag']
 
 " indent
 let g:indent_guides_auto_colors = 0
@@ -26,7 +27,9 @@ let g:UltiSnipsListSnippets = "<Leader>s"
 let g:snips_author = "Marcus Carlsson"
 
 " Tagbar
-let g:tagbar_width = 35
+let g:tagbar_width = 25
+let g:tagbar_compact = 1
+let g:tagbar_left = 1
 
 let g:tagbar_type_php = {
     \ 'kinds' : [
