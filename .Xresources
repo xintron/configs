@@ -1,7 +1,8 @@
 ! urxvt
 Xft.dpi: 96
-Xft.hinting: false
-Xft.hintstyle: hintnone
+Xft.hinting: true
+Xft.hintstyle: hintmedium
+Xft:autohint: true
 Xft.rgba: rgb
 Xft.antialias: true
 
@@ -38,13 +39,12 @@ urxvt.pointerColor2: #252525
 
 #include "/home/xintron/.xresources/base16/base16-tomorrow.dark.xresources"
 
-urxvt.letterSpace: -1
 /* fonts */
-urxvt.font: xft:inconsolata:pixelsize=13,xft:Dejavu sans mono:pixelsize=13
-urxvt.boldFont: xft:inconsolata:pixelsize=13:bold
-urxvt.italicFont: xft:inconsolata:pixelsize=13:italic
+urxvt.font: xft:inconsolata:size=10:antialias=false:hintstyle=hintslight
+urxvt.boldFont: xft:inconsolata:size=10:weight=bold:antialias=false:hintstyle=hintslight
+urxvt.italicFont: xft:inconsolata:size=10:slant=italic:antialias=false:hintstyle=hintslight
 
 /* Commands for fonting */
-urxvt.keysym.C-0: command:\033]710;xft:inconsolata:pixelsize=13\007\033]711;xft:inconsolata:pixelsize=13:bold\007\033]712;xft:inconsolata:pixelsize=13:italic\007
-urxvt.keysym.C-1: command:\033]710;xft:inconsolata:pixelsize=15\007\033]711;xft:inconsolata:pixelsize=15:bold\007\033]712;xft:inconsolata:pixelsize=15:italic\007
-urxvt.keysym.C-2: command:\033]710;xft:inconsolata:pixelsize=20\007\033]711;xft:inconsolata:pixelsize=20:bold\007\033]712;xft:inconsolata:pixelsize=20:italic\007
+urxvt.keysym.C-0: command:\033]710;xft:inconsolata:size=10:antialias=false:hintstyle=hintslight\007\033]711;xft:inconsolata:size=10:weight=bold:antialias=false:hintstyle=hintslight\007\033]712;xft:inconsolata:size=10:slant=italic:antialias=false:hintstyle=hintslight\007
+urxvt.keysym.C-1: command:\033]710;xft:inconsolata:size=13:antialias=false:hintstyle=hintslight\007\033]711;xft:inconsolata:size=13:weight=bold:antialias=false:hintstyle=hintslight\007\033]712;xft:inconsolata:size=13:slant=italic:antialias=false:hintstyle=hintslight\007
+urxvt.keysym.C-2: command:\033]710;xft:inconsolata:size=16:antialias=false:hintstyle=hintslight\007\033]711;xft:inconsolata:size=16:weight=bold:antialias=false:hintstyle=hintslight\007\033]712;xft:inconsolata:size=16:slant=italic:antialias=false:hintstyle=hintslight\007
