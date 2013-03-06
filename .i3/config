@@ -2,14 +2,14 @@
 set $mod Mod4
 
 #font -*-montecarlo-*-*-*-*-*-*-*-*-*-iso10646-*
-font xft:DejaVu Sans Mono 7
+font xft:Inconsolata 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvtc
 bindsym $mod+Shift+aring kill
-bindsym $mod+e exec $(dmenu_path_c | dmenu -fn 'Xft:DejaVu Sans Mono:pixelsize=10' -nf '#9f0' -sf '#222' -sb '#9f0' -nb '#333')
+bindsym $mod+e exec $(dmenu_path_c | dmenu -fn 'Xft:Inconsolata:size=10' -nf '#9f0' -sf '#222' -sb '#9f0' -nb '#333')
 
 # Commands
 bindsym $mod+F2 exec xclip -o -selection clipboard | xclip
@@ -114,7 +114,7 @@ bindsym $mod+p mode "resize"
 bar {
     modifier $mod
     status_command .i3/statusbar
-    font xft:DejaVu Sans Mono 8
+    font xft:inconsolata 10
     position top
 
     colors {
