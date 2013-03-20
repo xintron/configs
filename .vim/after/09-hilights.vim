@@ -16,8 +16,9 @@ hi IndentGuidesEven ctermbg=234
 hi LineNr ctermbg=none ctermfg=2
 hi ModeMsg term=none cterm=none
 
+hi StatusLine term=none ctermfg=12 ctermbg=232
 " Position color
-hi User1 ctermfg=0 ctermbg=4
+hi User1 ctermfg=0 ctermbg=6
 " formatoptions
 hi User2 ctermfg=0 ctermbg=9
 " line color

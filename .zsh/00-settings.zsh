@@ -2,6 +2,7 @@ set -o vi
 
 export TZ='Europe/Stockholm'
 export EDITOR="vim"
+[ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 export PATH=$HOME/bin:$PATH
 if [ -n "$(command -v "vimpager")" ]; then
     export PAGER="vimpager"
