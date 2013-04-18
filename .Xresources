@@ -15,7 +15,7 @@ urxvt.urlLauncher: firefox
 
 urxvt.urgentOnBell: true
 urxvt.cursorBlink: false
-urxvt.transparent: false 
+urxvt.transparent: false
 urxvt.shading:          100
 urxvt.scrollBar:        false
 urxvt.saveLines:        4096
@@ -27,6 +27,7 @@ ratmenu.bgcolor: #222222
 ratmenu.fgcolor: #99ff00
 
 urxvt.borderless: true
+urxvt.geometry: 120x40
 
 /* Colors */
 urxvt.colorIT: #FFFFFF
@@ -37,7 +38,7 @@ urxvt.underlineColor: #0E0E0E
 urxvt.pointerColor: #252525
 urxvt.pointerColor2: #252525
 
-#include "/home/xintron/.xresources/base16/base16-tomorrow.dark.xresources"
+#include "/home/xintron/.xresources/xintron.theme"
 
 /* fonts */
 urxvt.font: xft:inconsolata:size=10:antialias=false:hintstyle=hintslight

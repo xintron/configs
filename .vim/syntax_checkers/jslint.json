@@ -1,0 +1,11 @@
+{
+    "bitwise": true,
+    "browser": true,
+    "devel": true,
+    "eqeq": false,
+    "maxlen": 80,
+    "regexp": true,
+    "plusplus": true,
+    "sloppy": false,
+    "unparam": false
+}

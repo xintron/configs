@@ -50,7 +50,7 @@ set textwidth=79
 
 set grepprg=grep\ -n\ $@
 
-set completeopt=menuone,longest,preview
+set completeopt=menuone,preview
 set nofoldenable
 
 set background=dark

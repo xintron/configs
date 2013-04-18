@@ -116,6 +116,7 @@ bar {
     status_command .i3/statusbar
     font xft:inconsolata 10
     position top
+    tray_output primary
 
     colors {
         focused_workspace #227700 #227700 #cccccc
