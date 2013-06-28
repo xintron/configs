@@ -1,10 +1,10 @@
-"pamixer --decrease 2"
+"volctl decrease"
     m:0x90 + c:48
     Mod2+Mod5 + minus
-"pamixer --increase 2"
+"volctl increase"
     m:0x90 + c:20
     Mod2+Mod5 + plus
-"pamixer --toggle-mute"
+"volctl toggle"
     m:0x90 + c:49
     Mod2+Mod5 + section
 

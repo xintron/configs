@@ -34,6 +34,8 @@ alias du='du -h'
 alias c256='for i in {0..255}; do echo -e "\e[38;05;${i}m  ░▒▓██▓▒░ \e[0m${i}"; done | column -c 70 -s" "; echo -e "\e[m"'
 alias pps='ps -eo pid,time,%cpu,%mem,comm --sort=-%cpu,+%mem'
 
+alias jurl='curl -H "Content-Type: application/json"'
+
 # Virtualenv-fix
 if [ -d /home/xintron/python/env/ ]; then
     export WORKON_HOME=/home/xintron/python/env/
