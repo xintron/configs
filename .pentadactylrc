@@ -3,7 +3,7 @@ set showtabline=never
 " set mapleader=,
 set showstatuslinks=command
 set hlfind
-set defsearch=google
+set defsearch=duckduckgo
 set hintinputs=label,value,name
 
 autocmd PageLoad '^https?://(?:www\.)?(?:youtu\.be/|youtube\.com/watch\?.*?v=)[0-9A-Za-z-_]+' :silent !splay '<url>' &
