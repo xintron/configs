@@ -39,5 +39,7 @@ for f in $ZSH_HOME/lib/*.zsh; do
     source $f
 done
 
+[[ -f $ZSH_HOME/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZSH_HOME/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Load gistit token if available
 [[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc

@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/vdebug"]
 	path = .vim/bundle/vdebug
 	url = git://github.com/joonty/vdebug.git
+[submodule ".zsh/modules/zsh-syntax-highlighting"]
+	path = .zsh/modules/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
