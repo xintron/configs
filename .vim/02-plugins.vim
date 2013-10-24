@@ -24,6 +24,7 @@ let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
 let g:UltiSnipsSnippetsDir = split(&runtimepath, ',')[0] . '/snippets/'
 let g:UltiSnipsListSnippets = "<Leader>s"
+let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:snips_author = "Marcus Carlsson"
 
 " Tagbar

@@ -9,6 +9,12 @@ ${1:public }function ${2:someFunc}(${3}) {
 }
 endsnippet
 
+snippet pub "Public function" !
+public function ${2:somefunc}(${3}) {
+	${4}
+}
+endsnippet
+
 snippet fore "Foreach loop" !
 foreach ($${1:data} as $${2:row})  {
     $3
@@ -21,4 +27,8 @@ endsnippet
 
 snippet tern "Ternary operator return/variable assignement"
 $${1:var} = (${2:condition}) ? ${3:${VISUAL:true}} : ${4:false}
+endsnippet
+
+snippet dv "Die vardump" !
+die(var_dump(${1:${VISUAL}}));
 endsnippet
