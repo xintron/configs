@@ -1,4 +1,4 @@
 hash -d http=/usr/share/nginx/http
 hash -d bin=$HOME/bin
-[ -d /mnt/files/music ] && hash -d music=/mnt/files/music
-[ -d /mnt/data/videos ] && hash -d videos=/mnt/data/videos
+[ -d /data/backups/ ] && hash -d backups=/data/backups
+[ -d /data/main/ ] && hash -d data=/data/main
