@@ -1,10 +1,11 @@
 ! urxvt
 Xft.dpi: 96
-Xft.hinting: true
-Xft.hintstyle: hintmedium
-Xft:autohint: true
+Xft.lcdfilter: lcddefault
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.autohint: 0
 Xft.rgba: rgb
-Xft.antialias: true
+Xft.antialias: 1
 
 /* urL-yanking */
 urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
@@ -41,11 +42,11 @@ urxvt.pointerColor2: #252525
 #include "/home/xintron/.xresources/xintron.theme"
 
 /* fonts */
-urxvt.font: xft:inconsolata:size=10:antialias=false:hintstyle=hintslight
-urxvt.boldFont: xft:inconsolata:size=10:weight=bold:antialias=false:hintstyle=hintslight
-urxvt.italicFont: xft:inconsolata:size=10:slant=italic:antialias=false:hintstyle=hintslight
+urxvt.font: xft:inconsolata:size=10
+urxvt.boldFont: xft:inconsolata:size=10:weight=bold
+urxvt.italicFont: xft:inconsolata:size=10:slant=italic
 
 /* Commands for fonting */
-urxvt.keysym.C-0: command:\033]710;xft:inconsolata:size=10:antialias=false:hintstyle=hintslight\007\033]711;xft:inconsolata:size=10:weight=bold:antialias=false:hintstyle=hintslight\007\033]712;xft:inconsolata:size=10:slant=italic:antialias=false:hintstyle=hintslight\007
-urxvt.keysym.C-1: command:\033]710;xft:inconsolata:size=13:antialias=false:hintstyle=hintslight\007\033]711;xft:inconsolata:size=13:weight=bold:antialias=false:hintstyle=hintslight\007\033]712;xft:inconsolata:size=13:slant=italic:antialias=false:hintstyle=hintslight\007
-urxvt.keysym.C-2: command:\033]710;xft:inconsolata:size=16:antialias=false:hintstyle=hintslight\007\033]711;xft:inconsolata:size=16:weight=bold:antialias=false:hintstyle=hintslight\007\033]712;xft:inconsolata:size=16:slant=italic:antialias=false:hintstyle=hintslight\007
+urxvt.keysym.C-0: command:\033]710;xft:inconsolata:size=10\007\033]711;xft:inconsolata:size=10:weight=bold\007\033]712;xft:inconsolata:size=10:slant=italic\007
+urxvt.keysym.C-1: command:\033]710;xft:inconsolata:size=13\007\033]711;xft:inconsolata:size=13:weight=bold\007\033]712;xft:inconsolata:size=13:slant=italic\007
+urxvt.keysym.C-2: command:\033]710;xft:inconsolata:size=16\007\033]711;xft:inconsolata:size=16:weight=bold\007\033]712;xft:inconsolata:size=16:slant=italic\007
