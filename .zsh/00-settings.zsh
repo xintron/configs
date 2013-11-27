@@ -3,7 +3,8 @@ set -o vi
 export TZ='Europe/Stockholm'
 export EDITOR="vim"
 [ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
-export PATH=$HOME/bin:/usr/lib/ccache/bin/:$PATH
+export GOPATH=$HOME/go
+export PATH=$HOME/bin:/usr/lib/ccache/bin/:$GOPATH/bin:$PATH
 if [ -n "$(command -v "vimpager")" ]; then
     export PAGER="vimpager"
 elif [ -n "$(command -v "less")" ]; then

@@ -40,3 +40,9 @@ let g:tagbar_type_php = {
         \ 'f:functions',
     \ ],
 \ }
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
