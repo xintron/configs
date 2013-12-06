@@ -46,3 +46,7 @@ let g:neocomplete#enable_at_startup = 1
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" Jedi
+" This doesn't work well with neocomplete
+let g:jedi#popup_on_dot = 0
