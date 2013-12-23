@@ -3,7 +3,7 @@ hi clear
 syntax reset
 let g:colors_name = "xintron"
 
-hi Normal ctermfg=7 ctermbg=0
+hi Normal ctermfg=7 ctermbg=none
 hi Bold cterm=bold
 
 hi Boolean ctermfg=6
@@ -90,10 +90,10 @@ hi WildMenu ctermfg=81 ctermbg=16
 hi Comment ctermfg=8
 hi ColorColumn ctermbg=235
 hi CursorColumn ctermbg=232
-hi NonText ctermfg=232 ctermbg=232
-hi CursorLine ctermbg=235 cterm=none
-hi CursorLineNr ctermfg=8 ctermbg=235
-hi LineNr ctermfg=8 ctermbg=232
+hi NonText ctermfg=232 ctermbg=none
+hi CursorLine ctermbg=232 cterm=none
+hi CursorLineNr ctermfg=15 ctermbg=232
+hi LineNr ctermfg=15 ctermbg=none
 
 hi TabLine ctermfg=100 ctermbg=232
 hi TabLineFill ctermfg=232 ctermbg=233

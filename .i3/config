@@ -115,8 +115,8 @@ bindsym $mod+p mode "resize"
 # finds out, if available)
 bar {
     modifier $mod
-    status_command .i3/statusbar
-    font xft:inconsolata 10
+    status_command .i3/conkyjson
+    font xft:Inconsolata 10
     position top
     tray_output primary
 
@@ -134,7 +134,7 @@ client.urgent           #2f343a #900000 #cccccc #900000
 
 focus_follows_mouse no
 
-new_window 1pixel
+new_window none
 workspace_auto_back_and_forth yes
 
 bindsym $mod+Ctrl+9 exec ~/bin/togglelayout

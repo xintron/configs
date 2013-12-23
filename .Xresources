@@ -16,8 +16,8 @@ urxvt.urlLauncher: firefox
 
 urxvt.urgentOnBell: true
 urxvt.cursorBlink: false
-urxvt.transparent: false
-urxvt.shading:          100
+urxvt.transparent: true
+urxvt.shading:          20
 urxvt.scrollBar:        false
 urxvt.saveLines:        4096
 urxvt.mouseWheelScrollPage: true

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo -en '{"version": 1}'"\n[\n[],\n"
+exec conky -c $HOME/.conkyjson
