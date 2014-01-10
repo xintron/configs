@@ -20,6 +20,11 @@ if_up_strictness address
 
 TEXT
 [
+{"full_text": "${execi 5 np.sh}"},
+${if_existing /sys/class/power_supply/AC0/online 0}
+{"full_text": "bat: ${battery_percent}% ${battery_time}", "color": "${if_match ${battery_percent} < 20}\#fb1900${else}\#a9dc3a${endif}"},
+${endif}
+{"full_text": "conn: ${execi 5 netstat -nt | grep -c ESTABLISHED}", "color": "\#ffd33c"},
 ${if_up eth0}
 {"full_text": "${downspeed eth0} ↓", "short_text": "${downspeed eth0}", "color": "\#a9dc3a", "separator": false, "separator_block_width": 3},
 {"full_text": "${upspeed eth0} ↑", "short_text": "${upspeed eth0}", "color": "\#fb5200"},
@@ -28,14 +33,10 @@ ${endif}
 ${if_up wlan0}
 {"full_text": "${downspeed wlan0} ↓", "short_text": "${downspeed wlan0}", "color": "\#a9dc3a", "separator": false, "separator_block_width": 3},
 {"full_text": "${upspeed wlan0} ↑", "short_text": "${upspeed wlan0}", "color": "\#fb5200"},
-{"full_text": "w: ${addr wlan0}", "color": "\#f1f1f1"},
+{"full_text": "w: ${addr wlan0} ${wireless_link_qual_perc wlan0}%", "color": "\#f1f1f1"},
 ${endif}
 {"full_text": "disk: ${diskio}"},
-{"full_text": "mem: ${mem} / ${memmax} (${memperc}%)", "color": "\#ff3180"},
+{"full_text": "mem: ${mem} (${memperc}%)", "color": "\#ff3180"},
 {"full_text": "cpu: ${cpu cpu0}%", "color": "${if_match ${cpu cpu0} >= 80}\#fb1900${else}\#6e83bf${endif}"},
 {"full_text": "${time %a %d, %H:%M}", "short_text": "${time %H:%M}", "color": "\#a9dc3a"}
 ],
-
-#Root: ^fg(\#ffc123)${fs_free /}^fg() / ^fg(\#ffc123)${fs_size /}^fg() | ^fg()Home: ^fg(\#ffc123)${fs_free /home}^fg() / ^fg(\#ffc123)${fs_size /home}^fg() | Load:^fg() ^fg(\#ce5c00)${loadavg}^fg() | CPU:^fg() ^fg(\#C4DF90)${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}%^fg() | Net:^fg() ^fg(\#C4DF90)${if_up wlan0}${downspeedf wlan0}${else}${downspeedf eth0}${endif}^fg() / ^fg(\#ce5c00)${if_up wlan0}${upspeedf wlan0}${else}${upspeedf eth0}${endif}^fg() | ${execi 15 /home/xintron/bin/nowplaying} | ^fg(\#ffffff)${time %H:%M:%S} ^fg()
-
-#^fg(\#ffc123)${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4}

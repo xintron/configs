@@ -50,3 +50,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Jedi
 " This doesn't work well with neocomplete
 let g:jedi#popup_on_dot = 0
+
+" ghc-mod
+let g:ghcmod_max_preview_size=5

@@ -24,6 +24,8 @@ colors
 autoload -U compinit
 compinit -i
 zmodload zsh/complist
+autoload edit-command-line
+zle -N edit-command-line
 
 setopt extended_glob
 setopt brace_ccl # Nifty stuff like {a-z} to complement {1..15}

@@ -61,10 +61,10 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+1 workspace 1:web
+bindsym $mod+2 workspace 2:dev
+bindsym $mod+3 workspace 3:media
+bindsym $mod+4 workspace 4:im
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -73,10 +73,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace 1:web
+bindsym $mod+Shift+2 move container to workspace 2:dev
+bindsym $mod+Shift+3 move container to workspace 3:media
+bindsym $mod+Shift+4 move container to workspace 4:im
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -120,17 +120,21 @@ bar {
     position top
     tray_output primary
 
+    mode dock
+    hidden_state hide
+
     colors {
-        focused_workspace #227700 #227700 #cccccc
-        inactive_workspace #333333 #222222 #888888
+        focused_workspace #d98100 #d98100 #000000
+        inactive_workspace #000000 #000000 #cccccc
+        urgent_workspace #fb1900 #fb1900 #000000
     }
 }
 
 # class                 border  backgr. text    indicator
-client.focused          #227700 #227700 #cccccc #99ff00
-client.focused_inactive #333333 #113300 #cccccc #484e50
+client.focused          #d98100 #d98100 #000000 #d98100
+client.focused_inactive #666666 #666666 #000000 #666666
 client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #cccccc #900000
+client.urgent           #fb1900 #fb1900 #000000 #fb1900
 
 focus_follows_mouse no
 
@@ -139,4 +143,8 @@ workspace_auto_back_and_forth yes
 
 bindsym $mod+Ctrl+9 exec ~/bin/togglelayout
 
-#for_window [title="Steam"] floating enable
+for_window [class="MPlayer"] floating enable, border 1pixel
+# Set border for urxvt
+for_window [class="URxvt"] border 1pixel
+for_window [title="keepassx"] floating enable
+

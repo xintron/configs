@@ -32,3 +32,12 @@ nmap <silent> <Leader>g :GundoToggle<CR>
 " Generate an identifier
 imap <Leader>di <C-R>=system('date +"%s.%N" \| md5sum')[0:20]<CR>
 imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
+
+" QuickFix mappings
+nmap <silent> <Space>co :copen<CR>
+nmap <silent> <Space>cl :cclose<CR>
+nmap <silent> <Space>cn :cnext<CR>
+nmap <silent> <Space>cp :cprevious<CR>
+
+" ghc-mod
+nmap <silent> <Space>t :GhcModInfoPreview!<CR>
