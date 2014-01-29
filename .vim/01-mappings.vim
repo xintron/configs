@@ -39,5 +39,12 @@ nmap <silent> <Space>cl :cclose<CR>
 nmap <silent> <Space>cn :cnext<CR>
 nmap <silent> <Space>cp :cprevious<CR>
 
+nmap <silent> <Space>lo :lopen<CR>
+nmap <silent> <Space>lc :lclose<CR>
+
+" Syntastic mappings
+nmap <silent> <Space>e :Errors<CR>
+
 " ghc-mod
-nmap <silent> <Space>t :GhcModInfoPreview!<CR>
+nmap <silent> <Space>ht :GhcModType!<CR>
+nmap <silent> <Space>hc :GhcModTypeClear!<CR>

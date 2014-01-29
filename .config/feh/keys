@@ -1,0 +1,12 @@
+action_0         period
+action_1         comma
+
+delete           D
+next_img         j      l       Right       space
+prev_img         k      h       Left        BackSpace
+remove           d      Delete
+render           m
+toggle_filenames I
+toggle_info      i
+zoom_default     0
+zoom_fit         C-0

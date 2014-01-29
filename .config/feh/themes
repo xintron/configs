@@ -1,0 +1,19 @@
+imgidx --index --output-only .fehindex.jpg --limit-width 1024 \
+       --thumb-width 128 --thumb-height 128 \
+       --fontpath /usr/share/fonts/TTF/ --font DejaVuSans/10 .
+
+rfs --hide-pointer --randomize
+fs  --hide-pointer --sort filename
+
+feh --hide-pointer --fontpath /usr/share/fonts/TTF/ \
+    --font DejaVuSansMono/10 --draw-tinted --info "exiv2 '%f'"
+
+thumb_s  --thumbnails --cache-thumbnails --thumb-width 128 --thumb-height 128 \
+         limit-width 1280 --sort filename \
+         --fontpath /usr/share/fonts/TTF/ --font DejaVuSans/10 \
+         --draw-tinted --info "exiv2 '%f'"
+
+thumb_b  --thumbnails --cache-thumbnails --thumb-width 256 --thumb-height 256 \
+         --limit-width 1280 --sort filename \
+         --fontpath /usr/share/fonts/TTF/ --font DejaVuSans/10 \
+         --draw-tinted --info "exiv2 '%f'"

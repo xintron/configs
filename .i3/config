@@ -147,4 +147,4 @@ for_window [class="MPlayer"] floating enable, border 1pixel
 # Set border for urxvt
 for_window [class="URxvt"] border 1pixel
 for_window [title="keepassx"] floating enable
-
+for_window [class="feh"] floating enable, border 1pixel
