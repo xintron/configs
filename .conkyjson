@@ -25,6 +25,11 @@ ${if_existing /sys/class/power_supply/AC0/online 0}
 {"full_text": "bat: ${battery_percent}% ${battery_time}", "color": "${if_match ${battery_percent} < 20}\#fb1900${else}\#a9dc3a${endif}"},
 ${endif}
 {"full_text": "conn: ${execi 5 netstat -nt | grep -c ESTABLISHED}", "color": "\#ffd33c"},
+${if_up eno1}
+{"full_text": "${downspeed eno1} ↓", "short_text": "${downspeed eno1}", "color": "\#a9dc3a", "separator": false, "separator_block_width": 3},
+{"full_text": "${upspeed eno1} ↑", "short_text": "${upspeed eno1}", "color": "\#fb5200"},
+{"full_text": "e: ${addr eno1}", "color": "\#f1f1f1"},
+${endif}
 ${if_up eth0}
 {"full_text": "${downspeed eth0} ↓", "short_text": "${downspeed eth0}", "color": "\#a9dc3a", "separator": false, "separator_block_width": 3},
 {"full_text": "${upspeed eth0} ↑", "short_text": "${upspeed eth0}", "color": "\#fb5200"},
