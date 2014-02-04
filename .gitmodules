@@ -97,3 +97,6 @@
 [submodule ".vim/bundle/hasksyn"]
 	path = .vim/bundle/hasksyn
 	url = https://github.com/travitch/hasksyn.git
+[submodule ".vim/bundle/vim-hoogle"]
+	path = .vim/bundle/vim-hoogle
+	url = https://github.com/Twinside/vim-hoogle.git
