@@ -94,3 +94,6 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/hasksyn"]
+	path = .vim/bundle/hasksyn
+	url = https://github.com/travitch/hasksyn.git
