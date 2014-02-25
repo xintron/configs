@@ -1,0 +1,11 @@
+Config
+    { font = "xft:Inconsolata-11"
+    , bgColor = "black"
+    , position = Top
+    , commands = [ Run Com "np.sh" [] "np" 10
+                 , Run Date "<fc=#a9dc3a>%a %_d %H:%M</fc>" "date" 10
+                 , Run StdinReader]
+    , sepChar = "%"
+    , allDesktops = True
+    , alignSep = "}{"
+    , template = "%StdinReader% }{ %np% :: %date%" }
