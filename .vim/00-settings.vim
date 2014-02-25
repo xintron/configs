@@ -24,7 +24,7 @@ set cursorline
 set incsearch
 set ignorecase
 set smartcase
-set hlsearch
+set nohlsearch
 
 set statusline=%<%F\ %5*%m%*%=
 set statusline+=%1*\ %P\ %*%2*\ %{&fo}\ %*%3*\ %l\/%L\|%c%V\ %*%4*\ %b\|0x%B
@@ -53,4 +53,5 @@ set grepprg=grep\ -n\ $@
 set completeopt=menuone,preview
 set nofoldenable
 
+setlocal colorcolumn=+1
 set background=dark
