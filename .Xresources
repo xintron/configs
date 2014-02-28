@@ -41,6 +41,9 @@ urxvt.pointerColor2: #252525
 
 #include "/home/xintron/.xresources/xintron.theme"
 
+/* dzen2 */
+dzen2.font: xft:inconsolata:size=10
+
 urxvt.letterSpace: -1
 /* fonts */
 urxvt.font: xft:inconsolata:size=13pt

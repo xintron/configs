@@ -4,37 +4,18 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.UrgencyHook
-import XMonad.Layout.Renamed
+import XMonad.Util.Run
 import System.Exit
 
-import qualified XMonad.Actions.ConstrainedResize as CR
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 modMask' :: KeyMask
 modMask' = mod4Mask
 
-myConfig = def
-    { terminal = "urxvt"
-    , layoutHook = myLayouts
-    , manageHook = myManageHook <+> manageDocks
-    , keys = myKeys
-    -- Don't be stupid with focus
-    , focusFollowsMouse = False
-    , clickJustFocuses = False
-    , focusedBorderColor = "#99ff00"
-    , workspaces = workspaces'
-    , modMask = modMask' }
-
-myPP = xmobarPP
-    { ppCurrent = xmobarColor "#a9dc3a" "" . wrap "/" "/"
-    , ppTitle = xmobarColor "#a9dc3a" "" . shorten 25
-    , ppUrgent = xmobarColor "#fb1900" "" . wrap "*" "*" }
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask .|. controlMask, xK_b)
-
-myLayouts = avoidStruts $ renamed [Replace "[]-"] tiled
-             ||| renamed [Replace "M"] (Mirror tiled)
-             ||| renamed [Replace "[]"] (noBorders Full)
+myLayouts = avoidStruts $ tiled
+             ||| Mirror tiled
+             ||| noBorders Full
   where
     tiled = smartBorders $ Tall 1 (3/100) (1/2)
 
@@ -94,13 +75,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
     -- Restart xmonad
-    , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm, xK_q), spawn "killall conky dzen2; xmonad --recompile; xmonad --restart")
 
     -- 2D navigation
     , ((modm .|. shiftMask, xK_l), screenGo R True)
     , ((modm .|. shiftMask, xK_h), screenGo L True)
     , ((modm .|. controlMask, xK_l), screenSwap R True)
     , ((modm .|. controlMask, xK_h), screenSwap L True)
+
+    -- Struts...
+    , ((modm .|. controlMask, xK_0), sendMessage $ ToggleStrut U)
     ]
     ++
     --
@@ -111,7 +95,35 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
+myPP h = defaultPP
+    { ppCurrent = dzenColor "#a9dc3a" "" . wrap " " " "
+    , ppVisible = dzenColor "#2fcad8" "" . wrap " " " "
+    , ppWsSep = "  "
+    , ppUrgent = dzenColor "#fb5200" ""
+    , ppTitle = dzenColor "#ff3180" "" . shorten 30
+    , ppLayout = dzenColor "#ffd33c" "" .
+        (\x -> case x of
+            "Tall"        -> "^i(/home/xintron/.xmonad/xbm/layout_tall.xbm)"
+            "Mirror Tall" -> "^i(/home/xintron/.xmonad/xbm/layout_mirror_tall.xbm)"
+            "Full"        -> "^i(/home/xintron/.xmonad/xbm/layout_full.xbm)"
+            _             -> x)
+
+    , ppOutput = hPutStrLn h }
+
 main :: IO ()
-main =
-    xmonad . withUrgencyHook NoUrgencyHook .
-        withNavigation2DConfig def =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
+main = do
+    spawnPipe "conky | dzen2 -x '2560' -w '1280' -p -ta r"
+    xbar <- spawnPipe "dzen2 -x '1920' -w '640' -p -ta l"
+    xmonad . withUrgencyHook NoUrgencyHook .  withNavigation2DConfig def $
+        def { terminal = "urxvt"
+            , layoutHook = myLayouts
+            , manageHook = myManageHook <+> manageDocks
+            , handleEventHook = docksEventHook
+            , keys = myKeys
+            , logHook = dynamicLogWithPP $ myPP xbar
+            -- Don't be stupid with focus
+            , focusFollowsMouse = False
+            , clickJustFocuses = False
+            , focusedBorderColor = "#fb5200"
+            , workspaces = workspaces'
+            , modMask = modMask' }
