@@ -4,8 +4,11 @@ Config
     , position = Top
     , commands = [ Run Com "np.sh" [] "np" 10
                  , Run Date "<fc=#a9dc3a>%a %_d %H:%M</fc>" "date" 10
+                 , Run Memory ["-t", "<used>M (<usedratio>%)"] 10
+                 , Run MultiCpu ["-t", "<total>%"] 10
+                 , Run DynNetwork ["-S", "True", "-t", "<dev>: <fc=#a9dc3a><rx>↓</fc>|<fc=#fb5200><tx>↑</fc>"] 20
                  , Run StdinReader]
     , sepChar = "%"
     , allDesktops = True
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %np% :: %date%" }
+    , template = "%StdinReader% }{ %np% :: %dynnetwork% :: %memory% :: %multicpu% :: %date%" }

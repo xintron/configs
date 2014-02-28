@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.Navigation2D
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
@@ -46,7 +47,11 @@ myManageHook = composeAll
     , resource  =? "kdesktop"       --> doIgnore
     -- Flash :(
     , className =? "Plugin-container" --> doFloat
-    , className =? "mpv" --> doFloat ]
+    , className =? "mpv" --> doFloat
+    , className =? "feh" --> doFloat
+    , className =? "Steam" --> doFloat
+    , className =? "Keepassx" --> doFloat
+    , className =? "Gpick" --> doFloat ]
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
@@ -55,8 +60,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_c), kill)
      -- Rotate through the available layout algorithms
     , ((modm, xK_space), sendMessage NextLayout)
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
     -- Resize viewed windows to the correct size
     , ((modm, xK_n), refresh)
     -- Move focus to the next window
@@ -92,6 +95,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
     -- Restart xmonad
     , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+
+    -- 2D navigation
+    , ((modm .|. shiftMask, xK_l), screenGo R True)
+    , ((modm .|. shiftMask, xK_h), screenGo L True)
+    , ((modm .|. controlMask, xK_l), screenSwap R True)
+    , ((modm .|. controlMask, xK_h), screenSwap L True)
     ]
     ++
     --
@@ -101,14 +110,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_b, xK_m, xK_w, xK_v] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 main :: IO ()
 main =
-    xmonad . withUrgencyHook NoUrgencyHook =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
+    xmonad . withUrgencyHook NoUrgencyHook .
+        withNavigation2DConfig def =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
