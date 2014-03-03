@@ -1,0 +1,22 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 1
+total_run_times 0
+# Show GiB as G etc.
+short_units yes
+
+# Create an average over the last x-intervals
+cpu_avg_samples 2
+net_avg_samples 2
+
+# Interface up only if it has an address
+if_up_strictness address
+
+TEXT
+^fg(\#ff3180)^i(/home/xintron/.xmonad/xbm/music.xbm) ${execi 2 np.sh}^fg()    \
+^fg(\#ffd33c)^i(/home/xintron/.xmonad/xbm/mem.xbm) ${mem}^fg()    \
+^fg(\#2fcad8)^i(/home/xintron/.xmonad/xbm/cpu.xbm) ${cpu cpu0}%^fg()    \
+^fg(\#a9dc3a)${downspeed eno1} ^i(/home/xintron/.xmonad/xbm/net_down.xbm)^fg()    \
+^fg(\#fb5200)${upspeed eno1} ^i(/home/xintron/.xmonad/xbm/net_up.xbm)^fg()    \
+^fg(\#a9dc3a)^i(/home/xintron/.xmonad/xbm/time.xbm) ${time %a %d, %H:%M:%S}^fg()
