@@ -15,8 +15,17 @@ if_up_strictness address
 
 TEXT
 ^fg(\#ff3180)^i(/home/xintron/.xmonad/xbm/music.xbm) ${execi 2 np.sh}^fg()    \
+${if_existing /sys/class/power_supply/AC0/online 0}\
+${if_match ${battery_percent} < 20}^fg(\#fb1900)^i(/home/xintron/.xmonad/xbm/bat_low_02.xbm)${else}^fg(\#a9dc3a)^i(/home/xintron/.xmonad/xbm/bat_full_02.xbm)${endif} ${battery_percent}% ${battery_time}^fg()    \
+${endif}\
 ^fg(\#ffd33c)^i(/home/xintron/.xmonad/xbm/mem.xbm) ${mem}^fg()    \
 ^fg(\#2fcad8)^i(/home/xintron/.xmonad/xbm/cpu.xbm) ${cpu cpu0}%^fg()    \
+${if_up eno1}\
 ^fg(\#a9dc3a)${downspeed eno1} ^i(/home/xintron/.xmonad/xbm/net_down.xbm)^fg()    \
 ^fg(\#fb5200)${upspeed eno1} ^i(/home/xintron/.xmonad/xbm/net_up.xbm)^fg()    \
+${endif}\
+${if_up wlan0}\
+^fg(\#a9dc3a)${downspeed wlan0} ^i(/home/xintron/.xmonad/xbm/net_down.xbm)^fg()    \
+^fg(\#fb5200)${upspeed wlan0} ^i(/home/xintron/.xmonad/xbm/net_up.xbm)^fg()    \
+${endif}\
 ^fg(\#a9dc3a)^i(/home/xintron/.xmonad/xbm/time.xbm) ${time %a %d, %H:%M:%S}^fg()

@@ -1,9 +1,9 @@
+module Config where
 import XMonad
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
-import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run
 import System.Exit
 
@@ -110,20 +110,16 @@ myPP h = defaultPP
 
     , ppOutput = hPutStrLn h }
 
-main :: IO ()
-main = do
-    spawnPipe "conky | dzen2 -x '2560' -w '1280' -p -ta r"
-    xbar <- spawnPipe "dzen2 -x '1920' -w '640' -p -ta l"
-    xmonad . withUrgencyHook NoUrgencyHook .  withNavigation2DConfig def $
-        def { terminal = "urxvt"
-            , layoutHook = myLayouts
-            , manageHook = myManageHook <+> manageDocks
-            , handleEventHook = docksEventHook
-            , keys = myKeys
-            , logHook = dynamicLogWithPP $ myPP xbar
-            -- Don't be stupid with focus
-            , focusFollowsMouse = False
-            , clickJustFocuses = False
-            , focusedBorderColor = "#fb5200"
-            , workspaces = workspaces'
-            , modMask = modMask' }
+myConfig bar = def
+    { terminal = "urxvt"
+    , layoutHook = myLayouts
+    , manageHook = myManageHook <+> manageDocks
+    , handleEventHook = docksEventHook
+    , keys = myKeys
+    , logHook = dynamicLogWithPP $ myPP bar
+    -- Don't be stupid with focus
+    , focusFollowsMouse = False
+    , clickJustFocuses = False
+    , focusedBorderColor = "#fb5200"
+    , workspaces = workspaces'
+    , modMask = modMask' }
