@@ -24,6 +24,10 @@ ${if_up eno1}\
 ^fg(\#a9dc3a)${downspeed eno1} ^i(/home/xintron/.xmonad/xbm/net_down.xbm)^fg()    \
 ^fg(\#fb5200)${upspeed eno1} ^i(/home/xintron/.xmonad/xbm/net_up.xbm)^fg()    \
 ${endif}\
+${if_up eth0}\
+^fg(\#a9dc3a)${downspeed eth0} ^i(/home/xintron/.xmonad/xbm/net_down.xbm)^fg()    \
+^fg(\#fb5200)${upspeed eth0} ^i(/home/xintron/.xmonad/xbm/net_up.xbm)^fg()    \
+${endif}\
 ${if_up wlan0}\
 ^fg(\#a9dc3a)${downspeed wlan0} ^i(/home/xintron/.xmonad/xbm/net_down.xbm)^fg()    \
 ^fg(\#fb5200)${upspeed wlan0} ^i(/home/xintron/.xmonad/xbm/net_up.xbm)^fg()    \

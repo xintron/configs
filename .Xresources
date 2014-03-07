@@ -46,11 +46,11 @@ dzen2.font: xft:inconsolata:size=10
 
 urxvt.letterSpace: -1
 /* fonts */
-urxvt.font: xft:inconsolata:size=13pt
-urxvt.boldFont: xft:inconsolata:size=13pt:weight=bold
-urxvt.italicFont: xft:inconsolata:size=13pt:slant=italic
+urxvt.font: xft:inconsolata:size=11
+urxvt.boldFont: xft:inconsolata:size=11:weight=bold
+urxvt.italicFont: xft:inconsolata:size=11:slant=italic
 
 /* Commands for fonting */
-urxvt.keysym.C-0: command:\033]710;xft:inconsolata:size=13pt\007\033]711;xft:inconsolata:size=13pt:weight=bold\007\033]712;xft:inconsolata:size=13pt:slant=italic\007
+urxvt.keysym.C-0: command:\033]710;xft:inconsolata:size=11\007\033]711;xft:inconsolata:size=11:weight=bold\007\033]712;xft:inconsolata:size=11:slant=italic\007
 urxvt.keysym.C-1: command:\033]710;xft:inconsolata:size=14pt\007\033]711;xft:inconsolata:size=14pt:weight=bold\007\033]712;xft:inconsolata:size=14pt:slant=italic\007
 urxvt.keysym.C-2: command:\033]710;xft:inconsolata:size=18pt\007\033]711;xft:inconsolata:size=18pt:weight=bold\007\033]712;xft:inconsolata:size=18pt:slant=italic\007

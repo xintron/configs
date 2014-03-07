@@ -19,7 +19,12 @@ myLayouts = avoidStruts $ tiled
   where
     tiled = smartBorders $ Tall 1 (3/100) (1/2)
 
-workspaces' = ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
+workspaces' = clickable . (map dzenEscape) $
+    ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
+  where
+    clickable l =
+        ["^ca(1, xdotool key super+" ++ show n ++ ")" ++ ws ++ "^ca()" |
+        (ws, n) <- zip l [1..] ]
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -36,7 +41,7 @@ myManageHook = composeAll
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm, xK_r), spawn "dmenu_run -i -fn 'xft:Inconsolata-10'")
+    , ((modm, xK_r), spawn "dmenu_run -i -fn 'inconsolata:size=10' -nf '#a9dc3a' -sf '#fb5200' -nb '#000000' -sb '#000000'")
     -- close focused window
     , ((modm .|. shiftMask, xK_c), kill)
      -- Rotate through the available layout algorithms
@@ -75,7 +80,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
     -- Restart xmonad
-    , ((modm, xK_q), spawn "killall conky dzen2; xmonad --recompile; xmonad --restart")
+    , ((modm, xK_q), spawn "killall conky dzen2 trayer; xmonad --recompile; xmonad --restart")
 
     -- 2D navigation
     , ((modm .|. shiftMask, xK_l), screenGo R True)
