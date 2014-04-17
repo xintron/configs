@@ -13,8 +13,15 @@ alias gps='git push'
 alias gpl='git pull'
 
 # ls
-alias ls='ls --group-directories-first --color=auto -h'
-alias la='ls -lA'
+if [ $OSX -eq 0 ]; then
+    alias ls='ls --group-directories-first --color=auto -h'
+else
+    if [ -x '/Applications/VLC.app/Contents/MacOS/VLC' ]; then
+        alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+        alias cvlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
+    fi
+    alias la='ls -lA'
+fi
 alias lsa='ls -A'
 alias lsf='ls -A *(-.N)'
 alias lsff='ls -A *(-.DN)' # show dotfiles
