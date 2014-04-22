@@ -36,6 +36,13 @@ setopt prompt_subst
 setopt hash_cmds
 setopt auto_list
 
+# Virtualenv
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" -a $OSX -gt 0 ]; then
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    export WORKON_HOME=$HOME/Envs
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 # Load libraries
 for f in $ZSH_HOME/lib/*.zsh; do
     [[ $DEBUG -gt 0 ]] && echo "zsh: sourcing library $f"
