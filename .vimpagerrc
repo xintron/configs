@@ -1,0 +1,8 @@
+let g:loaded_surround = 2
+
+" Enable *after* loading pathogen plugins
+filetype plugin indent on
+syntax on
+
+colorscheme xintron
+" vim: ft=vim:
