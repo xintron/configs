@@ -44,8 +44,6 @@ alias pps='ps -eo pid,time,%cpu,%mem,comm --sort=-%cpu,+%mem'
 alias jurl='curl -H "Content-Type: application/json"'
 alias wurl='curl -w "Status: %{http_code}\nConnect: %{time_connect}\nTTFB: %{time_starttransfer}\nTime total: %{time_total}"'
 
-alias packer='packer --aur'
-
 # Virtualenv-fix
 if [ -d /home/xintron/python/env/ ]; then
     export WORKON_HOME=/home/xintron/python/env/

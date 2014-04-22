@@ -11,10 +11,10 @@ nmap <Leader>p :set paste!<CR>
 nmap <silent> <Leader>ft :exe 'set fo'.(&fo =~ 't' ? '-=t' : '+=t')<CR>
 nmap <Leader>cc :exe 'set colorcolumn='.(&colorcolumn == '' ? '+1' : '')<CR>
 
-map <Leader>l <C-w>l
-map <Leader>j <C-w>j
-map <Leader>k <C-w>k
-map <Leader>h <C-w>h
+nmap <Leader>l <C-w>l
+nmap <Leader>j <C-w>j
+nmap <Leader>k <C-w>k
+nmap <Leader>h <C-w>h
 
 nmap <Leader>nh :nohl<CR>
 nmap <C-h>h :call SynStack()<CR>
@@ -47,4 +47,5 @@ nmap <silent> <Space>e :Errors<CR>
 
 " ghc-mod
 nmap <silent> <Space>ht :GhcModType!<CR>
-nmap <silent> <Space>hc :GhcModTypeClear!<CR>
+nmap <silent> <Space>hc :GhcModTypeClear<CR>
+nmap <silent> <Space>hi :GhcModInfo<CR>

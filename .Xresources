@@ -39,7 +39,7 @@ urxvt.underlineColor: #0E0E0E
 urxvt.pointerColor: #252525
 urxvt.pointerColor2: #252525
 
-#include "/home/xintron/.xresources/xintron.theme"
+#include "/home/xintron/.xresources-dir/xintron.theme"
 
 /* dzen2 */
 dzen2.font: xft:inconsolata:size=10

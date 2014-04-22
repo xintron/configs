@@ -16,9 +16,6 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule ".pentadactyl/plugins/buftabs"]
-	path = .pentadactyl/plugins/buftabs
-	url = git://github.com/grassofhust/buftabs.git
 [submodule ".vim/bundle/vim-less"]
 	path = .vim/bundle/vim-less
 	url = git://github.com/groenewege/vim-less.git

@@ -21,9 +21,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 
 " UltiSnips
 let g:UltiSnipsEditSplit = 'vertical'
-let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
-let g:UltiSnipsSnippetsDir = split(&runtimepath, ',')[0] . '/snippets/'
-let g:UltiSnipsListSnippets = "<Leader>s"
+let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+let g:UltiSnipsSnippetsDir = split(&runtimepath, ',')[0] . '/UltiSnips/'
+let g:UltiSnipsListSnippets = "<c-u>"
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:snips_author = "Marcus Carlsson"
 
@@ -53,3 +53,4 @@ let g:jedi#popup_on_dot = 0
 
 " ghc-mod
 let g:ghcmod_max_preview_size=5
+let g:ghcmod_ghc_options = ['-ilib', '-isrc', '-i.', '-idist/build/autogen', '-Wall', '-fwarn-unused-do-bind']
