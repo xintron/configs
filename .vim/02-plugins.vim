@@ -21,8 +21,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 
 " UltiSnips
 let g:UltiSnipsEditSplit = 'vertical'
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
-let g:UltiSnipsSnippetsDir = split(&runtimepath, ',')[0] . '/UltiSnips/'
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "mysnippets"]
+ let g:UltiSnipsSnippetsDir = split(&runtimepath, ',')[0] . '/mysnippets/'
 let g:UltiSnipsListSnippets = "<c-u>"
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:snips_author = "Marcus Carlsson"

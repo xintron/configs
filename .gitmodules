@@ -97,3 +97,6 @@
 [submodule ".vim/bundle/vim-hoogle"]
 	path = .vim/bundle/vim-hoogle
 	url = https://github.com/Twinside/vim-hoogle.git
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git

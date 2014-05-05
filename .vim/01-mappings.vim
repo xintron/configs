@@ -2,7 +2,6 @@ let mapleader=','
 
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprevious<CR>
-nmap <C-l> :NERDTreeToggle<CR>
 
 nmap <Leader>n :tabnext<CR>
 nmap <Leader>N :tabprev<CR>

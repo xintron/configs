@@ -20,8 +20,9 @@ else
         alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
         alias cvlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
     fi
-    alias la='ls -lA'
+    alias ls='ls -h'
 fi
+alias la='ls -lA'
 alias lsa='ls -A'
 alias lsf='ls -A *(-.N)'
 alias lsff='ls -A *(-.DN)' # show dotfiles
