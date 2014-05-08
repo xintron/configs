@@ -58,9 +58,6 @@
 [submodule ".vim/bundle/php.vim"]
 	path = .vim/bundle/php.vim
 	url = git://github.com/StanAngeloff/php.vim.git
-[submodule ".vim/bundle/vdebug"]
-	path = .vim/bundle/vdebug
-	url = git://github.com/joonty/vdebug.git
 [submodule ".zsh/modules/zsh-syntax-highlighting"]
 	path = .zsh/modules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

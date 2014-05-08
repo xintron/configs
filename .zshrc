@@ -4,6 +4,8 @@ OSX=0
 # Set the OSX flag
 [ `uname` = 'Darwin' ] && OSX=1
 
+# Stop OSX insanity!
+[ $OSX -gt 0 ] && export LC_ALL=en_US.UTF-8
 
 if [ -n "$(command -v "dircolors")" ]; then
     eval $(dircolors -b $HOME/.dircolors)
