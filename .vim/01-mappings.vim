@@ -23,6 +23,9 @@ nmap <Leader>mn :CtrlPBufTagAll<CR>
 nmap <Leader>ml :CtrlPLine<CR>
 nmap <Leader># :b#<CR>
 
+" C-] doesn't work under OS X for some reason. This is one way of solving it.
+nmap <Space>] <C-]>
+
 nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
 
 nmap <silent> <Leader>g :GundoToggle<CR>

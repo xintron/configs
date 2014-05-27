@@ -17,7 +17,14 @@ call pathogen#infect()
 filetype plugin indent on
 syntax on
 
-colorscheme xintron
+colorscheme Tomorrow-Night
+
+hi User1 ctermfg=0 ctermbg=6
+hi User2 ctermfg=0 ctermbg=9
+hi User3 ctermfg=0 ctermbg=2
+hi User4 ctermfg=0 ctermbg=5
+hi User5 ctermfg=0 ctermbg=1
+hi User6 ctermfg=0 ctermbg=7
 
 for f in split(globpath(split(&runtimepath, ',')[0], 'after/*.vim'), '\n')
     if (f =~ '\v0[0-9].+\.vim')

@@ -1,8 +1,2 @@
-set show-author = yes           # Show author?
-set show-date = relative        # Show relative commit date.
-set show-rev-graph = yes        # Show revision graph?
-set show-refs = yes             # Show references?
-set show-line-numbers = no      # Show line numbers?
-set line-number-interval = 5    # Interval between line numbers
 set horizontal-scroll = 33%     # Scroll 33% of the view width
 set line-graphics = utf-8
