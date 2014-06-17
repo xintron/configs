@@ -100,3 +100,9 @@
 [submodule ".vim/bundle/vdebug"]
 	path = .vim/bundle/vdebug
 	url = https://github.com/joonty/vdebug.git
+[submodule ".vim/bundle/vim-phpunitqf"]
+	path = .vim/bundle/vim-phpunitqf
+	url = https://github.com/joonty/vim-phpunitqf.git
+[submodule ".vim/bundle/vim-ls"]
+	path = .vim/bundle/vim-ls
+	url = https://github.com/gkz/vim-ls.git
