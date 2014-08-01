@@ -1,111 +1,12 @@
-[submodule ".vim/bundle/vim-pathogen"]
-	path = .vim/bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/vim-indent-guides"]
-	path = .vim/bundle/vim-indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule ".vim/bundle/molokai"]
-	path = .vim/bundle/molokai
-	url = git://github.com/tomasr/molokai.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/vim-less"]
-	path = .vim/bundle/vim-less
-	url = git://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-coffee-script"]
-	path = .vim/bundle/vim-coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule ".vim/bundle/delimitMate"]
-	path = .vim/bundle/delimitMate
-	url = git://github.com/Raimondi/delimitMate.git
 [submodule ".zsh/completion/zsh-curl-completion"]
 	path = .zsh/completion/zsh-curl-completion
 	url = git://github.com/Valodim/zsh-curl-completion.git
 [submodule ".zsh/completion/zsh-completions"]
 	path = .zsh/completion/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
-[submodule ".vim/bundle/ultisnips"]
-	path = .vim/bundle/ultisnips
-	url = git://github.com/SirVer/ultisnips.git
-[submodule ".vim/bundle/nginx-vim-syntax"]
-	path = .vim/bundle/nginx-vim-syntax
-	url = git://github.com/evanmiller/nginx-vim-syntax.git
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/gundu.vim"]
-	path = .vim/bundle/gundu.vim
-	url = git://github.com/sjl/gundo.vim.git
-[submodule ".vim/bundle/vim-jinja2-syntax"]
-	path = .vim/bundle/vim-jinja2-syntax
-	url = git://github.com/Glench/Vim-Jinja2-Syntax.git
-[submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundle/vim-javascript-syntax"]
-	path = .vim/bundle/vim-javascript-syntax
-	url = git://github.com/jelera/vim-javascript-syntax.git
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/php.vim"]
-	path = .vim/bundle/php.vim
-	url = git://github.com/StanAngeloff/php.vim.git
 [submodule ".zsh/modules/zsh-syntax-highlighting"]
 	path = .zsh/modules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".vim/bundle/ag.vim"]
-	path = .vim/bundle/ag.vim
-	url = https://github.com/rking/ag.vim.git
-[submodule ".vim/bundle/jedi-vim"]
-	path = .vim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/neocomplete"]
-	path = .vim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule ".vim/bundle/ghcmod-vim"]
-	path = .vim/bundle/ghcmod-vim
-	url = https://github.com/eagletmt/ghcmod-vim.git
-[submodule ".vim/bundle/vimproc.vim"]
-	path = .vim/bundle/vimproc.vim
-	url = https://github.com/Shougo/vimproc.vim.git
-[submodule ".vim/bundle/neco-ghc"]
-	path = .vim/bundle/neco-ghc
-	url = https://github.com/eagletmt/neco-ghc.git
-[submodule ".vim/bundle/vim-vinegar"]
-	path = .vim/bundle/vim-vinegar
-	url = git://github.com/tpope/vim-vinegar.git
-[submodule ".vim/bundle/tabular"]
-	path = .vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
-[submodule ".vim/bundle/hasksyn"]
-	path = .vim/bundle/hasksyn
-	url = https://github.com/travitch/hasksyn.git
-[submodule ".vim/bundle/vim-hoogle"]
-	path = .vim/bundle/vim-hoogle
-	url = https://github.com/Twinside/vim-hoogle.git
-[submodule ".vim/bundle/vim-snippets"]
-	path = .vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
-[submodule ".vim/bundle/vdebug"]
-	path = .vim/bundle/vdebug
-	url = https://github.com/joonty/vdebug.git
-[submodule ".vim/bundle/vim-phpunitqf"]
-	path = .vim/bundle/vim-phpunitqf
-	url = https://github.com/joonty/vim-phpunitqf.git
-[submodule ".vim/bundle/vim-ls"]
-	path = .vim/bundle/vim-ls
-	url = https://github.com/gkz/vim-ls.git
-[submodule ".vim/bundle/vim-virtualenv"]
-	path = .vim/bundle/vim-virtualenv
-	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git

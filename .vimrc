@@ -1,19 +1,74 @@
 " Author: Marcus Carlsson <hi@xintron.se>
 
-if !isdirectory('/tmp/xintron/vim')
-    call mkdir('/tmp/xintron/vim', 'p', 0700)
+if !isdirectory(expand('~/.vim/tmp/'))
+    call mkdir(expand('~/.vim/tmp/backup/'), 'p', 0700)
+    call mkdir(expand('~/.vim/tmp/swap/'), 'p', 0700)
+    call mkdir(expand('~/.vim/tmp/undo/'), 'p', 0700)
 endif
 
-for f in split(globpath(split(&runtimepath, ',')[0], '*.vim'), '\n')
-    if (f =~ '\v0[0-9].+\.vim')
-        exe 'source'.f
-    endif
-endfor
+if has("vim_starting")
+    " Needed for neobundle to work
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
+    for f in split(globpath(split(&runtimepath, ',')[0], '*.vim'), '\n')
+        if (f =~ '\v0[0-9].+\.vim')
+            exe 'source'.f
+        endif
+    endfor
+endif
 
-" Enable *after* loading pathogen plugins
+call neobundle#begin(expand("~/.vim/bundle/"))
+NeoBundleFetch "Shougo/neobundle.vim"
+
+
+" Misc plugins
+NeoBundle "Shougo/neocomplete.vim"
+NeoBundle "Shougo/unite.vim"
+NeoBundle "Shougo/neossh.vim"
+NeoBundle "Shougo/vimfiler.vim"
+NeoBundle "Shougo/vimproc.vim", {
+    \ "build": {
+    \       "mac": "make -f make_mac.mak",
+    \       "unix": "make -f make_unix.mak"
+    \   },
+    \ }
+
+NeoBundle "tpope/vim-surround"
+NeoBundle "tpope/vim-fugitive"
+
+NeoBundle "kien/ctrlp.vim"
+NeoBundle "scrooloose/syntastic"
+NeoBundle "bling/vim-airline"
+NeoBundle "ervandew/supertab"
+NeoBundle "rking/ag.vim"
+NeoBundle "majutsushi/tagbar"
+NeoBundle "sjl/gundo.vim"
+NeoBundle "Mark"
+
+" Python Plugins
+NeoBundle "davidhalter/jedi-vim"
+NeoBundle "SirVer/ultisnips"
+NeoBundle "honza/vim-snippets"
+
+" PHP
+NeoBundle "spf13/PIV"
+NeoBundle "shawncplus/phpcomplete.vim"
+
+" JavaScript (and the likes)
+NeoBundle "gkz/vim-ls" " LiveScript support
+
+" Syntax files
+NeoBundle "evanmiller/nginx-vim-syntax"
+NeoBundle "tpope/vim-markdown"
+NeoBundle "pangloss/vim-javascript"
+
+" Colors
+NeoBundle "chriskempson/vim-tomorrow-theme"
+
+call neobundle#end()
+NeoBundleCheck
+
+" Enable *after* loading plugins
 filetype plugin indent on
 syntax on
 

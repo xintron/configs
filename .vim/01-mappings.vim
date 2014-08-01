@@ -1,39 +1,22 @@
 let mapleader=','
 
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprevious<CR>
-
-nmap <Leader>n :tabnext<CR>
-nmap <Leader>N :tabprev<CR>
+" Misc {{{
+"
+" Better search {{{
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" }}}
+"
 nmap <Leader>p :set paste!<CR>
 
 nmap <silent> <Leader>ft :exe 'set fo'.(&fo =~ 't' ? '-=t' : '+=t')<CR>
 nmap <Leader>cc :exe 'set colorcolumn='.(&colorcolumn == '' ? '+1' : '')<CR>
 
-nmap <Leader>l <C-w>l
-nmap <Leader>j <C-w>j
-nmap <Leader>k <C-w>k
-nmap <Leader>h <C-w>h
-
-nmap <Leader>nh :nohl<CR>
+nmap <silent> <Leader><Space> :nohl<CR>:Mark<CR>
 nmap <C-h>h :call SynStack()<CR>
-nmap <Leader>mb :CtrlPBuffer<CR>
-nmap <Leader>mt :CtrlPTag<CR>
-nmap <Leader>mn :CtrlPBufTagAll<CR>
-nmap <Leader>ml :CtrlPLine<CR>
-nmap <Leader># :b#<CR>
 
 " C-] doesn't work under OS X for some reason. This is one way of solving it.
 nmap <Space>] <C-]>
-
-nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
-
-nmap <silent> <Leader>g :GundoToggle<CR>
-
-
-" Generate an identifier
-imap <Leader>di <C-R>=system('date +"%s.%N" \| md5sum')[0:20]<CR>
-imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
 
 " QuickFix mappings
 nmap <silent> <Space>co :copen<CR>
@@ -44,10 +27,33 @@ nmap <silent> <Space>cp :cprevious<CR>
 nmap <silent> <Space>lo :lopen<CR>
 nmap <silent> <Space>lc :lclose<CR>
 
+" Generate stuff in insert mode {{{
+" Generate an identifier
+imap <Leader>di <C-R>=system('date +"%s.%N" \| md5sum')[0:20]<CR>
+imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
+" }}}
+" }}}
+
+" Buffers, tabs and windows {{{
+nmap <Space># :b#<CR>
+
+nmap <Leader>l <C-w>l
+nmap <Leader>j <C-w>j
+nmap <Leader>k <C-w>k
+nmap <Leader>h <C-w>h
+" }}}
+
+" Plugin mappings {{{
+" Unite mappings. Config for unite is in after/02-plugins.vim {{{
+" The default should be to use the git-index for searching
+nnoremap <C-p> :Unite -start-insert file_rec/git<cr>
+nmap <Leader>ua :Unite -start-insert file_rec/async<cr>
+nmap <Leader>ub :Unite -start-insert buffer<cr>
+" }}}
+
+nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
+nmap <silent> <Leader>g :GundoToggle<CR>
+
 " Syntastic mappings
 nmap <silent> <Space>e :Errors<CR>
-
-" ghc-mod
-nmap <silent> <Space>ht :GhcModType!<CR>
-nmap <silent> <Space>hc :GhcModTypeClear<CR>
-nmap <silent> <Space>hi :GhcModInfo<CR>
+" }}}

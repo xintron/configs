@@ -11,6 +11,7 @@ alias ga='git add'
 alias gb='git branch'
 alias gps='git push'
 alias gpl='git pull'
+alias gr='git rebase'
 
 # ls
 if [ $OSX -eq 0 ]; then
