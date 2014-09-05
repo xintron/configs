@@ -45,11 +45,19 @@ nmap <Leader>h <C-w>h
 
 " Plugin mappings {{{
 " Unite mappings. Config for unite is in after/02-plugins.vim {{{
+function! s:do_unite_search()
+    if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
+        execute "Unite -start-insert -no-split file_rec/git:-c:-o:--exclude-standard"
+    else
+        execute "Unite -start-insert -no-split file_rec/async:!"
+    endif
+endfunction
 " The default should be to use the git-index for searching
-nnoremap <C-p> :Unite -start-insert file_rec/git<cr>
-nmap <Leader>ua :Unite -start-insert file_rec/async<cr>
-nmap <Leader>ub :Unite -start-insert buffer<cr>
+nnoremap <C-p> :call <SID>do_unite_search()<cr>
+nmap <Leader>ub :Unite -start-insert -no-split buffer:-<cr>
+nmap <Leader>ut :Unite -start-insert -no-split tag<cr>
 " }}}
+nmap <silent> - :VimFiler<CR>
 
 nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
 nmap <silent> <Leader>g :GundoToggle<CR>

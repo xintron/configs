@@ -36,7 +36,6 @@ NeoBundle "Shougo/vimproc.vim", {
 NeoBundle "tpope/vim-surround"
 NeoBundle "tpope/vim-fugitive"
 
-NeoBundle "kien/ctrlp.vim"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "bling/vim-airline"
 NeoBundle "ervandew/supertab"
@@ -44,6 +43,7 @@ NeoBundle "rking/ag.vim"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "sjl/gundo.vim"
 NeoBundle "Mark"
+NeoBundle "tsukkee/unite-tag"
 
 " Python Plugins
 NeoBundle "davidhalter/jedi-vim"
@@ -51,16 +51,26 @@ NeoBundle "SirVer/ultisnips"
 NeoBundle "honza/vim-snippets"
 
 " PHP
-NeoBundle "spf13/PIV"
+NeoBundle "StanAngeloff/php.vim"
 NeoBundle "shawncplus/phpcomplete.vim"
+NeoBundle "rayburgemeestre/phpfolding.vim"
 
 " JavaScript (and the likes)
 NeoBundle "gkz/vim-ls" " LiveScript support
+NeoBundle "kchmck/vim-coffee-script"
+
+" Haskell
+NeoBundle "eagletmt/ghcmod-vim"
+NeoBundle "eagletmt/neco-ghc"
+NeoBundle "Twinside/vim-hoogle"
+NeoBundle "travitch/hasksyn"
+" NeoBundle "raichoo/haskell-vim"
 
 " Syntax files
 NeoBundle "evanmiller/nginx-vim-syntax"
 NeoBundle "tpope/vim-markdown"
 NeoBundle "pangloss/vim-javascript"
+NeoBundle "robbles/logstash.vim"
 
 " Colors
 NeoBundle "chriskempson/vim-tomorrow-theme"
@@ -73,6 +83,9 @@ filetype plugin indent on
 syntax on
 
 colorscheme Tomorrow-Night
+
+hi Conditional ctermfg=139
+hi Statement ctermfg=167
 
 hi User1 ctermfg=0 ctermbg=6
 hi User2 ctermfg=0 ctermbg=9

@@ -1,6 +1,9 @@
 --recurse=yes
 --tag-relative=yes
 --exclude=.git
+--exclude=docs/*
+--exclude=vendor/*
+--exclude=build/*
 
 --php-kinds=+cidfv
 --regex-PHP=/abstract\s+class\s+([^ ]+)/\1/c/

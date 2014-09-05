@@ -53,3 +53,6 @@ let g:ghcmod_ghc_options = ['-ilib', '-isrc', '-i.', '-idist/build/autogen', '-W
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 " }}}
+" vimfiler {{{
+let g:vimfiler_as_default_explorer = 1
+" }}}
