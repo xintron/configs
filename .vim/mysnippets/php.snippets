@@ -16,18 +16,6 @@ snippet doc_v "Variable documentation" !
 ${3:public} ${4:$var};
 endsnippet
 
-snippet pub "Public function" !
-public function ${2:somefunc}(${3}) {
-	${4}
-}
-endsnippet
-
-snippet pri "Private function" !
-private function ${1:somefunc}(${2}) {
-	${3:return false;}
-}
-endsnippet
-
 snippet fore "Foreach loop" !
 foreach ($${1:data} as $${2:row})  {
     $3
@@ -44,6 +32,10 @@ endsnippet
 
 snippet dv "Die vardump" !
 die(var_dump(${1:${VISUAL}}));
+endsnippet
+
+snippet dp "Die print_r" !
+die(print_r(${1:${VISUAL}}));
 endsnippet
 
 snippet seta "isset array key" w

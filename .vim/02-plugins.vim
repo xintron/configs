@@ -4,6 +4,7 @@ let g:syntastic_mode_map = {'mode': 'active',
             \ 'passive_filetypes': ['java', 'rst', 'html']}
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_javascript_jslint_conf = '--bitwise --debug --nomen --plusplus --maxlen 80 --browser --undef --sloppy'
+let g:syntastic_php_phpcs_args = '--standard=psr2 -n'
 " }}}
 " CtrlP {{{
 let g:ctrlp_map = '<Leader>pm'
@@ -55,4 +56,7 @@ let g:airline_right_sep=''
 " }}}
 " vimfiler {{{
 let g:vimfiler_as_default_explorer = 1
+" }}}
+" undotree {{{
+let g:undotree_WindowLayout = 2
 " }}}

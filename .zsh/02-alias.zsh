@@ -12,6 +12,11 @@ alias gb='git branch'
 alias gps='git push'
 alias gpl='git pull'
 alias gr='git rebase'
+alias gf='git fetch'
+alias gm='git merge'
+
+# Until I use nvim by default, this is the way:
+alias vim='echo "No vim. Only nvim!"'
 
 # ls
 if [ $OSX -eq 0 ]; then
@@ -44,7 +49,7 @@ alias c256='for i in {0..255}; do echo -e "\e[38;05;${i}m  ░▒▓██▓▒
 alias pps='ps -eo pid,time,%cpu,%mem,comm --sort=-%cpu,+%mem'
 
 alias jurl='curl -H "Content-Type: application/json"'
-alias wurl='curl -w "Status: %{http_code}\nConnect: %{time_connect}\nTTFB: %{time_starttransfer}\nTime total: %{time_total}"'
+alias wurl='curl -w "\nStatus: %{http_code}\nConnect: %{time_connect}\nTTFB: %{time_starttransfer}\nTime total: %{time_total}"'
 
 # Easier find
 alias ez="find . -name"

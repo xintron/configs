@@ -24,7 +24,7 @@ function _x_git_branch() {
         stats=$(\git diff --shortstat 2>/dev/null)
         # Count insertions
         [[ "$stats" = *insertion* ]] && ins=${${stats/*changed, }/ insert*} || ins=0
-        [[ "$stats" = *deletion* ]] && dels=${${data/*, }/ del*} || dels=0
+        [[ "$stats" = *deletion* ]] && dels=${${stats/*, }/ del*} || dels=0
         ret="%{$fg[red]%}$branch %{$fg[green]%}+$ins%{$reset_color%}/%{$fg[red]%}-$dels%{$reset_color%}"
     else
         local remote

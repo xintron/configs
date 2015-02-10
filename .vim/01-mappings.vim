@@ -56,11 +56,12 @@ endfunction
 nnoremap <C-p> :call <SID>do_unite_search()<cr>
 nmap <Leader>ub :Unite -start-insert -no-split buffer:-<cr>
 nmap <Leader>ut :Unite -start-insert -no-split tag<cr>
+nmap <Leader>up :Unite -start-insert -no-split file_rec/async:!<cr>
 " }}}
 nmap <silent> - :VimFiler<CR>
 
 nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
-nmap <silent> <Leader>g :GundoToggle<CR>
+nmap <silent> <Leader>g :UndotreeToggle<CR>
 
 " Syntastic mappings
 nmap <silent> <Space>e :Errors<CR>

@@ -7,9 +7,10 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' '+r:|[._-]=* r:|=*'
 
 
 # Use verbose output for the completion system for all commands by default.
+zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' verbose true
 
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select yes=long
 zstyle ':completion:*:*:users' ignored-patterns \
     avahi bin daemon dbus ftp mail nobody dnsmasq \
     kdm mongodb mysql ntp polkitd rtkit usbmux uuidd

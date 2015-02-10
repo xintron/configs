@@ -1,16 +1,12 @@
 set -o vi
 
 export TZ='Europe/Stockholm'
-export EDITOR="vim"
+[ -n "$(command -v "nvim")" ] && export EDITOR="nvim" || export EDITOR="vim"
 [ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 export GOPATH=$HOME/go
-export PATH=$HOME/.cabal/bin:$HOME/bin:/usr/lib/ccache/bin/:$GOPATH/bin:/usr/local/bin/:$PATH
-[ $OSX -gt 0 ] && export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
-if [ -n "$(command -v "vimpager")" ]; then
-    export PAGER="vimpager"
-elif [ -n "$(command -v "less")" ]; then
-    export PAGER="less"
-fi
+export PATH=$HOME/.cabal/bin:$HOME/git/utils:$HOME/bin:/usr/lib/ccache/bin/:$GOPATH/bin:/usr/local/bin/:$PATH
+#[ $OSX -gt 0 ] && export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+export PAGER="less"
 
 # Load completions
 for d in $ZSH_HOME/completion/*(/); do

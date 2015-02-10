@@ -59,9 +59,9 @@ set foldlevelstart=0
 
 " Backup options {{{
 set backup
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
-set undodir=~/.vim/tmp/undo//
+set backupdir=/tmp/xintron-vim/backup//
+set directory=/tmp/xintron-vim/swap//
+set undodir=/tmp/xintron-vim/undo//
 set writebackup
 
 set history=500
