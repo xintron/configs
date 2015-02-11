@@ -1,4 +1,4 @@
-PROMPT='%F{red}@%F{yellow}%m%f %F{magenta}%2~ %f%(!.#.>) '
+PROMPT='%F{yellow}[%m]%f %F{magenta}%2~ %F{red}λ%f '
 RPROMPT='%(1j:%F{blue}%j%f:)$(_x_git_prompt_info)'
 
 # vim: set ft=zsh:
