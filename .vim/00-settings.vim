@@ -9,7 +9,7 @@ set noautochdir
 set backspace=start,indent,eol
 
 set lazyredraw
-set ttyfast
+" set ttyfast
 
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:⌴

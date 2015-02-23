@@ -10,6 +10,8 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+import System.Taffybar.XMonadLog (taffybarDefaultPP, taffybarColor)
+
 modMask' :: KeyMask
 modMask' = mod4Mask
 
@@ -19,12 +21,7 @@ myLayouts = avoidStruts $ tiled
   where
     tiled = smartBorders $ Tall 1 (3/100) (1/2)
 
-workspaces' = clickable . (map dzenEscape) $
-    ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
-  where
-    clickable l =
-        ["^ca(1, xdotool key super+" ++ show n ++ ")" ++ ws ++ "^ca()" |
-        (ws, n) <- zip l [1..] ]
+workspaces' = ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -41,7 +38,8 @@ myManageHook = composeAll
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm, xK_r), spawn "dmenu_run -i -fn 'inconsolata:size=10' -nf '#a9dc3a' -sf '#fb5200' -nb '#000000' -sb '#000000'")
+    , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window'")
+    , ((modm .|. shiftMask, xK_r), spawn "rofi -show window -switchers 'run,window'")
     -- close focused window
     , ((modm .|. shiftMask, xK_c), kill)
      -- Rotate through the available layout algorithms
@@ -80,7 +78,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
     -- Restart xmonad
-    , ((modm, xK_q), spawn "killall conky dzen2 trayer; xmonad --recompile; xmonad --restart")
+    , ((modm, xK_q), spawn "killall taffybar-linux-x86_64; xmonad --recompile; xmonad --restart")
 
     -- 2D navigation
     , ((modm .|. shiftMask, xK_l), screenGo R True)
@@ -100,28 +98,27 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-myPP h = defaultPP
-    { ppCurrent = dzenColor "#a9dc3a" "" . wrap " " " "
-    , ppVisible = dzenColor "#2fcad8" "" . wrap " " " "
+myPP = taffybarDefaultPP
+    { ppCurrent = taffybarColor "#a9dc3a" "" . wrap " " " "
+    , ppVisible = taffybarColor "#2fcad8" "" . wrap " " " "
     , ppWsSep = "  "
-    , ppUrgent = dzenColor "#fb5200" ""
-    , ppTitle = dzenColor "#ff3180" "" . shorten 30
-    , ppLayout = dzenColor "#ffd33c" "" .
+    , ppUrgent = taffybarColor "#fb5200" ""
+    , ppTitle = taffybarColor "#ff3180" "" . shorten 30
+    , ppLayout = taffybarColor "#ffd33c" "" .
         (\x -> case x of
             "Tall"        -> "^i(/home/xintron/.xmonad/xbm/layout_tall.xbm)"
             "Mirror Tall" -> "^i(/home/xintron/.xmonad/xbm/layout_mirror_tall.xbm)"
             "Full"        -> "^i(/home/xintron/.xmonad/xbm/layout_full.xbm)"
             _             -> x)
+    }
 
-    , ppOutput = hPutStrLn h }
-
-myConfig bar = def
+myConfig = defaultConfig
     { terminal = "urxvt"
     , layoutHook = myLayouts
     , manageHook = myManageHook <+> manageDocks
     , handleEventHook = docksEventHook
+    , logHook = dynamicLogWithPP myPP
     , keys = myKeys
-    , logHook = dynamicLogWithPP $ myPP bar
     -- Don't be stupid with focus
     , focusFollowsMouse = False
     , clickJustFocuses = False

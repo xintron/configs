@@ -58,6 +58,8 @@ NeoBundle "mbbill/undotree"
 NeoBundle "Mark"
 NeoBundle "tsukkee/unite-tag"
 
+NeoBundle "kylef/apiblueprint.vim"
+
 NeoBundle "joonty/vdebug"
 NeoBundle "editorconfig/editorconfig-vim"
 NeoBundle "godlygeek/tabular"
@@ -84,8 +86,8 @@ NeoBundle "groenewege/vim-less"
 NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "Twinside/vim-hoogle"
-NeoBundle "travitch/hasksyn"
-" NeoBundle "raichoo/haskell-vim"
+"NeoBundle "travitch/hasksyn"
+NeoBundle "raichoo/haskell-vim"
 
 " Syntax files
 NeoBundle "evanmiller/nginx-vim-syntax"
@@ -96,6 +98,7 @@ NeoBundle "robbles/logstash.vim"
 " Colors
 NeoBundle "freeo/vim-kalisi"
 NeoBundle "altercation/vim-colors-solarized"
+NeoBundle "chriskempson/vim-tomorrow-theme"
 
 call neobundle#end()
 NeoBundleCheck
