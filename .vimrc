@@ -6,10 +6,6 @@ if !isdirectory(expand('/tmp/xintron-vim/'))
     call mkdir(expand('/tmp/xintron-vim/undo/'), 'p', 0700)
 endif
 
-if isdirectory(expand('~/git/tomorrow-theme/vim/'))
-    set runtimepath+=~/git/tomorrow-theme/vim/
-endif
-
 if has("vim_starting")
     " Needed for neobundle to work
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -57,6 +53,9 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle "mbbill/undotree"
 NeoBundle "Mark"
 NeoBundle "tsukkee/unite-tag"
+NeoBundle "xolox/vim-misc" " Needed for easytags
+NeoBundle "xolox/vim-easytags"
+NeoBundle "raimondi/delimitmate"
 
 NeoBundle "kylef/apiblueprint.vim"
 

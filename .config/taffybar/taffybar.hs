@@ -2,26 +2,19 @@ import Data.Char (toLower)
 import Data.List.Split (chunksOf)
 import Numeric (readHex)
 
-import qualified Graphics.UI.Gtk as Gtk
 import System.Taffybar
 import System.Taffybar.Battery
+import System.Taffybar.FreedesktopNotifications
+import System.Taffybar.MPRIS2
 import System.Taffybar.NetMonitor
 import System.Taffybar.Pager
 import System.Taffybar.SimpleClock
 import System.Taffybar.Systray
 import System.Taffybar.TaffyPager
 import System.Taffybar.Widgets.PollingGraph
-import System.Taffybar.Widgets.PollingLabel
 
 import System.Information.CPU
 import System.Information.Memory
-import System.Information.Network
-
-labelNew' :: String -> Double -> IO String -> IO Gtk.Widget
-labelNew' initial interval action = do
-    lab <- pollingLabelNew initial interval action
-    Gtk.widgetShowAll lab
-    return lab
 
 cpuCallback :: IO [Double]
 cpuCallback = do
@@ -65,6 +58,8 @@ main = do
         inet = netMonitorNewWith 3 "wlp3s0" 1 $
             "<span fgcolor='" ++ green ++ "'>↓ $inKB$kB/s</span> <span fgcolor='" ++ red ++ "'>↑ $outKB$kB/s</span>"
         bat = batteryBarNew defaultBatteryConfig 30
+        note = notifyAreaNew defaultNotificationConfig
+        mpris = mpris2New
 
         pager = taffyPagerNew defaultPagerConfig 
             { activeWindow = colorize green "" . escape . shorten 40
@@ -76,5 +71,5 @@ main = do
             , widgetSep = colorize "#EF3600" "" " | "
             }
 
-    defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager ]
-                                          , endWidgets = [ systrayNew, clock, mem, cpu, inet, bat ] }
+    defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
+                                          , endWidgets = [ systrayNew, clock, mem, cpu, inet, bat, mpris ] }
