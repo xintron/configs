@@ -17,3 +17,6 @@
 "pbctrl prev"
     m:0x80 + c:113
     Mod5 + Left
+
+"/home/xintron/bin/togglelayout"
+    Mod5 + 9
