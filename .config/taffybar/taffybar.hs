@@ -55,8 +55,9 @@ main = do
     let clock = textClockNew Nothing "<span fgcolor='#d58106'>%a %b %_d %H:%M:%S</span>" 1
         cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
         mem = pollingGraphNew memCfg 1 memCallback
-        inet = netMonitorNewWith 3 "wlp3s0" 1 $
-            "<span fgcolor='" ++ green ++ "'>↓ $inKB$kB/s</span> <span fgcolor='" ++ red ++ "'>↑ $outKB$kB/s</span>"
+        inetformat = "<span fgcolor='" ++ green ++ "'>↓ $inKB$kB/s</span> <span fgcolor='" ++ red ++ "'>↑ $outKB$kB/s</span>"
+        wlan = netMonitorNewWith 3 "wlp3s0" 1 inetformat
+        wired = netMonitorNewWith 3 "eno1" 1 inetformat
         bat = batteryBarNew defaultBatteryConfig 30
         note = notifyAreaNew defaultNotificationConfig
         mpris = mpris2New
@@ -71,5 +72,6 @@ main = do
             , widgetSep = colorize "#EF3600" "" " | "
             }
 
-    defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
-                                          , endWidgets = [ systrayNew, clock, mem, cpu, inet, bat, mpris ] }
+    defaultTaffybar defaultTaffybarConfig { monitorNumber = 1
+                                          , startWidgets = [ pager, note ]
+                                          , endWidgets = [ systrayNew, clock, mem, cpu, wlan, wired, bat, mpris ] }
