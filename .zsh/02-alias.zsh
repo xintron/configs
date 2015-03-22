@@ -18,6 +18,8 @@ alias gm='git merge'
 # Until I use nvim by default, this is the way:
 alias vim='echo "No vim. Only nvim!"'
 
+alias v='vagrant'
+
 # ls
 if [ $OSX -eq 0 ]; then
     alias ls='ls --group-directories-first --color=auto -h'

@@ -53,8 +53,8 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle "mbbill/undotree"
 NeoBundle "Mark"
 NeoBundle "tsukkee/unite-tag"
-NeoBundle "xolox/vim-misc" " Needed for easytags
-NeoBundle "xolox/vim-easytags"
+"NeoBundle "xolox/vim-misc" " Needed for easytags
+"NeoBundle "xolox/vim-easytags"
 NeoBundle "raimondi/delimitmate"
 
 NeoBundle "kylef/apiblueprint.vim"

@@ -2,11 +2,5 @@
 --tag-relative=yes
 --exclude=.git
 --exclude=docs/*
---exclude=vendor/*
 --exclude=build/*
 
---php-kinds=+cidfv
---regex-PHP=/abstract\s+class\s+([^ ]+)/\1/c/
---regex-PHP=/interface\s+([^ ]+)/\1/c/
---regex-PHP=/(public|static|abstract|protected|private)\s+function\s+\&?\s*([^ \(]+)/\2/f/
---regex-PHP=/const\s+([^ =]+)/\1/d/
