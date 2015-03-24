@@ -1,4 +1,4 @@
-gtk_color_scheme = "black:#000000\nwhite:#FFFFFF\ngreen:#00FF00\nred:#FF0000"
+gtk_color_scheme = "black:#121212\nwhite:#FFFFFF\ngreen:#B7F924\nred:#FF2A24"
 
 style "default" {
   bg[NORMAL]   = @black

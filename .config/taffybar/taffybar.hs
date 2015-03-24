@@ -4,7 +4,6 @@ import Numeric (readHex)
 
 import System.Taffybar
 import System.Taffybar.Battery
-import System.Taffybar.FreedesktopNotifications
 import System.Taffybar.MPRIS2
 import System.Taffybar.NetMonitor
 import System.Taffybar.Pager
@@ -59,7 +58,6 @@ main = do
         wlan = netMonitorNewWith 3 "wlp3s0" 1 inetformat
         wired = netMonitorNewWith 3 "eno1" 1 inetformat
         bat = batteryBarNew defaultBatteryConfig 30
-        note = notifyAreaNew defaultNotificationConfig
         mpris = mpris2New
 
         pager = taffyPagerNew defaultPagerConfig 
@@ -73,5 +71,5 @@ main = do
             }
 
     defaultTaffybar defaultTaffybarConfig { monitorNumber = 1
-                                          , startWidgets = [ pager, note ]
+                                          , startWidgets = [ pager ]
                                           , endWidgets = [ systrayNew, clock, mem, cpu, wlan, wired, bat, mpris ] }

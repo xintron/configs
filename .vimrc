@@ -57,6 +57,8 @@ NeoBundle "tsukkee/unite-tag"
 "NeoBundle "xolox/vim-easytags"
 NeoBundle "raimondi/delimitmate"
 
+NeoBundle "Lokaltog/vim-easymotion"
+
 NeoBundle "kylef/apiblueprint.vim"
 
 NeoBundle "joonty/vdebug"
