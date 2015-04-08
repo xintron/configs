@@ -2,7 +2,7 @@ set defsearch=duckduckgo
 
 set editor='urxvt -e vim -f'
 
-com -nargs=0 splay :execute 'silent !splay "' + content.location.href + '" &'
+com -nargs=0 splay :execute 'silent !mpv "' + content.location.href + '" &'
 map , <Leader>
 map <Leader>s :splay<CR>
 

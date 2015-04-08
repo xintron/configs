@@ -36,11 +36,6 @@ imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
 
 " Buffers, tabs and windows {{{
 nmap <Space># :b#<CR>
-
-nmap <Leader>l <C-w>l
-nmap <Leader>j <C-w>j
-nmap <Leader>k <C-w>k
-nmap <Leader>h <C-w>h
 " }}}
 
 " Plugin mappings {{{
