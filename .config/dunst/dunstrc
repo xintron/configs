@@ -81,7 +81,7 @@
     idle_threshold = 120
 
     # Which monitor should the notifications be displayed on.
-    monitor = 2
+    monitor = 1
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -94,7 +94,7 @@
     # 
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = keyboard
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -139,7 +139,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/firefox-developer -new-tab
 
     # Align icons left/right/off
     icon_position = off
@@ -188,6 +188,17 @@
     background = "#900000"
     foreground = "#ffffff"
     timeout = 0
+
+[spotify]
+    appname = Spotify
+    background = "#B4D500"
+    foreground = "#222222"
+    timeout = 5
+
+[hipchat]
+    appname = HipChat
+    background = "#313947"
+    foreground = "#ffffff"
 
 
 # Every section that isn't one of the above is interpreted as a rules to

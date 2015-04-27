@@ -8,13 +8,14 @@ Xft.rgba: rgb
 Xft.antialias: 1
 
 /* urL-yanking */
-URxvt.perl-ext-common: default,matcher,url-select,font-size
+URxvt.perl-ext-common: default,url-select,font-size
 
 URxvt.colorUL: #87C706
-URxvt.url-launcher: /usr/bin/firefox-developer
-URxvt.url-select.underline: false
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/firefox-developer
+URxvt.matcher.button: 1
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.keysym.C-i: perl:url-select:select_next
 
 URxvt.keysym.C-Up: perl:font-size:increase
 URxvt.keysym.C-Down: perl:font-size:decrease
@@ -43,14 +44,19 @@ URxvt.geometry: 120x40
 dzen2.font: xft:M+ 1m regular:size=11
 
 /* Rofi */
-rofi.background: #000
-rofi.foreground: #12D5D5
-rofi.highlightbg: #000
-rofi.highlightfg: #B7F924
+rofi.bg: #222
+rofi.fg: #eee8d5
+rofi.hlbg: #f95346
+rofi.hlbg-urgent: #eee8d5
+rofi.hlfg-urgent: #222
+rofi.bgalt: #292929
+rofi.bc: #f95346
+rofi.bw: 0
+rofi.yoffset: 25
+rofi.location: 2
+rofi.width: 100
 rofi.font: M+ 1m regular
-rofi.padding: 3
-rofi.lines: 10
-rofi.borderwidth: 10
+rofi.lines: 15
 
 /* fonts */
 URxvt.font: xft:M+ 1m regular:size=10

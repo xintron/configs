@@ -52,7 +52,7 @@ main = do
                                     , graphLabel = Just "mem"
                                     }
     let clock = textClockNew Nothing "<span fgcolor='#d58106'>%a %b %_d %H:%M:%S</span>" 1
-        cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
+        cpu = pollingGraphNew cpuCfg 1 cpuCallback
         mem = pollingGraphNew memCfg 1 memCallback
         inetformat = "<span fgcolor='" ++ green ++ "'>↓ $inKB$kB/s</span> <span fgcolor='" ++ red ++ "'>↑ $outKB$kB/s</span>"
         wlan = netMonitorNewWith 3 "wlp3s0" 1 inetformat
