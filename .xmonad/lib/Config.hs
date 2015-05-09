@@ -32,7 +32,6 @@ myManageHook = composeAll
     , className =? "Plugin-container" --> doFloat
     , className =? "mpv" --> doFloat
     , className =? "feh" --> doFloat
-    , className =? "Steam" --> doFloat
     , className =? "Keepassx" --> doFloat
     , className =? "Gpick" --> doFloat ]
 
