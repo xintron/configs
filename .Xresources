@@ -38,7 +38,7 @@ URxvt.geometry: 120x40
 
 /* Colors */
 
-#include "/home/xintron/git/configs/base16-builder/output/xresources/base16-tomorrow.dark.256.xresources"
+#include "/home/xintron/git/configs/base16-builder/output/xresources/base16-monokai.dark.256.xresources"
 
 /* dzen2 */
 dzen2.font: xft:M+ 1m regular:size=11

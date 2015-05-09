@@ -95,6 +95,7 @@ NeoBundle "evanmiller/nginx-vim-syntax"
 NeoBundle "tpope/vim-markdown"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "robbles/logstash.vim"
+NeoBundle "Matt-Deacalion/vim-systemd-syntax"
 
 " Colors
 NeoBundle "freeo/vim-kalisi"
@@ -108,11 +109,9 @@ NeoBundleCheck
 filetype plugin indent on
 syntax on
 
-colorscheme Tomorrow-Night
+let base16colorspace=256
+colorscheme base16-monokai
 set background=dark
-
-" hi! link SignColumn CursorLineNr
-hi! clear SignColumn
 
 hi User1 ctermfg=0 ctermbg=6
 hi User2 ctermfg=0 ctermbg=9

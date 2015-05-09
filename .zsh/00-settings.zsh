@@ -15,6 +15,12 @@ for d in $ZSH_HOME/completion/*(/); do
     fpath=($dir $fpath)
 done
 
+[ -n "$(command -v "keychain")" ] && eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
+
+if [ -f $HOME/git/configs/base16-builder/output/shell/base16-monokai.dark.sh ]; then
+    sh $HOME/git/configs/base16-builder/output/shell/base16-monokai.dark.sh
+fi
+
 # Load colors before we source all config-files that might use them
 autoload -U colors
 colors
