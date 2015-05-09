@@ -1,0 +1,29 @@
+mode_switch + {9,0}
+    ponymix {decrease,increase} 3
+
+XF86Audio{Lower,Raise}Volume
+    ponymix {decrease,increase} 3
+
+mode_switch + 8
+    ponymix toggle
+
+XF86AudioMute
+    ponymix toggle
+
+mode_switch + {3,4,5}
+    playerctl {previous,play-pause,next}
+
+XF86Audio{Prev,Play,Next}
+    playerctl {previous,play-pause,next}
+
+XF86LaunchB
+    sh ~/.screenlayout/single-screen.sh
+
+XF86MonBrightness{Down,Up}
+    xbacklight -{dec,inc} 10 -time 0
+
+XF86KbdBrightness{Down,Up}
+    kbdlight {down,up}
+
+mode_switch + shift + {j,k,h}
+    twmnc --remote {next,previous,hide}
