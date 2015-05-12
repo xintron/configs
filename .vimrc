@@ -22,9 +22,7 @@ NeoBundleFetch "Shougo/neobundle.vim"
 
 
 " Misc plugins
-" NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "Shougo/unite.vim"
-NeoBundle "Shougo/neossh.vim"
 NeoBundle "Shougo/vimfiler.vim"
 NeoBundle "Shougo/vimproc.vim", {
     \ "build": {
@@ -53,13 +51,9 @@ NeoBundle "majutsushi/tagbar"
 NeoBundle "mbbill/undotree"
 NeoBundle "Mark"
 NeoBundle "tsukkee/unite-tag"
-"NeoBundle "xolox/vim-misc" " Needed for easytags
-"NeoBundle "xolox/vim-easytags"
 NeoBundle "raimondi/delimitmate"
 
 NeoBundle "Lokaltog/vim-easymotion"
-
-NeoBundle "kylef/apiblueprint.vim"
 
 NeoBundle "joonty/vdebug"
 NeoBundle "editorconfig/editorconfig-vim"
@@ -84,10 +78,9 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "groenewege/vim-less"
 
 " Haskell
-NeoBundle "eagletmt/ghcmod-vim"
+NeoBundle "eagletmt/ghcmod-vim", "master"
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "Twinside/vim-hoogle"
-"NeoBundle "travitch/hasksyn"
 NeoBundle "raichoo/haskell-vim"
 
 " Syntax files
@@ -96,11 +89,6 @@ NeoBundle "tpope/vim-markdown"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "robbles/logstash.vim"
 NeoBundle "Matt-Deacalion/vim-systemd-syntax"
-
-" Colors
-NeoBundle "freeo/vim-kalisi"
-NeoBundle "altercation/vim-colors-solarized"
-NeoBundle "chriskempson/vim-tomorrow-theme"
 
 call neobundle#end()
 NeoBundleCheck
