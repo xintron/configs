@@ -57,8 +57,8 @@ rofi.hlfg-urgent: #222
 rofi.bgalt: #292929
 rofi.bc: #f95346
 rofi.bw: 0
-rofi.yoffset: 25
-rofi.location: 2
+rofi.yoffset: 0
+rofi.location: 6
 rofi.width: 100
 rofi.font: M+ 1m regular
 rofi.lines: 15
