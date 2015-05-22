@@ -15,9 +15,6 @@ alias gr='git rebase'
 alias gf='git fetch'
 alias gm='git merge'
 
-# Until I use nvim by default, this is the way:
-alias vim='echo "No vim. Only nvim!"'
-
 alias v='vagrant'
 
 # ls

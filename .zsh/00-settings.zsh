@@ -1,7 +1,7 @@
 set -o vi
 
 export TZ='Europe/Stockholm'
-[ -n "$(command -v "nvim")" ] && export EDITOR="nvim" || export EDITOR="vim"
+export EDITOR="vim"
 [ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$HOME/.cabal/bin:$HOME/git/utils:$HOME/bin:/usr/lib/ccache/bin/:$GOPATH/bin:/usr/local/bin/:$PATH

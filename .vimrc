@@ -33,11 +33,7 @@ NeoBundle "Shougo/vimproc.vim", {
 
 NeoBundle "tpope/vim-surround"
 
-NeoBundle "Valloric/YouCompleteMe", {
-    \ "build": {
-    \       "others": "./install.sh"
-    \   },
-    \ }
+NeoBundle "Shougo/neocomplete.vim"
 
 " Git
 NeoBundle "tpope/vim-fugitive"
@@ -82,6 +78,9 @@ NeoBundle "eagletmt/ghcmod-vim", "master"
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "Twinside/vim-hoogle"
 NeoBundle "raichoo/haskell-vim"
+
+" Go
+NeoBundle 'fatih/vim-go'
 
 " Syntax files
 NeoBundle "evanmiller/nginx-vim-syntax"

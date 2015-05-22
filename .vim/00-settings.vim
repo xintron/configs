@@ -12,7 +12,7 @@ set lazyredraw
 " set ttyfast
 
 set list
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:⌴
+set listchars=tab:▸\ ,eol:↲,extends:»,precedes:«,trail:·
 set showbreak=↪
 
 set relativenumber

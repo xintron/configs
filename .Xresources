@@ -64,6 +64,7 @@ rofi.font: M+ 1m regular
 rofi.lines: 15
 
 /* fonts */
-URxvt.font: xft:M+ 1m regular:size=10
-URxvt.boldFont: xft:M+ 1m regular:size=10:weight=bold
-URxvt.italicFont: xft:M+ 1m regular:size=10:slant=italic
+URxvt.letterSpace: -2
+URxvt.font:         xft:Fira Mono:size=10:antialias=true,xft:Symbola
+URxvt.boldFont:     xft:Fira Mono:size=10:antialias=true:weight=bold,xft:Symbola
+URxvt.italicFont:   xft:Fira Mono:size=10:antialias=true:slant=italic,xft:Symbola
