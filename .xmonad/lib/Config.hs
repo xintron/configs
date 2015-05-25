@@ -37,8 +37,8 @@ myManageHook = composeAll
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window'")
-    , ((modm .|. shiftMask, xK_r), spawn "rofi -show window -switchers 'run,window'")
+    , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window' -no-levenshtein-sort")
+    , ((modm .|. shiftMask, xK_r), spawn "rofi -show window -switchers 'run,window' -no-levenshtein-sort")
     -- close focused window
     , ((modm .|. shiftMask, xK_c), kill)
      -- Rotate through the available layout algorithms
