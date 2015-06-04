@@ -42,16 +42,16 @@ nmap <Space># :b#<CR>
 " Unite mappings. Config for unite is in after/02-plugins.vim {{{
 function! s:do_unite_search()
     if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
-        execute "Unite -start-insert -no-split file_rec/git:-c:-o:--exclude-standard"
+        execute "Unite -start-insert -direction=botright file_rec/git:-c:-o:--exclude-standard"
     else
-        execute "Unite -start-insert -no-split file_rec/async:!"
+        execute "Unite -start-insert -direction=botright file_rec/async:!"
     endif
 endfunction
 " The default should be to use the git-index for searching
 nnoremap <C-p> :call <SID>do_unite_search()<cr>
-nmap <Leader>ub :Unite -start-insert -no-split buffer:-<cr>
-nmap <Leader>ut :Unite -start-insert -no-split tag<cr>
-nmap <Leader>up :Unite -start-insert -no-split file_rec/async:!<cr>
+nmap <Leader>ub :Unite -start-insert -direction=botright buffer:-<cr>
+nmap <Leader>ut :Unite -start-insert -direction=botright tag<cr>
+nmap <Leader>up :Unite -start-insert -direction=botright file_rec/async:!<cr>
 " }}}
 nmap <silent> - :VimFiler<CR>
 

@@ -1,10 +1,13 @@
 " Author: Marcus Carlsson <hi@xintron.se>
 
-if !isdirectory(expand('/tmp/xintron-vim/'))
-    call mkdir(expand('/tmp/xintron-vim/backup/'), 'p', 0700)
-    call mkdir(expand('/tmp/xintron-vim/swap/'), 'p', 0700)
-    call mkdir(expand('/tmp/xintron-vim/undo/'), 'p', 0700)
+if !isdirectory(expand('~/.vim/tmp/'))
+    call mkdir(expand('~/.vim/tmp/backup/'), 'p', 0700)
+    call mkdir(expand('~/.vim/tmp/swap/'), 'p', 0700)
+    call mkdir(expand('~/.vim/tmp/undo/'), 'p', 0700)
 endif
+set backupdir=~/.vim/tmp/backup/
+set directory=~/.vim/tmp/swap/
+set undodir=~/.vim/tmp/undo/
 
 if has("vim_starting")
     " Needed for neobundle to work

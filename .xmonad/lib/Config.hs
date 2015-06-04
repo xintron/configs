@@ -33,7 +33,8 @@ myManageHook = composeAll
     , className =? "mpv" --> doFloat
     , className =? "feh" --> doFloat
     , className =? "Keepassx" --> doFloat
-    , className =? "Gpick" --> doFloat ]
+    , className =? "Gpick" --> doFloat
+    , className =? "Thunar" --> doFloat ]
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)

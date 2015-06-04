@@ -24,6 +24,3 @@ XF86MonBrightness{Down,Up}
 
 XF86KbdBrightness{Down,Up}
     kbdlight {down,up}
-
-mode_switch + shift + {j,k,h}
-    twmnc --remote {next,previous,hide}
