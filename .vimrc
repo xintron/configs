@@ -37,6 +37,7 @@ NeoBundle "Shougo/vimproc.vim", {
 NeoBundle "tpope/vim-surround"
 
 NeoBundle "Shougo/neocomplete.vim"
+NeoBundle "wakatime/vim-wakatime"
 
 " Git
 NeoBundle "tpope/vim-fugitive"
@@ -72,6 +73,9 @@ NeoBundle "rayburgemeestre/phpfolding.vim"
 " JavaScript (and the likes)
 NeoBundle "gkz/vim-ls" " LiveScript support
 NeoBundle "kchmck/vim-coffee-script"
+NeoBundle "justinj/vim-react-snippets"
+NeoBundle "mtscout6/vim-cjsx"
+NeoBundle "mxw/vim-jsx"
 
 " CSS
 NeoBundle "groenewege/vim-less"

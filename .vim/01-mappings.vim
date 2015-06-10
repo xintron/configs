@@ -1,4 +1,4 @@
-let mapleader=','
+let mapleader="\<Space>"
 
 " Misc {{{
 "
@@ -16,16 +16,16 @@ nmap <silent> <Leader><Space> :nohl<CR>:Mark<CR>
 nmap <C-h>h :call SynStack()<CR>
 
 " C-] doesn't work under OS X for some reason. This is one way of solving it.
-nmap <Space>] <C-]>
+nmap <Leader>] <C-]>
 
 " QuickFix mappings
-nmap <silent> <Space>co :copen<CR>
-nmap <silent> <Space>cl :cclose<CR>
-nmap <silent> <Space>cn :cnext<CR>
-nmap <silent> <Space>cp :cprevious<CR>
+nmap <silent> <Leader>co :copen<CR>
+nmap <silent> <Leader>cl :cclose<CR>
+nmap <silent> <Leader>cn :cnext<CR>
+nmap <silent> <Leader>cp :cprevious<CR>
 
-nmap <silent> <Space>lo :lopen<CR>
-nmap <silent> <Space>lc :lclose<CR>
+nmap <silent> <Leader>lo :lopen<CR>
+nmap <silent> <Leader>lc :lclose<CR>
 
 " Generate stuff in insert mode {{{
 " Generate an identifier
@@ -35,7 +35,7 @@ imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
 " }}}
 
 " Buffers, tabs and windows {{{
-nmap <Space># :b#<CR>
+nmap <Leader># :b#<CR>
 " }}}
 
 " Plugin mappings {{{
@@ -59,5 +59,5 @@ nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
 nmap <silent> <Leader>g :UndotreeToggle<CR>
 
 " Syntastic mappings
-nmap <silent> <Space>e :Errors<CR>
+nmap <silent> <Leader>e :Errors<CR>
 " }}}
