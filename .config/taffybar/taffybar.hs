@@ -67,7 +67,7 @@ main = do
             , emptyWorkspace = const ""
             , visibleWorkspace = colorize blue "" . wrap " " " " . escape
             , urgentWorkspace = colorize red "" . wrap " " " " . escape
-            , widgetSep = colorize "#EF3600" "" " | "
+            , widgetSep = colorize "#EF3600" "" " : "
             }
 
     defaultTaffybar defaultTaffybarConfig { monitorNumber = 1
