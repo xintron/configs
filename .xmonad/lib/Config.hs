@@ -48,7 +48,9 @@ allLayouts = layMain ||| layWebDev ||| layDish ||| layTabbed ||| layFull
 devFirst = layWebDev ||| layMain ||| layTabbed ||| layFull
 mainFirst = layMain ||| layTabbed ||| layFull
 
-myLayouts = avoidStruts $ smartBorders $ maximize $ minimize
+myLayouts = avoidStruts $ smartBorders
+    -- Renamed removes the Maximize + Minimized from the layout name
+    $ renamed [CutWordsLeft 2 ] $ maximize $ minimize
     $ B.boringWindows allLayouts
 
 workspaces' = ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
