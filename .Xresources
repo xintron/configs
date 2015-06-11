@@ -60,7 +60,7 @@ rofi.bw: 0
 rofi.yoffset: 0
 rofi.location: 6
 rofi.width: 100
-rofi.font: M+ 1m regular
+rofi.font: Liberation Sans 11
 rofi.lines: 15
 
 /* fonts */
