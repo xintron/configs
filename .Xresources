@@ -64,7 +64,6 @@ rofi.font: Liberation Sans 11
 rofi.lines: 15
 
 /* fonts */
-URxvt.letterSpace: -2
-URxvt.font:         xft:Fira Mono:size=10:antialias=true,xft:Symbola
-URxvt.boldFont:     xft:Fira Mono:size=10:antialias=true:weight=bold,xft:Symbola
-URxvt.italicFont:   xft:Fira Mono:size=10:antialias=true:slant=italic,xft:Symbola
+URxvt.font:         xft:Monoid:pixelsize=13,xft:Symbola
+URxvt.boldFont:     xft:Monoid:pixelsize=13:weight=bold,xft:Symbola
+URxvt.italicFont:   xft:Monoid:pixelsize=13:slant=italic,xft:Symbola
