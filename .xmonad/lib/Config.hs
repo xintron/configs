@@ -1,6 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Config where
 import XMonad
+import XMonad.Actions.GridSelect
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.ManageDocks
 import qualified XMonad.Layout.BoringWindows as B
@@ -52,6 +53,11 @@ myLayouts = avoidStruts $ smartBorders
     -- Renamed removes the Maximize + Minimized from the layout name
     $ renamed [CutWordsLeft 2 ] $ maximize $ minimize
     $ B.boringWindows allLayouts
+
+switchWorkspaceToWindow :: Window -> X ()
+switchWorkspaceToWindow w = windows $ do
+    tag <- W.currentTag
+    W.focusWindow w . W.greedyView tag . W.focusWindow w
 
 workspaces' = ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
 
@@ -119,6 +125,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Minimize stuff
     , ((modm, xK_v), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v), sendMessage RestoreNextMinimizedWin)
+    -- This is the magic of gridselect
+    , ((modm, xK_g), withSelectedWindow switchWorkspaceToWindow defaultGSConfig)
+    , ((modm .|. shiftMask, xK_g), gridselectWorkspace defaultGSConfig W.greedyView)
     -- Struts...
     , ((modm .|. controlMask, xK_0), sendMessage $ ToggleStrut U)
     ]
