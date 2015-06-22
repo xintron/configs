@@ -1,2 +1,2 @@
 set horizontal-scroll = 33%     # Scroll 33% of the view width
-set line-graphics = utf-8
+set line-graphics = default
