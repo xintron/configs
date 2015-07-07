@@ -1,9 +1,12 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 module Config where
 import XMonad
+import XMonad.Actions.FloatKeys
+import XMonad.Actions.FloatSnap
 import XMonad.Actions.GridSelect
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.Minimize
 import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.Dishes
 import XMonad.Layout.LimitWindows
@@ -120,6 +123,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask, xK_l), screenSwap R True)
     , ((modm .|. controlMask, xK_h), screenSwap L True)
 
+    -- Float handling (snapping to edges)
+    , ((modm, xK_Right), withFocused $ snapMove R Nothing)
+    , ((modm, xK_Left), withFocused $ snapMove L Nothing)
+    , ((modm, xK_Up), withFocused $ snapMove U Nothing)
+    , ((modm, xK_Down), withFocused $ snapMove D Nothing)
+
+    , ((modm .|. shiftMask, xK_Right), withFocused $ keysResizeWindow (20, 0) (0, 0))
+    , ((modm .|. shiftMask, xK_Left), withFocused $ keysResizeWindow (-20, 0) (0, 0))
+    , ((modm .|. shiftMask, xK_Up), withFocused $ keysResizeWindow (0, -20) (0, 0))
+    , ((modm .|. shiftMask, xK_Down), withFocused $ keysResizeWindow (0, 20) (0, 0))
+
     -- Make focused window maximized
     , ((modm, xK_z), withFocused (sendMessage . maximizeRestore))
     -- Minimize stuff
@@ -144,7 +158,7 @@ myConfig = defaultConfig
     { terminal = "urxvt"
     , layoutHook = myLayouts
     , manageHook = myManageHook <+> manageDocks
-    , handleEventHook = docksEventHook
+    , handleEventHook = docksEventHook <+> minimizeEventHook
     , keys = myKeys
     -- Don't be stupid with focus
     , focusFollowsMouse = False
