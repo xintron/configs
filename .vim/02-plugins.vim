@@ -51,6 +51,7 @@ let g:ghcmod_max_preview_size=5
 let g:ghcmod_ghc_options = ['-ilib', '-isrc', '-i.', '-idist/build/autogen', '-Wall', '-fwarn-unused-do-bind']
 " }}}
 " airline {{{
+let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 " }}}
@@ -60,3 +61,10 @@ let g:vimfiler_as_default_explorer = 1
 " undotree {{{
 let g:undotree_WindowLayout = 2
 " }}}
+" Rainbow {{{
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'ctermfgs': ['green', 'blue', 'magenta', 'yellow']
+\}
+" }}}
+source ~/.simplenoterc

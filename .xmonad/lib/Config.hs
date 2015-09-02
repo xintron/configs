@@ -65,17 +65,21 @@ switchWorkspaceToWindow w = windows $ do
 workspaces' = ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
 
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore
+    [ className =? "MPlayer"          --> doFloat
+    , className =? "Gimp"             --> doFloat
+    , resource  =? "desktop_window"   --> doIgnore
+    , resource  =? "kdesktop"         --> doIgnore
     -- Flash :(
     , className =? "Plugin-container" --> doFloat
-    , className =? "mpv" --> doFloat
-    , className =? "feh" --> doFloat
-    , className =? "Keepassx" --> doFloat
-    , className =? "Gpick" --> doFloat
-    , className =? "Thunar" --> doFloat ]
+    , className =? "mpv"              --> doFloat
+    , className =? "feh"              --> doFloat
+    , className =? "keepassx"         --> doFloat
+    , className =? "Gpick"            --> doFloat
+    , className =? "Thunar"           --> doFloat
+    -- Used by Chromium developer tools, maybe other apps as well
+    , role =? "pop-up"                --> doFloat ]
+  where
+    role = stringProperty "WM_WINDOW_ROLE"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)

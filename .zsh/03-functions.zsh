@@ -3,11 +3,6 @@ mkcd () {
 }
 compdef mkcd=mkdir
 
-gfp () {
-    git fetch "$1" "pull/$2/head:pr-$2"
-}
-compdef _git gfp=git-fetch
-
 sshrc () {
     local SSHHOME=${SSHHOME:-$HOME}
     if [ -f $SSHHOME/.sshrc ]; then

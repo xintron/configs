@@ -23,7 +23,6 @@ endif
 call neobundle#begin(expand("~/.vim/bundle/"))
 NeoBundleFetch "Shougo/neobundle.vim"
 
-
 " Misc plugins
 NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/vimfiler.vim"
@@ -39,6 +38,8 @@ NeoBundle "tpope/vim-surround"
 NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "wakatime/vim-wakatime"
 
+NeoBundle "mrtazz/simplenote.vim"
+
 " Git
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "airblade/vim-gitgutter"
@@ -49,11 +50,13 @@ NeoBundle "ervandew/supertab"
 NeoBundle "rking/ag.vim"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "mbbill/undotree"
-NeoBundle "Mark"
 NeoBundle "tsukkee/unite-tag"
 NeoBundle "raimondi/delimitmate"
 
 NeoBundle "Lokaltog/vim-easymotion"
+NeoBundle "luochen1990/rainbow"
+NeoBundle "xolox/vim-session"
+NeoBundle "xolox/vim-misc"
 
 NeoBundle "joonty/vdebug"
 NeoBundle "editorconfig/editorconfig-vim"
@@ -81,10 +84,10 @@ NeoBundle "mxw/vim-jsx"
 NeoBundle "groenewege/vim-less"
 
 " Haskell
-NeoBundle "eagletmt/ghcmod-vim", "master"
+NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "eagletmt/neco-ghc"
 NeoBundle "Twinside/vim-hoogle"
-NeoBundle "raichoo/haskell-vim"
+NeoBundle "neovimhaskell/haskell-vim"
 
 " Go
 NeoBundle 'fatih/vim-go'
@@ -95,13 +98,17 @@ NeoBundle "tpope/vim-markdown"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "robbles/logstash.vim"
 NeoBundle "Matt-Deacalion/vim-systemd-syntax"
+NeoBundle "saltstack/salt-vim"
+NeoBundle "stephpy/vim-yaml"
+NeoBundle "Glench/Vim-Jinja2-Syntax"
 
 call neobundle#end()
-NeoBundleCheck
 
 " Enable *after* loading plugins
 filetype plugin indent on
 syntax on
+
+NeoBundleCheck
 
 let base16colorspace=256
 colorscheme base16-monokai

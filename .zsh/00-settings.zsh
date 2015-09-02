@@ -3,8 +3,14 @@ set -o vi
 export TZ='Europe/Stockholm'
 export EDITOR="vim"
 [ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
+[ -d $HOME/.composer/vendor/bin/ ] && PATH=$HOME/.composer/vendor/bin:$PATH
+[ -d $HOME/.cabal/bin/ ] && PATH=$HOME/.cabal/bin:$PATH
+[ -d $HOME/git/utils ] && PATH=$HOME/git/utils:$PATH
+
 export GOPATH=$HOME/go
-export PATH=$HOME/.cabal/bin:$HOME/git/utils:$HOME/bin:/usr/lib/ccache/bin/:$GOPATH/bin:/usr/local/bin/:$PATH
+[ -d $GOPATH/bin ] && PATH=$GOPATH/bin:$PATH
+
+export PATH=$HOME/bin:$PATH:/usr/lib/ccache/bin/:/usr/local/bin/
 #[ $OSX -gt 0 ] && export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 export PAGER="less"
 
@@ -14,8 +20,6 @@ for d in $ZSH_HOME/completion/*(/); do
     [[ $DEBUG -gt 0 ]] && echo "zsh: adding dir to \$fpath $dir"
     fpath=($dir $fpath)
 done
-
-[ -n "$(command -v "keychain")" ] && eval $(keychain --eval --agents ssh -Q --quiet)
 
 if [ -f $HOME/git/configs/base16-builder/output/shell/base16-monokai.dark.sh ]; then
     sh $HOME/git/configs/base16-builder/output/shell/base16-monokai.dark.sh

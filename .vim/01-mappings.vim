@@ -28,11 +28,6 @@ nmap <silent> <Leader>lo :lopen<CR>
 nmap <silent> <Leader>lc :lclose<CR>
 nmap <silent> <Leader>ln :lnext<CR>
 nmap <silent> <Leader>lp :lprevious<CR>
-
-" Generate stuff in insert mode {{{
-" Generate an identifier
-imap <Leader>di <C-R>=system('date +"%s.%N" \| md5sum')[0:20]<CR>
-imap <Leader>dts <C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR>
 " }}}
 " }}}
 
