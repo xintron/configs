@@ -1,8 +1,8 @@
 " Unite {{{
-call unite#filters#matcher_default#use(["matcher_fuzzy"])
-if has("ruby")
-    call unite#filters#sorter_default#use(["sorter_selecta"])
-else
-    call unite#filters#sorter_default#use(["sorter_rank"])
-endif
+call unite#filters#matcher_default#use(["matcher_context"])
+call unite#filters#sorter_default#use(["sorter_rank"])
+" }}}
+" YouCompleteMe {{{
+let g:ycm_semantic_triggers = {}
+let g:ycm_semantic_triggers.php = ['->', '::', '(', 'use ', 'namespace ', '\', '$']
 " }}}

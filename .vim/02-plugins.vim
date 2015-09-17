@@ -5,6 +5,11 @@ let g:syntastic_mode_map = {'mode': 'active',
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_javascript_jslint_conf = '--bitwise --debug --nomen --plusplus --maxlen 80 --browser --undef --sloppy'
 let g:syntastic_php_phpcs_args = '--standard=psr2 -n'
+
+let g:syntastic_error_symbol            = '✖'
+let g:syntastic_warning_symbol          = '►'
+let g:syntastic_style_error_symbol      = '✖'
+let g:syntastic_style_warning_symbol    = '►'
 " }}}
 " CtrlP {{{
 let g:ctrlp_map = '<Leader>pm'
@@ -67,4 +72,16 @@ let g:rainbow_conf = {
 \   'ctermfgs': ['green', 'blue', 'magenta', 'yellow']
 \}
 " }}}
-source ~/.simplenoterc
+
+" YouCompleteMe {{{
+let g:ycm_autoclose_preview_window_after_completion = 1
+" }}}
+" indentLine {{{
+let g:indentLine_enabled = 1
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 245
+" }}}
+
+if filereadable(expand('~').'/.simplenoterc')
+        exec 'source ' . expand('~') . '/.simplenoterc'
+endif

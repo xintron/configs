@@ -8,18 +8,14 @@ Xft.rgba: rgb
 Xft.antialias: 1
 
 /* urL-yanking */
-URxvt.perl-ext-common: default,url-select,font-size
+URxvt.perl-ext-common: default,url-select,resize-font
 
-URxvt.colorUL: #87C706
+URxvt.colorUL: #98971a
 URxvt.matcher.button: 1
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.keysym.C-i: perl:url-select:select_next
-
-URxvt.keysym.C-Up: perl:font-size:increase
-URxvt.keysym.C-Down: perl:font-size:decrease
-URxvt.keysym.C-Left: perl:font-size:reset
 
 /* Needs to be disabled for C-S keybindings to work */
 URxvt.iso14755: false
@@ -43,7 +39,8 @@ URxvt.geometry: 120x40
 
 /* Colors */
 
-#include "/home/xintron/git/configs/base16-builder/output/xresources/base16-monokai.dark.256.xresources"
+#include "/home/xintron/git/configs/gruvbox-contrib/xresources/gruvbox-dark.xresources"
+#include "/home/xintron/git/configs/gruvbox-contrib/urxvt256/gruvbox-urxvt256.xresources"
 
 /* dzen2 */
 dzen2.font: xft:M+ 1m regular:size=11

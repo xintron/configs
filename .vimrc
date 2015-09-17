@@ -35,18 +35,28 @@ NeoBundle "Shougo/vimproc.vim", {
 
 NeoBundle "tpope/vim-surround"
 
-NeoBundle "Shougo/neocomplete.vim"
+NeoBundle "Valloric/YouCompleteMe", {
+    \ "build": {
+    \       "others": "./install.sh"
+    \   },
+    \ }
 NeoBundle "wakatime/vim-wakatime"
 
 NeoBundle "mrtazz/simplenote.vim"
 
+" Code styling
+NeoBundle 'Yggdroot/indentLine'
+
+" Colors
+NeoBundle 'morhetz/gruvbox'
+
 " Git
 NeoBundle "tpope/vim-fugitive"
 NeoBundle "airblade/vim-gitgutter"
+NeoBundle 'gregsexton/gitv'
 
 NeoBundle "scrooloose/syntastic"
 NeoBundle "bling/vim-airline"
-NeoBundle "ervandew/supertab"
 NeoBundle "rking/ag.vim"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "mbbill/undotree"
@@ -69,9 +79,8 @@ NeoBundle "SirVer/ultisnips"
 NeoBundle "honza/vim-snippets"
 
 " PHP
-NeoBundle "StanAngeloff/php.vim"
-NeoBundle "shawncplus/phpcomplete.vim"
-NeoBundle "rayburgemeestre/phpfolding.vim"
+NeoBundle 'vim-php/vim-php-refactoring'
+NeoBundle 'mkusher/padawan.vim'
 
 " JavaScript (and the likes)
 NeoBundle "gkz/vim-ls" " LiveScript support
@@ -103,6 +112,9 @@ NeoBundle "stephpy/vim-yaml"
 NeoBundle "Glench/Vim-Jinja2-Syntax"
 
 call neobundle#end()
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
+
 
 " Enable *after* loading plugins
 filetype plugin indent on
@@ -110,8 +122,7 @@ syntax on
 
 NeoBundleCheck
 
-let base16colorspace=256
-colorscheme base16-monokai
+colorscheme gruvbox
 set background=dark
 
 hi User1 ctermfg=0 ctermbg=6
