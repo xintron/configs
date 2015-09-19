@@ -24,3 +24,6 @@ XF86MonBrightness{Down,Up}
 
 XF86KbdBrightness{Down,Up}
     kbdlight {down,up}
+
+ctrl + 9
+    togglelayout

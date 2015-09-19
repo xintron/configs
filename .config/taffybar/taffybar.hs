@@ -89,6 +89,6 @@ main = do
             , widgetSep = colorize "#EF3600" "" " : "
             }
 
-    defaultTaffybar defaultTaffybarConfig { monitorNumber = 0
+    defaultTaffybar defaultTaffybarConfig { monitorNumber = 2
                                           , startWidgets = [ pager ]
                                           , endWidgets = [ systrayNew, clock, memLabel, cpu, wlan, wired, bat, mpris ] }
