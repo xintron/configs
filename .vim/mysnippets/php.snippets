@@ -16,6 +16,18 @@ snippet doc_v "Variable documentation" !
 ${3:public} ${4:$var};
 endsnippet
 
+snippet cv "Class variable" !
+${1:public} ${2:$var} = ${3:null};
+endsnippet
+
+snippet cvpri "Private class variable" !
+private ${1:$var} = ${2:null};
+endsnippet
+
+snippet cvpro "Protected class variable" !
+protected ${1:$var} = ${2:null};
+endsnippet
+
 snippet fore "Foreach loop" !
 foreach ($${1:data} as $${2:row})  {
     $3

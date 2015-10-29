@@ -52,6 +52,7 @@ endfunction
 nnoremap <C-p> :call <SID>do_unite_search()<cr>
 nmap <Leader>ub :Unite -start-insert -toggle buffer:-<cr>
 nmap <Leader>ut :Unite -start-insert -toggle tag<cr>
+nmap <Leader>ud :Unite -start-insert -toggle -hide-source-names file file/new directory/new<cr>
 if has('nvim')
     nmap <Leader>up :Unite -start-insert -toggle file_rec/neovim:!<cr>
 else

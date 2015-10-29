@@ -32,17 +32,15 @@ NeoBundle "Shougo/vimproc.vim", {
     \       "unix": "make -f make_unix.mak"
     \   },
     \ }
+NeoBundle 'Shougo/deoplete.nvim'
 
 NeoBundle "tpope/vim-surround"
 
-NeoBundle "Valloric/YouCompleteMe", {
-    \ "build": {
-    \       "others": "./install.sh"
-    \   },
-    \ }
 NeoBundle "wakatime/vim-wakatime"
 
 NeoBundle "mrtazz/simplenote.vim"
+
+NeoBundle 'PeterRincker/vim-argumentative'
 
 " Code styling
 NeoBundle 'Yggdroot/indentLine'
@@ -88,6 +86,8 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "justinj/vim-react-snippets"
 NeoBundle "mtscout6/vim-cjsx"
 NeoBundle "mxw/vim-jsx"
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'helino/vim-json'
 
 " CSS
 NeoBundle "groenewege/vim-less"
@@ -104,17 +104,14 @@ NeoBundle 'fatih/vim-go'
 " Syntax files
 NeoBundle "evanmiller/nginx-vim-syntax"
 NeoBundle "tpope/vim-markdown"
-NeoBundle "pangloss/vim-javascript"
 NeoBundle "robbles/logstash.vim"
 NeoBundle "Matt-Deacalion/vim-systemd-syntax"
 NeoBundle "saltstack/salt-vim"
 NeoBundle "stephpy/vim-yaml"
 NeoBundle "Glench/Vim-Jinja2-Syntax"
+NeoBundle 'digitaltoad/vim-jade'
 
 call neobundle#end()
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
-
 
 " Enable *after* loading plugins
 filetype plugin indent on

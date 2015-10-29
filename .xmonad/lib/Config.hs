@@ -13,6 +13,7 @@ import XMonad.Layout.LimitWindows
 import XMonad.Layout.Maximize
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
+import XMonad.Layout.OneBig
 import XMonad.Layout.Renamed
 import XMonad.Layout.Tabbed
 import System.Exit
@@ -33,6 +34,7 @@ layWebDev = renamed [Replace "Log"] $ Mirror $ Tall 1 delta (8/10)
 layMain = renamed [Replace "Main"] $ Tall 1 delta (1 / 2)
 layFull = noBorders Full
 layDish = limitSlice 5 $ Dishes 1 (1 / 5)
+layOneBig = renamed [Replace "Big"] $ OneBig (3/4) (3/4)
 layTabbed = renamed [Replace "Tab"] $ tabbedBottom shrinkText $ defaultTheme
     { activeColor = bg
     , urgentColor = red
@@ -48,7 +50,7 @@ layTabbed = renamed [Replace "Tab"] $ tabbedBottom shrinkText $ defaultTheme
     bg = "#222222"
     infg = "#cccccc"
 
-allLayouts = layMain ||| layWebDev ||| layDish ||| layTabbed ||| layFull
+allLayouts = layMain ||| layWebDev ||| layTabbed ||| layFull ||| layOneBig
 devFirst = layWebDev ||| layMain ||| layTabbed ||| layFull
 mainFirst = layMain ||| layTabbed ||| layFull
 
@@ -85,7 +87,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm .|. shiftMask, xK_F9), spawn "kodi")
     , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window' -no-levenshtein-sort")
-    , ((modm .|. shiftMask, xK_r), spawn "rofi -show window -switchers 'run,window' -no-levenshtein-sort")
+    , ((modm .|. shiftMask, xK_r), spawn "rofi-mainmenu")
     -- close focused window
     , ((modm .|. shiftMask, xK_c), kill)
      -- Rotate through the available layout algorithms

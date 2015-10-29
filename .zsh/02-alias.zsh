@@ -1,3 +1,5 @@
+compdef powerpill=pacman
+
 # git aliases
 alias g='git'
 alias gc='git commit'

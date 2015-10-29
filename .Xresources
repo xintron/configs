@@ -41,23 +41,33 @@ URxvt.geometry: 120x40
 
 #include "/home/xintron/git/configs/gruvbox-contrib/xresources/gruvbox-dark.xresources"
 #include "/home/xintron/git/configs/gruvbox-contrib/urxvt256/gruvbox-urxvt256.xresources"
-
 /* dzen2 */
 dzen2.font: xft:M+ 1m regular:size=11
 
 /* Rofi */
-rofi.bg: #222
-rofi.fg: #eee8d5
-rofi.hlbg: #f95346
-rofi.hlbg-urgent: #eee8d5
-rofi.hlfg-urgent: #222
-rofi.bgalt: #292929
-rofi.bc: #f95346
-rofi.bw: 0
+#define r_bg   #111
+#define r_fg   #bbb
+#define r_hlfg #D7F914
+
+! States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#181818,r_bg,r_hlfg
+rofi.color-urgent: r_bg,#DC322F,#181818,r_bg,#FDF6E3
+rofi.color-active: r_bg,#268BD2,#181818,r_bg,#FDF6E3
+! states: background, border
+rofi.color-window: r_bg,r_hlfg
+
+rofi.separator-style: dash
+rofi.sidebar-mode: true
+rofi.bw: 1
+rofi.columns: 1
+
 rofi.yoffset: 0
-rofi.location: 6
-rofi.width: 100
-rofi.font: Liberation Sans 11
+rofi.opacity: 100
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.font: Hack-Regular 12
 rofi.lines: 15
 
 /* fonts */

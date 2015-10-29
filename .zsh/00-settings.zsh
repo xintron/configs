@@ -10,7 +10,7 @@ export EDITOR="vim"
 export GOPATH=$HOME/go
 [ -d $GOPATH/bin ] && PATH=$GOPATH/bin:$PATH
 
-export PATH=$HOME/bin:$PATH:/usr/lib/ccache/bin/:/usr/local/bin/
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH:/usr/lib/ccache/bin/:/usr/local/bin/
 #[ $OSX -gt 0 ] && export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 export PAGER="less"
 

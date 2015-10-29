@@ -72,14 +72,26 @@ let g:rainbow_conf = {
 \   'ctermfgs': ['green', 'blue', 'magenta', 'yellow']
 \}
 " }}}
-
 " YouCompleteMe {{{
 let g:ycm_autoclose_preview_window_after_completion = 1
 " }}}
 " indentLine {{{
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
-let g:indentLine_color_term = 245
+let g:indentLine_color_term = 14
+" }}}
+" deoplete {{{
+let g:deoplete#enable_at_startup = 1
+" }}}
+" jsx {{{
+let g:jsx_ext_required = 0
+" }}}
+" javascript {{{
+let g:javascript_conceal = 1
+let g:javascript_conceal_function = "λ"
+let g:javascript_conceal_this = "@"
+let g:javascript_conceal_return = "<"
+let g:javascript_conceal_prototype = "#"
 " }}}
 
 if filereadable(expand('~').'/.simplenoterc')
