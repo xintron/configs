@@ -32,7 +32,12 @@ NeoBundle "Shougo/vimproc.vim", {
     \       "unix": "make -f make_unix.mak"
     \   },
     \ }
-NeoBundle 'Shougo/deoplete.nvim'
+NeoBundle "Valloric/YouCompleteMe", {
+    \   "build": {
+    \       "unix": "python2 install.py --clang-completer --gocode-completer --tern-completer"
+    \   }
+    \ }
+NeoBundle "rdnetto/YCM-Generator"
 
 NeoBundle "tpope/vim-surround"
 
@@ -86,8 +91,7 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "justinj/vim-react-snippets"
 NeoBundle "mtscout6/vim-cjsx"
 NeoBundle "mxw/vim-jsx"
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'helino/vim-json'
+NeoBundle 'isRuslan/vim-es6'
 
 " CSS
 NeoBundle "groenewege/vim-less"
@@ -100,6 +104,11 @@ NeoBundle "neovimhaskell/haskell-vim"
 
 " Go
 NeoBundle 'fatih/vim-go'
+NeoBundle 'nsf/gocode', {
+    \   "build": {
+    \       "unix": "./nvim/symlink.sh"
+    \   }
+    \ }
 
 " Syntax files
 NeoBundle "evanmiller/nginx-vim-syntax"

@@ -5,6 +5,8 @@ import XMonad.Actions.FloatKeys
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.GridSelect
 import XMonad.Actions.Navigation2D
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.Minimize
 import qualified XMonad.Layout.BoringWindows as B
@@ -82,6 +84,8 @@ myManageHook = composeAll
     , role =? "pop-up"                --> doFloat ]
   where
     role = stringProperty "WM_WINDOW_ROLE"
+
+myManageHook' = composeOne [ isFullscreen -?> doFullFloat ]
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
@@ -164,8 +168,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 myConfig = defaultConfig
     { terminal = "urxvt"
     , layoutHook = myLayouts
-    , manageHook = myManageHook <+> manageDocks
-    , handleEventHook = docksEventHook <+> minimizeEventHook
+    , manageHook = myManageHook <+> myManageHook' <+> manageDocks
+    , handleEventHook = docksEventHook <+> minimizeEventHook <+>  fullscreenEventHook
     , keys = myKeys
     -- Don't be stupid with focus
     , focusFollowsMouse = False

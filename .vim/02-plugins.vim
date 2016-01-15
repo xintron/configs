@@ -76,6 +76,7 @@ let g:rainbow_conf = {
 let g:ycm_autoclose_preview_window_after_completion = 1
 " }}}
 " indentLine {{{
+let g:indent_guides_default_mapping = 0
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
 let g:indentLine_color_term = 14

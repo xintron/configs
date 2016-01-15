@@ -15,7 +15,7 @@ URxvt.matcher.button: 1
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 URxvt.url-select.launcher: /usr/bin/xdg-open
-URxvt.keysym.C-i: perl:url-select:select_next
+URxvt.keysym.M-u: perl:url-select:select_next
 
 /* Needs to be disabled for C-S keybindings to work */
 URxvt.iso14755: false
@@ -74,3 +74,16 @@ rofi.lines: 15
 URxvt.font:         xft:Hack-Regular:pixelsize=14,xft:Symbola
 URxvt.boldFont:     xft:Hack-Bold:pixelsize=14:weight=bold,xft:Symbola
 URxvt.italicFont:   xft:Hack-RegularOblique:pixelsize=14:slant=italic,xft:Symbola
+
+xscreensaver.splash: false
+xscreensaver.Dialog.foreground: r_fg
+xscreensaver.Dialog.background: r_bg
+xscreensaver.Dialog.topShadowColor: #0a0a0a
+xscreensaver.Dialog.bottomShadowColor: #161616
+xscreensaver.Dialog.Button.foreground: r_fg
+xscreensaver.Dialog.Button.background: r_bg
+xscreensaver.Dialog.borderWidth: 0
+xscreensaver.Dialog.internalBorderWidth: 0
+xscreensaver.passwd.thermometer.background: r_bg
+xscreensaver.passwd.thermometer.foreground: r_hlfg
+xscreensaver.passwd.thermometer.width: 8
