@@ -82,7 +82,7 @@ Plug 'neovimhaskell/haskell-vim'
 
 " Go
 Plug 'fatih/vim-go'
-Plug 'nsf/gocode', {'do': './nvim/symlink.sh'}
+Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plug/gocode/nvim/symlink.sh'}
 Plug 'zchee/deoplete-go', {'do': 'make'}
 
 " Syntax files
