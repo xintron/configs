@@ -1,0 +1,94 @@
+#! /bin/sh
+#
+# Example panel for lemonbar
+
+. panel_colors
+
+num_mon=$(bspc query -M | wc -l)
+
+while read -r line ; do
+    case $line in
+        S*)
+            sys="${line#?}"
+            ;;
+        T*)
+            # xtitle output
+            trimmed=${line#?}
+            [ "${#trimmed}" -gt 40 ] && trimmed="${trimmed:0:40}\u2026"
+            title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${trimmed} %{B-}%{F-}"
+            ;;
+        W*)
+            # bspwm's state
+            wm=""
+            IFS=':'
+            set -- ${line#?}
+            active_mon=0
+            layout=""
+            while [ $# -gt 0 ] ; do
+                item=$1
+                name=${item#?}
+                case $item in
+                    [mM]*)
+                        [ "$num_mon" -lt 2 ] && shift && continue
+                        case $item in
+                            m*)
+                                active_mon=0
+                                ;;
+                            M*)
+                                active_mon=1
+                                ;;
+                        esac
+                        ;;
+                    [FoOuU]*)
+                        case $item in
+                            f*)
+                                # free desktop
+                                FG=$COLOR_FREE_FG
+                                BG=$COLOR_FREE_BG
+                                ;;
+                            F*)
+                                # focused free desktop
+                                FG=$COLOR_FOCUSED_FREE_FG
+                                BG=$COLOR_FOCUSED_FREE_BG
+                                ;;
+                            o*)
+                                # occupied desktop
+                                FG=$COLOR_OCCUPIED_FG
+                                BG=$COLOR_OCCUPIED_BG
+                                ;;
+                            O*)
+                                if [ "$active_mon" -eq 1 ]; then
+                                    # focused occupied desktop
+                                    FG=$COLOR_FOCUSED_OCCUPIED_FG
+                                    BG=$COLOR_FOCUSED_OCCUPIED_BG
+                                else
+                                    FG=$COLOR_OCCUPIED_FG
+                                    BG=$COLOR_OCCUPIED_BG
+                                fi
+                                ;;
+                            u*)
+                                # urgent desktop
+                                FG=$COLOR_URGENT_FG
+                                BG=$COLOR_URGENT_BG
+                                ;;
+                            U*)
+                                # focused urgent desktop
+                                FG=$COLOR_FOCUSED_URGENT_FG
+                                BG=$COLOR_FOCUSED_URGENT_BG
+                                ;;
+                        esac
+                        wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+                        ;;
+                    [LTG]*)
+                        [ "$active_mon" -ne 1 ] && shift && continue
+                        # layout, state and flags
+                        layout="${layout}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
+                        ;;
+                esac
+                shift
+            done
+            wm="${wm}${layout}"
+            ;;
+    esac
+    echo -e "%{l}${wm}${title}%{r}${sys}"
+done

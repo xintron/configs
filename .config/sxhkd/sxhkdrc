@@ -1,16 +1,16 @@
-mode_switch + {9,0}
+mod5 + {9,0}
     ponymix {decrease,increase} 3
 
 XF86Audio{Lower,Raise}Volume
     ponymix {decrease,increase} 3
 
-mode_switch + 8
+mod5 + 8
     ponymix toggle
 
 XF86AudioMute
     ponymix toggle
 
-mode_switch + {3,4,5}
+mod5 + {3,4,5}
     playerctl {previous,play-pause,next}
 
 XF86Audio{Prev,Play,Next}
@@ -27,3 +27,161 @@ XF86KbdBrightness{Down,Up}
 
 ctrl + 9
     togglelayout
+
+#
+# bspwm hotkeys
+#
+
+
+super + Return
+    termite
+
+super + space
+    rofi -show run -switchers 'run,window' -no-levenshtein-sort
+
+# quit bspwm normally
+super + alt + Escape
+	bspc quit
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {x,y,z}
+	bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,ctrl +, ctrl + shift +} {h,j,k,l}
+	bspc node -{f,s,p} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node
+super + {_,shift + }c
+	bspc node -f {next,prev}
+
+# focus the next/previous desktop
+super + shift + {h,l}
+	bspc monitor -f {prev,next}
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# swap focused desktop or send to the given desktop
+super + {_,ctrl + ,shift + }{1-9}
+	bspc {desktop focused -s,desktop -f,node -d} '{1-9}'
+
+#
+# preselect
+#
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# resize tiled/floating
+#
+
+# rotate desktop or focused node group
+super {_,ctrl} + {_,shift +} r
+    bspc node {focused,'@/'} -R {_,-}90
+
+# expand the tiled space in the given direction
+super + alt + {h,j,k,l}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+# contract the tiled space in the given direction
+super + alt + shift + {h,j,k,l}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	xdo move {-x -20,-y +20,-y -20,-x +20}
+
+#
+# Scratchpads
+#
+# Toggle the tray bar
+super + g
+    xdotool search --onlyvisible --classname stalonetray windowunmap \
+    || xdotool search --classname stalonetray windowmap \
+    || stalonetray --geometry "1x1+$(bspc query -T -m focused | jq '.rectangle.x + .rectangle.width - 20')+0"
+
+super + d
+    /home/xintron/git/utils/scratchpad hide
+
+super + shift + d
+    id=$(bspc query -N -n "focused.floating");\
+    if [ -n "$id" ]; then \
+        xprop -id "$id" -f _SCRATCH 32ii -set _SCRATCH $(date +%s,%N);\
+        xdotool windowunmap "$id";\
+    else;\
+        i=$(for w in $(xwininfo -root -children | awk '/^\s+0x/ \{print $1\}'); do;\
+            t=$(xprop -id "$w" _SCRATCH | awk '/=/ \{ print $3 " " $4 \}');\
+            if [ -n "$t" ]; then \
+                echo $t $w;\
+            fi;\
+        done | sort -n | head -n1 | cut -d " " -f 3);\
+        echo "yes: $i";\
+        if [ -n "$i" ]; then \
+            xprop -id "$i" -remove _SCRATCH;\
+            bspc rule -a * state=floating center=on --one-shot;\
+            xdotool windowmap "$i";\
+            bspc node -f "$i";\
+        fi;\
+    fi
+
+#
+# pointer focus/move/resize
+#
+
+# focus
+~button1
+	bspc pointer -g focus
+
+# start move/resize
+super + button{1-3}
+	bspc pointer -g {move,resize_side,resize_corner}
+
+# end move/resize
+super + @button{1-3}
+	bspc pointer -u

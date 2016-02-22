@@ -1,0 +1,61 @@
+#! /bin/sh
+
+export PATH=$PATH:$HOME/.config/bspwm/panel
+
+if [ "$(pgrep -cx lemonbar)" -gt 1 ]; then
+    echo "The panel is running. Stopping it"
+    pkill -n "lemonbar"
+    sleep 0.1
+    while [[ $(prgep -c "lemonbar") != 0 ]]; do
+        pkill -n -9 "lemonbar"
+    done
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+# shellcheck disable=SC1091
+. ./bspwm_theme
+
+PANEL_FIFO=${PANEL_FIFO:-/tmp/panel-fifo}
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+# Reset the padding for all monitors
+for mon in $(bspc query -M); do
+    bspc config -m "$mon" top_padding 0
+done
+
+mon=$(bspc query -M -m primary)
+# No primary monitor, take the first one
+[ "$mon" ] || mon=$(bspc query -M -m "^1")
+
+bspc config -m "$mon" top_padding "$PANEL_HEIGHT"
+bspc subscribe report > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+#./info.sh > "$PANEL_FIFO" &
+conky -c ./conky > "$PANEL_FIFO" &
+
+# shellcheck disable=SC1091
+. panel_colors
+
+tree_data=$(bspc query -T -m "$mon")
+
+panel_bar < "$PANEL_FIFO" | lemonbar \
+    -a 32 \
+    -n "$PANEL_WM_NAME" \
+    -g "$(jq '.rectangle.width' <<< "$tree_data")"x"$PANEL_HEIGHT"+"$(jq '.rectangle.x' <<< "$tree_data")" \
+    -f "$PANEL_FONT" \
+    -f "FontAwesome" \
+    -F "$COLOR_DEFAULT_FG" \
+    -B "$COLOR_DEFAULT_BG" | sh &
+
+wid=$(xdo id -a "$PANEL_WM_NAME")
+tries_left=20
+while [ -z "$wid" ] && [ "$tries_left" -gt 0 ] ; do
+	sleep 0.05
+	wid=$(xdo id -a "$PANEL_WM_NAME")
+	tries_left=$((tries_left - 1))
+done
+[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+wait

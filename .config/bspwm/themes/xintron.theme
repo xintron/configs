@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PANEL_HEIGHT=20
+export PANEL_GAP=12
+export PANEL_FONT="Hack:size=10:style=Regular"
