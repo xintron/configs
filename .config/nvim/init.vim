@@ -10,8 +10,6 @@ set directory=~/.vim/tmp/swap/
 set undodir=~/.vim/tmp/undo/
 
 if has("vim_starting")
-    " Needed for neobundle to work
-    set runtimepath+=~/.vim/bundle/vim-plug/
     for f in split(globpath(split(&runtimepath, ',')[0], '*.vim'), '\n')
         if (f =~ '\v0[0-9].+\.vim')
             exe 'source'.f
@@ -19,7 +17,7 @@ if has("vim_starting")
     endfor
 endif
 
-call plug#begin('~/.vim/plug/')
+call plug#begin('~/.config/nvim/plug/')
 
 " Misc plugins
 Plug 'Shougo/unite.vim'

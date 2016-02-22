@@ -8,3 +8,4 @@ bindkey "^[[Z" reverse-menu-complete
 bindkey -M listscroll "^I" accept-search
 
 bindkey -M vicmd v edit-command-line
+bindkey -M vicmd K run-help

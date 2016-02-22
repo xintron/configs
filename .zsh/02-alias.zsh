@@ -39,7 +39,6 @@ alias lsdd='ls -Ad *(-/DN)'
 # misc
 alias cp='cp -vi'
 alias mv='mv -vi'
-alias rm='rm -v'
 alias c='clear'
 alias ..='cd ..'
 alias -- -='pushd -'

@@ -1,7 +1,7 @@
 set -o vi
 
 export TZ='Europe/Stockholm'
-export EDITOR="vim"
+export EDITOR="nvim"
 [ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 [ -d $HOME/.composer/vendor/bin/ ] && PATH=$HOME/.composer/vendor/bin:$PATH
 [ -d $HOME/.cabal/bin/ ] && PATH=$HOME/.cabal/bin:$PATH
