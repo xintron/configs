@@ -1,6 +1,5 @@
 " Base settings {{{
 set encoding=utf-8
-set rs " Restoring screen
 set t_Co=256
 
 set nocompatible
