@@ -27,6 +27,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-surround'
 
 Plug 'mrtazz/simplenote.vim'
+Plug 'ervandew/supertab'
 
 " Code styling
 Plug 'Yggdroot/indentLine'
@@ -82,7 +83,6 @@ Plug 'neovimhaskell/haskell-vim'
 
 " Go
 Plug 'fatih/vim-go'
-Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plug/gocode/nvim/symlink.sh'}
 Plug 'zchee/deoplete-go', {'do': 'make'}
 
 " Syntax files

@@ -82,8 +82,6 @@ let g:indentLine_char = '┆'
 let g:indentLine_color_term = 14
 " }}}
 " deoplete {{{
-set completeopt+=noinsert
-set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
 " }}}
 " jsx {{{

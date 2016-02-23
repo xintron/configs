@@ -2,13 +2,9 @@
 set encoding=utf-8
 set t_Co=256
 
-set nocompatible
 set autoindent
 set noautochdir
 set backspace=start,indent,eol
-
-set lazyredraw
-" set ttyfast
 
 set list
 set listchars=tab:▸\ ,eol:↲,extends:»,precedes:«,trail:·
@@ -30,7 +26,7 @@ set textwidth=79
 
 set grepprg=grep\ -n\ $@
 
-set completeopt=menuone,preview
+set completeopt=menuone
 
 set colorcolumn=+1
 set background=dark
