@@ -1,13 +1,13 @@
 " Author: Marcus Carlsson <hi@xintron.se>
 
-if !isdirectory(expand('~/.vim/tmp/'))
-    call mkdir(expand('~/.vim/tmp/backup/'), 'p', 0700)
-    call mkdir(expand('~/.vim/tmp/swap/'), 'p', 0700)
-    call mkdir(expand('~/.vim/tmp/undo/'), 'p', 0700)
+if !isdirectory(expand('~/.config/nvim/tmp/'))
+    call mkdir(expand('~/.config/nvim/tmp/backup/'), 'p', 0700)
+    call mkdir(expand('~/.config/nvim/tmp/swap/'), 'p', 0700)
+    call mkdir(expand('~/.config/nvim/tmp/undo/'), 'p', 0700)
 endif
-set backupdir=~/.vim/tmp/backup/
-set directory=~/.vim/tmp/swap/
-set undodir=~/.vim/tmp/undo/
+set backupdir=~/.config/nvim/tmp/backup/
+set directory=~/.config/nvim/tmp/swap/
+set undodir=~/.config/nvim/tmp/undo/
 
 if has("vim_starting")
     for f in split(globpath(split(&runtimepath, ',')[0], '*.vim'), '\n')

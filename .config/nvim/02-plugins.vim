@@ -82,6 +82,8 @@ let g:indentLine_char = '┆'
 let g:indentLine_color_term = 14
 " }}}
 " deoplete {{{
+set completeopt+=noinsert
+set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
 " }}}
 " jsx {{{
@@ -93,9 +95,6 @@ let g:javascript_conceal_function = "λ"
 let g:javascript_conceal_this = "@"
 let g:javascript_conceal_return = "<"
 let g:javascript_conceal_prototype = "#"
-" }}}
-" go {{{
-let g:deoplete#enable_at_startup = 1
 " }}}
 
 if filereadable(expand('~').'/.simplenoterc')
