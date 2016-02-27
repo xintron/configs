@@ -2,4 +2,28 @@
 
 export PANEL_HEIGHT=20
 export PANEL_GAP=12
-export PANEL_FONT="Hack:size=10:style=Regular"
+export PANEL_FONT="RobotoMono:size=10:style=regular"
+export PANEL_ICON_FONT="FontAwesome:size=8"
+
+. $HOME/.config/bspwm/panel/panel_colors
+
+export COLOR_DEFAULT_FG="#ebdbb2"
+export COLOR_DEFAULT_BG="#1d2021"
+
+export COLOR_OCCUPIED_FG="#a89984"
+export COLOR_OCCUPIED_BG="$COLOR_DEFAULT_BG"
+
+export COLOR_TITLE_FG="$COLOR_DEFAULT_FG"
+export COLOR_TITLE_BG="$COLOR_DEFAULT_BG"
+
+export COLOR_FOCUSED_OCCUPIED_FG="#d65d0e"
+export COLOR_FOCUSED_OCCUPIED_BG="$COLOR_DEFAULT_BG"
+
+export COLOR_FOCUSED_MAIN_FG="#fe8019"
+export COLOR_FOCUSED_MAIN_BG="$COLOR_DEFAULT_BG"
+
+export COLOR_FOCUSED_URGENT_FG="$COLOR_URGENT_FG"
+export COLOR_FOCUSED_URGENT_BG="$COLOR_URGENT_BG"
+
+export COLOR_URGENT_FG="#fb4934"
+export COLOR_URGENT_BG="$COLOR_DEFAULT_BG"

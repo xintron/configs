@@ -57,8 +57,6 @@ let g:ghcmod_ghc_options = ['-ilib', '-isrc', '-i.', '-idist/build/autogen', '-W
 " }}}
 " airline {{{
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
 " }}}
 " vimfiler {{{
 let g:vimfiler_as_default_explorer = 1
@@ -79,7 +77,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:indent_guides_default_mapping = 0
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
-let g:indentLine_color_term = 14
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
@@ -93,6 +90,16 @@ let g:javascript_conceal_function = "λ"
 let g:javascript_conceal_this = "@"
 let g:javascript_conceal_return = "<"
 let g:javascript_conceal_prototype = "#"
+" }}}
+" gruvbox {{{
+let g:gruvbox_contrast_dark = "hard"
+" }}}
+" markdown {{{
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+" }}}
+" Neomake {{{
+autocmd BufWritePost * Neomake
 " }}}
 
 if filereadable(expand('~').'/.simplenoterc')

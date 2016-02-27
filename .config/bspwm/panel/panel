@@ -31,12 +31,7 @@ mon=$(bspc query -M -m primary)
 
 bspc config -m "$mon" top_padding "$PANEL_HEIGHT"
 bspc subscribe report > "$PANEL_FIFO" &
-xtitle -sf 'T%s' > "$PANEL_FIFO" &
-#./info.sh > "$PANEL_FIFO" &
 conky -c ./conky > "$PANEL_FIFO" &
-
-# shellcheck disable=SC1091
-. panel_colors
 
 tree_data=$(bspc query -T -m "$mon")
 
@@ -45,7 +40,11 @@ panel_bar < "$PANEL_FIFO" | lemonbar \
     -n "$PANEL_WM_NAME" \
     -g "$(jq '.rectangle.width' <<< "$tree_data")"x"$PANEL_HEIGHT"+"$(jq '.rectangle.x' <<< "$tree_data")" \
     -f "$PANEL_FONT" \
-    -f "FontAwesome" \
+    -o 0 \
+    -f "$PANEL_ICON_FONT" \
+    -o -2 \
+    -u 0 \
+    -U "$COLOR_DEFAULT_BG" \
     -F "$COLOR_DEFAULT_FG" \
     -B "$COLOR_DEFAULT_BG" | sh &
 

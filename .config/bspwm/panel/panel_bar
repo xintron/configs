@@ -1,8 +1,6 @@
 #! /bin/sh
-#
-# Example panel for lemonbar
 
-. panel_colors
+. bspwm_theme
 
 num_mon=$(bspc query -M | wc -l)
 
@@ -11,15 +9,9 @@ while read -r line ; do
         S*)
             sys="${line#?}"
             ;;
-        T*)
-            # xtitle output
-            trimmed=${line#?}
-            [ "${#trimmed}" -gt 40 ] && trimmed="${trimmed:0:40}\u2026"
-            title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${trimmed} %{B-}%{F-}"
-            ;;
         W*)
             # bspwm's state
-            wm=""
+            twm=()
             IFS=':'
             set -- ${line#?}
             active_mon=0
@@ -59,11 +51,11 @@ while read -r line ; do
                             O*)
                                 if [ "$active_mon" -eq 1 ]; then
                                     # focused occupied desktop
+                                    FG=$COLOR_FOCUSED_MAIN_FG
+                                    BG=$COLOR_FOCUSED_MAIN_BG
+                                else
                                     FG=$COLOR_FOCUSED_OCCUPIED_FG
                                     BG=$COLOR_FOCUSED_OCCUPIED_BG
-                                else
-                                    FG=$COLOR_OCCUPIED_FG
-                                    BG=$COLOR_OCCUPIED_BG
                                 fi
                                 ;;
                             u*)
@@ -77,15 +69,20 @@ while read -r line ; do
                                 BG=$COLOR_FOCUSED_URGENT_BG
                                 ;;
                         esac
-                        wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+                        position="$(sed -n "/${name}$/ s/=.*$//p" $HOME/.config/bspwm/desktops)"
+                        twm[$position]="%{F${FG}}%{B${BG}} ${name} %{B-}%{F-}"
                         ;;
                     [LTG]*)
                         [ "$active_mon" -ne 1 ] && shift && continue
                         # layout, state and flags
-                        layout="${layout}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
+                        layout="${layout}%{F$COLOR_DEFAULT_FG}%{B$COLOR_DEFAULT_BG} ${name} %{B-}%{F-}"
                         ;;
                 esac
                 shift
+            done
+            wm=""
+            for row in ${twm[@]}; do
+                wm="${wm}${row}"
             done
             wm="${wm}${layout}"
             ;;

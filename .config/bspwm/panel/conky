@@ -63,13 +63,13 @@ conky.config = {
 
 conky.text = [[
 S\
-%{F\#fbc02d}\uf001 ${execi 3 $HOME/.config/bspwm/panel/np.sh 30}%{F-} ‖ \
-%{F\#9c27b0}\uf135 $mem%{F-} ‖ \
-%{F\#03a9f4}\uf240 ${battery_percent}%%{F-} ‖ \
-%{F\#009688}\uf0a0 ${fs_free /} \uf015 ${fs_free /home}%{F-} ‖ \
-%{F\#689f38}\uf0ae ${cpu cpu0}%%{F-} ‖ \
-%{F\#c2185b}\uf102 \
+%{F\#d79921}\uf001 ${execi 3 $HOME/.config/bspwm/panel/np.sh 50}%{F-} | \
+%{F\#b16286}\uf135 $mem%{F-} | \
+%{F\#458588}\uf240 ${battery_percent}%%{F-} | \
+%{F\#689d6a}\uf0a0 ${fs_free /} \uf015 ${fs_free /home}%{F-} | \
+%{F\#98971a}\uf0ae ${cpu cpu0}%%{F-} | \
+%{F\#cc241d}\uf102 \
 ${if_up wlp3s0}${upspeed wlp3s0} | ${downspeed wlp3s0}${else}0 | 0$endif \
-\uf103%{F-} ‖ \
-%{F\#d32f2f}\uf017 ${time %b %d, %H:%M:%S} %{F-}
+\uf103%{F-} | \
+%{F\#ebdbb2}\uf017 ${time %b %d, %H:%M:%S} %{F-}
 ]]

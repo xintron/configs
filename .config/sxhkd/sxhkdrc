@@ -20,7 +20,7 @@ XF86LaunchB
     sh ~/.screenlayout/single-screen.sh
 
 XF86MonBrightness{Down,Up}
-    xbacklight -{dec,inc} 10 -time 0
+    xbacklight -{dec,inc} 5 -time 100
 
 XF86KbdBrightness{Down,Up}
     kbdlight {down,up}
@@ -97,9 +97,14 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# swap focused desktop or send to the given desktop
-super + {_,ctrl + ,shift + }{1-9}
-	bspc {desktop focused -s,desktop -f,node -d} '{1-9}'
+# Move the given desktop to the focused monitor (doing a swap)
+super + {1-9}
+    D="$(sed -n '/^{1-9}/ s/^.*=//p' < $HOME/.config/bspwm/desktops)";\
+	bspc desktop focused -s "$D"
+
+super + shift + {1-9}
+    D="$(sed -n '/^{1-9}/ s/^.*=//p' < $HOME/.config/bspwm/desktops)";\
+	bspc node -d "$D"
 
 #
 # preselect

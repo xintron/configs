@@ -1,6 +1,7 @@
 " Base settings {{{
+" Tell neovim to use true colors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set encoding=utf-8
-set t_Co=256
 
 set autoindent
 set noautochdir

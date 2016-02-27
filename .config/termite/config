@@ -1,5 +1,5 @@
 [options]
-font = Hack 11
+font = FiraMono 11
 allow_bold = true
 cursor_blink = off
 browser = xdg-open
@@ -8,7 +8,8 @@ cursor_shape = block
 [colors]
 # hard contrast: background = #1d2021
 # soft contrast: background = #32302f
-background = #282828
+# normal contrast: background = #282828
+background = #1d2021
 foreground = #ebdbb2
 foreground_bold = #ebdbb2
 

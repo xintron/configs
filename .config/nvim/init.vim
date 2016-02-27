@@ -51,7 +51,6 @@ Plug 'luochen1990/rainbow'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
-Plug 'nathanaelkane/vim-indent-guides'
 
 " Python Plugins
 Plug 'davidhalter/jedi-vim'
@@ -70,7 +69,11 @@ Plug 'justinj/vim-react-snippets'
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
+Plug 'pangloss/vim-javascript'
 Plug 'lambdatoast/elm.vim'
+Plug 'elzr/vim-json'
+" Used for javascript Tern completion
+Plug 'ternjs/tern_for_vim', {'do': 'source ~/.nvm/nvm.sh && npm install'}
 
 " CSS
 Plug 'groenewege/vim-less'
@@ -87,13 +90,14 @@ Plug 'zchee/deoplete-go', {'do': 'make'}
 
 " Syntax files
 Plug 'evanmiller/nginx-vim-syntax'
-Plug 'tpope/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'robbles/logstash.vim'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'saltstack/salt-vim'
 Plug 'stephpy/vim-yaml'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'digitaltoad/vim-jade'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 

@@ -1,8 +1,10 @@
-#! /bin/sh
+#!/bin/bash
 
 bspc config border_width        1
 bspc config window_gap         12
-bspc config focused_border_color '#d32f2f'
+bspc config focused_border_color '#d5c4a1'
+bspc config normal_border_color '#504945'
+bspc config active_border_color '#7c6f64'
 
 bspc config split_ratio         0.52
 bspc config borderless_monocle  true
@@ -12,8 +14,12 @@ bspc config history_aware_focus true
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+for line in $(< "$HOME/.config/bspwm/desktops"); do
+    bspc monitor -a "$(cut -d'=' -f2 <<< "$line")"
+done
 
-bspc rule -a mpv state=floating
-bspc rule -a Thunar state=floating
+bspc rule -a mpv state=floating center=on
+bspc rule -a Thunar state=floating center=on
 bspc rule -a keepassx state=floating
+
+$HOME/reset-status.sh
