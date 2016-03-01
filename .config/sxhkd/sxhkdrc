@@ -149,7 +149,7 @@ super + {Left,Down,Up,Right}
 super + g
     xdotool search --onlyvisible --classname stalonetray windowunmap \
     || xdotool search --classname stalonetray windowmap \
-    || stalonetray --geometry "1x1+$(bspc query -T -m focused | jq '.rectangle.x + .rectangle.width - 20')+0"
+    || stalonetray --geometry "1x1+$(bspc query -T -m primary | jq '.rectangle.x + .rectangle.width - 20')+0"
 
 super + d
     /home/xintron/git/utils/scratchpad hide
