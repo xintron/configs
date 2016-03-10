@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/plug/')
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
 Plug 'tpope/vim-surround'
 
