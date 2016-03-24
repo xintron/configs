@@ -80,9 +80,8 @@ Plug 'ternjs/tern_for_vim', {'do': 'source ~/.nvm/nvm.sh && npm install'}
 Plug 'groenewege/vim-less'
 
 " Haskell
-Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
-Plug 'Twinside/vim-hoogle'
+Plug 'eagletmt/ghcmod-vim'
 Plug 'neovimhaskell/haskell-vim'
 
 " Go

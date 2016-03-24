@@ -22,4 +22,4 @@ bspc rule -a mpv state=floating center=on
 bspc rule -a Thunar state=floating center=on
 bspc rule -a keepassx state=floating
 
-$HOME/reset-status.sh
+$HOME/.config/bspwm/reset-status.sh
