@@ -1,5 +1,6 @@
 #! /bin/sh
 
+# shellcheck disable=SC1091
 . bspwm_theme
 
 num_mon=$(bspc query -M | wc -l)
@@ -9,10 +10,14 @@ while read -r line ; do
         S*)
             sys="${line#?}"
             ;;
+        T*)
+            title="${line#?}"
+            ;;
         W*)
             # bspwm's state
             twm=()
             IFS=':'
+            # shellcheck disable=SC2086
             set -- ${line#?}
             active_mon=0
             layout=""
@@ -32,60 +37,44 @@ while read -r line ; do
                         esac
                         ;;
                     [FoOuU]*)
+                        desk=" ${name} "
                         case $item in
                             f*)
                                 # free desktop
-                                FG=$COLOR_FREE_FG
-                                BG=$COLOR_FREE_BG
+                                desk="%{F${COLOR_FREE_FG} B${COLOR_FREE_BG}} ${name} %{F- B-}"
                                 ;;
                             F*)
                                 # focused free desktop
-                                FG=$COLOR_FOCUSED_FREE_FG
-                                BG=$COLOR_FOCUSED_FREE_BG
+                                desk="%{F- B- U${COLOR_FOCUSED_FREE_FG} +u} ${name} %{U- -u}"
                                 ;;
                             o*)
                                 # occupied desktop
-                                FG=$COLOR_OCCUPIED_FG
-                                BG=$COLOR_OCCUPIED_BG
+                                desk="%{F${COLOR_OCCUPIED_FG} B${COLOR_OCCUPIED_BG}} ${name} %{F- B-}"
                                 ;;
                             O*)
-                                if [ "$active_mon" -eq 1 ]; then
-                                    # focused occupied desktop
-                                    FG=$COLOR_FOCUSED_MAIN_FG
-                                    BG=$COLOR_FOCUSED_MAIN_BG
-                                else
-                                    FG=$COLOR_FOCUSED_OCCUPIED_FG
-                                    BG=$COLOR_FOCUSED_OCCUPIED_BG
-                                fi
+                                desk="%{F${COLOR_FOCUSED_OCCUPIED_FG} B- U${COLOR_FOCUSED_OCCUPIED_FG} +u} ${name} %{F- U- -u}"
                                 ;;
                             u*)
                                 # urgent desktop
-                                FG=$COLOR_URGENT_FG
-                                BG=$COLOR_URGENT_BG
+                                desk="%{F${COLOR_OCCUPIED_FG} B${COLOR_OCCUPIED_BG}} ${name} %{F- B-}"
                                 ;;
                             U*)
                                 # focused urgent desktop
-                                FG=$COLOR_FOCUSED_URGENT_FG
-                                BG=$COLOR_FOCUSED_URGENT_BG
+                                desk="%{F${COLOR_OCCUPIED_FG} B${COLOR_OCCUPIED_BG}} ${name} %{F- B-}"
                                 ;;
                         esac
-                        position="$(sed -n "/${name}$/ s/=.*$//p" $HOME/.config/bspwm/desktops)"
-                        twm[$position]="%{F${FG}}%{B${BG}} ${name} %{B-}%{F-}"
-                        ;;
-                    [LTG]*)
-                        [ "$active_mon" -ne 1 ] && shift && continue
-                        # layout, state and flags
-                        layout="${layout}%{F$COLOR_DEFAULT_FG}%{B$COLOR_DEFAULT_BG} ${name} %{B-}%{F-}"
+                        position="$(sed -n "/${name}$/ s/=.*$//p" "$HOME/.config/bspwm/desktops")"
+                        twm[$position]="$desk"
                         ;;
                 esac
                 shift
             done
             wm=""
-            for row in ${twm[@]}; do
+            for row in "${twm[@]}"; do
                 wm="${wm}${row}"
             done
             wm="${wm}${layout}"
             ;;
     esac
-    echo -e "%{l}${wm}${title}%{r}${sys}"
+    echo -e "%{l}${wm} ${title}%{r}${sys}"
 done

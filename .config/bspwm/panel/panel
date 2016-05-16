@@ -31,6 +31,7 @@ mon=$(bspc query -M -m primary)
 
 bspc config -m "$mon" top_padding "$PANEL_HEIGHT"
 bspc subscribe report > "$PANEL_FIFO" &
+xtitle -s -f "T%s" > "$PANEL_FIFO" &
 conky -c ./conky > "$PANEL_FIFO" &
 
 tree_data=$(bspc query -T -m "$mon")
@@ -43,7 +44,7 @@ panel_bar < "$PANEL_FIFO" | lemonbar \
     -o 0 \
     -f "$PANEL_ICON_FONT" \
     -o -2 \
-    -u 0 \
+    -u 2 \
     -U "$COLOR_DEFAULT_BG" \
     -F "$COLOR_DEFAULT_FG" \
     -B "$COLOR_DEFAULT_BG" | sh &
