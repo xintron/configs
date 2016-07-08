@@ -55,6 +55,7 @@ ${if_existing /tmp/bartoggle 1}\
 %{F\#b16286}\uf135 $mem%{F-} | \
 %{F\#458588}\uf240 ${battery_percent}%%{F-} | \
 %{F\#689d6a}\uf0a0 ${fs_free /} \uf015 ${fs_free /home}%{F-} | \
+CPU: ${hwmon 0 temp 1}° Int: ${hwmon 1 temp 3}° | \
 %{F\#98971a}\uf0ae ${cpu cpu0}%%{F-} | \
 %{F\#cc241d}\uf102 \
 ${if_up wlp3s0}${upspeed wlp3s0} | ${downspeed wlp3s0} \
