@@ -1,3 +1,4 @@
+# vim: ft=dosini
 [options]
 font = FiraMono 11
 allow_bold = true

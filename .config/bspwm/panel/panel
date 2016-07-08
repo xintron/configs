@@ -31,7 +31,7 @@ mon=$(bspc query -M -m primary)
 
 bspc config -m "$mon" top_padding "$PANEL_HEIGHT"
 bspc subscribe report > "$PANEL_FIFO" &
-xtitle -s -f "T%s" > "$PANEL_FIFO" &
+xtitle -s -t 80 -f "T%s" > "$PANEL_FIFO" &
 conky -c ./conky > "$PANEL_FIFO" &
 
 tree_data=$(bspc query -T -m "$mon")

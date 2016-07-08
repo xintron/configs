@@ -94,7 +94,7 @@ super + {dead_acute,Tab}
 # focus the older or newer node in the focus history
 super + {o,i}
 	bspc wm -h off; \
-	bspc node {older,newer} -f; \
+	bspc node {older,newer}.local -f; \
 	bspc wm -h on
 
 # Move the given desktop to the focused monitor (doing a swap)
