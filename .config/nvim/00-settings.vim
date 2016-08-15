@@ -1,6 +1,11 @@
 " Base settings {{{
-" Tell neovim to use true colors
+" Tell neovim to use true colors (version 0.1.3-0.1.4)
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" Neovim true color support for version >= 0.1.5
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 set encoding=utf-8
 
 set autoindent

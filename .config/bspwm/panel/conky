@@ -26,20 +26,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 conky.config = {
-    background = false,
-    border_width = 1,
+	background = false,
+	border_width = 1,
 	console_graph_ticks = " ,▁,▂,▃,▄,▅,▆,▇",
-    cpu_avg_samples = 2,
-    use_xft = true,
-    net_avg_samples = 2,
-    no_buffers = true,
-    out_to_console = true,
-    out_to_stderr = false,
+	cpu_avg_samples = 2,
+	use_xft = true,
+	net_avg_samples = 2,
+	no_buffers = true,
+	out_to_console = true,
+	out_to_stderr = false,
 	out_to_x = false,
-    update_interval = 1.0,
-    uppercase = false,
-    show_graph_scale = false,
-    show_graph_range = false
+	update_interval = 1.0,
+	uppercase = false,
+	show_graph_scale = false,
+	show_graph_range = false
 }
 
 conky.text = [[
@@ -47,7 +47,7 @@ S\
 ####
 # Music info
 ####
-%{F\#d79921}\uf001 ${execi 3 $HOME/.config/bspwm/panel/np.sh 50}%{F-} | \
+%{F\#d79921}${execi 1 $HOME/.config/bspwm/panel/np.sh 50}%{F-} | \
 ####
 # Full bar that can be toggled
 ####
@@ -67,5 +67,5 @@ ${endif}\
 ####
 # Date and time
 ####
-%{A:echo 1 > /tmp/bartoggle:}%{A3:echo 0 > /tmp/bartoggle:}%{F\#ebdbb2}${time %b %-d, %H:%M} %{F-}%{A}%{A}
+%{A:echo 1 > /tmp/bartoggle:}%{A3:echo 0 > /tmp/bartoggle:}%{F\#ebdbb2}${time %b %-d, %H:%M:%S} %{F-}%{A}%{A}
 ]]

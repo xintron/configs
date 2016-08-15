@@ -5,3 +5,4 @@ autocmd BufRead /tmp/vimperator-* set filetype=markdown
 autocmd BufNewFile,BufRead *.sls,*.raml set filetype=yaml
 
 autocmd BufNewFile,BufRead *.jmsx,*.mjsx,*.msx set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.hcl set filetype=conf

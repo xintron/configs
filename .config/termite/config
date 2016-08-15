@@ -1,47 +1,40 @@
 # vim: ft=dosini
 [options]
-font = FiraMono 11
+font = Hasklig 11
 allow_bold = true
 cursor_blink = off
 browser = xdg-open
 cursor_shape = block
 
 [colors]
-# hard contrast: background = #1d2021
-# soft contrast: background = #32302f
-# normal contrast: background = #282828
-background = #1d2021
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
+# Base16 Oceanic Next
+foreground      = #C0C5CE
+foreground_bold = #C0C5CE
+cursor          = #C0C5CE
+background      = #1B2B34
 
-# Black + DarkGrey
-color0 = #282828
-color8 = #928374
+# 16 color space
+color0  = #1B2B34
+color1  = #EC5f67
+color2  = #99C794
+color3  = #FAC863
+color4  = #6699CC
+color5  = #C594C5
+color6  = #5FB3B3
+color7  = #C0C5CE
+color8  = #65737E
+color9  = #EC5f67
+color10 = #99C794
+color11 = #FAC863
+color12 = #6699CC
+color13 = #C594C5
+color14 = #5FB3B3
+color15 = #D8DEE9
 
-# DarkRed + Red
-color1 = #cc241d
-color9 = #fb4934
-
-# DarkGreen + Green
-color2 = #98971a
-color10 = #b8bb26
-
-# DarkYellow + Yellow
-color3 = #d79921
-color11 = #fabd2f
-
-# DarkBlue + Blue
-color4 = #458588
-color12 = #83a598
-
-# DarkMagenta + Magenta
-color5 = #b16286
-color13 = #d3869b
-
-# DarkCyan + Cyan
-color6 = #689d6a
-color14 = #8ec07c
-
-# LightGrey + White
-color7 = #a89984
-color15 = #ebdbb2
+# 256 color space
+color16 = #F99157
+color17 = #AB7967
+color18 = #343D46
+color19 = #4F5B66
+color20 = #A7ADBA
+color21 = #CDD3DE

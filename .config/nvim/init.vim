@@ -35,13 +35,14 @@ Plug 'Yggdroot/indentLine'
 
 " Colors
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
 
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 Plug 'bling/vim-airline'
 Plug 'rking/ag.vim'
 Plug 'majutsushi/tagbar'
@@ -105,7 +106,8 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-colorscheme gruvbox
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
 set background=dark
 
 hi User1 ctermfg=0 ctermbg=6
