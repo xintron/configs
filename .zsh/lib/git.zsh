@@ -28,9 +28,9 @@ function _x_git_branch() {
         ret="%{$fg[red]%}$branch %{$fg[green]%}+$ins%{$reset_color%}/%{$fg[red]%}-$dels%{$reset_color%}"
     else
         local remote
-        remote=`\git config --get branch.$branch.remote`
+        remote=$(\git rev-parse --abbrev-ref --symbolic-full-name '@{u}')
         # Color it yellow if we are ahead/bedinh
-        if [ -n "$remote" ] && [[ `\git rev-list --no-merges --count $remote/$branch..HEAD` -gt 0 ]]; then
+        if [ -n "$remote" ] && [[ $(\git rev-list --no-merges --count $remote..HEAD) -gt 0 ]]; then
             ret="%{$fg[yellow]%}$branch%{$reset_color%}"
         fi
     fi
