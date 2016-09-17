@@ -37,7 +37,7 @@ super + Return
     termite
 
 super + space
-    rofi -show run -switchers 'run,window' -no-levenshtein-sort
+    rofi -show run -modi 'run,drun,window' -no-levenshtein-sort
 
 # quit bspwm normally
 super + alt + Escape
