@@ -22,7 +22,7 @@ call plug#begin('~/.config/nvim/plug/')
 " Misc plugins
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
 Plug 'tpope/vim-surround'
@@ -68,10 +68,10 @@ Plug 'joonty/vdebug'
 Plug 'gkz/vim-ls' " LiveScript support
 Plug 'kchmck/vim-coffee-script'
 Plug 'justinj/vim-react-snippets'
-Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'gavocanov/vim-js-indent'
 Plug 'lambdatoast/elm.vim'
 Plug 'elzr/vim-json'
 " Used for javascript Tern completion
@@ -88,6 +88,7 @@ Plug 'neovimhaskell/haskell-vim'
 " Go
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', {'do': 'make'}
+"Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plug/gocode/nvim/symlink.sh'}
 
 " Syntax files
 Plug 'evanmiller/nginx-vim-syntax'
