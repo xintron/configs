@@ -1,13 +1,13 @@
 #!/bin/bash
 
-bspc config border_width              1
+bspc config border_width              2
 bspc config window_gap                12
-bspc config focused_border_color      '#fb4934'
-bspc config normal_border_color       '#504945'
-bspc config active_border_color       '#7c6f64'
+bspc config focused_border_color      '#f99157'
+bspc config normal_border_color       '#343d46'
+bspc config active_border_color       '#343d46'
 
 bspc config split_ratio               0.52
-bspc config borderless_monocle        true
+bspc config borderless_monocle        false
 bspc config gapless_monocle           true
 bspc config focus_by_distance         true
 bspc config history_aware_focus       true
