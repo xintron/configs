@@ -72,7 +72,7 @@ Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent'
-Plug 'lambdatoast/elm.vim'
+Plug 'elmcast/elm-vim'
 Plug 'elzr/vim-json'
 " Used for javascript Tern completion
 Plug 'ternjs/tern_for_vim', {'do': 'source ~/.nvm/nvm.sh && npm install'}

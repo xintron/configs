@@ -80,6 +80,8 @@ let g:indentLine_char = '┆'
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.elm = ['\.']
 " }}}
 " jsx {{{
 let g:jsx_ext_required = 0
@@ -100,6 +102,19 @@ let g:vim_markdown_toml_frontmatter = 1
 " }}}
 " Neomake {{{
 autocmd BufWritePost * Neomake
+
+" Enable for elm parsing
+"let g:neomake_elm_elmmake_maker = {
+"  \ 'exe': 'elm-make',
+"  \ 'buffer_output': 1,
+"  \ 'errorformat':
+"    \ '%E%.%#--\ %m\ -%# %f' . ',' .
+"    \ '%C%l\\|' . ',' .
+"    \ '%C%.%#'
+"\ }
+"
+"" enable elm-make on elm
+"let g:neomake_elm_enabled_makers = [ 'elmmake' ]
 " }}}
 
 if filereadable(expand('~').'/.simplenoterc')

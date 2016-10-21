@@ -7,6 +7,9 @@ export EDITOR="nvim"
 [ -d $HOME/.cabal/bin/ ] && PATH=$HOME/.cabal/bin:$PATH
 [ -d $HOME/git/utils ] && PATH=$HOME/git/utils:$PATH
 
+# Setup ssh-agent variable
+#(( $+commands[envoy] )) && source <(envoy -p)
+
 export GOPATH=$HOME/go
 [ -d $GOPATH/bin ] && PATH=$GOPATH/bin:$PATH
 
@@ -53,6 +56,9 @@ for f in $ZSH_HOME/lib/*.zsh; do
 done
 
 [[ -f $ZSH_HOME/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZSH_HOME/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load support for fzf if it exists
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 
 # Load gistit token if available
 [[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc
