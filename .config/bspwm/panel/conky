@@ -44,28 +44,15 @@ conky.config = {
 
 conky.text = [[
 S\
-####
-# Music info
-####
-%{F\#d79921}${execi 1 $HOME/.config/bspwm/panel/np.sh 50}%{F-} | \
-####
-# Full bar that can be toggled
-####
-${if_existing /tmp/bartoggle 1}\
-%{F\#b16286}\uf135 $mem%{F-} | \
-%{F\#458588}\uf240 ${battery_percent}%%{F-} | \
-%{F\#689d6a}\uf0a0 ${fs_free /} \uf015 ${fs_free /home}%{F-} | \
-CPU: ${hwmon 0 temp 1}° Int: ${hwmon 1 temp 3}° | \
 %{F\#98971a}\uf0ae ${cpu cpu0}%%{F-} | \
 %{F\#cc241d}\uf102 \
 ${if_up wlp3s0}${upspeed wlp3s0} | ${downspeed wlp3s0} \
 ${else}\
 ${if_up eno1}${upspeed eno1} | ${downspeed eno1} \
 ${else}0 | 0$endif$endif \
-\uf103%{F-} | \
-${endif}\
+\uf103%{F-} \
 ####
 # Date and time
 ####
-%{A:echo 1 > /tmp/bartoggle:}%{A3:echo 0 > /tmp/bartoggle:}%{F\#ebdbb2}${time %b %-d, %H:%M:%S} %{F-}%{A}%{A}
+%{B\#665c54} ${time %b %-d} %{B\#7c6f64} ${time %H:%M:%S} %{F- B-}
 ]]

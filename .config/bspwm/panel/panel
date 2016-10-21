@@ -29,17 +29,33 @@ mon=$(bspc query -M -m primary)
 # No primary monitor, take the first one
 [ "$mon" ] || mon=$(bspc query -M -m "^1")
 
+
 bspc config -m "$mon" top_padding "$PANEL_HEIGHT"
 bspc subscribe report > "$PANEL_FIFO" &
-xtitle -s -t 80 -f "T%s" > "$PANEL_FIFO" &
+#xtitle -s -t 80 -f "T%s" > "$PANEL_FIFO" &
+
+music() {
+    while :; do
+        printf "X%s\n" "$("$HOME"/.config/bspwm/panel/np.sh)"
+        sleep 1
+    done
+}
+
 conky -c ./conky > "$PANEL_FIFO" &
 
+music > "$PANEL_FIFO" &
+
+#zscroll -n -u -d 0.4 -l 40 -M "playerctl status" -m "Paused" -b "X\uf04c" -s 0 -m "Playing" -b "X\uf001 " -s 1 "$HOME/.config/bspwm/panel/np.sh" > "$PANEL_FIFO" &
+
 tree_data=$(bspc query -T -m "$mon")
+geometry=$(echo "$tree_data" | \
+    jq -r '"\(.rectangle.width)x\(env.PANEL_HEIGHT)+\(.rectangle.x)"')
+
 
 panel_bar < "$PANEL_FIFO" | lemonbar \
     -a 32 \
     -n "$PANEL_WM_NAME" \
-    -g "$(jq '.rectangle.width' <<< "$tree_data")"x"$PANEL_HEIGHT"+"$(jq '.rectangle.x' <<< "$tree_data")" \
+    -g "$geometry" \
     -f "$PANEL_FONT" \
     -o 0 \
     -f "$PANEL_ICON_FONT" \
@@ -49,13 +65,23 @@ panel_bar < "$PANEL_FIFO" | lemonbar \
     -F "$COLOR_DEFAULT_FG" \
     -B "$COLOR_DEFAULT_BG" | sh &
 
-wid=$(xdo id -a "$PANEL_WM_NAME")
-tries_left=20
-while [ -z "$wid" ] && [ "$tries_left" -gt 0 ] ; do
-	sleep 0.05
-	wid=$(xdo id -a "$PANEL_WM_NAME")
-	tries_left=$((tries_left - 1))
-done
-[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+#stalonetray --transparent true \
+#    --geometry "1x1+$(bspc query -T -m "$mon" \
+#        | jq '.rectangle.x + .rectangle.width - 20')+0" \
+#    --icon-size "$PANEL_HEIGHT" \
+#    --kludges force_icons_size \
+#    --grow-gravity NE &
+#
+#xprop -name stalonetray -f WM_SIZE_HINTS 32i ' $5\n' -spy WM_NORMAL_HINTS \
+#    | awk '{ print "TO"$2 }' > "$PANEL_FIFO" &
+
+#wid=$(xdo id -a "$PANEL_WM_NAME")
+#tries_left=20
+#while [ -z "$wid" ] && [ "$tries_left" -gt 0 ] ; do
+#	sleep 0.05
+#	wid=$(xdo id -a "$PANEL_WM_NAME")
+#	tries_left=$((tries_left - 1))
+#done
+#[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
 wait

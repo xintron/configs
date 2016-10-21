@@ -107,8 +107,8 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 set background=dark
 
 hi User1 ctermfg=0 ctermbg=6
