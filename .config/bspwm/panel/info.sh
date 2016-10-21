@@ -1,39 +1,59 @@
 #!/bin/bash
-
-spacing='   '
+PANEL_FIFO=${PANEL_FIFO:-/tmp/panel-fifo}
 
 function battery() {
-    batc=/sys/class/power_supply/BAT0/capacity
-    if [ -f "$batc" ]; then
-        bat='\uf0e7 '
-        case "$(cat /sys/class/power_supply/BAT0/status)" in
-            "Charging") bat="${bat}+" ;;
-            "Discharging") bat="${bat}-" ;;
-        esac
-        bat="${bat}$(<$batc)"
-        printf '%%{F#222}%%{B#03a9f4}%s%s%s%%{B-}%%{F-}' \
-            "$spacing" "$bat" "$spacing"
-    fi
+    while :; do
+        batc=/sys/class/power_supply/BAT0/capacity
+        bat=""
+        if [ -f "$batc" ]; then
+            case "$(cat /sys/class/power_supply/BAT0/status)" in
+                "Charging" | "Full") bat="\uf0e7 ${bat}" ;;
+                "Discharging") bat="\uf241 ${bat}" ;;
+            esac
+            bat="${bat}$(<$batc)"
+            echo "SB$bat"
+        fi
+
+        sleep 10
+    done
 }
 
 function clock() {
-    printf '%%{F#222}%%{B#f44336}%s\uf017 %s%s%%{B-}%%{F-}' \
-        "$spacing" "$(date +'%b %d, %H:%M:%S')" "$spacing"
+    while :; do
+        echo "SD$(date +'%b %d')" > "$PANEL_FIFO"
+        echo "ST$(date +'%H:%M:%S')" > "$PANEL_FIFO"
+        sleep 1
+    done
 }
 
 function load() {
-    printf '%%{F#222}%%{B#8bc34a}%s\uf0ae %s%s%%{B-}%%{F-}' \
-        "$spacing" "$(cut -d' ' -f 1-3 /proc/loadavg)" "$spacing"
+    while :; do
+        echo "SL$(cut -d' ' -f 1 /proc/loadavg)"
+        sleep 3
+    done
+}
+
+function music() {
+    while :; do
+        printf "SM%s\n" "$("$HOME"/.config/bspwm/panel/np.sh)"
+        sleep 1
+    done
+}
+
+function volume() {
+    while :; do
+        # This returns exit code 0 when muted and 1 when not muted. That's not
+        # neat.
+        ponymix is-muted
+        [ "$?" -eq 1 ] && vol="\uf028" || vol="\uf026"
+        echo "SV${vol} $(ponymix get-volume)%"
+        sleep 1
+    done
 }
 
 
-while :; do
-    buf="S"
-    i=0
-    for f in "load" "battery" "clock"; do
-        buf="${buf}$(eval "$f")"
-        i=$((i + 1))
-    done
-    echo "$buf"
-    sleep 1
-done
+clock &
+load > "$PANEL_FIFO" &
+battery > "$PANEL_FIFO" &
+music > "$PANEL_FIFO" &
+volume > "$PANEL_FIFO" &

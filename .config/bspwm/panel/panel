@@ -20,6 +20,8 @@ PANEL_FIFO=${PANEL_FIFO:-/tmp/panel-fifo}
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
+PANEL_WM_NAME=${PANEL_WM_NAME:-lemonbar}
+
 # Reset the padding for all monitors
 for mon in $(bspc query -M); do
     bspc config -m "$mon" top_padding 0
@@ -34,18 +36,14 @@ bspc config -m "$mon" top_padding "$PANEL_HEIGHT"
 bspc subscribe report > "$PANEL_FIFO" &
 #xtitle -s -t 80 -f "T%s" > "$PANEL_FIFO" &
 
-music() {
+pkill info.sh
+info.sh
+
+scroll() {
     while :; do
-        printf "X%s\n" "$("$HOME"/.config/bspwm/panel/np.sh)"
-        sleep 1
+        zscroll -n -u -d 0.4 -l 40 -M "playerctl status" -m "Paused" -b "SM\uf04c" -s 0 -m "Playing" -b "SM\uf001 " -s 1 "$HOME/.config/bspwm/panel/np.sh" > "$PANEL_FIFO"
     done
 }
-
-conky -c ./conky > "$PANEL_FIFO" &
-
-music > "$PANEL_FIFO" &
-
-#zscroll -n -u -d 0.4 -l 40 -M "playerctl status" -m "Paused" -b "X\uf04c" -s 0 -m "Playing" -b "X\uf001 " -s 1 "$HOME/.config/bspwm/panel/np.sh" > "$PANEL_FIFO" &
 
 tree_data=$(bspc query -T -m "$mon")
 geometry=$(echo "$tree_data" | \
@@ -63,17 +61,17 @@ panel_bar < "$PANEL_FIFO" | lemonbar \
     -u 2 \
     -U "$COLOR_DEFAULT_BG" \
     -F "$COLOR_DEFAULT_FG" \
-    -B "$COLOR_DEFAULT_BG" | sh &
+    -B "$COLOR_DEFAULT_BG" | sh >/dev/null &
 
-#stalonetray --transparent true \
-#    --geometry "1x1+$(bspc query -T -m "$mon" \
-#        | jq '.rectangle.x + .rectangle.width - 20')+0" \
-#    --icon-size "$PANEL_HEIGHT" \
-#    --kludges force_icons_size \
-#    --grow-gravity NE &
-#
-#xprop -name stalonetray -f WM_SIZE_HINTS 32i ' $5\n' -spy WM_NORMAL_HINTS \
-#    | awk '{ print "TO"$2 }' > "$PANEL_FIFO" &
+stalonetray --background "$COLOR_DEFAULT_BG" \
+    --geometry "1x1+$(bspc query -T -m "$mon" \
+        | jq '.rectangle.x + .rectangle.width - 20')+0" \
+    --icon-size "$PANEL_HEIGHT" \
+    --kludges force_icons_size \
+    --grow-gravity NE &
+
+sleep 0.5
+xprop -name stalonetray -f WM_SIZE_HINTS 32i ' $5\n' -spy WM_NORMAL_HINTS | awk '{ print "O"$2; system("") }' > "$PANEL_FIFO" &
 
 #wid=$(xdo id -a "$PANEL_WM_NAME")
 #tries_left=20

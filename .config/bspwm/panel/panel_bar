@@ -4,17 +4,42 @@
 . bspwm_theme
 
 num_mon=$(bspc query -M | wc -l)
+sep=' | '
 
 while read -r line ; do
     case $line in
-        S*)
-            sys="${line#?}"
-            ;;
         T*)
             title="${line#?}"
             ;;
-        X*)
-            music="%{F#fe8019}${line#?}%{F-}"
+        O*)
+            offset="%{${line}}"
+            ;;
+        S*)
+            ll=${line#?}
+            case $ll in
+                B*)
+                    battery="${ll#?}"
+                    ;;
+                D*)
+                    date="%{B#504945} ${ll#?} %{B-}"
+                    ;;
+                T*)
+                    dtime="%{B#665c54} ${ll#?} %{B-}"
+                    ;;
+                L*)
+                    load="\uf0ae ${ll#?}"
+                    ;;
+                M*)
+                    music="%{F#fe8019}${ll#?}%{F-}"
+                    ;;
+                V*)
+                    volume="%{A1:ponymix toggle: A4:ponymix increase 3: A5:ponymix decrease 3:}${ll#?}%{A A A}"
+                    ;;
+            esac
+            sys=""
+            sys="${sys}${volume}${sep}"
+            [ -n "$battery" ] && sys="${sys}${battery}${sep}"
+            sys="${sys}${load} ${date}${dtime}"
             ;;
         W*)
             # bspwm's state
@@ -83,5 +108,5 @@ while read -r line ; do
             wm="${wm}${layout}"
             ;;
     esac
-    echo -e "%{l}${wm} ${title}%{c}${music}%{r}${sys}"
+    echo -e "%{l}${wm} ${title}%{c}${music}%{r}${sys}${offset}"
 done

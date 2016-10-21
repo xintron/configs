@@ -12,7 +12,7 @@ nmap <Leader>p :set paste!<CR>
 nmap <silent> <Leader>ft :exe 'set fo'.(&fo =~ 't' ? '-=t' : '+=t')<CR>
 nmap <Leader>cc :exe 'set colorcolumn='.(&colorcolumn == '' ? '+1' : '')<CR>
 
-nmap <silent> <Leader><Space> :nohl<CR>:Mark<CR>
+nmap <silent> <Leader><Space> :nohl<CR>
 nmap <C-h>h :call SynStack()<CR>
 
 " C-] doesn't work under OS X for some reason. This is one way of solving it.
