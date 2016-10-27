@@ -63,23 +63,4 @@ panel_bar < "$PANEL_FIFO" | lemonbar \
     -F "$COLOR_DEFAULT_FG" \
     -B "$COLOR_DEFAULT_BG" | sh >/dev/null &
 
-stalonetray --background "$COLOR_DEFAULT_BG" \
-    --geometry "1x1+$(bspc query -T -m "$mon" \
-        | jq '.rectangle.x + .rectangle.width - 20')+0" \
-    --icon-size "$PANEL_HEIGHT" \
-    --kludges force_icons_size \
-    --grow-gravity NE &
-
-sleep 0.5
-xprop -name stalonetray -f WM_SIZE_HINTS 32i ' $5\n' -spy WM_NORMAL_HINTS | awk '{ print "O"$2; system("") }' > "$PANEL_FIFO" &
-
-#wid=$(xdo id -a "$PANEL_WM_NAME")
-#tries_left=20
-#while [ -z "$wid" ] && [ "$tries_left" -gt 0 ] ; do
-#	sleep 0.05
-#	wid=$(xdo id -a "$PANEL_WM_NAME")
-#	tries_left=$((tries_left - 1))
-#done
-#[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
-
 wait
