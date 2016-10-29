@@ -27,7 +27,7 @@ while read -r line ; do
                     dtime="%{B#665c54} ${ll#?} %{B-}"
                     ;;
                 L*)
-                    load="\uf0ae ${ll#?}"
+                    load="%{F#d79921}\uf0ae ${ll#?}%{F-}"
                     ;;
                 M*)
                     music="%{F#fe8019}${ll#?}%{F-}"
@@ -35,10 +35,14 @@ while read -r line ; do
                 V*)
                     volume="%{A1:ponymix toggle: A4:ponymix increase 3: A5:ponymix decrease 3:}${ll#?}%{A A A}"
                     ;;
+                U*)
+                    updates="%{F#8ec07c}\uf103 ${ll#?}%{F-}"
+                    ;;
             esac
             sys=""
             sys="${sys}${volume}${sep}"
             [ -n "$battery" ] && sys="${sys}${battery}${sep}"
+            [ -n "$updates" ] && sys="${sys}${updates}${sep}"
             sys="${sys}${load} ${date}${dtime}"
             ;;
         W*)

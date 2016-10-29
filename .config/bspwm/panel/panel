@@ -52,7 +52,6 @@ geometry=$(echo "$tree_data" | \
 
 panel_bar < "$PANEL_FIFO" | lemonbar \
     -a 32 \
-    -n "$PANEL_WM_NAME" \
     -g "$geometry" \
     -f "$PANEL_FONT" \
     -o 0 \

@@ -51,9 +51,22 @@ function volume() {
     done
 }
 
+function checkUpdates() {
+    while :; do
+        pacman=$(checkupdates | wc -l)
+        aur=$(pacaur -k | wc -l)
+        out=""
+        [ "$pacman" -gt 0 ] && out="${out}P: ${pacman} "
+        [ "$aur" -gt 0 ] && out="${out}A: ${aur} "
+        echo "SU${out%?}"
+        sleep 120
+    done
+}
+
 
 clock &
 load > "$PANEL_FIFO" &
 battery > "$PANEL_FIFO" &
 music > "$PANEL_FIFO" &
 volume > "$PANEL_FIFO" &
+checkUpdates > "$PANEL_FIFO" &
