@@ -90,6 +90,9 @@ Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', {'do': 'make'}
 "Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plug/gocode/nvim/symlink.sh'}
 
+" LaTeX
+Plug 'lervag/vimtex'
+
 " Syntax files
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'plasticboy/vim-markdown'
