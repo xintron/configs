@@ -49,9 +49,11 @@ tree_data=$(bspc query -T -m "$mon")
 geometry=$(echo "$tree_data" | \
     jq -r '"\(.rectangle.width)x\(env.PANEL_HEIGHT)+\(.rectangle.x)"')
 
+PANEL_WM_NAME="lemonpanel"
 
 panel_bar < "$PANEL_FIFO" | lemonbar \
     -a 32 \
+    -n "$PANEL_WM_NAME" \
     -g "$geometry" \
     -f "$PANEL_FONT" \
     -o 0 \
@@ -61,5 +63,15 @@ panel_bar < "$PANEL_FIFO" | lemonbar \
     -U "$COLOR_DEFAULT_BG" \
     -F "$COLOR_DEFAULT_FG" \
     -B "$COLOR_DEFAULT_BG" | sh >/dev/null &
+
+# Make sure that it is shown below fullscreen windows
+wid="$(xdo id -a $PANEL_WM_NAME)"
+tries_left=20
+while [ -z "$wid" ] && [ "$tries_left" -gt 0 ]; do
+    sleep 0.05
+    wid="$(xdo id -a $PANEL_WM_NAME)"
+    tries_left=$(( tries_left - 1 ))
+done
+[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
 wait
