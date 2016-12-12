@@ -28,5 +28,6 @@ bspc rule -a Pcmanfm state=floating center=on
 bspc rule -a csgo_linux64 state=fullscreen
 bspc rule -a Pavucontrol state=floating center=on
 bspc rule -a Blueman-manager state=floating
+bspc rule -a Qalculate-gtk state=floating
 
 $HOME/.config/bspwm/reset-status.sh
