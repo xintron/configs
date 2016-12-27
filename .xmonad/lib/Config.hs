@@ -3,14 +3,15 @@ module Config where
 import XMonad
 import XMonad.Actions.FloatKeys
 import XMonad.Actions.FloatSnap
-import XMonad.Actions.GridSelect
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.Minimize
 import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.Dishes
+import XMonad.Layout.IM
 import XMonad.Layout.LimitWindows
 import XMonad.Layout.Maximize
 import XMonad.Layout.Minimize
@@ -22,6 +23,11 @@ import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import Data.Ratio ((%))
+
+import qualified DBus as D
+import qualified DBus.Client as D
+import qualified Codec.Binary.UTF8.String as UTF8
 
 modMask' :: KeyMask
 modMask' = mod4Mask
@@ -29,36 +35,37 @@ modMask' = mod4Mask
 delta :: Rational
 delta = 3 / 100
 
-green = "#B7F924"
-red = "#FF2A24"
+green = "#b8bb26"
+red = "#fb4934"
+gray = "#928374"
 
-layWebDev = renamed [Replace "Log"] $ Mirror $ Tall 1 delta (8/10)
 layMain = renamed [Replace "Main"] $ Tall 1 delta (1 / 2)
+layWebDev = renamed [Replace "Log"] $ Mirror $ Tall 1 delta (8/10)
 layFull = noBorders Full
 layDish = limitSlice 5 $ Dishes 1 (1 / 5)
 layOneBig = renamed [Replace "Big"] $ OneBig (3/4) (3/4)
-layTabbed = renamed [Replace "Tab"] $ tabbedBottom shrinkText $ defaultTheme
+layTabbed = renamed [Replace "Tab"] $ tabbedBottom shrinkText $ def
     { activeColor = bg
     , urgentColor = red
     , inactiveColor = bg
     , activeBorderColor = bg
     , inactiveBorderColor = bg
     , urgentBorderColor = red
-    , inactiveTextColor = infg -- Gray color on dark gray background
+    , inactiveTextColor = gray -- Gray color on dark gray background
     , activeTextColor = green
     , urgentTextColor = "#ffffff"
     , fontName = "xft:Liberation Sans:size=10" }
   where
-    bg = "#222222"
-    infg = "#cccccc"
+    bg = "#282828"
 
-allLayouts = layMain ||| layWebDev ||| layTabbed ||| layFull ||| layOneBig
+allLayouts = withIM (1%4) (ClassName "TelegramDesktop") $
+        layMain ||| layWebDev ||| layTabbed ||| layFull ||| layOneBig
 devFirst = layWebDev ||| layMain ||| layTabbed ||| layFull
 mainFirst = layMain ||| layTabbed ||| layFull
 
 myLayouts = avoidStruts $ smartBorders
     -- Renamed removes the Maximize + Minimized from the layout name
-    $ renamed [CutWordsLeft 2 ] $ maximize $ minimize
+    $ renamed [CutWordsLeft 3 ] $ maximize $ minimize
     $ B.boringWindows allLayouts
 
 switchWorkspaceToWindow :: Window -> X ()
@@ -80,6 +87,7 @@ myManageHook = composeAll
     , className =? "keepassx"         --> doFloat
     , className =? "Gpick"            --> doFloat
     , className =? "Thunar"           --> doFloat
+    , className =? "Qalculate-gtk"    --> doFloat
     -- Used by Chromium developer tools, maybe other apps as well
     , role =? "pop-up"                --> doFloat ]
   where
@@ -93,7 +101,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window' -no-levenshtein-sort")
     , ((modm .|. shiftMask, xK_r), spawn "rofi-mainmenu")
     -- close focused window
-    , ((modm .|. shiftMask, xK_c), kill)
+    , ((modm, xK_w), kill)
      -- Rotate through the available layout algorithms
     , ((modm, xK_space), sendMessage NextLayout)
     , ((modm .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf)
@@ -150,9 +158,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Minimize stuff
     , ((modm, xK_v), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v), sendMessage RestoreNextMinimizedWin)
-    -- This is the magic of gridselect
-    , ((modm, xK_g), withSelectedWindow switchWorkspaceToWindow defaultGSConfig)
-    , ((modm .|. shiftMask, xK_g), gridselectWorkspace defaultGSConfig W.greedyView)
+
     -- Struts...
     , ((modm .|. controlMask, xK_0), sendMessage $ ToggleStrut U)
     ]
@@ -165,8 +171,23 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-myConfig = defaultConfig
-    { terminal = "urxvt"
+myLogHook :: D.Client -> PP
+myLogHook dbus = def { ppOutput = dbusOutput dbus }
+
+-- Emit a DBus signal on log updates
+dbusOutput :: D.Client -> String -> IO ()
+dbusOutput dbus str = do
+    let signal = (D.signal objectPath interfaceName memberName) {
+            D.signalBody = [D.toVariant $ UTF8.decodeString str] 
+        }
+    D.emit dbus signal
+  where
+    objectPath = D.objectPath_ "/org/xmonad/Log"
+    interfaceName = D.interfaceName_ "org.xmonad.Log"
+    memberName = D.memberName_ "Update"
+
+myConfig = def
+    { terminal = "termite"
     , layoutHook = myLayouts
     , manageHook = myManageHook <+> myManageHook' <+> manageDocks
     , handleEventHook = docksEventHook <+> minimizeEventHook <+>  fullscreenEventHook
@@ -174,6 +195,8 @@ myConfig = defaultConfig
     -- Don't be stupid with focus
     , focusFollowsMouse = False
     , clickJustFocuses = False
-    , focusedBorderColor = green
+    , borderWidth = 4
+    , normalBorderColor = gray
+    , focusedBorderColor = red
     , workspaces = workspaces'
     , modMask = modMask' }
