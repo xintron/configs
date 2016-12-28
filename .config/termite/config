@@ -2,6 +2,7 @@
 [options]
 font = Hasklig 11
 allow_bold = true
+visual_bell = true
 cursor_blink = off
 browser = xdg-open
 cursor_shape = block

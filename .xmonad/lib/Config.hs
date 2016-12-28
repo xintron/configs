@@ -9,14 +9,12 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.Minimize
+import XMonad.Hooks.Place
 import qualified XMonad.Layout.BoringWindows as B
-import XMonad.Layout.Dishes
 import XMonad.Layout.IM
-import XMonad.Layout.LimitWindows
-import XMonad.Layout.Maximize
+import XMonad.Layout.LayoutModifier (ModifiedLayout(..))
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
-import XMonad.Layout.OneBig
 import XMonad.Layout.Renamed
 import XMonad.Layout.Tabbed
 import System.Exit
@@ -35,38 +33,48 @@ modMask' = mod4Mask
 delta :: Rational
 delta = 3 / 100
 
-green = "#b8bb26"
-red = "#fb4934"
-gray = "#928374"
+fg        = "#ebdbb2"
+bg        = "#282828"
+gray      = "#a89984"
+bg1       = "#3c3836"
+bg2       = "#504945"
+bg3       = "#665c54"
+bg4       = "#7c6f64"
 
-layMain = renamed [Replace "Main"] $ Tall 1 delta (1 / 2)
-layWebDev = renamed [Replace "Log"] $ Mirror $ Tall 1 delta (8/10)
-layFull = noBorders Full
-layDish = limitSlice 5 $ Dishes 1 (1 / 5)
-layOneBig = renamed [Replace "Big"] $ OneBig (3/4) (3/4)
-layTabbed = renamed [Replace "Tab"] $ tabbedBottom shrinkText $ def
-    { activeColor = bg
-    , urgentColor = red
-    , inactiveColor = bg
-    , activeBorderColor = bg
-    , inactiveBorderColor = bg
-    , urgentBorderColor = red
-    , inactiveTextColor = gray -- Gray color on dark gray background
-    , activeTextColor = green
-    , urgentTextColor = "#ffffff"
-    , fontName = "xft:Liberation Sans:size=10" }
+green     = "#b8bb26"
+darkgreen = "#98971a"
+red       = "#fb4934"
+darkred   = "#cc241d"
+yellow    = "#fabd2f"
+blue      = "#83a598"
+purple    = "#d3869b"
+aqua      = "#8ec07c"
+
+myIM :: LayoutClass l a => l a -> ModifiedLayout AddRoster l a
+myIM = withIM (1 % 4) (ClassName "TelegramDesktop")
+
+myLayouts = renamed [CutWordsLeft 1] .
+    avoidStruts . minimize .  B.boringWindows $
+    smartBorders
+        ( aTiled
+        ||| aFullscreen
+        ||| aTabbed
+        )
   where
-    bg = "#282828"
-
-allLayouts = withIM (1%4) (ClassName "TelegramDesktop") $
-        layMain ||| layWebDev ||| layTabbed ||| layFull ||| layOneBig
-devFirst = layWebDev ||| layMain ||| layTabbed ||| layFull
-mainFirst = layMain ||| layTabbed ||| layFull
-
-myLayouts = avoidStruts $ smartBorders
-    -- Renamed removes the Maximize + Minimized from the layout name
-    $ renamed [CutWordsLeft 3 ] $ maximize $ minimize
-    $ B.boringWindows allLayouts
+    aTabbed = renamed [Replace "Tab"] $ myIM $ tabbedBottom shrinkText  defTabbed
+    aFullscreen = renamed [Replace "Full"] $ noBorders Full
+    aTiled = renamed [Replace "Main"] $ myIM $ Tall 1 (3 / 100) (1 / 2)
+    defTabbed = def
+        { activeColor = bg
+        , urgentColor = red
+        , inactiveColor = bg
+        , activeBorderColor = bg
+        , inactiveBorderColor = bg
+        , urgentBorderColor = red
+        , inactiveTextColor = gray -- Gray color on dark gray background
+        , activeTextColor = green
+        , urgentTextColor = "#ffffff"
+        , fontName = "xft:Liberation Sans:size=10" }
 
 switchWorkspaceToWindow :: Window -> X ()
 switchWorkspaceToWindow w = windows $ do
@@ -88,6 +96,7 @@ myManageHook = composeAll
     , className =? "Gpick"            --> doFloat
     , className =? "Thunar"           --> doFloat
     , className =? "Qalculate-gtk"    --> doFloat
+    , className =? "Pcmanfm"          --> doFloat
     -- Used by Chromium developer tools, maybe other apps as well
     , role =? "pop-up"                --> doFloat ]
   where
@@ -134,7 +143,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q), io exitSuccess)
     -- Restart xmonad
-    , ((modm, xK_q), spawn "killall taffybar-linux-x86_64; xmonad --recompile; xmonad --restart")
+    , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
 
     -- 2D navigation
     , ((modm .|. shiftMask, xK_l), screenGo R True)
@@ -153,11 +162,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_Up), withFocused $ keysResizeWindow (0, -20) (0, 0))
     , ((modm .|. shiftMask, xK_Down), withFocused $ keysResizeWindow (0, 20) (0, 0))
 
-    -- Make focused window maximized
-    , ((modm, xK_z), withFocused (sendMessage . maximizeRestore))
     -- Minimize stuff
     , ((modm, xK_v), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v), sendMessage RestoreNextMinimizedWin)
+
+    , ((modm, xK_g), placeFocused $ smart (0.5, 0.5))
 
     -- Struts...
     , ((modm .|. controlMask, xK_0), sendMessage $ ToggleStrut U)
@@ -172,7 +181,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 myLogHook :: D.Client -> PP
-myLogHook dbus = def { ppOutput = dbusOutput dbus }
+myLogHook dbus = def 
+    { ppOutput = dbusOutput dbus
+    , ppCurrent = wrap ("%{B" ++ bg2 ++ "} ") " %{B-}"
+    , ppVisible = wrap ("%{B" ++ bg1 ++ "} ") " %{B-}"
+	, ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
+	, ppHidden = wrap " " " "
+	, ppWsSep = ""
+	, ppSep = " : "
+    , ppTitle = shorten 40
+    }
 
 -- Emit a DBus signal on log updates
 dbusOutput :: D.Client -> String -> IO ()
@@ -189,14 +207,18 @@ dbusOutput dbus str = do
 myConfig = def
     { terminal = "termite"
     , layoutHook = myLayouts
-    , manageHook = myManageHook <+> myManageHook' <+> manageDocks
-    , handleEventHook = docksEventHook <+> minimizeEventHook <+>  fullscreenEventHook
+	, manageHook = placeHook (smart (0.5, 0.5))
+                   <+> manageDocks
+                   <+> myManageHook
+                   <+> myManageHook'
+				   <+> manageHook def
+    , handleEventHook = docksEventHook <+> minimizeEventHook <+> fullscreenEventHook
     , keys = myKeys
     -- Don't be stupid with focus
     , focusFollowsMouse = False
     , clickJustFocuses = False
-    , borderWidth = 4
+    , borderWidth = 2
     , normalBorderColor = gray
-    , focusedBorderColor = red
+    , focusedBorderColor = green
     , workspaces = workspaces'
     , modMask = modMask' }
