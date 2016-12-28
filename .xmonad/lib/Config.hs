@@ -18,6 +18,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.Tabbed
 import System.Exit
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -171,6 +172,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Struts...
     , ((modm .|. controlMask, xK_0), sendMessage $ ToggleStrut U)
     ]
+    ++
+    -- Media hotkeys
+    [((mod5Mask, k), spawn $ "playerctl " ++ m)
+        | (m, k) <- zip ["previous", "play-pause", "next"] [xK_3..xK_5]]
+    ++
+    [((noModMask, k), spawn $ "playerctl " ++ m)
+        | (m, k) <-
+            [ ("previous", xF86XK_AudioPrev)
+            , ("play-pause", xF86XK_AudioPlay)
+            , ("next", xF86XK_AudioNext) ]]
     ++
     --
     -- mod-[1..9], Switch to workspace N
