@@ -13,6 +13,8 @@ export MONITOR="$(xrandr -q | rg "connected primary" | cut -d' ' -f1)"
 polybar example &
 
 sleep 0.5
-xdo lower -n polybar
+# Order matters. If tray is below polybar clicks will be picked up by polybar
+# and not the tray icons underneath
 xdo lower -n tray
+xdo lower -n polybar
 wait

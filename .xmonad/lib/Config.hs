@@ -4,6 +4,7 @@ import XMonad
 import XMonad.Actions.FloatKeys
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.Navigation2D
+import XMonad.Actions.Submap
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
@@ -109,7 +110,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm .|. shiftMask, xK_F9), spawn "kodi")
     , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window' -no-levenshtein-sort")
-    , ((modm .|. shiftMask, xK_r), spawn "rofi-mainmenu")
+
+    -- Lock screen
+    , ((modm, xK_a), submap . M.fromList $
+        [ ((0, xK_l), spawn "lock.sh") ])
+
     -- close focused window
     , ((modm, xK_w), kill)
      -- Rotate through the available layout algorithms
@@ -192,14 +197,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 myLogHook :: D.Client -> PP
-myLogHook dbus = def 
+myLogHook dbus = def
     { ppOutput = dbusOutput dbus
     , ppCurrent = wrap ("%{B" ++ bg2 ++ "} ") " %{B-}"
     , ppVisible = wrap ("%{B" ++ bg1 ++ "} ") " %{B-}"
-	, ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
-	, ppHidden = wrap " " " "
-	, ppWsSep = ""
-	, ppSep = " : "
+    , ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
+    , ppHidden = wrap " " " "
+    , ppWsSep = ""
+    , ppSep = " : "
     , ppTitle = shorten 40
     }
 
@@ -207,7 +212,7 @@ myLogHook dbus = def
 dbusOutput :: D.Client -> String -> IO ()
 dbusOutput dbus str = do
     let signal = (D.signal objectPath interfaceName memberName) {
-            D.signalBody = [D.toVariant $ UTF8.decodeString str] 
+            D.signalBody = [D.toVariant $ UTF8.decodeString str]
         }
     D.emit dbus signal
   where
@@ -218,11 +223,11 @@ dbusOutput dbus str = do
 myConfig = def
     { terminal = "termite"
     , layoutHook = myLayouts
-	, manageHook = placeHook (smart (0.5, 0.5))
-                   <+> manageDocks
-                   <+> myManageHook
-                   <+> myManageHook'
-				   <+> manageHook def
+    , manageHook = placeHook (smart (0.5, 0.5))
+                    <+> manageDocks
+                    <+> myManageHook
+                    <+> myManageHook'
+                    <+> manageHook def
     , handleEventHook = docksEventHook <+> minimizeEventHook <+> fullscreenEventHook
     , keys = myKeys
     -- Don't be stupid with focus
