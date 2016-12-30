@@ -188,6 +188,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
             , ("play-pause", xF86XK_AudioPlay)
             , ("next", xF86XK_AudioNext) ]]
     ++
+    [((mod5Mask, k), spawn $ "ponymix " ++ m)
+      | (m, k) <-
+          zip ["toggle", "decrease 3", "increase 3"] [xK_8, xK_9, xK_0]]
+    ++
+    [((noModMask, k), spawn $ "ponymix " ++ m)
+        | (m, k) <-
+            [ ("toggle", xF86XK_AudioMute)
+            , ("decrease 3", xF86XK_AudioLowerVolume)
+            , ("increase 3", xF86XK_AudioRaiseVolume) ]]
+    ++
     --
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
