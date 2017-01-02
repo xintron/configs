@@ -51,6 +51,7 @@ yellow    = "#fabd2f"
 blue      = "#83a598"
 purple    = "#d3869b"
 aqua      = "#8ec07c"
+orange    = "#fe8019"
 
 myIM :: LayoutClass l a => l a -> ModifiedLayout AddRoster l a
 myIM = withIM (1 % 4) (ClassName "TelegramDesktop")
@@ -113,7 +114,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Lock screen
     , ((modm, xK_a), submap . M.fromList $
-        [ ((0, xK_l), spawn "lock.sh") ])
+        [ ((0, xK_l), spawn "lock.sh")
+        , ((0, xK_9), spawn "togglelayout") ])
 
     -- close focused window
     , ((modm, xK_w), kill)
@@ -209,7 +211,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 myLogHook :: D.Client -> PP
 myLogHook dbus = def
     { ppOutput = dbusOutput dbus
-    , ppCurrent = wrap ("%{B" ++ bg2 ++ "} ") " %{B-}"
+    , ppCurrent = wrap ("%{B" ++ bg1 ++ " F" ++ orange ++ "} ") " %{B- F-}"
     , ppVisible = wrap ("%{B" ++ bg1 ++ "} ") " %{B-}"
     , ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
     , ppHidden = wrap " " " "
