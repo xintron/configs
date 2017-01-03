@@ -186,7 +186,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((mod5Mask, k), spawn $ "playerctl " ++ m)
         | (m, k) <- zip ["previous", "play-pause", "next"] [xK_3..xK_5]]
     ++
-    [((noModMask, k), spawn $ "playerctl " ++ m)
+    [((0, k), spawn $ "playerctl " ++ m)
         | (m, k) <-
             [ ("previous", xF86XK_AudioPrev)
             , ("play-pause", xF86XK_AudioPlay)
@@ -196,11 +196,21 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
       | (m, k) <-
           zip ["toggle", "decrease 3", "increase 3"] [xK_8, xK_9, xK_0]]
     ++
-    [((noModMask, k), spawn $ "ponymix " ++ m)
+    [((0, k), spawn $ "ponymix " ++ m)
         | (m, k) <-
             [ ("toggle", xF86XK_AudioMute)
             , ("decrease 3", xF86XK_AudioLowerVolume)
             , ("increase 3", xF86XK_AudioRaiseVolume) ]]
+    ++
+    [((0, k), spawn $ "xbacklight -" ++ c ++ " 5 -time 100")
+        | (c, k) <-
+            [ ("dec", xF86XK_MonBrightnessDown)
+            , ("inc", xF86XK_MonBrightnessUp) ]]
+    ++
+    [((0, k), spawn $ "kbdlight " ++ c)
+        | (c, k) <-
+            [ ("down", xF86XK_KbdBrightnessDown)
+            , ("up", xF86XK_KbdBrightnessUp) ]]
     ++
     --
     -- mod-[1..9], Switch to workspace N
