@@ -25,10 +25,6 @@ orange = #fe8019
 margin-top = 0
 margin-bottom = 0
 
-[settings]
-; Reload when screen configuration changes
-screenchange-reload = true
-
 [bar/example]
 monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -101,7 +97,7 @@ label = %percentage%
 type = internal/date
 interval = 1
 
-date = ""
+date = " %b %d"
 date-alt = " %Y-%m-%d"
 
 time = "%H:%M:%S"

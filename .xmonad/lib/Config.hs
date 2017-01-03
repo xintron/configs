@@ -5,6 +5,7 @@ import XMonad.Actions.FloatKeys
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Submap
+import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
@@ -35,23 +36,24 @@ modMask' = mod4Mask
 delta :: Rational
 delta = 3 / 100
 
-fg        = "#ebdbb2"
-bg        = "#282828"
-gray      = "#a89984"
-bg1       = "#3c3836"
-bg2       = "#504945"
-bg3       = "#665c54"
-bg4       = "#7c6f64"
+fg         = "#ebdbb2"
+bg         = "#282828"
+gray       = "#a89984"
+bg1        = "#3c3836"
+bg2        = "#504945"
+bg3        = "#665c54"
+bg4        = "#7c6f64"
 
-green     = "#b8bb26"
-darkgreen = "#98971a"
-red       = "#fb4934"
-darkred   = "#cc241d"
-yellow    = "#fabd2f"
-blue      = "#83a598"
-purple    = "#d3869b"
-aqua      = "#8ec07c"
-orange    = "#fe8019"
+green      = "#b8bb26"
+darkgreen  = "#98971a"
+red        = "#fb4934"
+darkred    = "#cc241d"
+yellow     = "#fabd2f"
+blue       = "#83a598"
+purple     = "#d3869b"
+aqua       = "#8ec07c"
+orange     = "#fe8019"
+darkorange = "#d65d0e"
 
 myIM :: LayoutClass l a => l a -> ModifiedLayout AddRoster l a
 myIM = withIM (1 % 4) (ClassName "TelegramDesktop")
@@ -208,17 +210,20 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-myLogHook :: D.Client -> PP
-myLogHook dbus = def
+myDbusHook :: D.Client -> PP
+myDbusHook dbus = def
     { ppOutput = dbusOutput dbus
-    , ppCurrent = wrap ("%{B" ++ bg1 ++ " F" ++ orange ++ "} ") " %{B- F-}"
-    , ppVisible = wrap ("%{B" ++ bg1 ++ "} ") " %{B-}"
-    , ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
+    , ppCurrent = wrap ("%{u" ++ orange ++ " +u} ") " %{u- -u}"
+    , ppVisible = wrap ("%{u" ++ yellow ++ " +u} ") " %{u- -u}"
+    , ppUrgent = wrap ("%{u" ++ red ++ " +u} ") " %{u- -u}"
     , ppHidden = wrap " " " "
     , ppWsSep = ""
     , ppSep = " : "
     , ppTitle = shorten 40
     }
+
+myLogHook :: X ()
+myLogHook = updatePointer (0.5, 0.5) (0, 0)
 
 -- Emit a DBus signal on log updates
 dbusOutput :: D.Client -> String -> IO ()
@@ -245,8 +250,8 @@ myConfig = def
     -- Don't be stupid with focus
     , focusFollowsMouse = False
     , clickJustFocuses = False
-    , borderWidth = 2
+    , borderWidth = 1
     , normalBorderColor = gray
-    , focusedBorderColor = green
+    , focusedBorderColor = darkorange
     , workspaces = workspaces'
     , modMask = modMask' }

@@ -44,18 +44,14 @@ URxvt.geometry: 120x40
 /* dzen2 */
 dzen2.font: xft:M+ 1m regular:size=11
 
-/* Rofi */
-#define r_bg   #1d2021
-#define r_fg   #ebdbb2
-#define r_hlfg #d65d0e
-
-! States: bg, fg, bgalt, hlbg, hlfg
+! Enable the extended coloring options
 rofi.color-enabled: true
-rofi.color-normal: r_bg,r_fg,#282828,r_bg,r_hlfg
-rofi.color-urgent: r_bg,#fb4934,#282828,r_bg,r_hlfg
-rofi.color-active: r_bg,r_fg,#282828,r_bg,#fe8019
-! states: background, border
-rofi.color-window: r_bg,#d5c4a1
+!                  bg       border   separator
+rofi.color-window: #282828, #a89984, #a89984
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #282828, #ebdbb2, #32302f, #665c54, #fbf1c7
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828
 
 rofi.separator-style: solid
 rofi.sidebar-mode: true
@@ -64,12 +60,12 @@ rofi.columns: 1
 rofi.padding: 16
 
 rofi.yoffset: 0
-rofi.opacity: 80
 rofi.fake-transparency: false
 rofi.location: 0
 rofi.width: 50
-rofi.font: RobotoMono 12
+rofi.font: Hasklig 12
 rofi.lines: 15
+rofi.fixed-num-lines: true
 
 /* fonts */
 URxvt.font:         xft:Hack-Regular:pixelsize=14,xft:Symbola
