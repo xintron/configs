@@ -5,7 +5,6 @@ import XMonad.Actions.FloatKeys
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Submap
-import XMonad.Actions.UpdatePointer
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
@@ -231,9 +230,6 @@ myDbusHook dbus = def
     , ppSep = " : "
     , ppTitle = shorten 40
     }
-
-myLogHook :: X ()
-myLogHook = updatePointer (0.5, 0.5) (0, 0)
 
 -- Emit a DBus signal on log updates
 dbusOutput :: D.Client -> String -> IO ()

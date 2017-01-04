@@ -20,5 +20,5 @@ main = do
     xmonad . ewmh . withUrgencyHook NoUrgencyHook .
         withNavigation2DConfig defaultNavigation2DConfig $
             myConfig
-                { logHook = dynamicLogWithPP (myDbusHook dbus) >> myLogHook
+                { logHook = dynamicLogWithPP (myDbusHook dbus)
 				, startupHook = spawn "polybar-restart" }
