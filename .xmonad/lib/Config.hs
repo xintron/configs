@@ -5,7 +5,7 @@ import XMonad.Actions.FloatKeys
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Submap
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
@@ -61,13 +61,16 @@ myLayouts = renamed [CutWordsLeft 1] .
     avoidStruts . minimize .  B.boringWindows $
     smartBorders
         ( aTiled
+        ||| aMirrored
         ||| aFullscreen
         ||| aTabbed
         )
   where
     aTabbed = renamed [Replace "Tab"] $ myIM $ tabbedBottom shrinkText  defTabbed
     aFullscreen = renamed [Replace "Full"] $ noBorders Full
-    aTiled = renamed [Replace "Main"] $ myIM $ Tall 1 (3 / 100) (1 / 2)
+    aTiled = renamed [Replace "Main"] $ myIM tall
+    aMirrored = renamed [Replace "Mirror"] $ myIM $ Mirror tall
+    tall = Tall 1 (3 / 100) (1 / 2)
     defTabbed = def
         { activeColor = bg
         , urgentColor = red
