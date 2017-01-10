@@ -113,7 +113,8 @@ label = %date% %time%
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 97
+time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.purple}
@@ -124,6 +125,8 @@ format-discharging-underline = ${self.format-charging-underline}
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
+
+label-discharging = "%percentage% %time%"
 
 ramp-capacity-0 = ""
 ramp-capacity-1 = ""

@@ -3,7 +3,7 @@
 if [ "$(pgrep -cx polybar)" -gt 0 ]; then
     echo "The panel is running. Stopping it"
     pkill -nx "polybar"
-    sleep 1.5
+    sleep 2
     while [ "$(pgrep -cx polybar)" -gt 0 ]; do
         pkill -nx -9 "polybar"
     done
