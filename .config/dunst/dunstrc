@@ -64,7 +64,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "600x5-30+20"
+    geometry = "600x5-30+30"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -104,17 +104,17 @@
     history_length = 20
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 0
+    line_height = 1
 
     # Draw a line of "separatpr_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 1
+    separator_height = 2
 
     # Padding between text and separator.
     padding = 8
@@ -149,7 +149,7 @@
 
 [frame]
     width = 1
-    color = "#d5c4a1"
+    color = "#ebdbb2"
 
 [shortcuts]
 
@@ -175,29 +175,29 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1d2021"
+    background = "#282828"
     foreground = "#a89984"
     timeout = 10
 
 [urgency_normal]
-    background = "#1d2021"
+    background = "#282828"
     foreground = "#ebdbb2"
     timeout = 10
 
 [urgency_critical]
-    background = "#1d2021"
+    background = "#282828"
     foreground = "#fb4934"
     timeout = 0
 
 [spotify]
     appname = Spotify
-    background = "#1d2021"
+    background = "#282828"
     foreground = "#b8bb26"
     timeout = 5
 
 [hipchat]
     appname = HipChat
-    background = "#1d2021"
+    background = "#282828"
     foreground = "#8ec07c"
 
 # Every section that isn't one of the above is interpreted as a rules to
