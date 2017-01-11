@@ -66,10 +66,10 @@ myLayouts = renamed [CutWordsLeft 1] .
         ||| aTabbed
         )
   where
-    aTabbed = renamed [Replace "Tab"] $ myIM $ tabbedBottom shrinkText  defTabbed
-    aFullscreen = renamed [Replace "Full"] $ noBorders Full
-    aTiled = renamed [Replace "Main"] $ myIM tall
-    aMirrored = renamed [Replace "Mirror"] $ myIM $ Mirror tall
+    aTabbed = renamed [Replace "\xe004"] $ myIM $ tabbedBottom shrinkText  defTabbed
+    aFullscreen = renamed [Replace "\xe000"] $ noBorders Full
+    aTiled = renamed [Replace "\xe002"] $ myIM tall
+    aMirrored = renamed [Replace "\xe003"] $ myIM $ Mirror tall
     tall = Tall 1 (3 / 100) (1 / 2)
     defTabbed = def
         { activeColor = bg
@@ -81,14 +81,14 @@ myLayouts = renamed [CutWordsLeft 1] .
         , inactiveTextColor = gray -- Gray color on dark gray background
         , activeTextColor = green
         , urgentTextColor = "#ffffff"
-        , fontName = "xft:Liberation Sans:size=10" }
+        , fontName = "xft:Roboto:size=10" }
 
 switchWorkspaceToWindow :: Window -> X ()
 switchWorkspaceToWindow w = windows $ do
     tag <- W.currentTag
     W.focusWindow w . W.greedyView tag . W.focusWindow w
 
-workspaces' = ["1:web", "2:code", "3:media", "4:im", "5", "6", "7", "8", "9"]
+workspaces' = ["\xf268", "\xf120", "\xf001", "\xf086", "\xf11b", "\xf1c0", "7", "\xf13e", "\xf26c"]
 
 myManageHook = composeAll
     [ className =? "MPlayer"          --> doFloat
@@ -225,10 +225,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 myDbusHook :: D.Client -> PP
 myDbusHook dbus = def
     { ppOutput = dbusOutput dbus
-    , ppCurrent = wrap ("%{u" ++ orange ++ " +u} ") " %{u- -u}"
-    , ppVisible = wrap ("%{u" ++ yellow ++ " +u} ") " %{u- -u}"
-    , ppUrgent = wrap ("%{u" ++ red ++ " +u} ") " %{u- -u}"
-    , ppHidden = wrap " " " "
+    , ppCurrent = wrap ("%{u" ++ green ++ " B" ++ bg1 ++ " +u}  ") "  %{B- u- -u}"
+    , ppVisible = wrap ("%{u" ++ yellow ++ " +u}  ") "  %{u- -u}"
+    , ppUrgent = wrap ("%{u" ++ red ++ " +u}  ") "  %{u- -u}"
+    , ppHidden = wrap "  " "  "
     , ppWsSep = ""
     , ppSep = " : "
     , ppTitle = shorten 40
