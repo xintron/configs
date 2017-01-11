@@ -9,6 +9,9 @@ set backupdir=~/.config/nvim/tmp/backup/
 set directory=~/.config/nvim/tmp/swap/
 set undodir=~/.config/nvim/tmp/undo/
 
+" Add dein to the runtime path
+set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+
 if has("vim_starting")
     for f in split(globpath(split(&runtimepath, ',')[0], '*.vim'), '\n')
         if (f =~ '\v0[0-9].+\.vim')
@@ -17,94 +20,99 @@ if has("vim_starting")
     endfor
 endif
 
-call plug#begin('~/.config/nvim/plug/')
+if dein#load_state('~/.config/nvim/dein/')
+    call dein#begin('~/.config/nvim/dein/')
 
-" Misc plugins
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
+    " This is added to load dein but we manage it ourselves (hence frozen)
+    call dein#add('Shougo/dein.vim', {'frozen': 1})
 
-Plug 'tpope/vim-surround'
+    " Misc plugins
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/vimfiler.vim')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-Plug 'mrtazz/simplenote.vim'
-Plug 'ervandew/supertab'
+    call dein#add('tpope/vim-surround')
 
-" Code styling
-Plug 'Yggdroot/indentLine'
+    call dein#add('mrtazz/simplenote.vim')
+    call dein#add('ervandew/supertab')
 
-" Colors
-Plug 'morhetz/gruvbox'
-Plug 'mhartington/oceanic-next'
+    " Code styling
+    call dein#add('Yggdroot/indentLine')
 
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'gregsexton/gitv'
+    " Colors
+    call dein#add('morhetz/gruvbox')
+    call dein#add('mhartington/oceanic-next')
 
-Plug 'neomake/neomake'
-Plug 'bling/vim-airline'
-Plug 'rking/ag.vim'
-Plug 'majutsushi/tagbar'
-Plug 'mbbill/undotree'
-Plug 'raimondi/delimitmate'
+    " Git
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('gregsexton/gitv')
 
-Plug 'luochen1990/rainbow'
+    call dein#add('neomake/neomake')
+    call dein#add('bling/vim-airline')
+    call dein#add('rking/ag.vim')
+    call dein#add('majutsushi/tagbar')
+    call dein#add('mbbill/undotree')
+    call dein#add('raimondi/delimitmate')
 
-Plug 'editorconfig/editorconfig-vim'
-Plug 'godlygeek/tabular'
+    call dein#add('luochen1990/rainbow')
 
-" Python Plugins
-Plug 'davidhalter/jedi-vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+    call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('godlygeek/tabular')
 
-" PHP
-Plug 'vim-php/vim-php-refactoring'
-Plug 'mkusher/padawan.vim'
-Plug 'joonty/vdebug'
+    " Python Plugins
+    call dein#add('davidhalter/jedi-vim')
+    call dein#add('SirVer/ultisnips')
+    call dein#add('honza/vim-snippets')
 
-" JavaScript (and the likes)
-Plug 'gkz/vim-ls' " LiveScript support
-Plug 'kchmck/vim-coffee-script'
-Plug 'justinj/vim-react-snippets'
-Plug 'mxw/vim-jsx'
-Plug 'isRuslan/vim-es6'
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'gavocanov/vim-js-indent'
-Plug 'elmcast/elm-vim'
-Plug 'elzr/vim-json'
-" Used for javascript Tern completion
-Plug 'ternjs/tern_for_vim', {'do': 'source ~/.nvm/nvm.sh && npm install'}
+    " PHP
+    call dein#add('vim-php/vim-php-refactoring')
+    call dein#add('mkusher/padawan.vim')
+    call dein#add('joonty/vdebug')
 
-" CSS
-Plug 'groenewege/vim-less'
+    " JavaScript (and the likes)
+    call dein#add('gkz/vim-ls') " LiveScript support
+    call dein#add('kchmck/vim-coffee-script')
+    call dein#add('justinj/vim-react-snippets')
+    call dein#add('mxw/vim-jsx')
+    call dein#add('isRuslan/vim-es6')
+    call dein#add('othree/yajs.vim', { 'on_ft': 'javascript' })
+    call dein#add('gavocanov/vim-js-indent')
+    call dein#add('elmcast/elm-vim')
+    call dein#add('elzr/vim-json')
+    " Used for javascript Tern completion
+    call dein#add('ternjs/tern_for_vim', {'build': 'source ~/.nvm/nvm.sh && npm install'})
 
-" Haskell
-Plug 'eagletmt/neco-ghc'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'neovimhaskell/haskell-vim'
+    " CSS
+    call dein#add('groenewege/vim-less')
 
-" Go
-Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go', {'do': 'make'}
-"Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plug/gocode/nvim/symlink.sh'}
+    " Haskell
+    call dein#add('eagletmt/neco-ghc')
+    call dein#add('eagletmt/ghcmod-vim')
+    call dein#add('neovimhaskell/haskell-vim')
 
-" LaTeX
-Plug 'lervag/vimtex'
+    " Go
+    call dein#add('fatih/vim-go')
+    call dein#add('zchee/deoplete-go', {'build': 'make'})
 
-" Syntax files
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'plasticboy/vim-markdown'
-Plug 'robbles/logstash.vim'
-Plug 'Matt-Deacalion/vim-systemd-syntax'
-Plug 'saltstack/salt-vim'
-Plug 'stephpy/vim-yaml'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'digitaltoad/vim-jade'
-Plug 'cespare/vim-toml'
+    " LaTeX
+    call dein#add('lervag/vimtex')
 
-call plug#end()
+    " Syntax files
+    call dein#add('evanmiller/nginx-vim-syntax')
+    call dein#add('plasticboy/vim-markdown')
+    call dein#add('robbles/logstash.vim')
+    call dein#add('Matt-Deacalion/vim-systemd-syntax')
+    call dein#add('saltstack/salt-vim')
+    call dein#add('stephpy/vim-yaml')
+    call dein#add('Glench/Vim-Jinja2-Syntax')
+    call dein#add('digitaltoad/vim-jade')
+    call dein#add('cespare/vim-toml')
+
+    call dein#end()
+    call dein#save_state()
+endif
 
 " Enable *after* loading plugins
 filetype plugin indent on

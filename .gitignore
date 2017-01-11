@@ -4,5 +4,7 @@
 .vim/sessions/
 .vim/spell/
 
+.config/nvim/dein/
+
 .zsh/cache/
 .xmonad/
