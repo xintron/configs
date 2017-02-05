@@ -72,6 +72,7 @@ if dein#load_state('~/.config/nvim/dein/')
     call dein#add('joonty/vdebug')
 
     " JavaScript (and the likes)
+    call dein#add('pangloss/vim-javascript')
     call dein#add('gkz/vim-ls') " LiveScript support
     call dein#add('kchmck/vim-coffee-script')
     call dein#add('justinj/vim-react-snippets')
