@@ -47,9 +47,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Hasklig:pixelsize=12;0
-font-1 = FontAwesome:size=8;-2
-font-2 = -wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1;-2
+font-0 = Hasklig:pixelsize=9;0
+font-1 = FontAwesome:size=6;-1
 
 modules-left = xmonad
 modules-center = music
@@ -89,7 +88,7 @@ interval = 120
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.red}
 label = %percentage%%

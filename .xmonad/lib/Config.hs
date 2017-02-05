@@ -66,10 +66,10 @@ myLayouts = renamed [CutWordsLeft 1] .
         ||| aTabbed
         )
   where
-    aTabbed = renamed [Replace "\xe004"] $ myIM $ tabbedBottom shrinkText  defTabbed
-    aFullscreen = renamed [Replace "\xe000"] $ noBorders Full
-    aTiled = renamed [Replace "\xe002"] $ myIM tall
-    aMirrored = renamed [Replace "\xe003"] $ myIM $ Mirror tall
+    aTabbed = renamed [Replace "\xf2d1"] $ myIM $ tabbedBottom shrinkText  defTabbed
+    aFullscreen = renamed [Replace "\xf2d0"] $ noBorders Full
+    aTiled = renamed [Replace "\xf036"] $ myIM tall
+    aMirrored = renamed [Replace "\xf037"] $ myIM $ Mirror tall
     tall = Tall 1 (3 / 100) (1 / 2)
     defTabbed = def
         { activeColor = bg
@@ -91,7 +91,8 @@ switchWorkspaceToWindow w = windows $ do
 workspaces' = ["\xf268", "\xf120", "\xf001", "\xf086", "\xf11b", "\xf1c0", "7", "\xf13e", "\xf26c"]
 
 myManageHook = composeAll
-    [ className =? "MPlayer"          --> doFloat
+    [ isFullscreen                    --> doFullFloat
+    , className =? "MPlayer"          --> doFloat
     , className =? "Gimp"             --> doFloat
     , resource  =? "desktop_window"   --> doIgnore
     , resource  =? "kdesktop"         --> doIgnore
@@ -108,8 +109,6 @@ myManageHook = composeAll
     , role =? "pop-up"                --> doFloat ]
   where
     role = stringProperty "WM_WINDOW_ROLE"
-
-myManageHook' = composeOne [ isFullscreen -?> doFullFloat ]
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
@@ -252,9 +251,11 @@ myConfig = def
     , manageHook = placeHook (smart (0.5, 0.5))
                     <+> manageDocks
                     <+> myManageHook
-                    <+> myManageHook'
                     <+> manageHook def
-    , handleEventHook = docksEventHook <+> minimizeEventHook <+> fullscreenEventHook
+    , handleEventHook = fullscreenEventHook
+                        <+> docksEventHook
+                        <+> minimizeEventHook
+                        <+> handleEventHook def
     , keys = myKeys
     -- Don't be stupid with focus
     , focusFollowsMouse = False

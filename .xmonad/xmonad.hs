@@ -17,8 +17,8 @@ main = do
     D.requestName dbus (D.busName_ "org.xmonad.Log")
         [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 
-    xmonad . ewmh . withUrgencyHook NoUrgencyHook .
-        withNavigation2DConfig defaultNavigation2DConfig $
+    xmonad . withUrgencyHook NoUrgencyHook .
+        withNavigation2DConfig defaultNavigation2DConfig . ewmh $
             myConfig
                 { logHook = dynamicLogWithPP (myDbusHook dbus)
 				, startupHook = spawn "polybar-restart" }
