@@ -9,15 +9,17 @@ import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.Minimize
 import XMonad.Hooks.Place
 import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.IM
 import XMonad.Layout.LayoutModifier (ModifiedLayout(..))
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Layout.Tabbed
+import XMonad.Util.NamedScratchpad
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
 
@@ -57,20 +59,24 @@ darkorange = "#d65d0e"
 myIM :: LayoutClass l a => l a -> ModifiedLayout AddRoster l a
 myIM = withIM (1 % 4) (ClassName "TelegramDesktop")
 
-myLayouts = renamed [CutWordsLeft 1] .
-    avoidStruts . minimize .  B.boringWindows $
-    smartBorders
-        ( aTiled
-        ||| aMirrored
-        ||| aFullscreen
-        ||| aTabbed
-        )
+myLayouts = fullscreenToggle
+    $ tiled ||| tabs
   where
-    aTabbed = renamed [Replace "\xf2d1"] $ myIM $ tabbedBottom shrinkText  defTabbed
-    aFullscreen = renamed [Replace "\xf2d0"] $ noBorders Full
-    aTiled = renamed [Replace "\xf036"] $ myIM tall
-    aMirrored = renamed [Replace "\xf037"] $ myIM $ Mirror tall
-    tall = Tall 1 (3 / 100) (1 / 2)
+    fullscreenToggle = mkToggle (single NBFULL)
+    tiled = renamed [Replace "\xf036"]
+        $ avoidStruts
+        $ smartBorders
+        $ minimize
+        $ B.boringWindows
+        $ myIM
+        $ Tall 1 (3 / 100) (1 / 2)
+    tabs = renamed [Replace "\xf2d1"]
+        $ avoidStruts
+        $ smartBorders
+        $ minimize
+        $ B.boringWindows
+        $ myIM
+        $ tabbedBottom shrinkText defTabbed
     defTabbed = def
         { activeColor = bg
         , urgentColor = red
@@ -90,24 +96,40 @@ switchWorkspaceToWindow w = windows $ do
 
 workspaces' = ["\xf268", "\xf120", "\xf001", "\xf086", "\xf11b", "\xf1c0", "7", "\xf13e", "\xf26c"]
 
-myManageHook = composeAll
-    [ isFullscreen                    --> doFullFloat
-    , className =? "MPlayer"          --> doFloat
-    , className =? "Gimp"             --> doFloat
-    , resource  =? "desktop_window"   --> doIgnore
-    , resource  =? "kdesktop"         --> doIgnore
-    -- Flash :(
-    , className =? "Plugin-container" --> doFloat
-    , className =? "mpv"              --> doFloat
-    , className =? "feh"              --> doFloat
-    , className =? "keepassx"         --> doFloat
-    , className =? "Gpick"            --> doFloat
-    , className =? "Thunar"           --> doFloat
-    , className =? "Qalculate-gtk"    --> doFloat
-    , className =? "Pcmanfm"          --> doFloat
-    -- Used by Chromium developer tools, maybe other apps as well
-    , role =? "pop-up"                --> doFloat ]
+spotify = "spotify"
+keepassName = "keepassx2"
+keepassCommand = keepassName
+keepassResource = "Keepassx2"
+
+scratchpads =
+    [ (NS spotify spotify (className =? "Spotify") doFullFloat )
+    , (NS keepassName keepassCommand (className =? keepassResource) (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)) ) ]
+
+myManageHook :: ManageHook
+myManageHook =
+    manageSpecific
+    <+> namedScratchpadManageHook scratchpads
   where
+    manageSpecific = composeAll
+        [ isFullscreen                    --> doFullFloat
+        -- When Spotify is started the WM_CLASS is unset so here we match on
+        -- title instead. Title will later change depending on the song
+        -- playing.
+        , className =? "Spotify"              --> doFullFloat
+        , className =? "MPlayer"          --> doFloat
+        , className =? "Gimp"             --> doFloat
+        -- Flash :(
+        , className =? "Plugin-container" --> doFloat
+        , className =? "mpv"              --> doFloat
+        , className =? "feh"              --> doFloat
+        , className =? "keepassx"         --> doFloat
+        , className =? "Gpick"            --> doFloat
+        , className =? "Thunar"           --> doFloat
+        , className =? "Qalculate-gtk"    --> doFloat
+        , className =? "Pcmanfm"          --> doFloat
+        -- Used by Chromium developer tools, maybe other apps as well
+        , role =? "pop-up"                --> doFloat
+        , transience' ]
     role = stringProperty "WM_WINDOW_ROLE"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -146,7 +168,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Expand the master area
     , ((modm, xK_l), sendMessage Expand)
     -- Push window back into tiling
-    , ((modm, xK_t), withFocused $ windows . W.sink)
+    , ((modm, xK_t), withFocused toggleFloat)
     -- Increment the number of windows in the master area
     , ((modm, xK_comma), sendMessage (IncMasterN 1))
     -- Deincrement the number of windows in the master area
@@ -154,7 +176,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q), io exitSuccess)
     -- Restart xmonad
-    , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm, xK_q), spawn "xmonad --recompile && xmonad --restart")
+
+    -- Toggle fullscreen MultiToggle
+    , ((modm, xK_f), sendMessage $ Toggle NBFULL)
+    , ((modm .|. shiftMask, xK_f), withFocused $
+        \w -> windows $ W.float w (W.RationalRect 0 0 1 1) )
 
     -- 2D navigation
     , ((modm .|. shiftMask, xK_l), screenGo R True)
@@ -178,6 +205,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_v), sendMessage RestoreNextMinimizedWin)
 
     , ((modm, xK_g), placeFocused $ smart (0.5, 0.5))
+
+    -- Scratchpads
+    , ((modm, xK_s), submap . M.fromList $
+        [ ((0, xK_s), namedScratchpadAction scratchpads spotify)
+        , ((0, xK_k), namedScratchpadAction scratchpads keepassName)
+        ])
 
     -- Struts...
     , ((modm .|. controlMask, xK_0), sendMessage $ ToggleStrut U)
@@ -220,6 +253,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+  where
+      toggleFloat w = windows
+        $ \s -> if M.member w (W.floating s)
+                   then W.sink w s
+                   else W.float w (W.RationalRect (1/10) (1/10) (4/5) (4/5)) s
 
 myDbusHook :: D.Client -> PP
 myDbusHook dbus = def
@@ -248,19 +286,13 @@ dbusOutput dbus str = do
 myConfig = def
     { terminal = "termite"
     , layoutHook = myLayouts
-    , manageHook = placeHook (smart (0.5, 0.5))
-                    <+> manageDocks
-                    <+> myManageHook
-                    <+> manageHook def
+    , manageHook = myManageHook
     , handleEventHook = fullscreenEventHook
-                        <+> docksEventHook
-                        <+> minimizeEventHook
-                        <+> handleEventHook def
     , keys = myKeys
     -- Don't be stupid with focus
     , focusFollowsMouse = False
     , clickJustFocuses = False
-    , borderWidth = 1
+    , borderWidth = 2
     , normalBorderColor = gray
     , focusedBorderColor = darkorange
     , workspaces = workspaces'

@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Actions.Navigation2D
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP)
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.Run
 
@@ -18,7 +19,8 @@ main = do
         [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 
     xmonad . withUrgencyHook NoUrgencyHook .
-        withNavigation2DConfig defaultNavigation2DConfig . ewmh $
+        withNavigation2DConfig defaultNavigation2DConfig .
+        ewmh . docks $
             myConfig
                 { logHook = dynamicLogWithPP (myDbusHook dbus)
 				, startupHook = spawn "polybar-restart" }
