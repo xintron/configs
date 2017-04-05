@@ -1,6 +1,6 @@
 # vim: ft=dosini
 [options]
-font = Fira Mono 11
+font = Iosevka 11
 allow_bold = true
 visual_bell = true
 cursor_blink = off
