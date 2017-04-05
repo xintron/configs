@@ -73,14 +73,14 @@ URxvt.boldFont:     xft:Hack-Bold:pixelsize=14:weight=bold,xft:Symbola
 URxvt.italicFont:   xft:Hack-RegularOblique:pixelsize=14:slant=italic,xft:Symbola
 
 xscreensaver.splash: false
-xscreensaver.Dialog.foreground: r_fg
-xscreensaver.Dialog.background: r_bg
+xscreensaver.Dialog.foreground: #ebdbb2
+xscreensaver.Dialog.background: #282828
 xscreensaver.Dialog.topShadowColor: #0a0a0a
 xscreensaver.Dialog.bottomShadowColor: #161616
-xscreensaver.Dialog.Button.foreground: r_fg
-xscreensaver.Dialog.Button.background: r_bg
+xscreensaver.Dialog.Button.foreground: #ebdbb2
+xscreensaver.Dialog.Button.background: #282828
 xscreensaver.Dialog.borderWidth: 0
 xscreensaver.Dialog.internalBorderWidth: 0
-xscreensaver.passwd.thermometer.background: r_bg
-xscreensaver.passwd.thermometer.foreground: r_hlfg
+xscreensaver.passwd.thermometer.background: #282828
+xscreensaver.passwd.thermometer.foreground: #fbf1c7
 xscreensaver.passwd.thermometer.width: 8
