@@ -59,7 +59,8 @@ if dein#load_state('~/.config/nvim/dein/')
     call dein#add('luochen1990/rainbow')
 
     call dein#add('editorconfig/editorconfig-vim')
-    call dein#add('godlygeek/tabular')
+
+    call dein#add('junegunn/vim-easy-align')
 
     " Python Plugins
     call dein#add('davidhalter/jedi-vim')
