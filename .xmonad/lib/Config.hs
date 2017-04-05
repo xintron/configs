@@ -97,9 +97,9 @@ switchWorkspaceToWindow w = windows $ do
 workspaces' = ["\xf268", "\xf120", "\xf001", "\xf086", "\xf11b", "\xf1c0", "7", "\xf13e", "\xf26c"]
 
 spotify = "spotify"
-keepassName = "keepassx2"
+keepassName = "KeeWeb"
 keepassCommand = keepassName
-keepassResource = "Keepassx2"
+keepassResource = keepassName
 
 scratchpads =
     [ (NS spotify spotify (className =? "Spotify") doFullFloat )
@@ -115,18 +115,19 @@ myManageHook =
         -- When Spotify is started the WM_CLASS is unset so here we match on
         -- title instead. Title will later change depending on the song
         -- playing.
-        , className =? "Spotify"              --> doFullFloat
+        , className =? "Spotify"          --> doFullFloat
         , className =? "MPlayer"          --> doFloat
         , className =? "Gimp"             --> doFloat
         -- Flash :(
         , className =? "Plugin-container" --> doFloat
         , className =? "mpv"              --> doFloat
         , className =? "feh"              --> doFloat
-        , className =? "keepassx"         --> doFloat
+        , className =? keepassResource    --> doFloat
         , className =? "Gpick"            --> doFloat
         , className =? "Thunar"           --> doFloat
         , className =? "Qalculate-gtk"    --> doFloat
         , className =? "Pcmanfm"          --> doFloat
+        , className =? "Lightscreen"      --> doFloat
         -- Used by Chromium developer tools, maybe other apps as well
         , role =? "pop-up"                --> doFloat
         , transience' ]
@@ -136,6 +137,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm .|. shiftMask, xK_F9), spawn "kodi")
     , ((modm, xK_r), spawn "rofi -show run -switchers 'run,window' -no-levenshtein-sort")
+    , ((modm .|. shiftMask, xK_r), spawn "rofi -show window -switchers 'window,run' -no-levenshtein-sort")
 
     -- Lock screen
     , ((modm, xK_a), submap . M.fromList $
@@ -245,6 +247,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (c, k) <-
             [ ("down", xF86XK_KbdBrightnessDown)
             , ("up", xF86XK_KbdBrightnessUp) ]]
+    ++
+    -- Manage screens using autorandr
+    [((0, xF86XK_LaunchB), spawn $ "autorandr --change --default laptop")]
     ++
     --
     -- mod-[1..9], Switch to workspace N
