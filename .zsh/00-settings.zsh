@@ -1,6 +1,9 @@
-set -o vi
-
+# Setting this to ~vim automatically enables vi-mode in ZSH.
 export EDITOR="nvim"
+# Therefor set the mode back to emacs before sourcing any other files
+bindkey -e
+
+
 [ -d $HOME/.gem/ruby/1.9.1/bin ] && PATH=$HOME/.gem/ruby/1.9.1/bin:$PATH
 [ -d $HOME/.composer/vendor/bin/ ] && PATH=$HOME/.composer/vendor/bin:$PATH
 [ -d $HOME/.cabal/bin/ ] && PATH=$HOME/.cabal/bin:$PATH
@@ -58,6 +61,7 @@ done
 
 # Load support for fzf if it exists
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
 
 # Load gistit token if available
 [[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc

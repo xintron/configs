@@ -34,7 +34,6 @@ if dein#load_state('~/.config/nvim/dein/')
 
     call dein#add('tpope/vim-surround')
 
-    call dein#add('mrtazz/simplenote.vim')
     call dein#add('ervandew/supertab')
 
     " Code styling
@@ -56,8 +55,6 @@ if dein#load_state('~/.config/nvim/dein/')
     call dein#add('mbbill/undotree')
     call dein#add('raimondi/delimitmate')
 
-    call dein#add('luochen1990/rainbow')
-
     call dein#add('editorconfig/editorconfig-vim')
 
     call dein#add('junegunn/vim-easy-align')
@@ -69,8 +66,6 @@ if dein#load_state('~/.config/nvim/dein/')
 
     " PHP
     call dein#add('vim-php/vim-php-refactoring')
-    call dein#add('mkusher/padawan.vim')
-    call dein#add('joonty/vdebug')
 
     " JavaScript (and the likes)
     call dein#add('pangloss/vim-javascript')
@@ -90,9 +85,10 @@ if dein#load_state('~/.config/nvim/dein/')
     call dein#add('groenewege/vim-less')
 
     " Haskell
-    call dein#add('eagletmt/neco-ghc')
-    call dein#add('eagletmt/ghcmod-vim')
-    call dein#add('neovimhaskell/haskell-vim')
+    call dein#add('eagletmt/neco-ghc', { 'on_ft': 'haskell' })
+    call dein#add('eagletmt/ghcmod-vim', { 'on_ft': 'haskell' })
+    call dein#add('neovimhaskell/haskell-vim', { 'on_ft': 'haskell' })
+    call dein#add('ndmitchell/ghcid', { 'on_ft': 'haskell', 'rtp': 'plugins/nvim' })
 
     " Go
     call dein#add('fatih/vim-go')

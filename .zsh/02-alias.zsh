@@ -1,5 +1,3 @@
-compdef powerpill=pacman
-
 # git aliases
 alias g='git'
 alias gc='git commit'
@@ -22,6 +20,9 @@ alias v='vagrant'
 # ls
 if [ $OSX -eq 0 ]; then
     alias ls='ls --group-directories-first --color=auto -h'
+    # We should really check for existence of pacman and not just OSX
+    # true/false
+    compdef powerpill=pacman
 else
     if [ -x '/Applications/VLC.app/Contents/MacOS/VLC' ]; then
         alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
