@@ -15,7 +15,7 @@ bindkey -e
 export GOPATH=$HOME/go
 [ -d $GOPATH/bin ] && PATH=$GOPATH/bin:$PATH
 
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH:/usr/lib/ccache/bin/:/usr/local/bin/
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/lib/ccache/bin:/usr/local/bin:$PATH
 #[ $OSX -gt 0 ] && export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 export PAGER="less"
 
@@ -65,3 +65,10 @@ done
 
 # Load gistit token if available
 [[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc
+
+# Load NVM. This sadly adds a lot of load time but VSCode needs it
+[[ -f $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
