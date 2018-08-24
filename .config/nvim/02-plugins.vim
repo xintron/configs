@@ -116,6 +116,8 @@ autocmd BufWritePost * Neomake
 "" enable elm-make on elm
 "let g:neomake_elm_enabled_makers = [ 'elmmake' ]
 " }}}
+" denite {{{
+" }}}
 
 if filereadable(expand('~').'/.simplenoterc')
         exec 'source ' . expand('~') . '/.simplenoterc'

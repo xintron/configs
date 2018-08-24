@@ -10,4 +10,6 @@ hi! Normal ctermbg=none guibg=none
 " of using the default color
 hi! link haskellType GruvboxYellow
 hi! link haskellIdentifier GruvboxOrange
+
+hi! link yamlPlainScalar String
 " }}}

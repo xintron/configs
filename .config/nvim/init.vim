@@ -11,6 +11,9 @@ set undodir=~/.config/nvim/tmp/undo/
 
 " Add dein to the runtime path
 set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+if !isdirectory(expand('~/.cache/dein'))
+    call mkdir(expand('~/.cache/dein'))
+endif
 
 if has("vim_starting")
     for f in split(globpath(split(&runtimepath, ',')[0], '*.vim'), '\n')
@@ -20,17 +23,15 @@ if has("vim_starting")
     endfor
 endif
 
-if dein#load_state('~/.config/nvim/dein/')
-    call dein#begin('~/.config/nvim/dein/')
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
-    " This is added to load dein but we manage it ourselves (hence frozen)
-    call dein#add('Shougo/dein.vim', {'frozen': 1})
+    call dein#add('~/.cache/dein')
 
     " Misc plugins
-    call dein#add('Shougo/unite.vim')
-    call dein#add('Shougo/vimfiler.vim')
+    call dein#add('Shougo/denite.nvim')
+    call dein#add('Shougo/defx.nvim')
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
     call dein#add('tpope/vim-surround')
 
@@ -42,6 +43,8 @@ if dein#load_state('~/.config/nvim/dein/')
     " Colors
     call dein#add('morhetz/gruvbox')
     call dein#add('mhartington/oceanic-next')
+    call dein#add('dracula/vim')
+    call dein#add('arcticicestudio/nord-vim')
 
     " Git
     call dein#add('tpope/vim-fugitive')
@@ -68,18 +71,11 @@ if dein#load_state('~/.config/nvim/dein/')
     call dein#add('vim-php/vim-php-refactoring')
 
     " JavaScript (and the likes)
-    call dein#add('pangloss/vim-javascript')
-    call dein#add('gkz/vim-ls') " LiveScript support
-    call dein#add('kchmck/vim-coffee-script')
-    call dein#add('justinj/vim-react-snippets')
-    call dein#add('mxw/vim-jsx')
-    call dein#add('isRuslan/vim-es6')
     call dein#add('othree/yajs.vim', { 'on_ft': 'javascript' })
-    call dein#add('gavocanov/vim-js-indent')
-    call dein#add('elmcast/elm-vim')
-    call dein#add('elzr/vim-json')
-    " Used for javascript Tern completion
-    call dein#add('ternjs/tern_for_vim', {'build': 'source ~/.nvm/nvm.sh && npm install'})
+    call dein#add('othree/es.next.syntax.vim', { 'on_ft': 'javascript' })
+    call dein#add('kchmck/vim-coffee-script', { 'on_ft': 'coffee' })
+    " call dein#add('mxw/vim-jsx', { 'on_ft': 'javascript' })
+    call dein#add('elmcast/elm-vim', { 'on_ft': 'elm' })
 
     " CSS
     call dein#add('groenewege/vim-less')
@@ -91,19 +87,19 @@ if dein#load_state('~/.config/nvim/dein/')
     call dein#add('ndmitchell/ghcid', { 'on_ft': 'haskell', 'rtp': 'plugins/nvim' })
 
     " Go
-    call dein#add('fatih/vim-go')
-    call dein#add('zchee/deoplete-go', {'build': 'make'})
+    call dein#add('fatih/vim-go', { 'on_ft': 'go' })
+    call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go' })
 
     " LaTeX
     call dein#add('lervag/vimtex')
 
     " Syntax files
-    call dein#add('evanmiller/nginx-vim-syntax')
-    call dein#add('plasticboy/vim-markdown')
+    call dein#add('chr4/nginx.vim', { 'on_ft': 'nginx' })
+    call dein#add('plasticboy/vim-markdown', { 'on_ft': 'markdown' })
     call dein#add('robbles/logstash.vim')
     call dein#add('Matt-Deacalion/vim-systemd-syntax')
     call dein#add('saltstack/salt-vim')
-    call dein#add('stephpy/vim-yaml')
+    " call dein#add('stephpy/vim-yaml')
     call dein#add('Glench/Vim-Jinja2-Syntax')
     call dein#add('digitaltoad/vim-jade')
     call dein#add('cespare/vim-toml')
@@ -116,8 +112,8 @@ endif
 filetype plugin indent on
 syntax on
 
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+colorscheme nord
+let g:airline_theme='nord'
 set background=dark
 
 hi User1 ctermfg=0 ctermbg=6

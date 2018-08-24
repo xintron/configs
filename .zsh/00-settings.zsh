@@ -67,7 +67,12 @@ done
 [[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc
 
 # Load NVM. This sadly adds a lot of load time but VSCode needs it
-[[ -f $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+    lnvm() {
+        source $HOME/.nvm/nvm.sh
+    }
+fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
