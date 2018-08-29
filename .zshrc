@@ -26,4 +26,4 @@ for f in $ZSH_HOME/[0-9][0-9]*.zsh; do
     source $f
 done
 
-[[ $HOME/.zsh.local ]] && source $HOME/.zsh.local
+[[ -f $HOME/.zsh.local ]] && source $HOME/.zsh.local
