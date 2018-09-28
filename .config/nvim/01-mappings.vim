@@ -16,7 +16,9 @@ nmap <silent> <Leader><Space> :nohl<CR>
 nmap <C-h>h :call SynStack()<CR>
 
 " C-] doesn't work under OS X for some reason. This is one way of solving it.
-nmap <Leader>] <C-]>
+noremap <Leader>] <C-]>
+" Map terminal escape sequence which dosen't work well with Svorak A5
+tnoremap <Esc> <C-\><C-n>
 
 " QuickFix mappings
 nmap <silent> <Leader>co :copen<CR>
@@ -29,35 +31,26 @@ nmap <silent> <Leader>lc :lclose<CR>
 nmap <silent> <Leader>ln :lnext<CR>
 nmap <silent> <Leader>lp :lprevious<CR>
 " }}}
-" }}}
 
 " Buffers, tabs and windows {{{
 nmap <Leader># :b#<CR>
 " }}}
 
 " Plugin mappings {{{
-" Unite mappings. Config for unite is in after/02-plugins.vim {{{
+" Denite mappings. Configuration for denite is placed in after/02-plugins.vim {{{
 function! s:do_unite_search()
     if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
-        execute "Unite -start-insert -toggle -force-redraw file_rec/git:--cached:--others:--exclude-standard"
+        execute "Denite file/rec/git"
     else
-        if has('nvim')
-            execute "Unite -start-insert -toggle file_rec/neovim:!"
-        else
-            execute "Unite -start-insert -toggle file_rec/async:!"
-        endif
+        execute "Denite file/rec"
     endif
 endfunction
 " The default should be to use the git-index for searching
 nnoremap <C-p> :call <SID>do_unite_search()<cr>
-nmap <Leader>ub :Unite -start-insert -toggle buffer:-<cr>
-nmap <Leader>ut :Unite -start-insert -toggle tag<cr>
-nmap <Leader>ud :Unite -start-insert -toggle -hide-source-names file file/new directory/new<cr>
-if has('nvim')
-    nmap <Leader>up :Unite -start-insert -toggle file_rec/neovim:!<cr>
-else
-    nmap <Leader>up :Unite -start-insert -toggle file_rec/async:!<cr>
-endif
+nmap <Leader>ub :Denite buffer:-<cr>
+nmap <Leader>ut :Denite tag<cr>
+nmap <Leader>ud :Denite file file/new directory/new<cr>
+nmap <Leader>up :Denite file/rec<cr>
 " }}}
 nmap <silent> - :VimFiler<CR>
 
@@ -66,4 +59,22 @@ nmap <silent> <Leader>g :UndotreeToggle<CR>
 
 " Syntastic mappings
 nmap <silent> <Leader>e :Errors<CR>
+" }}}
+
+" Haskell {{{
+" Bindings that will only be applied for haskell files
+augroup interoMaps
+    au!
+
+    au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
+    au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
+
+    au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
+    au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
+
+    " Re-evaluate the file
+    au BufWritePost *.hs InteroReload
+
+    au FileType haskell map <silent> <leader>t <Plug>InteroGenericType
+    au FileType haskell map <silent> <leader>T <Plug>InteroType
 " }}}

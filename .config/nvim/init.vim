@@ -82,9 +82,8 @@ if dein#load_state('~/.cache/dein')
 
     " Haskell
     call dein#add('eagletmt/neco-ghc', { 'on_ft': 'haskell' })
-    call dein#add('eagletmt/ghcmod-vim', { 'on_ft': 'haskell' })
+    call dein#add('parsonsmatt/intero-neovim', { 'on_ft': 'haskell' })
     call dein#add('neovimhaskell/haskell-vim', { 'on_ft': 'haskell' })
-    call dein#add('ndmitchell/ghcid', { 'on_ft': 'haskell', 'rtp': 'plugins/nvim' })
 
     " Go
     call dein#add('fatih/vim-go', { 'on_ft': 'go' })
@@ -112,8 +111,8 @@ endif
 filetype plugin indent on
 syntax on
 
-colorscheme nord
-let g:airline_theme='nord'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 set background=dark
 
 hi User1 ctermfg=0 ctermbg=6
