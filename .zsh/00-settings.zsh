@@ -15,6 +15,8 @@ bindkey -e
 export GOPATH=$HOME/go
 [ -d $GOPATH/bin ] && PATH=$GOPATH/bin:$PATH
 
+[ -d $HOME/.yarn/bin ] && PATH=$HOME/.yarn/bin:$PATH
+
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/lib/ccache/bin:/usr/local/bin:$PATH
 #[ $OSX -gt 0 ] && export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 export PAGER="less"
@@ -29,11 +31,21 @@ done
 # Load colors before we source all config-files that might use them
 autoload -U colors
 colors
-autoload -U compinit
-compinit -i
+autoload -Uz compinit
+compinit -C
 zmodload zsh/complist
 autoload edit-command-line
 zle -N edit-command-line
+
+# Load the add-zsh-hook library
+autoload -U add-zsh-hook
+
+# Prepare themes prompt
+fpath=($HOME/.zsh/themes $fpath)
+autoload -U promptinit
+promptinit
+# Set inital theme
+prompt minimal
 
 setopt extended_glob
 setopt brace_ccl # Nifty stuff like {a-z} to complement {1..15}

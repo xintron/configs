@@ -1,0 +1,10 @@
+prompt_fancy_precmd() {
+    PROMPT='%{%f%b%k%}%2~ '
+}
+
+prompt_fancy_setup() {
+    add-zsh-hook precmd prompt_fancy_precmd
+}
+
+prompt_fancy_setup "$@"
+# vim: ft=zsh:
