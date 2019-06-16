@@ -8,8 +8,4 @@ hi! Normal ctermbg=none guibg=none
 " Syntax overrides {{{
 " This fixes a nicer look for Haskell code (by highlighting more things instead
 " of using the default color
-hi! link haskellType GruvboxYellow
-hi! link haskellIdentifier GruvboxOrange
-
-hi! link yamlPlainScalar String
 " }}}

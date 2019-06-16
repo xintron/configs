@@ -49,7 +49,6 @@ endfunction
 nnoremap <C-p> :call <SID>do_unite_search()<cr>
 nmap <Leader>ub :Denite buffer:-<cr>
 nmap <Leader>ut :Denite tag<cr>
-nmap <Leader>ud :Denite file file/new directory/new<cr>
 nmap <Leader>up :Denite file/rec<cr>
 " }}}
 nmap <silent> - :VimFiler<CR>

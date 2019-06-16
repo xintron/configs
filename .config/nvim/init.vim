@@ -26,16 +26,20 @@ endif
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
 
-    call dein#add('~/.cache/dein')
+    call dein#add('~/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
 
     " Misc plugins
     call dein#add('Shougo/denite.nvim')
     call dein#add('Shougo/defx.nvim')
-    call dein#add('Shougo/deoplete.nvim')
+
+    call dein#add('neoclide/coc.nvim', {'merge':0, 'build': './install.sh nightly'})
 
     call dein#add('tpope/vim-surround')
 
     call dein#add('ervandew/supertab')
+
+    " Language packs. Adds syntax, indent, ftplug for a ton of languages.
+    call dein#add('sheerun/vim-polyglot')
 
     " Code styling
     call dein#add('Yggdroot/indentLine')
@@ -45,6 +49,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mhartington/oceanic-next')
     call dein#add('dracula/vim')
     call dein#add('arcticicestudio/nord-vim')
+    call dein#add('joshdick/onedark.vim')
 
     " Git
     call dein#add('tpope/vim-fugitive')
@@ -64,30 +69,30 @@ if dein#load_state('~/.cache/dein')
 
     " Python Plugins
     call dein#add('davidhalter/jedi-vim')
-    call dein#add('SirVer/ultisnips')
+
+    " snippets
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
     call dein#add('honza/vim-snippets')
 
     " PHP
     call dein#add('vim-php/vim-php-refactoring')
 
     " JavaScript (and the likes)
-    call dein#add('othree/yajs.vim', { 'on_ft': 'javascript' })
-    call dein#add('othree/es.next.syntax.vim', { 'on_ft': 'javascript' })
+    call dein#add('othree/yajs.vim', { 'on_ft': ['javascript', 'javascript.jsx'] })
+    call dein#add('othree/es.next.syntax.vim', { 'on_ft': ['javascript', 'javascript.jsx'] })
+    call dein#add('maxmellon/vim-jsx-pretty', { 'on_ft': ['javascript', 'javascript.jsx'] })
     call dein#add('kchmck/vim-coffee-script', { 'on_ft': 'coffee' })
-    " call dein#add('mxw/vim-jsx', { 'on_ft': 'javascript' })
     call dein#add('elmcast/elm-vim', { 'on_ft': 'elm' })
 
     " CSS
     call dein#add('groenewege/vim-less')
 
     " Haskell
-    call dein#add('eagletmt/neco-ghc', { 'on_ft': 'haskell' })
-    call dein#add('parsonsmatt/intero-neovim', { 'on_ft': 'haskell' })
     call dein#add('neovimhaskell/haskell-vim', { 'on_ft': 'haskell' })
 
     " Go
     call dein#add('fatih/vim-go', { 'on_ft': 'go' })
-    call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go' })
 
     " LaTeX
     call dein#add('lervag/vimtex')
@@ -111,8 +116,8 @@ endif
 filetype plugin indent on
 syntax on
 
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+colorscheme onedark
+let g:airline_theme='onedark'
 set background=dark
 
 hi User1 ctermfg=0 ctermbg=6
