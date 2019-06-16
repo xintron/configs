@@ -38,9 +38,6 @@ if dein#load_state('~/.cache/dein')
 
     call dein#add('ervandew/supertab')
 
-    " Language packs. Adds syntax, indent, ftplug for a ton of languages.
-    call dein#add('sheerun/vim-polyglot')
-
     " Code styling
     call dein#add('Yggdroot/indentLine')
 
