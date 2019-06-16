@@ -78,13 +78,8 @@ done
 # Load gistit token if available
 [[ -f $HOME/.gistitrc ]] && source $HOME/.gistitrc
 
-# Load NVM. This sadly adds a lot of load time but VSCode needs it
-export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    lnvm() {
-        source $HOME/.nvm/nvm.sh
-    }
-fi
+[[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]] \
+    && source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
