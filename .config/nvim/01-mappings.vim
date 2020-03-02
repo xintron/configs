@@ -51,13 +51,9 @@ nmap <Leader>ub :Denite buffer:-<cr>
 nmap <Leader>ut :Denite tag<cr>
 nmap <Leader>up :Denite file/rec<cr>
 " }}}
-nmap <silent> - :VimFiler<CR>
 
 nmap <silent> <Leader>t :TagbarOpenAutoClose<CR>
 nmap <silent> <Leader>g :UndotreeToggle<CR>
-
-" Syntastic mappings
-nmap <silent> <Leader>e :Errors<CR>
 " }}}
 
 " Haskell {{{

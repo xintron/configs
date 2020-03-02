@@ -17,6 +17,7 @@ set listchars=tab:▸\ ,eol:↲,extends:»,precedes:«,trail:·
 set showbreak=↪
 
 set relativenumber
+set number
 set cursorline
 set incsearch
 set hlsearch

@@ -1,5 +1,13 @@
 {
     "languageserver": {
+        "elmLS": {
+            "command": "elm-language-server",
+            "filetypes": ["elm"],
+            "rootPatterns": ["elm.json"],
+            "initializationOptions": {
+                "elmAnalyseTrigger": "change"
+            }
+        },
         "haskell": {
             "command": "hie-wrapper",
             "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
@@ -13,5 +21,8 @@
                 }
             }
         }
-    }
+    },
+    "codeLens.enable": true,
+    "coc.preferences.formatOnSaveFiletypes": ["elm"],
+    "diagnostic.maxWindowHeight": 30
 }
