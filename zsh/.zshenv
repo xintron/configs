@@ -1,26 +1,29 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
+# Skip global compinit to speed up startup (it's called in .zshrc)
+export skip_global_compinit=1
 
 ### Paths
 
-# Local bin
-[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+# Use zsh path array for cleaner management and deduplication
+typeset -aU path
 
-# opencode
-[ -d "$HOME/.opencode/bin" ] && export PATH="$HOME/.opencode/bin:$PATH"
+# Prepend important local bins only if they exist
+path=(
+    "$HOME/.local/bin"(N)
+    "$HOME/.opencode/bin"(N)
+    "$HOME/.fzf/bin"(N)
+    "$HOME/go/bin"(N)
+    "/usr/local/go/bin"(N)
+    "/snap/bin"(N)
+    $path[@]
+)
 
 # bun
-if [ -d "$HOME/.bun" ]; then
+if [[ -d "$HOME/.bun" ]]; then
     export BUN_INSTALL="$HOME/.bun"
-    [ -d "$BUN_INSTALL/bin" ] && export PATH="$BUN_INSTALL/bin:$PATH"
+    path=( "$BUN_INSTALL/bin"(N) $path[@] )
 fi
-
-# Go
-[ -d "/usr/local/go/bin" ] && export PATH="$PATH:/usr/local/go/bin"
-[ -d "$HOME/go/bin" ] && export PATH="$PATH:$HOME/go/bin"
-
-# Snap
-[ -d "/snap/bin" ] && export PATH="$PATH:/snap/bin"
 
 ### Environment & Source
 

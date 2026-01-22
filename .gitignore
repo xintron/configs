@@ -7,4 +7,5 @@
 .config/nvim/dein/
 
 .zsh/cache/
+*.zcompdump*
 .xmonad/
