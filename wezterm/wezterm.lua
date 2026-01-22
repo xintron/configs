@@ -4,7 +4,7 @@ local c = wezterm.config_builder()
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 local is_macos = wezterm.target_triple:find("apple%-darwin") ~= nil
 
-c.font = wezterm.font("Cascadia Code")
+c.font = wezterm.font("RobotoMono Nerd Font")
 c.font_size = 14.0
 
 c.hide_tab_bar_if_only_one_tab = false
@@ -31,7 +31,7 @@ c.color_scheme = "Catppuccin Mocha"
 local launch_menu = {}
 
 if is_windows then
-	c.font_size = 12.0
+	c.font_size = 11.0
 
 	local wsl = wezterm.default_wsl_domains()
 	for _, dom in ipairs(wsl) do
@@ -40,7 +40,7 @@ if is_windows then
 	c.wsl_domains = wsl
 
 	c.default_domain = "WSL:Ubuntu"
-	c.default_prog = { "wsl.exe", "--distribution", "Ubuntu" }
+	c.default_prog = { "wsl.exe", "~", "--distribution", "Ubuntu" }
 
 	launch_menu = {
 		{
