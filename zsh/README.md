@@ -18,11 +18,19 @@ Configuration files in `conf.d/` are sourced in alphabetical order. A numeric pr
 
 | Prefix | Category | Description |
 | :--- | :--- | :--- |
-| **00-09** | **Core** | Basic options, caching and `compinit` optimization. |
+| **00-04** | **Core** | Basic options, caching and `compinit` optimization. |
+| **05-09** | **Keybindings** | Key bindings for history search and command line editing. |
 | **10-19** | **History** | History settings (size, file location and sync behavior). |
 | **20-29** | **Completions** | Completion logic (e.g., `jj` completions). |
 | **30-49** | **Tools & UI** | Tool initialization (`fzf`, `zoxide`) and colors (`vivid`). |
 | **90-99** | **Themes** | Prompt themes (must come last to override previous settings). |
+
+## Keybindings
+
+This configuration includes "Golden God" level keybindings for maximum efficiency:
+
+*   **Smart History Search (Up/Down Arrows)**: Type the start of a command (e.g., `git`) and press the Up Arrow to cycle through only your previous `git` commands.
+*   **Edit Command Line (`Ctrl-x Ctrl-e`)**: Open your current command buffer in `nvim` for complex editing. Saving and exiting (`:x`) will execute the command.
 
 ## Performance & Caching
 

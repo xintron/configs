@@ -7,8 +7,10 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 # EXTENDED_HISTORY: Include timestamps and execution time in history
 setopt EXTENDED_HISTORY
-# HIST_IGNORE_DUPS: Don't save duplicate commands
-setopt HIST_IGNORE_DUPS
+# HIST_IGNORE_ALL_DUPS: Delete old recorded entry if new entry is a duplicate.
+setopt HIST_IGNORE_ALL_DUPS
+# HIST_VERIFY: Don't execute immediately upon history expansion (like !!).
+setopt HIST_VERIFY
 # HIST_IGNORE_SPACE: Don't save commands starting with space
 setopt HIST_IGNORE_SPACE
 # INC_APPEND_HISTORY: Append each command to history file immediately
