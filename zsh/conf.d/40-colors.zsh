@@ -7,7 +7,6 @@ if command -v vivid >/dev/null 2>&1; then
     source "$VIVID_CACHE"
 fi
 
-# Enable colors for ls and grep
-alias ls='ls --color=auto'
+# Enable colors for grep and diff
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
