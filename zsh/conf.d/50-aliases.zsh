@@ -16,7 +16,16 @@ alias cp='cp --interactive --verbose'
 alias mv='mv --interactive --verbose'
 alias rm='rm -I' # Prompts if deleting more than 3 files or recursive
 
-# List
-alias ls='ls --color=auto --group-directories-first --human-readable'
-alias ll='ls -l'
-alias la='ls -l --all'
+# List (Use GNU ls on Linux, gls on macOS if available, else BSD ls)
+if [[ -n "$IS_LINUX" ]]; then
+    # GNU ls (native on Linux)
+    alias ls='ls --color=auto --group-directories-first --human-readable'
+elif command -v gls >/dev/null 2>&1; then
+    # GNU ls via Homebrew coreutils (macOS)
+    alias ls='gls --color=auto --group-directories-first --human-readable'
+else
+    # BSD ls: -G (colorize), -h (human-readable sizes)
+    alias ls='ls -G -h'
+fi
+alias ll='ls -l'        # Long format
+alias la='ls -l -a'     # Long format with hidden files
