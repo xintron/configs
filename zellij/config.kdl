@@ -1,0 +1,16 @@
+theme "catppuccin-macchiato"
+
+keybinds { 
+    tab {
+        bind "Shift Left" "H" { MoveTab "Left"; }
+        bind "Shift Right" "L" { MoveTab "Right"; }
+    }
+}
+
+simplified_ui false
+// More space. Can be toggled with Ctrl+p z
+pane_frames false
+
+web_client {
+    font "monospace"
+}

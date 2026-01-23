@@ -7,7 +7,7 @@ local is_macos = wezterm.target_triple:find("apple%-darwin") ~= nil
 c.font = wezterm.font("RobotoMono Nerd Font")
 c.font_size = 14.0
 
-c.hide_tab_bar_if_only_one_tab = false
+c.hide_tab_bar_if_only_one_tab = true
 c.use_fancy_tab_bar = false
 
 c.keys = {
