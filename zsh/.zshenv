@@ -3,6 +3,12 @@ export VISUAL='nvim'
 # Skip global compinit to speed up startup (it's called in .zshrc)
 export skip_global_compinit=1
 
+### XDG Base Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 ### Zsh Function Path
 
 # Resolve the real directory of this script (handling symlinks)
