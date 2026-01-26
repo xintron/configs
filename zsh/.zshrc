@@ -1,5 +1,4 @@
-# Resolve the real directory of this script (handling symlinks)
-export ZSH_CONFIG_DIR=${${(%):-%x}:A:h}
+# ZSH_CONFIG_DIR is already set by .zshenv
 
 # Source all modular configs in order
 if [[ -d "$ZSH_CONFIG_DIR/conf.d" ]]; then

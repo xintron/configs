@@ -17,3 +17,8 @@ if command -v zoxide >/dev/null 2>&1; then
     fi
     source "$ZOXIDE_CACHE"
 fi
+
+# SDKMAN - autoloaded on first use
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+    autoload -Uz sdk
+fi

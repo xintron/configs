@@ -3,6 +3,14 @@ export VISUAL='nvim'
 # Skip global compinit to speed up startup (it's called in .zshrc)
 export skip_global_compinit=1
 
+### Zsh Function Path
+
+# Resolve the real directory of this script (handling symlinks)
+export ZSH_CONFIG_DIR=${${(%):-%x}:A:h}
+
+# Add custom functions directory to fpath
+fpath=("$ZSH_CONFIG_DIR/functions" $fpath)
+
 ### Paths
 
 # Use zsh path array for cleaner management and deduplication

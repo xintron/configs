@@ -1,0 +1,8 @@
+# Lazy-load SDKMAN on first use
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk "$@"
+else
+    echo "SDKMAN not installed at ~/.sdkman" >&2
+    return 1
+fi
