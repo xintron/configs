@@ -1,0 +1,3 @@
+git:
+  pagers:
+    - pager: delta --paging=never
