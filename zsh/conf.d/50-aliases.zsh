@@ -11,11 +11,6 @@ if command -v lazygit >/dev/null 2>&1; then
     alias lg='lazygit'
 fi
 
-# Safety (Interactive mode)
-alias cp='cp --interactive --verbose'
-alias mv='mv --interactive --verbose'
-alias rm='rm -I' # Prompts if deleting more than 3 files or recursive
-
 # List (Use GNU ls on Linux, gls on macOS if available, else BSD ls)
 if [[ -n "$IS_LINUX" ]]; then
     # GNU ls (native on Linux)
