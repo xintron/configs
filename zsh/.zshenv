@@ -43,3 +43,6 @@ fi
 
 # Cargo
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+### Local machine-specific overrides
+[ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
