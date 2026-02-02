@@ -11,3 +11,6 @@ if command -v jj >/dev/null 2>&1; then
     
     source "$JJ_CACHE"
 fi
+
+# bun completions
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
