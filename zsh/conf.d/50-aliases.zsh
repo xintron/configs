@@ -11,6 +11,11 @@ if command -v lazygit >/dev/null 2>&1; then
     alias lg='lazygit'
 fi
 
+# OpenCode
+if command -v opencode >/dev/null 2>&1; then
+    alias oc='opencode'
+fi
+
 # List (Use GNU ls on Linux, gls on macOS if available, else BSD ls)
 if [[ -n "$IS_LINUX" ]]; then
     # GNU ls (native on Linux)
