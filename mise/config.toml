@@ -1,0 +1,27 @@
+[tools]
+# --- Version Control & Git Tools ---
+jj = "latest"
+jjui = "latest"
+lazygit = "latest"
+gitu = "latest"
+delta = "latest"
+
+# --- Search & Find ---
+fd = "latest"
+rg = "latest"
+fzf = "latest"
+
+# --- Navigation & File Management ---
+zoxide = "latest"
+yazi = "latest"
+vivid = "latest"
+
+# --- Terminal & Shell ---
+zellij = "latest"
+starship = "latest"
+
+# --- Editor ---
+neovim = "nightly"
+
+# --- AI & Assistants ---
+opencode = "latest"
