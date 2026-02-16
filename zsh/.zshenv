@@ -24,6 +24,7 @@ typeset -aU path
 
 # Prepend important local bins only if they exist
 path=(
+    "$HOME/.local/share/mise/shims"(N)
     "$HOME/.local/bin"(N)
     "$HOME/.opencode/bin"(N)
     "$HOME/.fzf/bin"(N)
