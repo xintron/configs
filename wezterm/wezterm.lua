@@ -1,6 +1,23 @@
 local wezterm = require("wezterm")
 local c = wezterm.config_builder()
 
+local themes = {
+	dark = "Catppuccin Mocha",
+	light = "Catppuccin Latte",
+}
+
+function get_default_theme()
+	if wezterm.gui then
+		local appearance = wezterm.gui.get_appearance()
+		if appearance:find("Dark") then
+			return themes.dark
+		else
+			return themes.light
+		end
+	end
+	return themes.dark -- fallback for mux server
+end
+
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 local is_macos = wezterm.target_triple:find("apple%-darwin") ~= nil
 
@@ -24,9 +41,27 @@ c.keys = {
 			end),
 		}),
 	},
+	{
+		-- Toggle theme
+		key = "T",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(window, pane)
+			local overrides = window:get_config_overrides() or {}
+			local current = overrides.color_scheme or c.color_scheme
+
+			-- Toggle between dark and light
+			if current == themes.dark then
+				overrides.color_scheme = themes.light
+			else
+				overrides.color_scheme = themes.dark
+			end
+
+			window:set_config_overrides(overrides)
+		end),
+	},
 }
 
-c.color_scheme = "Catppuccin Mocha"
+c.color_scheme = get_default_theme()
 
 local launch_menu = {}
 
