@@ -21,7 +21,7 @@ zellij = "latest"
 starship = "latest"
 
 # --- Editor ---
-neovim = "nightly"
+neovim = "latest"
 
 # --- AI & Assistants ---
 opencode = "latest"
