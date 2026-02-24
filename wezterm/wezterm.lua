@@ -21,7 +21,7 @@ end
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 local is_macos = wezterm.target_triple:find("apple%-darwin") ~= nil
 
-c.font = wezterm.font("RobotoMono Nerd Font")
+c.font = wezterm.font("GeistMono Nerd Font")
 c.font_size = 14.0
 
 c.hide_tab_bar_if_only_one_tab = true
@@ -66,7 +66,7 @@ c.color_scheme = get_default_theme()
 local launch_menu = {}
 
 if is_windows then
-	c.font_size = 11.0
+	c.font_size = 12.0
 
 	local wsl = wezterm.default_wsl_domains()
 	for _, dom in ipairs(wsl) do
