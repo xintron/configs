@@ -6,7 +6,7 @@ local themes = {
 	light = "Catppuccin Latte",
 }
 
-function get_default_theme()
+local function get_default_theme()
 	if wezterm.gui then
 		local appearance = wezterm.gui.get_appearance()
 		if appearance:find("Dark") then
@@ -19,10 +19,9 @@ function get_default_theme()
 end
 
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
-local is_macos = wezterm.target_triple:find("apple%-darwin") ~= nil
 
 c.font = wezterm.font("GeistMono Nerd Font")
-c.font_size = 14.0
+c.font_size = 15.0
 
 c.hide_tab_bar_if_only_one_tab = true
 c.use_fancy_tab_bar = false
@@ -45,7 +44,7 @@ c.keys = {
 		-- Toggle theme
 		key = "T",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action_callback(function(window, pane)
+		action = wezterm.action_callback(function(window)
 			local overrides = window:get_config_overrides() or {}
 			local current = overrides.color_scheme or c.color_scheme
 
