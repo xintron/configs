@@ -1,3 +1,6 @@
 git:
   pagers:
     - pager: delta --paging=never
+
+gui:
+  scrollHeight: 5
