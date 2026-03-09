@@ -25,3 +25,5 @@ neovim = "latest"
 
 # --- AI & Assistants ---
 opencode = "latest"
+difftastic = "latest"
+github-cli = "latest"

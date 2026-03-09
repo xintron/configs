@@ -1,6 +1,8 @@
 git:
   pagers:
-    - pager: delta --paging=never
+    - externalDiffCommand: difft --color=always
 
 gui:
   scrollHeight: 5
+  # Fancy icons for the file-tree
+  nerdFontsVersion: 3
