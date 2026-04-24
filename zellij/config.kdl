@@ -1,4 +1,4 @@
-theme "catppuccin-macchiato"
+theme "kanagawa"
 
 keybinds { 
     tab {
