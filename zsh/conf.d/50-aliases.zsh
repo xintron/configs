@@ -30,5 +30,10 @@ fi
 alias ll='ls -l'        # Long format
 alias la='ls -l -a'     # Long format with hidden files
 
+# Docker
+if command -v docker >/dev/null 2>&1; then
+    alias dc='docker compose'
+fi
+
 # Peon-ping
 [[ -f "$HOME/.claude/hooks/peon-ping/peon.sh" ]] && alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
