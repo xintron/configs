@@ -28,3 +28,6 @@ opencode = "latest"
 difftastic = "latest"
 github-cli = "latest"
 gemini-cli = "latest"
+
+# --- Languages & Runtimes ---
+go = "latest"
