@@ -26,6 +26,10 @@ c.font_size = 15.0
 c.hide_tab_bar_if_only_one_tab = true
 c.use_fancy_tab_bar = false
 
+if not is_windows then
+	c.window_decorations = "RESIZE"
+end
+
 c.keys = {
 	{
 		-- Rename tabs

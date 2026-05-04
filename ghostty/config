@@ -1,0 +1,13 @@
+# Font
+font-family = GeistMono Nerd Font
+font-size = 15
+
+# Theme — auto-switches with system dark/light mode
+theme = Catppuccin Macchiato
+
+# Hide tab bar — zellij owns multiplexing
+window-show-tab-bar = never
+
+# macOS — borderless window
+macos-titlebar-style = hidden
+macos-option-as-alt = true
