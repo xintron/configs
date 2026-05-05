@@ -1,0 +1,6 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+default-yank-register = '+'
+line-number = "relative"
+color-modes = true

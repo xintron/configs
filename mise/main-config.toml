@@ -22,6 +22,8 @@ starship = "latest"
 
 # --- Editor ---
 neovim = "latest"
+tree-sitter = "latest"
+helix = "latest"
 
 # --- AI & Assistants ---
 opencode = "latest"
