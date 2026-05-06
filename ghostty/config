@@ -3,7 +3,7 @@ font-family = GeistMono Nerd Font
 font-size = 15
 
 # Theme — auto-switches with system dark/light mode
-theme = Catppuccin Macchiato
+theme = TokyoNight Moon
 
 # Hide tab bar — zellij owns multiplexing
 window-show-tab-bar = never

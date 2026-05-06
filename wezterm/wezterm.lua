@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local c = wezterm.config_builder()
 
 local themes = {
-	dark = "Catppuccin Macchiato",
+	dark = "Tokyo Night Moon",
 	light = "Catppuccin Latte",
 }
 
