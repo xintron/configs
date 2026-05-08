@@ -45,5 +45,12 @@ fi
 # Cargo
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
+### Lazygit
+_lg_theme="$HOME/git/tokyonight.nvim/extras/lazygit/tokyonight_moon.yml"
+if [[ -f "$_lg_theme" ]]; then
+    export LG_CONFIG_FILE="${XDG_CONFIG_HOME}/lazygit/config.yml,$_lg_theme"
+fi
+unset _lg_theme
+
 ### Local machine-specific overrides
 [ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
