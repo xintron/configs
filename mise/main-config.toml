@@ -33,3 +33,5 @@ gemini-cli = "latest"
 
 # --- Languages & Runtimes ---
 go = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+lua-language-server = "latest"
