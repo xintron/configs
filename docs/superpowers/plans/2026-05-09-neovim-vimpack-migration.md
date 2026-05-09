@@ -60,23 +60,15 @@ local map = vim.keymap.set
 local M = {}
 
 M.setup = function()
-	-- Fuzzy file finder (fzf-lua)
-	map("n", "<leader>ff", function() require("fzf-lua").files() end, { desc = "fzf files" })
-	map("n", "<leader>fa", function() require("fzf-lua").global() end, { desc = "fzf global" })
-	map("n", "<leader>fg", function() require("fzf-lua").live_grep() end, { desc = "fzf live grep" })
-	map("n", "<leader>fb", function() require("fzf-lua").buffers() end, { desc = "fzf buffers" })
-	map("n", "<leader>fh", function() require("fzf-lua").help_tags() end, { desc = "fzf help tags" })
-	map("n", "<leader>fk", function() require("fzf-lua").keymaps() end, { desc = "fzf keymaps" })
-	map("n", "<leader>fdd", function() require("fzf-lua").diagnostics_document() end, { desc = "fzf document diagnostics" })
-	map("n", "<leader>fdw", function() require("fzf-lua").diagnostics_workspace() end, { desc = "fzf workspace diagnostics" })
-
-	-- File explorer (neo-tree)
-	map("n", "<leader>df", ":Neotree source=filesystem toggle=true<cr>", { desc = "Neo-tree files" })
-	map("n", "<leader>db", ":Neotree source=buffers toggle=true<cr>", { desc = "Neo-tree buffers" })
-	map("n", "<leader>dl", ":Neotree source=document_symbols toggle=true<cr>", { desc = "Neo-tree symbols" })
-
-	-- Neogit
-	map("n", "<leader>gg", ":Neogit<cr>", { desc = "Neogit" })
+	-- Navigation (via Snacks)
+	map("n", "<leader><space>", function() require("snacks").picker.smart() end, { desc = "Smart Find Files" })
+	map("n", "<leader>e", function() require("snacks").explorer() end, { desc = "File Explorer" })
+	map("n", "<leader>ff", function() require("snacks").picker.files() end, { desc = "Find Files" })
+	map("n", "<leader>fg", function() require("snacks").picker.grep() end, { desc = "Live Grep" })
+	map("n", "<leader>fb", function() require("snacks").picker.buffers() end, { desc = "Find Buffers" })
+	map("n", "<leader>fh", function() require("snacks").picker.help() end, { desc = "Help Tags" })
+	map("n", "<leader>fk", function() require("snacks").picker.keymaps() end, { desc = "Keymaps" })
+	map("n", "<leader>fd", function() require("snacks").picker.diagnostics() end, { desc = "Diagnostics" })
 end
 
 return M
@@ -178,27 +170,23 @@ git commit -m "feat(nvim): phase 2 UI (themes, lualine)"
 - Modify: `nvim/init.lua`
 
 - [ ] **Step 1: Create `nvim/lua/plugins/utils.lua`**
-Set up `fzf-lua`, `neo-tree`, `gitsigns`, and `neogit`.
+Set up `snacks.nvim` and `gitsigns`.
 
 ```lua
 local M = {}
 
 M.setup = function()
-    -- fzf-lua
-    require("fzf-lua").setup({
-        fzf_colors = true,
-    })
-
-    -- neo-tree
-    require("neo-tree").setup({
-        filesystem = {
-            hijack_netrw_behavior = "open_default",
-        },
-        window = {
-            mappings = {
-                ["<space>"] = {
-                    "toggle_node",
-                    nowait = true,
+    -- snacks.nvim
+    require("snacks").setup({
+        explorer = { enabled = true, replace_netrw = true },
+        picker = {
+            enabled = true,
+            sources = {
+                files = { hidden = true },
+                explorer = {
+                    hidden = true,
+                    ignored = true,
+                    tree = true,
                 },
             },
         },
@@ -206,9 +194,6 @@ M.setup = function()
 
     -- gitsigns
     require("gitsigns").setup()
-
-    -- neogit
-    require("neogit").setup()
 end
 
 return M
@@ -221,12 +206,8 @@ Add plugins to `vim.pack.add` and require the Utils module.
 -- Update vim.pack.add in nvim/init.lua
 vim.pack.add({
     -- ... previous plugins ...
-    gh("ibhagwan/fzf-lua"),
-    gh("NeogitOrg/neogit"),
+    gh("folke/snacks.nvim"),
     gh("lewis6991/gitsigns.nvim"),
-    gh("nvim-neo-tree/neo-tree.nvim"),
-    gh("nvim-lua/plenary.nvim"),
-    gh("MunifTanjim/nui.nvim"),
 })
 
 require("plugins.utils").setup()
@@ -234,17 +215,16 @@ require("plugins.utils").setup()
 
 - [ ] **Step 3: Verify Utils**
 Run: `XDG_CONFIG_HOME=$(pwd) nvim`
-Expected: `<leader>ff` opens fzf-lua, `<leader>df` opens Neo-tree.
-
+Expected: `<leader>e` opens the Snacks explorer, `<leader><space>` opens the smart picker.
 - [ ] **Step 4: Commit Phase 3**
 ```bash
 git add nvim/
-git commit -m "feat(nvim): phase 3 utils (fzf-lua, neo-tree, neogit, gitsigns)"
+git commit -m "feat(nvim): phase 3 utils (snacks.nvim, gitsigns)"
 ```
 
 ---
 
-### Task 4: Treesitter, LSP & Completion
+### Task 4: Treesitter & LSP
 
 **Files:**
 - Create: `nvim/lua/plugins/treesitter.lua`
@@ -252,7 +232,7 @@ git commit -m "feat(nvim): phase 3 utils (fzf-lua, neo-tree, neogit, gitsigns)"
 - Modify: `nvim/init.lua`
 
 - [ ] **Step 1: Create `nvim/lua/plugins/treesitter.lua`**
-Set up Treesitter. Note: `build = ":TSUpdate"` in lazy becomes a manual check or a hook in `vim.pack`.
+Set up Treesitter.
 
 ```lua
 local M = {}
@@ -268,22 +248,13 @@ return M
 ```
 
 - [ ] **Step 2: Create `nvim/lua/plugins/lsp.lua`**
-Set up Mason, LSPConfig, Blink.cmp, and Conform.
+Set up native LSP config without Mason or specialized completion/formatting plugins.
 
 ```lua
 local M = {}
 
 M.setup = function()
-    -- Mason
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
-        automatic_installation = true,
-    })
-
-    -- LSP Config
     local lspconfig = require("lspconfig")
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
 
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(event)
@@ -292,43 +263,17 @@ M.setup = function()
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
             vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
             vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
-            vim.keymap.set({ "n", "x" }, "<F3>", function() require("conform").format({ async = true }) end, opts)
             vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, opts)
         end,
     })
 
-    require("mason-lspconfig").setup_handlers({
-        function(server_name)
-            require("lspconfig")[server_name].setup({
-                capabilities = capabilities,
-            })
-        end,
-        ["lua_ls"] = function()
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        diagnostics = { globals = { "vim" } },
-                    },
-                },
-            })
-        end,
-    })
-
-    -- Blink.cmp
-    require("blink.cmp").setup({
-        keymap = { preset = 'default' },
-        sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+    -- Manual setup for lua_ls (assumes lua-language-server is in PATH)
+    lspconfig.lua_ls.setup({
+        settings = {
+            Lua = {
+                diagnostics = { globals = { "vim" } },
+            },
         },
-    })
-
-    -- Conform
-    require("conform").setup({
-        formatters_by_ft = {
-            lua = { "stylua" },
-        },
-        format_on_save = { timeout_ms = 500 },
     })
 end
 
@@ -344,10 +289,6 @@ vim.pack.add({
     -- ... previous plugins ...
     gh("nvim-treesitter/nvim-treesitter"),
     gh("neovim/nvim-lspconfig"),
-    gh("williamboman/mason.nvim"),
-    gh("williamboman/mason-lspconfig.nvim"),
-    gh("stevearc/conform.nvim"),
-    { src = gh("saghen/blink.cmp"), version = "v0.*" },
 })
 
 require("plugins.treesitter").setup()
@@ -356,12 +297,12 @@ require("plugins.lsp").setup()
 
 - [ ] **Step 4: Verify LSP & Treesitter**
 Run: `XDG_CONFIG_HOME=$(pwd) nvim nvim/init.lua`
-Expected: Syntax highlighting is active, `:LspInfo` shows `lua_ls` attached, autocompletion works.
+Expected: Syntax highlighting is active, `:LspInfo` shows `lua_ls` attached (if installed on system).
 
 - [ ] **Step 5: Commit Phase 4**
 ```bash
 git add nvim/
-git commit -m "feat(nvim): phase 4 treesitter, lsp, blink, conform"
+git commit -m "feat(nvim): phase 4 treesitter and native lsp"
 ```
 
 ---
@@ -376,6 +317,10 @@ Run: `XDG_CONFIG_HOME=$(pwd) nvim`
 Verify everything is working as expected.
 
 - [ ] **Step 3: Commit Cleanup**
+```bash
+git commit -am "cleanup: remove old-nvim after successful migration"
+```
+**
 ```bash
 git commit -am "cleanup: remove old-nvim after successful migration"
 ```
