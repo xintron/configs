@@ -2,7 +2,6 @@
 vim.opt.background = "dark"
 
 require("config.options")
-require("config.neovide")
 
 -- Helper for github URLs
 local gh = function(x) return "https://github.com/" .. x end
@@ -16,8 +15,6 @@ vim.pack.add({
     gh("nvim-tree/nvim-web-devicons"),
     gh("folke/snacks.nvim"),
     gh("lewis6991/gitsigns.nvim"),
-    gh("nvim-treesitter/nvim-treesitter"),
-    gh("neovim/nvim-lspconfig"),
 })
 
 require("plugins.ui").setup()
