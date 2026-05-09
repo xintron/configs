@@ -19,6 +19,6 @@ vim.pack.add({
 
 require("plugins.ui").setup()
 require("plugins.utils").setup()
-require("plugins.treesitter").setup()
-require("plugins.lsp").setup()
+-- require("plugins.treesitter").setup()
+-- require("plugins.lsp").setup()
 require("config.keymaps").setup()
