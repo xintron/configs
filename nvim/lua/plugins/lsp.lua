@@ -1,8 +1,6 @@
 local M = {}
 
 M.setup = function()
-    local lspconfig = require("lspconfig")
-
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(event)
             local opts = { buffer = event.buf }
@@ -14,14 +12,17 @@ M.setup = function()
         end,
     })
 
-    -- Manual setup for lua_ls (assumes lua-language-server is in PATH)
-    lspconfig.lua_ls.setup({
+    -- Native Neovim 0.11+ API
+    -- We use vim.lsp.config to set settings and vim.lsp.enable to start the server.
+    -- The defaults are provided by the nvim-lspconfig plugin.
+    vim.lsp.config("lua_ls", {
         settings = {
             Lua = {
                 diagnostics = { globals = { "vim" } },
             },
         },
     })
+    vim.lsp.enable("lua_ls")
 end
 
 return M
