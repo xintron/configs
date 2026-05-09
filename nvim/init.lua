@@ -1,3 +1,6 @@
+-- Set background explicitly to avoid DSR timeout
+vim.opt.background = "dark"
+
 require("config.options")
 require("config.neovide")
 
