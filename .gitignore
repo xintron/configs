@@ -9,3 +9,4 @@
 .zsh/cache/
 *.zcompdump*
 .xmonad/
+.worktrees/
