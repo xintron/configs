@@ -1,19 +1,13 @@
-local M = {}
+-- Lualine
+require("lualine").setup()
 
-M.setup = function()
-    -- Lualine
-    require("lualine").setup()
+-- Catppuccin
+require("catppuccin").setup({
+    background = {
+        light = "latte",
+        dark = "macchiato",
+    },
+})
 
-    -- Catppuccin
-    require("catppuccin").setup({
-        background = {
-            light = "latte",
-            dark = "macchiato",
-        },
-    })
-
-    -- Final colorscheme choice
-    vim.cmd.colorscheme("tokyonight-moon")
-end
-
-return M
+-- Final colorscheme choice
+vim.cmd.colorscheme("tokyonight-moon")
