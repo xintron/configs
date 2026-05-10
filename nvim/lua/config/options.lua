@@ -3,10 +3,13 @@ vim.g.maplocalleader = "\\"
 
 local opt = vim.opt
 
-opt.expandtab = true
-opt.shiftround = true
-opt.shiftwidth = 4
-opt.tabstop = 4
+opt.expandtab = true -- Use spaces instead of tabs
+opt.shiftround = true -- Round indent to a multiple of shiftwidth
+opt.shiftwidth = 2 -- Size of an indent
+opt.tabstop = 2 -- Number of spaces tabs count for
+opt.softtabstop = 2 -- Number of spaces a tab counts for while editing
+opt.autoindent = true -- Use previous line as default, if no language specific config exists
+
 opt.termguicolors = true
 opt.number = true
 opt.relativenumber = true
