@@ -7,6 +7,4 @@ map("n", "<leader>fg", function() require("snacks").picker.grep() end, { desc = 
 map("n", "<leader>fb", function() require("snacks").picker.buffers() end, { desc = "Find Buffers" })
 map("n", "<leader>fh", function() require("snacks").picker.help() end, { desc = "Help Tags" })
 map("n", "<leader>fk", function() require("snacks").picker.keymaps() end, { desc = "Keymaps" })
-map("n", "<leader>fd", function() require("snacks").picker.diagnostics() end, { desc = "Diagnostics" })
-end
-
+map("n", "<leader>fd", function() require("snacks").picker.diagnostics_buffer() end, { desc = "Diagnostics" })
