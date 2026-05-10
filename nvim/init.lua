@@ -1,4 +1,4 @@
--- Set background explicitly to avoid DSR timeout
+-- Set background explicitly to avoid DSR timeout when running within zellij
 vim.opt.background = "dark"
 
 require("config.options")
@@ -20,8 +20,8 @@ vim.pack.add({
     gh("lewis6991/gitsigns.nvim"),
 })
 
-require("plugins.ui").setup()
-require("plugins.utils").setup()
+require("config.keymaps")
+require("plugins.ui")
+require("plugins.utils")
 -- require("plugins.treesitter").setup()
-require("plugins.lsp").setup()
-require("config.keymaps").setup()
+require("plugins.lsp")
