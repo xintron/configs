@@ -24,21 +24,10 @@ typeset -aU path
 
 # Prepend important local bins only if they exist
 path=(
-    "$HOME/.local/share/mise/shims"(N)
     "$HOME/.local/bin"(N)
-    "$HOME/.opencode/bin"(N)
-    "$HOME/.fzf/bin"(N)
-    "$HOME/go/bin"(N)
-    "/usr/local/go/bin"(N)
     "/snap/bin"(N)
     $path[@]
 )
-
-# bun
-if [[ -d "$HOME/.bun" ]]; then
-    export BUN_INSTALL="$HOME/.bun"
-    path=( "$BUN_INSTALL/bin"(N) $path[@] )
-fi
 
 ### Environment & Source
 
