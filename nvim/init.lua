@@ -7,10 +7,13 @@ require("config.options")
 local gh = function(x) return "https://github.com/" .. x end
 
 vim.pack.add({
+    -- Colors
     gh("folke/tokyonight.nvim"),
     gh("catppuccin/nvim"),
     gh("shaunsingh/nord.nvim"),
     gh("rebelot/kanagawa.nvim"),
+
+    -- UI
     gh("nvim-lualine/lualine.nvim"),
     gh("nvim-tree/nvim-web-devicons"),
     gh("folke/snacks.nvim"),
@@ -20,5 +23,5 @@ vim.pack.add({
 require("plugins.ui").setup()
 require("plugins.utils").setup()
 -- require("plugins.treesitter").setup()
--- require("plugins.lsp").setup()
+require("plugins.lsp").setup()
 require("config.keymaps").setup()
