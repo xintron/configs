@@ -6,3 +6,6 @@ gui:
   scrollHeight: 5
   # Fancy icons for the file-tree
   nerdFontsVersion: 3
+
+  # Toggle with '`' if needed, easier disabled for diff reviews
+  showFileTree: false
