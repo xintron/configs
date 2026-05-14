@@ -17,6 +17,3 @@ require("snacks").setup({
         },
     },
 })
-
--- gitsigns
-require("gitsigns").setup()
