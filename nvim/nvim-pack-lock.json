@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "conform.nvim": {
+      "rev": "1c4a1537db60ba05e61360db8b674158c9cf4169",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

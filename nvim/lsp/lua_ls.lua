@@ -4,7 +4,8 @@ return {
   filetypes = { 'lua' },
   settings = {
     Lua = {
-      format = { enable = true },
+      -- Managed by conform
+      format = { enable = false },
       workspace = {
         library = { vim.env.VIMRUNTIME },
       },
