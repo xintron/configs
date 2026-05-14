@@ -14,3 +14,5 @@ pane_frames false
 web_client {
     font "monospace"
 }
+
+support_kitty_keyboard_protocol false

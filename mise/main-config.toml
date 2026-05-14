@@ -24,6 +24,7 @@ starship = "latest"
 neovim = "latest"
 tree-sitter = "latest"
 helix = "latest"
+"npm:markserv" = "latest"
 
 # --- AI & Assistants ---
 opencode = "latest"
