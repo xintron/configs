@@ -16,3 +16,8 @@ web_client {
 }
 
 support_kitty_keyboard_protocol false
+
+// Feature not used
+session_serialization false
+// Together with the above we also throw away sessions when closing the last terminal
+on_force_close "quit"
