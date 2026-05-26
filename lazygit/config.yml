@@ -9,3 +9,6 @@ gui:
 
   # Toggle with '`' if needed, easier disabled for diff reviews
   showFileTree: false
+
+  # More space to the diffs
+  sidePanelWidth: 0.25
