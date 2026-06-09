@@ -30,7 +30,6 @@ helix = "latest"
 opencode = "latest"
 difftastic = "latest"
 github-cli = "latest"
-gemini-cli = "latest"
 
 # --- Languages & Runtimes ---
 go = "latest"
@@ -39,3 +38,4 @@ go = "latest"
 lua-language-server = "latest"
 stylua = "latest"
 oxfmt = "latest"
+qsv = "latest"
