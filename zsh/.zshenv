@@ -50,5 +50,9 @@ if [[ -f "$_lg_theme" ]]; then
 fi
 unset _lg_theme _tk_variant _tk_extras
 
+### Zsh Cache
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-config"
+[[ ! -d "$ZSH_CACHE_DIR" ]] && mkdir -p "$ZSH_CACHE_DIR"
+
 ### Local machine-specific overrides
 [ -f "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
