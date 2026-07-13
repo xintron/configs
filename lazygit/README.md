@@ -2,20 +2,7 @@
 
 ## Setup
 
-Symlink this directory to make the config active:
-
-```bash
-ln -sf /path/to/configs/lazygit ~/.config/lazygit
-```
-
-Replace `/path/to/configs/lazygit` with the actual path to this directory.
-
-**Verify:**
-```bash
-ls -la ~/.config/lazygit
-```
-
-Should point to your configs repo.
+Managed via `mise dotfiles apply` - see the root [README](../README.md).
 
 ## Theme (Tokyo Night Moon)
 

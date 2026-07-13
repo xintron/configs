@@ -57,9 +57,4 @@ It uses the `(N)` (null glob) qualifier to **only add directories that actually 
 
 ## Installation
 
-Symlink the core files to your home directory:
-
-```bash
-ln -sf ~/git/configs/zsh/.zshenv ~/.zshenv
-ln -sf ~/git/configs/zsh/.zshrc ~/.zshrc
-```
+Managed via `mise dotfiles apply` - see the root [README](../README.md).
