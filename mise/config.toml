@@ -43,15 +43,18 @@ lua-language-server = "latest"
 stylua = "latest"
 oxfmt = "latest"
 qsv = "latest"
+node = "lts"
+python = "latest"
+uv = "latest"
 
 [dotfiles]
-"~/.zshrc"                    = { source = "../zsh/.zshrc" }
-"~/.zshenv"                   = { source = "../zsh/.zshenv" }
-"~/.config/starship.toml"     = { source = "../starship.toml" }
-"~/.config/ghostty"           = { source = "../ghostty" }
-"~/.config/helix"             = { source = "../helix" }
-"~/.config/lazygit"           = { source = "../lazygit" }
-"~/.config/wezterm"           = { source = "../wezterm" }
-"~/.config/nvim"              = { source = "../nvim" }
+"~/.zshrc" = { source = "../zsh/.zshrc" }
+"~/.zshenv" = { source = "../zsh/.zshenv" }
+"~/.config/starship.toml" = { source = "../starship.toml" }
+"~/.config/ghostty" = { source = "../ghostty" }
+"~/.config/helix" = { source = "../helix" }
+"~/.config/lazygit" = { source = "../lazygit" }
+"~/.config/wezterm" = { source = "../wezterm" }
+"~/.config/nvim" = { source = "../nvim" }
 "~/.config/zellij/config.kdl" = { source = "../zellij/config.kdl" }
-"~/.config/mise/config.toml"  = { source = "config.toml" }
+"~/.config/mise/config.toml" = { source = "config.toml" }
