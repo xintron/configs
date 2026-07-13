@@ -1,5 +1,6 @@
 [settings]
 minimum_release_age = "2d"
+experimental = true
 
 [tools]
 # --- Version Control & Git Tools ---
@@ -42,3 +43,15 @@ lua-language-server = "latest"
 stylua = "latest"
 oxfmt = "latest"
 qsv = "latest"
+
+[dotfiles]
+"~/.zshrc"                    = { source = "../zsh/.zshrc" }
+"~/.zshenv"                   = { source = "../zsh/.zshenv" }
+"~/.config/starship.toml"     = { source = "../starship.toml" }
+"~/.config/ghostty"           = { source = "../ghostty" }
+"~/.config/helix"             = { source = "../helix" }
+"~/.config/lazygit"           = { source = "../lazygit" }
+"~/.config/wezterm"           = { source = "../wezterm" }
+"~/.config/nvim"              = { source = "../nvim" }
+"~/.config/zellij/config.kdl" = { source = "../zellij/config.kdl" }
+"~/.config/mise/config.toml"  = { source = "config.toml" }
