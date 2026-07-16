@@ -1,0 +1,96 @@
+# Config options
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+accordion-padding = 0
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# This is likely needed because of the summon-workspace behavior.
+# TODO: Test without this and see if summon works well.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
+
+[key-mapping]
+preset = 'qwerty'
+
+[gaps]
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+# Main mode bindings.
+[mode.main.binding]
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+alt-shift-h = 'focus --boundaries-action wrap-around-the-workspace left'
+alt-shift-j = 'focus --boundaries-action wrap-around-the-workspace down'
+alt-shift-k = 'focus --boundaries-action wrap-around-the-workspace up'
+alt-shift-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+ctrl-shift-h = 'move left'
+ctrl-shift-j = 'move down'
+ctrl-shift-k = 'move up'
+ctrl-shift-l = 'move right'
+
+alt-ctrl-h = 'focus-monitor --wrap-around left'
+alt-ctrl-l = 'focus-monitor --wrap-around right'
+
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+
+alt-1 = 'summon-workspace 1:web'
+alt-2 = 'summon-workspace 2:code'
+alt-3 = 'summon-workspace 3:im'
+alt-4 = 'summon-workspace 4:zoom'
+alt-5 = 'summon-workspace 5:misc'
+alt-6 = 'summon-workspace 6'
+alt-7 = 'summon-workspace 7'
+alt-8 = 'summon-workspace 8'
+alt-9 = 'summon-workspace 9'
+
+alt-shift-1 = 'move-node-to-workspace 1:web'
+alt-shift-2 = 'move-node-to-workspace 2:code'
+alt-shift-3 = 'move-node-to-workspace 3:im'
+alt-shift-4 = 'move-node-to-workspace 4:zoom'
+alt-shift-5 = 'move-node-to-workspace 5:misc'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+
+alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+alt-shift-f = 'fullscreen'
+
+alt-shift-semicolon = 'mode service'
+
+# Switch to service mode
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+alt-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+backspace = ['close-all-windows-but-current', 'mode main']
+f = ['fullscreen', 'mode main']
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+
+# Automatic window handling
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'move-node-to-workspace 4:zoom'
+

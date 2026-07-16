@@ -10,7 +10,7 @@ end
 vim.pack.add({
 	-- Colors
 	gh("folke/tokyonight.nvim"),
-	gh("catppuccin/nvim"),
+	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
 	gh("shaunsingh/nord.nvim"),
 	gh("rebelot/kanagawa.nvim"),
 

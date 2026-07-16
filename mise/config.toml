@@ -14,6 +14,7 @@ delta = "latest"
 fd = "latest"
 rg = "latest"
 fzf = "latest"
+ast-grep = "latest"
 
 # --- Navigation & File Management ---
 zoxide = "latest"
@@ -58,3 +59,4 @@ uv = "latest"
 "~/.config/nvim" = { source = "../nvim" }
 "~/.config/zellij/config.kdl" = { source = "../zellij/config.kdl" }
 "~/.config/mise/config.toml" = { source = "config.toml" }
+"~/.aerospace.toml" = { source = "../.aerospace.toml" }
