@@ -8,6 +8,7 @@ $git_status\
 [](fg:#394260 bg:#1d2230)\
 $cmd_duration\
 [](fg:#1d2230)\
+$jobs\
 $character"""
 
 [directory]
@@ -34,3 +35,9 @@ format = '[[ 󱦟 $duration ](fg:#a0a9cb bg:#1d2230)]($style)'
 [character]
 success_symbol = '[\$](bold #7aa2f7)'
 error_symbol = '[\$](bold red)'
+
+[jobs]
+symbol = "✦"
+number_threshold = 1
+format = "[$symbol($count)]($style) "
+style = "bold red"
