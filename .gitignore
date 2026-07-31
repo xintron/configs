@@ -10,3 +10,5 @@
 *.zcompdump*
 .xmonad/
 .worktrees/
+
+.tmp/

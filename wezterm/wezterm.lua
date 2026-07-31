@@ -8,6 +8,11 @@ c.font_size = 15.0
 
 c.hide_tab_bar_if_only_one_tab = true
 c.use_fancy_tab_bar = false
+c.unzoom_on_switch_pane = true
+
+-- Command Palette
+c.command_palette_bg_color = "#363a4f"
+c.command_palette_font_size = c.font_size * 1.2
 
 if not is_windows then
 	c.window_decorations = "RESIZE"
@@ -29,7 +34,7 @@ c.keys = {
 	},
 }
 
-c.color_scheme = "Tokyo Night Moon"
+c.color_scheme = "Catppuccin Macchiato"
 
 local launch_menu = {}
 
