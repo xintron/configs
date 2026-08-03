@@ -60,7 +60,9 @@ uv = "latest"
 "~/.config/zellij/config.kdl" = { source = "../zellij/config.kdl" }
 "~/.config/mise/config.toml" = { source = "config.toml" }
 "~/.aerospace.toml" = { source = "../.aerospace.toml" }
+"~/.agents/skills/superpowers" = { source = "~/git/superpowers/skills" }
 
 [bootstrap.repos]
 "~/git/catppuccin/fzf" = { url = "https://github.com/catppuccin/fzf.git" }
 "~/git/catppuccin/lazygit" = { url = "https://github.com/catppuccin/lazygit.git" }
+"~/git/superpowers" = { url = "https://github.com/obra/superpowers.git" }
