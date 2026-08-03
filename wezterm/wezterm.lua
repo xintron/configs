@@ -1,5 +1,12 @@
 local wezterm = require("wezterm")
+
+package.path = package.path .. ";" .. wezterm.config_dir .. "/?.lua"
+
+local keymaps = require("keymaps")
+require("status")
 local c = wezterm.config_builder()
+
+c.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 
@@ -7,6 +14,7 @@ c.font = wezterm.font("GeistMono Nerd Font")
 c.font_size = 15.0
 
 c.hide_tab_bar_if_only_one_tab = true
+c.tab_max_width = 24
 c.use_fancy_tab_bar = false
 c.unzoom_on_switch_pane = true
 
@@ -18,21 +26,8 @@ if not is_windows then
 	c.window_decorations = "RESIZE"
 end
 
-c.keys = {
-	{
-		-- Rename tabs
-		key = "R",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.PromptInputLine({
-			description = "Enter new name for tab",
-			action = wezterm.action_callback(function(window, _, line)
-				if line then
-					window:active_tab():set_title(line)
-				end
-			end),
-		}),
-	},
-}
+c.keys = keymaps.keys
+c.key_tables = keymaps.key_tables
 
 c.color_scheme = "Catppuccin Macchiato"
 
