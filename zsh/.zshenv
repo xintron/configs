@@ -34,21 +34,17 @@ path=(
 # Cargo
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
-### Tokyo Night Theme
-_tk_variant="tokyonight_moon"
-_tk_extras="$HOME/git/tokyonight.nvim/extras"
-
+_theme_path="$HOME/git/catppuccin"
 # FZF
-_fzf_theme="$_tk_extras/fzf/$_tk_variant.sh"
+_fzf_theme="$_theme_path/fzf/themes/catppuccin-fzf-macchiato.sh"
 [ -f "$_fzf_theme" ] && source "$_fzf_theme"
-unset _fzf_theme
 
 # Lazygit
-_lg_theme="$_tk_extras/lazygit/$_tk_variant.yml"
+_lg_theme="$_theme_path/lazygit/themes/macchiato/green.yml"
 if [[ -f "$_lg_theme" ]]; then
     export LG_CONFIG_FILE="${XDG_CONFIG_HOME}/lazygit/config.yml,$_lg_theme"
 fi
-unset _lg_theme _tk_variant _tk_extras
+unset _lg_theme _fzf_theme _theme_path
 
 ### Zsh Cache
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-config"
