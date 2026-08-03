@@ -1,4 +1,4 @@
-theme = "tokyonight_moon"
+theme = "catppuccin_macchiato"
 
 [editor]
 default-yank-register = '+'

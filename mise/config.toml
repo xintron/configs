@@ -60,3 +60,7 @@ uv = "latest"
 "~/.config/zellij/config.kdl" = { source = "../zellij/config.kdl" }
 "~/.config/mise/config.toml" = { source = "config.toml" }
 "~/.aerospace.toml" = { source = "../.aerospace.toml" }
+
+[bootstrap.repos]
+"~/git/catppuccin/fzf" = { url = "https://github.com/catppuccin/fzf.git" }
+"~/git/catppuccin/lazygit" = { url = "https://github.com/catppuccin/lazygit.git" }

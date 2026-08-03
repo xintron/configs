@@ -4,13 +4,9 @@
 
 Managed via `mise dotfiles apply` - see the root [README](../README.md).
 
-## Theme (Tokyo Night Moon)
+## Theme (Catppuccin Macchiato)
 
-The theme is loaded from [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) extras. Clone it to `~/git/tokyonight.nvim`:
-
-```bash
-git clone https://github.com/folke/tokyonight.nvim ~/git/tokyonight.nvim
-```
+The theme is loaded from [catppuccin/lazygit](https://github.com/catppuccin/lazygit). It's cloned via `mise dotfiles apply` to `~/git/catppuccin/lazygit`.
 
 The `LG_CONFIG_FILE` env var in `.zshenv` merges the base config with the theme file automatically. If the repo isn't cloned, lazygit falls back to the default config.
 
