@@ -50,17 +50,18 @@ python = "latest"
 uv = "latest"
 
 [dotfiles]
-"~/.zshrc" = { source = "../zsh/.zshrc" }
-"~/.zshenv" = { source = "../zsh/.zshenv" }
-"~/.config/starship.toml" = { source = "../starship.toml" }
-"~/.config/ghostty" = { source = "../ghostty" }
-"~/.config/helix" = { source = "../helix" }
-"~/.config/lazygit" = { source = "../lazygit" }
-"~/.config/wezterm" = { source = "../wezterm" }
-"~/.config/nvim" = { source = "../nvim" }
-"~/.config/zellij/config.kdl" = { source = "../zellij/config.kdl" }
-"~/.config/mise/config.toml" = { source = "config.toml" }
-"~/.aerospace.toml" = { source = "../.aerospace.toml" }
+"~/.zshrc" = { source = "~/git/configs/zsh/.zshrc" }
+"~/.zshenv" = { source = "~/git/configs/zsh/.zshenv" }
+"~/.config/starship.toml" = { source = "~/git/configs/starship.toml" }
+"~/.config/ghostty" = { source = "~/git/configs/ghostty" }
+"~/.config/helix" = { source = "~/git/configs/helix" }
+"~/.config/lazygit" = { source = "~/git/configs/lazygit" }
+"~/.config/wezterm" = { source = "~/git/configs/wezterm" }
+"~/.config/nvim" = { source = "~/git/configs/nvim" }
+"~/.config/zellij/config.kdl" = { source = "~/git/configs/zellij/config.kdl" }
+"~/.config/mise/config.toml" = { source = "~/git/configs/mise/config.toml" }
+"~/.config/hunk/config.toml" = { source = "~/git/configs/hunk/config.toml" }
+"~/.aerospace.toml" = { source = "~/git/configs/.aerospace.toml" }
 "~/.agents/skills/superpowers" = { source = "~/git/superpowers/skills" }
 
 [bootstrap.repos]
