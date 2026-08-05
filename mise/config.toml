@@ -9,6 +9,7 @@ jjui = "latest"
 lazygit = "latest"
 gitu = "latest"
 delta = "latest"
+hunk = "latest"
 
 # --- Search & Find ---
 fd = "latest"
