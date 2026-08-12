@@ -1,14 +1,11 @@
 git:
-  pagers:
-    - pager: delta --dark --paging=never
-
+  diffRenderers:
+    - command: delta --dark --paging=never
 gui:
   scrollHeight: 5
   # Fancy icons for the file-tree
   nerdFontsVersion: 3
-
   # Toggle with '`' if needed, easier disabled for diff reviews
   showFileTree: false
-
   # More space to the diffs
   sidePanelWidth: 0.25

@@ -40,7 +40,7 @@ _fzf_theme="$_theme_path/fzf/themes/catppuccin-fzf-macchiato.sh"
 [ -f "$_fzf_theme" ] && source "$_fzf_theme"
 
 # Lazygit
-_lg_theme="$_theme_path/lazygit/themes/macchiato/green.yml"
+_lg_theme="$_theme_path/lazygit/themes-mergable/macchiato/green.yml"
 if [[ -f "$_lg_theme" ]]; then
     export LG_CONFIG_FILE="${XDG_CONFIG_HOME}/lazygit/config.yml,$_lg_theme"
 fi

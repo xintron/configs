@@ -1,6 +1,7 @@
 [settings]
 minimum_release_age = "2d"
 experimental = true
+idiomatic_version_file_enable_tools = ["java"]
 
 [tools]
 # --- Version Control & Git Tools ---
@@ -36,6 +37,7 @@ helix = "latest"
 opencode = "latest"
 difftastic = "latest"
 github-cli = "latest"
+"npm:@tobilu/qmd" = { version = "latest", allow_builds = ["better-sqlite3"] }
 
 # --- Languages & Runtimes ---
 go = "latest"

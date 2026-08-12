@@ -13,7 +13,7 @@ local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 c.font = wezterm.font("GeistMono Nerd Font")
 c.font_size = 15.0
 
-c.hide_tab_bar_if_only_one_tab = true
+c.hide_tab_bar_if_only_one_tab = false
 c.tab_max_width = 24
 c.use_fancy_tab_bar = false
 c.unzoom_on_switch_pane = true
