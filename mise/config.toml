@@ -65,8 +65,11 @@ uv = "latest"
 "~/.config/hunk/config.toml" = { source = "~/git/configs/hunk/config.toml" }
 "~/.aerospace.toml" = { source = "~/git/configs/.aerospace.toml" }
 "~/.agents/skills/superpowers" = { source = "~/git/superpowers/skills" }
+"~/.agents/skills/go-skills/go" = { source = "~/git/spf13-go-skills/go" }
+"~/.agents/skills/go-skills/go-spec-reviewer" = { source = "~/git/spf13-go-skills/go-spec-reviewer" }
 
 [bootstrap.repos]
 "~/git/catppuccin/fzf" = { url = "https://github.com/catppuccin/fzf.git" }
 "~/git/catppuccin/lazygit" = { url = "https://github.com/catppuccin/lazygit.git" }
 "~/git/superpowers" = { url = "https://github.com/obra/superpowers.git" }
+"~/git/spf13-go-skills" = { url = "https://github.com/spf13/go-skills" }
