@@ -1,1 +1,9 @@
 theme = "catppuccin-macchiato"
+mode = "auto"
+line_numbers = true
+wrap_lines = false
+hunk_headers = true
+menu_bar = true
+agent_notes = true
+copy_decorations = false
+cursor_line = "row"
