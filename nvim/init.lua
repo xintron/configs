@@ -23,7 +23,7 @@ vim.pack.add({
 require("config.keymaps")
 require("plugins.ui")
 require("plugins.snacks")
--- require("plugins.treesitter").setup()
+require("plugins.treesitter")
 require("plugins.lsp")
 require("plugins.conform")
 require("plugins.git")
