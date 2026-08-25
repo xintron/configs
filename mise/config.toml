@@ -2,6 +2,7 @@
 minimum_release_age = "2d"
 experimental = true
 idiomatic_version_file_enable_tools = ["java"]
+auto_update = true
 
 [tools]
 # --- Version Control & Git Tools ---
@@ -17,6 +18,7 @@ fd = "latest"
 rg = "latest"
 fzf = "latest"
 ast-grep = "latest"
+"github:asciimoo/hister" = "0.18.0"
 
 # --- Navigation & File Management ---
 zoxide = "latest"
