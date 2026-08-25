@@ -1,7 +1,11 @@
 git:
   diffRenderers:
-    - command: delta --dark --paging=never
+    - type: extDiff
+      command: difft --color=always --context={{diffContext}}
+    - type: extDiff
+      command: difft --display=inline --color=always --context={{diffContext}}
     - command: delta --dark --paging=never --side-by-side
+    - command: delta --dark --paging=never
     - type: rawGit # git's default diff
       name: default
 gui:
