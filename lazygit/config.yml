@@ -1,6 +1,9 @@
 git:
   diffRenderers:
     - command: delta --dark --paging=never
+    - command: delta --dark --paging=never --side-by-side
+    - type: rawGit # git's default diff
+      name: default
 gui:
   scrollHeight: 5
   # Fancy icons for the file-tree
@@ -9,3 +12,6 @@ gui:
   showFileTree: false
   # More space to the diffs
   sidePanelWidth: 0.25
+
+worktree:
+  defaultPath: ".worktrees"
