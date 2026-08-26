@@ -54,25 +54,28 @@ python = "latest"
 uv = "latest"
 
 [dotfiles]
-"~/.zshrc" = { source = "~/git/configs/zsh/.zshrc" }
-"~/.zshenv" = { source = "~/git/configs/zsh/.zshenv" }
-"~/.config/starship.toml" = { source = "~/git/configs/starship.toml" }
-"~/.config/ghostty" = { source = "~/git/configs/ghostty" }
-"~/.config/helix" = { source = "~/git/configs/helix" }
-"~/.config/lazygit" = { source = "~/git/configs/lazygit" }
-"~/.config/wezterm" = { source = "~/git/configs/wezterm" }
-"~/.config/nvim" = { source = "~/git/configs/nvim" }
-"~/.config/zellij/config.kdl" = { source = "~/git/configs/zellij/config.kdl" }
-"~/.config/mise/config.toml" = { source = "~/git/configs/mise/config.toml" }
-"~/.config/hunk/config.toml" = { source = "~/git/configs/hunk/config.toml" }
-"~/.aerospace.toml" = { source = "~/git/configs/.aerospace.toml" }
-"~/.agents/skills/superpowers" = { source = "~/git/superpowers/skills" }
-"~/.agents/skills/go-skills/go" = { source = "~/git/spf13-go-skills/go" }
-"~/.agents/skills/go-skills/go-spec-reviewer" = { source = "~/git/spf13-go-skills/go-spec-reviewer" }
+"~/.zshrc" = "~/git/configs/zsh/.zshrc"
+"~/.zshenv" = "~/git/configs/zsh/.zshenv"
+"~/.config/starship.toml" = "~/git/configs/starship.toml"
+"~/.config/ghostty" = "~/git/configs/ghostty"
+"~/.config/helix" = "~/git/configs/helix"
+"~/.config/lazygit" = "~/git/configs/lazygit"
+"~/.config/wezterm" = "~/git/configs/wezterm"
+"~/.config/nvim" = "~/git/configs/nvim"
+"~/.config/zellij/config.kdl" = "~/git/configs/zellij/config.kdl"
+"~/.config/mise/config.toml" = "~/git/configs/mise/config.toml"
+"~/.config/hunk/config.toml" = "~/git/configs/hunk/config.toml"
+"~/.config/opencode/themes/catppuccin-latte-green.json" = "~/git/catppuccin/opencode/themes/latte/catppuccin-latte-green.json"
+"~/.config/opencode/themes/catppuccin-macchiato-green.json" = "~/git/catppuccin/opencode/themes/macchiato/catppuccin-macchiato-green.json"
+"~/.aerospace.toml" = "~/git/configs/.aerospace.toml"
+"~/.agents/skills/superpowers" = "~/git/superpowers/skills"
+"~/.agents/skills/go-skills/go" = "~/git/spf13-go-skills/go"
+"~/.agents/skills/go-skills/go-spec-reviewer" = "~/git/spf13-go-skills/go-spec-reviewer"
 
 [bootstrap.repos]
 "~/git/catppuccin/fzf" = { url = "https://github.com/catppuccin/fzf.git" }
 "~/git/catppuccin/lazygit" = { url = "https://github.com/catppuccin/lazygit.git" }
 "~/git/catppuccin/delta" = { url = "https://github.com/catppuccin/delta.git" }
+"~/git/catppuccin/opencode" = { url = "https://github.com/catppuccin/opencode.git" }
 "~/git/superpowers" = { url = "https://github.com/obra/superpowers.git" }
 "~/git/spf13-go-skills" = { url = "https://github.com/spf13/go-skills" }
