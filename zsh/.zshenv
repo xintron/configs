@@ -9,6 +9,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+### Settings
+export DFT_TAB_WIDTH=2
+
 ### Zsh Function Path
 
 # Resolve the real directory of this script (handling symlinks)
