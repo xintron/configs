@@ -73,5 +73,6 @@ uv = "latest"
 [bootstrap.repos]
 "~/git/catppuccin/fzf" = { url = "https://github.com/catppuccin/fzf.git" }
 "~/git/catppuccin/lazygit" = { url = "https://github.com/catppuccin/lazygit.git" }
+"~/git/catppuccin/delta" = { url = "https://github.com/catppuccin/delta.git" }
 "~/git/superpowers" = { url = "https://github.com/obra/superpowers.git" }
 "~/git/spf13-go-skills" = { url = "https://github.com/spf13/go-skills" }
