@@ -15,7 +15,15 @@ gui:
   # Toggle with '`' if needed, easier disabled for diff reviews
   showFileTree: false
   # More space to the diffs
-  sidePanelWidth: 0.25
+  sidePanelWidth: 0.2
+  # Show the stats in the view
+  showNumstatInFilesView: true
+  # Match the git default of 7
+  commitHashLength: 7
+  # Use "standard" of 2
+  tabWidth: 2
+  # Use 24 hour time
+  shortTimeFormat: 15:04:05
 
 worktree:
   defaultPath: ".worktrees"
