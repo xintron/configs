@@ -18,7 +18,7 @@ fd = "latest"
 rg = "latest"
 fzf = "latest"
 ast-grep = "latest"
-"github:asciimoo/hister" = "0.18.0"
+"github:asciimoo/hister" = "latest"
 
 # --- Navigation & File Management ---
 zoxide = "latest"
@@ -36,6 +36,7 @@ helix = "latest"
 "npm:markserv" = "latest"
 
 # --- AI & Assistants ---
+herdr = "latest"
 opencode = "latest"
 difftastic = "latest"
 github-cli = "latest"
