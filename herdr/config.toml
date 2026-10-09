@@ -1,7 +1,13 @@
 onboarding = false
 
+[update]
+# We manage herdr through mise
+version_check = false
+
 [ui]
 status_indicators = "dots"
+# Most often used for temporary work that doesn't need a name
+prompt_new_tab_name = false
 
 [ui.toast]
 delivery = "terminal"
@@ -21,3 +27,16 @@ command = "exec \"${SHELL:-sh}\""
 description = "open scratch terminal"
 width = "80%"
 height = "80%"
+
+# ChmaraX/herdr-nvim config
+[[keys.command]]
+key = "prefix+e"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.toggle"
+description = "nvim sidebar"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.pick-file"
+description = "open file from agent output"
