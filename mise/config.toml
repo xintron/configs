@@ -88,11 +88,13 @@ uv = "latest"
 "~/.gemini/skills/using-git-worktrees" = "~/git/superpowers/skills/using-git-worktrees"
 "~/.gemini/skills/writing-plans" = "~/git/superpowers/skills/writing-plans"
 "~/.gemini/skills/subagent-driven-development" = "~/git/superpowers/skills/subagent-driven-development"
+"~/.config/rio/themes/*.toml" = "~/git/catppuccin/rio/themes/*.toml"
 
 [bootstrap.repos]
 "~/git/catppuccin/fzf" = { url = "https://github.com/catppuccin/fzf.git" }
 "~/git/catppuccin/lazygit" = { url = "https://github.com/catppuccin/lazygit.git" }
 "~/git/catppuccin/delta" = { url = "https://github.com/catppuccin/delta.git" }
 "~/git/catppuccin/opencode" = { url = "https://github.com/catppuccin/opencode.git" }
+"~/git/catppuccin/rio" = { url = "https://github.com/catppuccin/rio" }
 "~/git/superpowers" = { url = "https://github.com/obra/superpowers.git" }
 "~/git/spf13-go-skills" = { url = "https://github.com/spf13/go-skills" }
