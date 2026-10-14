@@ -40,3 +40,7 @@ key = "prefix+o"
 type = "plugin_action"
 command = "chmarax.herdr-nvim.pick-file"
 description = "open file from agent output"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
