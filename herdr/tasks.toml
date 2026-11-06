@@ -1,0 +1,27 @@
+# Herdr plugin management, loaded through [task_config] includes in
+# mise/config.toml and run by the `bootstrap` task (`mise bootstrap`).
+#
+# How it converges, on every `mise bootstrap` / `mise run herdr:plugins`:
+#   1. herdr:plugin:<name>  installs the plugin ONLY if it is missing.
+#      `herdr plugin install` is not a no-op for an installed plugin: it
+#      re-clones, re-runs the build (a Rust compile for herdr-nvim) and creates
+#      a new managed install dir. skip_if guards against that.
+#   2. herdr:plugins        then runs `herdr plugin update`, which is cheap when
+#      nothing changed (unchanged commits are skipped) and upgrades otherwise.
+#      This matches the `latest` policy used for tools in mise/config.toml.
+#
+# To add a plugin: copy a herdr:plugin:<name> block, change the plugin id (used
+# for the skip_if check, see `herdr plugin list`) and the owner/repo, and add
+# its keybindings to herdr/config.toml.
+# To pin a version instead of tracking latest: add `--ref <tag-or-sha>` to the
+# install command.
+
+["herdr:plugin:herdr-nvim"]
+description = "Install herdr plugin ChmaraX/herdr-nvim if missing"
+skip_if = "herdr plugin list | grep -q chmarax.herdr-nvim"
+run = "herdr plugin install -y ChmaraX/herdr-nvim"
+
+["herdr:plugins"]
+description = "Install missing herdr plugins and update the installed ones"
+depends = ["herdr:plugin:*"]
+run = "herdr plugin update -y"

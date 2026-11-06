@@ -3,6 +3,9 @@ minimum_release_age = "2d"
 experimental = true
 idiomatic_version_file_enable_tools = ["java"]
 auto_update = true
+# Needed so `mise bootstrap` can run tasks from herdr/tasks.toml on a fresh
+# machine without a manual `mise trust`.
+trusted_config_paths = ["~/git/configs"]
 
 [tools]
 # --- Version Control & Git Tools ---
@@ -99,3 +102,15 @@ uv = "latest"
 "~/git/catppuccin/rio" = { url = "https://github.com/catppuccin/rio" }
 "~/git/superpowers" = { url = "https://github.com/obra/superpowers.git" }
 "~/git/spf13-go-skills" = { url = "https://github.com/spf13/go-skills" }
+
+# `mise bootstrap` runs the `bootstrap` task last, after repos, dotfiles and
+# tools (so `herdr` is already installed). It runs on every bootstrap, so
+# everything it calls must be safe to repeat. Task definitions live next to
+# the config they manage; see herdr/tasks.toml for how plugins converge.
+# Note: `includes` replaces mise's default task directories (none are used).
+[task_config]
+includes = ["~/git/configs/herdr/tasks.toml"]
+
+[tasks.bootstrap]
+description = "Post-setup steps that need the tools installed"
+run = [{ task = "herdr:plugins" }]
