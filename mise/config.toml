@@ -34,6 +34,7 @@ neovim = "latest"
 tree-sitter = "latest"
 helix = "latest"
 "npm:markserv" = "latest"
+"npm:mdts" = "latest"
 
 # --- AI & Assistants ---
 herdr = "latest"
