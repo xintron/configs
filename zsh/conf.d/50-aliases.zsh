@@ -16,6 +16,11 @@ if command -v opencode >/dev/null 2>&1; then
     alias oc='opencode'
 fi
 
+# Claude Code
+if command -v claude >/dev/null 2>&1; then
+    alias cl='claude'
+fi
+
 # List (Use GNU ls on Linux, gls on macOS if available, else BSD ls)
 if [[ -n "$IS_LINUX" ]]; then
     # GNU ls (native on Linux)
