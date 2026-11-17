@@ -12,7 +12,7 @@
 #
 # To add a plugin: copy a herdr:plugin:<name> block, change the plugin id (used
 # for the skip_if check, see `herdr plugin list`) and the owner/repo, and add
-# its keybindings to herdr/config.toml.
+# its keybindings to herdr/tui/config.toml.
 # To pin a version instead of tracking latest: add `--ref <tag-or-sha>` to the
 # install command.
 

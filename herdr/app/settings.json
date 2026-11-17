@@ -1,0 +1,19 @@
+{
+  "option_as_alt": "auto",
+  "zoom": 1.0,
+  "sounds": {
+    "enabled": true
+  },
+  "font": "GeistMono Nerd Font",
+  "font_ligatures": true,
+  "terminal_line_height": 1.0,
+  "terminal_cell_width": 1.0,
+  "terminal_scroll_speed": 1.0,
+  "ui_font": "Atkinson Hyperlegible Next",
+  "telemetry": false,
+  "minimum_contrast": 1.0,
+  "theme": {
+    "light": "catppuccin-latte",
+    "dark": "catppuccin-mocha"
+  }
+}

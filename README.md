@@ -6,7 +6,7 @@
     cd ~/git/configs
     mise bootstrap
 
-Sets up the whole machine in order: repos (`[bootstrap.repos]`), dotfiles (`[dotfiles]`), tools (`[tools]`), then the `bootstrap` task, which installs and updates herdr plugins (see `herdr/tasks.toml`). Safe to re-run; preview without changing anything:
+Sets up the whole machine in order: repos (`[bootstrap.repos]`), dotfiles (`[dotfiles]`), tools (`[tools]`), then the `bootstrap` task, which installs and updates herdr plugins (see `herdr/tui/tasks.toml`). Safe to re-run; preview without changing anything:
 
     mise bootstrap --dry-run
 

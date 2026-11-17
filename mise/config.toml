@@ -3,7 +3,7 @@ minimum_release_age = "2d"
 experimental = true
 idiomatic_version_file_enable_tools = ["java"]
 auto_update = true
-# Needed so `mise bootstrap` can run tasks from herdr/tasks.toml on a fresh
+# Needed so `mise bootstrap` can run tasks from herdr/tui/tasks.toml on a fresh
 # machine without a manual `mise trust`.
 trusted_config_paths = ["~/git/configs"]
 
@@ -70,7 +70,12 @@ uv = "latest"
 "~/.config/zellij/config.kdl" = "~/git/configs/zellij/config.kdl"
 "~/.config/mise/config.toml" = "~/git/configs/mise/config.toml"
 "~/.config/hunk/config.toml" = "~/git/configs/hunk/config.toml"
-"~/.config/herdr/config.toml" = "~/git/configs/herdr/config.toml"
+"~/.config/herdr/config.toml" = "~/git/configs/herdr/tui/config.toml"
+"~/.config/herdr-app/settings.json" = "~/git/configs/herdr/app/settings.json"
+"~/.config/herdr-app/themes/catppuccin-latte.json" = "~/git/configs/herdr/app/themes/catppuccin-latte.json"
+"~/.config/herdr-app/themes/catppuccin-frappe.json" = "~/git/configs/herdr/app/themes/catppuccin-frappe.json"
+"~/.config/herdr-app/themes/catppuccin-macchiato.json" = "~/git/configs/herdr/app/themes/catppuccin-macchiato.json"
+"~/.config/herdr-app/themes/catppuccin-mocha.json" = "~/git/configs/herdr/app/themes/catppuccin-mocha.json"
 "~/.config/opencode/themes/catppuccin-latte-green.json" = "~/git/catppuccin/opencode/themes/latte/catppuccin-latte-green.json"
 "~/.config/opencode/themes/catppuccin-macchiato-green.json" = "~/git/catppuccin/opencode/themes/macchiato/catppuccin-macchiato-green.json"
 "~/.aerospace.toml" = "~/git/configs/.aerospace.toml"
@@ -106,10 +111,10 @@ uv = "latest"
 # `mise bootstrap` runs the `bootstrap` task last, after repos, dotfiles and
 # tools (so `herdr` is already installed). It runs on every bootstrap, so
 # everything it calls must be safe to repeat. Task definitions live next to
-# the config they manage; see herdr/tasks.toml for how plugins converge.
+# the config they manage; see herdr/tui/tasks.toml for how plugins converge.
 # Note: `includes` replaces mise's default task directories (none are used).
 [task_config]
-includes = ["~/git/configs/herdr/tasks.toml"]
+includes = ["~/git/configs/herdr/tui/tasks.toml"]
 
 [tasks.bootstrap]
 description = "Post-setup steps that need the tools installed"
