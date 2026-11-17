@@ -3,6 +3,7 @@ minimum_release_age = "2d"
 experimental = true
 idiomatic_version_file_enable_tools = ["java"]
 auto_update = true
+dotfiles.windows_symlinks = true
 # Needed so `mise bootstrap` can run tasks from herdr/tui/tasks.toml on a fresh
 # machine without a manual `mise trust`.
 trusted_config_paths = ["~/git/configs"]
