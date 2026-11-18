@@ -18,9 +18,13 @@
 
 [delta]
   navigate = true  # use n and N to move between diff sections
-  dark = true      # or light = true, or omit for auto-detection
-  features = catppuccin-macchiato
   tabs = 2
+  # ANSI colors only so the terminal theme decides light/dark
+  syntax-theme = none
+  minus-style = red
+  minus-emph-style = red reverse
+  plus-style = green
+  plus-emph-style = green reverse
 
 [merge]
   conflictStyle = zdiff3
