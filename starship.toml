@@ -1,18 +1,18 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+[](yellow)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[](fg:yellow bg:green)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#1d2230)\
+[ ](fg:green)\
 $cmd_duration\
-[](fg:#1d2230)\
 $jobs\
 $character"""
 
 [directory]
-style = "fg:#090c0c bg:#769ff0"
+style = "inverted yellow"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -20,20 +20,20 @@ truncate_to_repo = true
 
 [git_branch]
 symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+style = "inverted green"
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+style = "inverted green"
+format = '[($all_status$ahead_behind )]($style)'
 
 [cmd_duration]
 min_time = 2000
-style = "bg:#1d2230"
-format = '[[ 󱦟 $duration ](fg:#a0a9cb bg:#1d2230)]($style)'
+style = "yellow"
+format = '[󱦟 $duration ]($style)'
 
 [character]
-success_symbol = '[\$](bold #7aa2f7)'
+success_symbol = '[\$](bold green)'
 error_symbol = '[\$](bold red)'
 
 [jobs]
