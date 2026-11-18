@@ -24,6 +24,13 @@ gui:
   tabWidth: 2
   # Use 24 hour time
   shortTimeFormat: 15:04:05
+  # ANSI names only so the terminal theme decides light/dark
+  theme:
+    activeBorderColor: [green, bold]
+    searchingActiveBorderColor: [yellow, bold]
+    optionsTextColor: [cyan]
+    selectedLineBgColor: [default]
+    selectedLineFgColor: [yellow, reverse]
 
 worktree:
   defaultPath: ".worktrees"

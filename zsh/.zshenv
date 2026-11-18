@@ -37,19 +37,11 @@ path=(
 # Cargo
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
-_theme_path="$HOME/git/catppuccin"
 # FZF: ANSI colors only so the terminal theme decides light/dark
 export FZF_DEFAULT_OPTS="\
 --color=16,bg:-1,bg+:-1,fg+:green:bold \
 --color=hl:yellow,hl+:yellow:bold,pointer:green,marker:green \
 --color=prompt:green,info:cyan,spinner:green,header:cyan,border:blue"
-
-# Lazygit
-_lg_theme="$_theme_path/lazygit/themes-mergable/macchiato/green.yml"
-if [[ -f "$_lg_theme" ]]; then
-    export LG_CONFIG_FILE="${XDG_CONFIG_HOME}/lazygit/config.yml,$_lg_theme"
-fi
-unset _lg_theme _theme_path
 
 ### Zsh Cache
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh-config"
