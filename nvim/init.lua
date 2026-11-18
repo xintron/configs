@@ -1,5 +1,3 @@
-vim.opt.background = "dark"
-
 require("config.options")
 
 -- Helper for github URLs
