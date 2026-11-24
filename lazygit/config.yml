@@ -1,13 +1,16 @@
 git:
   diffRenderers:
-    - type: extDiff
-      command: difft --color=always --context={{diffContext}}
-    - type: extDiff
-      command: difft --display=inline --color=always --context={{diffContext}}
+    - name: delta inline
+      command: delta --paging=never
+    - name: delta side-by-side
+      command: delta --paging=never --side-by-side
     - type: rawGit # git's default diff
-      name: default
-    - command: delta --paging=never --side-by-side
-    - command: delta --paging=never
+    - name: difft inline
+      type: extDiff
+      command: difft --display=inline --color=always --context={{diffContext}}
+    - name: difft side-by-side
+      type: extDiff
+      command: difft --color=always --context={{diffContext}}
 gui:
   scrollHeight: 5
   # Fancy icons for the file-tree
